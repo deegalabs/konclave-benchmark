@@ -178,7 +178,7 @@ The proxy is Traefik (v3.7, pinned by digest) with the `grpcWeb` middleware and 
 
 ## Tests and what the proxy files were checked against
 
-The node tests read the synthetic corpus `web/corpus/synthetic-10k.bin` when they load, and it is not in the repository (`/web/corpus` is ignored): on a fresh clone make it first, with the `mkdir` and `gen_corpus` lines of "Reproduce it, in full" (or of "How to reproduce" in the README), or `node --test tests/node.test.mjs` fails before its first test. The charts and scenario tests need no corpus.
+The node tests read the synthetic corpus `web/corpus/synthetic-10k.bin` when they load, and it is not in the repository (only its `.sha256` is: `web/corpus/synthetic-10k.bin.sha256`, the sha256 of the file after its 40-byte header as `src/corpus.rs` defines it, which the page and `gen_corpus` compare; `sha256sum` of the whole file gives another value): on a fresh clone make it first, with the `mkdir` and `gen_corpus` lines of "Reproduce it, in full" (or of "How to reproduce" in the README), or `node --test tests/node.test.mjs` fails before its first test. The charts and scenario tests need no corpus.
 ```
 cargo test --release
 node --test tests/node.test.mjs
