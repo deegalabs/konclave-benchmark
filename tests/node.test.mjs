@@ -2180,19 +2180,32 @@ test('a free text field longer than its limit is refused by the page and by the 
   assert.deepEqual(parsePrefill(`?corpus=${'c'.repeat(81)}`).invalid, ['corpus']);
 });
 
-// No comment or test name carries the id of a private audit: a plain reason instead.
-test('no source line carries the id of an audit or a review round', () => {
-  const dirs = ['../web/', '../scripts/', '../src/', '../tests/'];
+// No tracked file (code, comments, test names, docs, workflows) carries a private review id or a review word: a plain reason instead.
+// The pattern is built from pieces so this file does not match itself. Allowed: M1 (the milestone), C1 (the Unicode control range), R0 (a Rust enum value).
+test('no tracked file carries a private review id', async () => {
+  const { execFileSync } = await import('node:child_process');
+  const root = fileURLToPath(new URL('../', import.meta.url));
+  const files = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' }).split('\n')
+    .filter((f) => f && !/corpus|^Cargo\.lock$|^LICENSE|\.(svg|bin)$/.test(f));
+  assert.ok(files.length > 50, 'the file list is read');
+  const id = new RegExp([
+    '(?<![\\w.-])(?:[BCFIMO]|NB|R)-?\\d{1,2}(?![\\w.])', // a capital and a number on its own
+    '(?<![\\w.-])R\\d-[A-Z]\\d', // a round and an item
+    '(?<![\\w.-])n\\d(?!\\w)', // a note number
+    '\\b[Aa]ud' + 'its?\\b', '\\b[Rr]ou' + 'nd \\d', '\\b(?:Guard|Practice) \\d', 'Tes' + 'ter:', 'design v' + '2',
+  ].join('|'), 'g');
+  const allowed = new Set(['M1', 'C1', 'R0']);
   const bad = [];
-  for (const d of dirs) {
-    for (const f of readdirSync(new URL(d, import.meta.url)).filter((x) => /\.(m?js|rs|yml)$/.test(x))) {
-      readFileSync(new URL(`${d}${f}`, import.meta.url), 'utf8').split('\n').forEach((l, i) => {
-        if (f === 'node.test.mjs' && /no source line carries|audit\|/.test(l)) return;
-        if (/\/\/\s*(audit\b|Audit\b|(?:[A-Z]\d{1,2}|R\d+)(?:-[A-Za-z0-9]+)?[:,]|Round \d|Guard \d|Practice \d|Tester:)|\((?:audit|design v2)\b/.test(l)) bad.push(`${d}${f}:${i + 1}`);
-      });
-    }
+  for (const f of files) {
+    readFileSync(join(root, f), 'utf8').split('\n').forEach((l, i) => {
+      for (const m of l.matchAll(id)) if (!allowed.has(m[0])) bad.push(`${f}:${i + 1}: ${m[0]}`);
+    });
   }
   assert.deepEqual(bad, []);
+  // The rule can fail: each of these is caught.
+  for (const planted of ['// B' + '1: x', 'test("I-' + '2 x")', '# R' + '3-I' + '1', 'n' + '6 says', 'the au' + 'dit found', 'ro' + 'und 3 of review']) {
+    assert.ok(new RegExp(id.source, 'g').test(planted), planted);
+  }
 });
 
 // The scanner looks everywhere a key could be committed; only build output that cannot hold one is skipped, by exact path.
