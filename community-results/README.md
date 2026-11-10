@@ -15,6 +15,7 @@ Why a community result is not a verdict: the verdict needs the project's endpoin
    Exit code 1 means a result is not of that commit.
 4. Open a pull request that adds one folder, `community-results/<your GitHub name>/`, with your JSON files, and say in the description the commit you built from, the device and the browser. One folder per contributor; one pull request can add more files to it later.
 5. Before you push, run `node scripts/check-no-keys.mjs` on your checkout. It fails when a viewing key appears anywhere in the tree.
+6. The maintainers merge it when `node scripts/summarize.mjs community-results/<your GitHub name> --commit <the commit you built from>` reads your JSON without a format refusal and `node scripts/check-no-keys.mjs` passes. A merged result stays information: it is never a verdict.
 
 If you want a chart for your own device: `node scripts/charts.mjs community-results/<you> --commit <commit> --out community-results/<you>/charts`. It draws a row only when the summary gives that row a pass or a fail.
 
