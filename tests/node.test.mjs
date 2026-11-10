@@ -337,7 +337,7 @@ test('the scripts run from a path with a space', async () => {
   const { cpSync } = await import('node:fs');
   const d = join(mkdtempSync(join(tmpdir(), 'kb ')), 'a b');
   cpSync(fileURLToPath(new URL('..', import.meta.url)), d, { recursive: true, filter: (p) => !/(target|node_modules|\.git|pkg|corpus)$/.test(p) });
-  mkdirSync(join(d, 'results'));
+  mkdirSync(join(d, 'results'), { recursive: true });
   writeFileSync(join(d, 'results', 'x.json'), JSON.stringify({ results: [run(fast)] }));
   assert.match(execFileSync('node', [join(d, 'scripts', 'summarize.mjs'), join(d, 'results'), '--commit', 'abcdef1']).toString(), /prove-n2/);
   const { serve } = await import(pathToFileURL(join(d, 'scripts', 'serve.mjs')).href);
