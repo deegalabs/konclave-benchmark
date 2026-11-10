@@ -2155,7 +2155,7 @@ test('the README limits say a link fills the endpoint only from the endpoint tab
   assert.match(readFileSync(new URL('../README.md', import.meta.url), 'utf8'), /A link can fill the endpoint field only with an origin of the endpoint table/);
 });
 
-test('every proxy file starts with its SPDX line and the table hashes the file as it is', async () => {
+test('every proxy file starts with its SPDX line (the hashes are checked by the sha256 test)', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = fileURLToPath(new URL('../', import.meta.url));
   const files = execFileSync('git', ['ls-files', 'proxy'], { cwd: root, encoding: 'utf8' }).split('\n').filter(Boolean);
@@ -2199,31 +2199,45 @@ test('a free text field longer than its limit is refused by the page and by the 
   assert.deepEqual(parsePrefill(`?corpus=${'c'.repeat(81)}`).invalid, ['corpus']);
 });
 
-// No tracked file (code, comments, test names, docs, workflows) carries a private review id or a review word: a plain reason instead.
-// The pattern is built from pieces so this file does not match itself. Allowed: M1 (the milestone), C1 (the Unicode control range), R0 (a Rust enum value).
-test('no tracked file carries a private review id', async () => {
+// Comments and test names carry no review references: a plain reason instead. The pattern is built from pieces so this file does not
+// match itself. A short phrase is allowed only in its own context (the milestone name, a test host name, the Unicode control range, a
+// Rust enum value), never as a bare token.
+const REVIEW_REF = new RegExp([
+  '(?<![\\w.])(?:[BCFIMO]|NB|R)-?\\d{1,2}(?!\\w|\\.\\w)', // a capital and a number on its own, also as "X.", "X," or the end of a range
+  '(?<![\\w.-])R\\d-[A-Z]\\d', // a round and an item
+  '(?<![\\w.-])n\\d(?!\\w)', // a note number
+  '\\b[Aa]ud' + 'its?\\b', '\\b[Rr]ou' + 'nd \\d', '\\b(?:Guard|Practice) \\d', 'Tes' + 'ter:', 'design v' + '2',
+].join('|'), 'g');
+const ALLOWED_CONTEXT = new RegExp(['the M' + '1 benchmark', 'M' + '1-HOSTED\\.example', 'the C' + '1 range', 'Revision::R' + '0'].join('|'), 'g');
+const reviewRefs = (line) => [...line.replace(ALLOWED_CONTEXT, '').matchAll(REVIEW_REF)].map((m) => m[0]);
+
+test('no comment or test name carries a review reference', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = fileURLToPath(new URL('../', import.meta.url));
   const files = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' }).split('\n')
-    .filter((f) => f && !/corpus|^Cargo\.lock$|^LICENSE|\.(svg|bin)$/.test(f));
+    .filter((f) => f && !/^web\/corpus\/|^Cargo\.lock$|^LICENSE|\.(svg|bin)$/.test(f));
   assert.ok(files.length > 50, 'the file list is read');
-  const id = new RegExp([
-    '(?<![\\w.-])(?:[BCFIMO]|NB|R)-?\\d{1,2}(?![\\w.])', // a capital and a number on its own
-    '(?<![\\w.-])R\\d-[A-Z]\\d', // a round and an item
-    '(?<![\\w.-])n\\d(?!\\w)', // a note number
-    '\\b[Aa]ud' + 'its?\\b', '\\b[Rr]ou' + 'nd \\d', '\\b(?:Guard|Practice) \\d', 'Tes' + 'ter:', 'design v' + '2',
-  ].join('|'), 'g');
-  const allowed = new Set(['M1', 'C1', 'R0']);
+  for (const f of ['src/corpus.rs', 'examples/gen_corpus.rs', 'examples/pack_corpus.rs', 'web/plan.mjs', 'tests/scan.rs', 'proxy/compose.yml', '.github/workflows/ci.yml', 'docs/method.md', 'README.md']) assert.ok(files.includes(f), `${f} is read`);
   const bad = [];
   for (const f of files) {
-    readFileSync(join(root, f), 'utf8').split('\n').forEach((l, i) => {
-      for (const m of l.matchAll(id)) if (!allowed.has(m[0])) bad.push(`${f}:${i + 1}: ${m[0]}`);
-    });
+    readFileSync(join(root, f), 'utf8').split('\n').forEach((l, i) => { for (const m of reviewRefs(l)) bad.push(`${f}:${i + 1}: ${m}`); });
   }
   assert.deepEqual(bad, []);
-  // The rule can fail: each of these is caught.
-  for (const planted of ['// B' + '1: x', 'test("I-' + '2 x")', '# R' + '3-I' + '1', 'n' + '6 says', 'the au' + 'dit found', 'ro' + 'und 3 of review']) {
-    assert.ok(new RegExp(id.source, 'g').test(planted), planted);
+});
+
+test('CI checks that the published corpus hash is still tracked, before it regenerates the corpus', () => {
+  const ci = readFileSync(new URL('../.github/workflows/ci.yml', import.meta.url), 'utf8');
+  const i = ci.indexOf('git ls-files --error-unmatch web/corpus/synthetic-10k.bin.sha256');
+  assert.ok(i > 0 && i < ci.indexOf('--example gen_corpus'));
+});
+
+test('the review reference rule catches the usual forms and allows only its contexts', () => {
+  for (const planted of ['// B' + '1: x', 'test("I-' + '2 x")', '# R' + '3-I' + '1', 'n' + '6 says', 'the au' + 'dit found', 'ro' + 'und 3 of review',
+    'fixed in I' + '2.', 'I-' + '1.', 'closed M' + '1-M' + '3', 'see M' + '1: x', '// M' + '1 minor', 'C' + '1 found', '(R' + '0)', 'I' + '1/I' + '2', 'the M' + '1 benchmark, and I' + '2.']) {
+    assert.ok(reviewRefs(planted).length > 0, planted);
+  }
+  for (const fine of ['the M' + '1 benchmark', 'https://M' + '1-HOSTED.example:443/', 'the C' + '1 range', 'Revision::R' + '0', 'prove-n2', 'i64 and f64', 'version 0.16.0', 'SHA-256']) {
+    assert.deepEqual(reviewRefs(fine), [], fine);
   }
 });
 
