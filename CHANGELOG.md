@@ -11,6 +11,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- A line in the README limits: a link fills the endpoint only with an origin of the endpoint table (with a test).
 - A test that fails if a tracked file carries a private review id or review word (it reads every tracked file, not only `//` comments).
 - `web/corpus/synthetic-10k.bin.sha256`, the published hash of the synthetic corpus; CI regenerates the corpus and fails if the hash changes.
 

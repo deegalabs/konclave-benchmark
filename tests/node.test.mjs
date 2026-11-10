@@ -2151,6 +2151,10 @@ test('a link fills the endpoint only with an origin of the endpoint table', asyn
   }
 });
 
+test('the README limits say a link fills the endpoint only from the endpoint table', () => {
+  assert.match(readFileSync(new URL('../README.md', import.meta.url), 'utf8'), /A link can fill the endpoint field only with an origin of the endpoint table/);
+});
+
 // Free text is short: the page refuses a long field before a run, and the summary refuses a record that carries one, with its own reason.
 test('a free text field longer than its limit is refused by the page and by the summary, each with its reason', async () => {
   const { tooLongField, FORM_LIMITS } = await import('../web/plan.mjs');
