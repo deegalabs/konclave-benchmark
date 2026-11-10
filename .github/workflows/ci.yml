@@ -36,7 +36,8 @@ jobs:
       - name: Generate the synthetic corpus
         run: |
           mkdir -p web/corpus
-          cargo run --release --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16
+          cargo run --release --locked --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16
+          git diff --exit-code -- web/corpus/synthetic-10k.bin.sha256
       - name: Node tests
         run: node --test tests/node.test.mjs tests/charts.test.mjs
       - name: Check the tree for keys

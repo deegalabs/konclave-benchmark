@@ -10,6 +10,10 @@ The project has no released version yet.
 Starts at commit 157a510 (the bare note-commitment tree roots of each scan are recorded).
 
 ### Added
+
+- `web/corpus/synthetic-10k.bin.sha256`, the published hash of the synthetic corpus; CI regenerates the corpus and fails if the hash changes.
+
+### Added
 - A GitHub Actions workflow (`.github/workflows/ci.yml`): `cargo fmt --check`, `cargo clippy --all-targets --locked -- -D warnings`, `cargo test --release --locked`, the node tests, and the two key checks.
 - `SECURITY.md`, `CHANGELOG.md` and a pull request template with an AI disclosure line.
 - `rustfmt` and `clippy` in `rust-toolchain.toml`.

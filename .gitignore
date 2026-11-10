@@ -4,7 +4,7 @@
 /web/pkg-mt
 /web/stamp.json
 /web/corpus/*
-!/web/corpus/*.sha256
+!/web/corpus/synthetic-10k.bin.sha256
 /corpus
 /node_modules
 /my-results
