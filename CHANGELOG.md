@@ -11,7 +11,8 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
-- `docs/method.md`, the method from end to end, linked from the README limits.
+- `docs/method.md`, the method from end to end (what a verdict is, what is timed, devices and the proposed bars, how a run counts, how a community result is sent, battery), linked from the README limits.
+- The scan's timed stages name the tree state calls of a live row in the README and the docs.
 - An SPDX licence line at the top of each file in `proxy/`; the file hashes in `web/endpoints.mjs` follow.
 - A line in the README limits: a link fills the endpoint only with an origin of the endpoint table (with a test).
 - A test checks that comments and test names carry no review references, in every tracked text file (not only `//` comments), and that each allowed phrase appears only in its own context.
