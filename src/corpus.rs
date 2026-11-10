@@ -118,6 +118,15 @@ pub fn parse(file: &[u8]) -> Result<Parsed<'_>, String> {
         return Err("corpus has more blocks than its header says".into());
     }
     let roots = (has_roots == 1).then_some((o, i));
-    let h = Header { start_height, blocks, orchard_actions, ironwood_actions, roots, expected, orchard_tree, ironwood_tree };
+    let h = Header {
+        start_height,
+        blocks,
+        orchard_actions,
+        ironwood_actions,
+        roots,
+        expected,
+        orchard_tree,
+        ironwood_tree,
+    };
     Ok((h, msgs, digest))
 }

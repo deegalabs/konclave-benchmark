@@ -4,12 +4,21 @@
 use crate::{corpus, proto, tree};
 use prost::Message;
 
-pub fn pack(start_height: u64, messages: &[Vec<u8>], start: [&[u8]; 2], end: [&[u8]; 2]) -> Result<Vec<u8>, String> {
+pub fn pack(
+    start_height: u64,
+    messages: &[Vec<u8>],
+    start: [&[u8]; 2],
+    end: [&[u8]; 2],
+) -> Result<Vec<u8>, String> {
     let (mut orchard_actions, mut ironwood_actions) = (0u32, 0u32);
     for (i, m) in messages.iter().enumerate() {
         let b = proto::CompactBlock::decode(m.as_slice()).map_err(|e| format!("block {i}: {e}"))?;
         if b.height != start_height + i as u64 {
-            return Err(format!("expected block {}, got {}", start_height + i as u64, b.height));
+            return Err(format!(
+                "expected block {}, got {}",
+                start_height + i as u64,
+                b.height
+            ));
         }
         for t in b.vtx {
             orchard_actions += t.actions.len() as u32;

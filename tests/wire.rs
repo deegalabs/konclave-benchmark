@@ -8,7 +8,12 @@ use zcash_client_backend::proto::compact_formats as theirs;
 
 #[test]
 fn a_message_from_the_backend_decodes_here_field_by_field() {
-    let action = theirs::CompactOrchardAction { nullifier: vec![1; 32], cmx: vec![2; 32], ephemeral_key: vec![3; 32], ciphertext: vec![4; 52] };
+    let action = theirs::CompactOrchardAction {
+        nullifier: vec![1; 32],
+        cmx: vec![2; 32],
+        ephemeral_key: vec![3; 32],
+        ciphertext: vec![4; 52],
+    };
     let block = theirs::CompactBlock {
         height: 7,
         hash: vec![9; 32],
@@ -20,7 +25,11 @@ fn a_message_from_the_backend_decodes_here_field_by_field() {
             ironwood_actions: vec![action.clone(), action],
             ..Default::default()
         }],
-        chain_metadata: Some(theirs::ChainMetadata { sapling_commitment_tree_size: 100, orchard_commitment_tree_size: 11, ironwood_commitment_tree_size: 22 }),
+        chain_metadata: Some(theirs::ChainMetadata {
+            sapling_commitment_tree_size: 100,
+            orchard_commitment_tree_size: 11,
+            ironwood_commitment_tree_size: 22,
+        }),
         ..Default::default()
     };
     let ours = proto::CompactBlock::decode(block.encode_to_vec().as_slice()).unwrap();
@@ -28,12 +37,26 @@ fn a_message_from_the_backend_decodes_here_field_by_field() {
     assert_eq!(ours.hash, vec![9; 32]);
     assert_eq!(ours.prev_hash, vec![8; 32]);
     let m = ours.chain_metadata.unwrap();
-    assert_eq!((m.orchard_commitment_tree_size, m.ironwood_commitment_tree_size), (11, 22));
+    assert_eq!(
+        (
+            m.orchard_commitment_tree_size,
+            m.ironwood_commitment_tree_size
+        ),
+        (11, 22)
+    );
     let t = &ours.vtx[0];
     assert_eq!((t.index, t.txid.clone()), (2, vec![5; 32]));
     assert_eq!((t.actions.len(), t.ironwood_actions.len()), (1, 2));
     let a = &t.ironwood_actions[1];
-    assert_eq!((a.nullifier[0], a.cmx[0], a.ephemeral_key[0], a.ciphertext[0]), (1, 2, 3, 4));
+    assert_eq!(
+        (
+            a.nullifier[0],
+            a.cmx[0],
+            a.ephemeral_key[0],
+            a.ciphertext[0]
+        ),
+        (1, 2, 3, 4)
+    );
 }
 
 #[test]

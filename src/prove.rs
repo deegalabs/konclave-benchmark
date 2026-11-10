@@ -20,8 +20,14 @@ const MAX_OUTPUTS: u32 = 64;
 
 fn parse(pool: &str) -> Result<(BundleVersion, OrchardCircuitVersion), String> {
     match pool {
-        "orchard-v2" => Ok((BundleVersion::orchard_v2(), OrchardCircuitVersion::FixedPostNu6_2)),
-        "ironwood-v3" => Ok((BundleVersion::ironwood_v3(), OrchardCircuitVersion::PostNu6_3)),
+        "orchard-v2" => Ok((
+            BundleVersion::orchard_v2(),
+            OrchardCircuitVersion::FixedPostNu6_2,
+        )),
+        "ironwood-v3" => Ok((
+            BundleVersion::ironwood_v3(),
+            OrchardCircuitVersion::PostNu6_3,
+        )),
         other => Err(format!("unknown pool {other}")),
     }
 }
@@ -43,19 +49,33 @@ pub struct Prove {
 impl Prove {
     pub fn create(pool: &str) -> Result<Prove, String> {
         let (bundle_version, circuit) = parse(pool)?;
-        Ok(Prove { bundle_version, circuit, pk: None, vk: None, unproven: None, proven: None, rounds: 0 })
+        Ok(Prove {
+            bundle_version,
+            circuit,
+            pk: None,
+            vk: None,
+            unproven: None,
+            proven: None,
+            rounds: 0,
+        })
     }
 
     pub fn prepare_inner(&mut self, outputs: u32) -> Result<u32, String> {
         if outputs == 0 || outputs > MAX_OUTPUTS {
             return Err(format!("outputs must be 1 to {MAX_OUTPUTS}, got {outputs}"));
         }
-        let sk = Option::<SpendingKey>::from(SpendingKey::from_bytes(KEY_SEED)).ok_or("bad seed")?;
+        let sk =
+            Option::<SpendingKey>::from(SpendingKey::from_bytes(KEY_SEED)).ok_or("bad seed")?;
         let fvk = FullViewingKey::from(&sk);
         let addr = fvk.address_at(0u32, Scope::External);
         let flags = self.bundle_version.default_flags();
-        let mut b = Builder::new(BundleType::DEFAULT, self.bundle_version, flags, Anchor::empty_tree())
-            .map_err(|e| format!("{e:?}"))?;
+        let mut b = Builder::new(
+            BundleType::DEFAULT,
+            self.bundle_version,
+            flags,
+            Anchor::empty_tree(),
+        )
+        .map_err(|e| format!("{e:?}"))?;
         for _ in 0..outputs {
             b.add_change_output(fvk.clone(), None, addr, NoteValue::from_raw(0), [0u8; 512])
                 .map_err(|e| format!("{e:?}"))?;
@@ -72,7 +92,11 @@ impl Prove {
         let pk = self.pk.as_ref().ok_or("build_key first")?;
         let bundle = self.unproven.take().ok_or("prepare first")?;
         let mut rng = StdRng::seed_from_u64(RNG_SEED ^ 1);
-        self.proven = Some(bundle.create_proof(pk, &mut rng).map_err(|e| format!("{e:?}"))?);
+        self.proven = Some(
+            bundle
+                .create_proof(pk, &mut rng)
+                .map_err(|e| format!("{e:?}"))?,
+        );
         self.rounds += 1;
         Ok(())
     }
@@ -82,11 +106,16 @@ impl Prove {
         if self.vk.is_none() {
             self.vk = Some(VerifyingKey::build(self.circuit));
         }
-        let sk = Option::<SpendingKey>::from(SpendingKey::from_bytes(KEY_SEED)).ok_or("bad seed")?;
+        let sk =
+            Option::<SpendingKey>::from(SpendingKey::from_bytes(KEY_SEED)).ok_or("bad seed")?;
         let ask = SpendAuthorizingKey::from(&sk);
         let mut rng = StdRng::seed_from_u64(RNG_SEED ^ 2);
-        let authorized = proven.apply_signatures(&mut rng, [0u8; 32], &[ask]).map_err(|e| format!("{e:?}"))?;
-        authorized.verify_proof(self.vk.as_ref().unwrap()).map_err(|e| format!("proof did not verify: {e:?}"))
+        let authorized = proven
+            .apply_signatures(&mut rng, [0u8; 32], &[ask])
+            .map_err(|e| format!("{e:?}"))?;
+        authorized
+            .verify_proof(self.vk.as_ref().unwrap())
+            .map_err(|e| format!("proof did not verify: {e:?}"))
     }
 
     pub fn set_wrong_verifying_key_for_test(&mut self) {

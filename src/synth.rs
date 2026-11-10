@@ -34,7 +34,15 @@ pub struct Params {
 
 impl Default for Params {
     fn default() -> Self {
-        Params { blocks: 40, txs_per_block: 2, actions_per_tx: 4, ours_every: 5, big_tx: None, skip_blocks: 0, start_height: 3_000_000 }
+        Params {
+            blocks: 40,
+            txs_per_block: 2,
+            actions_per_tx: 4,
+            ours_every: 5,
+            big_tx: None,
+            skip_blocks: 0,
+            start_height: 3_000_000,
+        }
     }
 }
 
@@ -49,17 +57,38 @@ fn bundle_actions(
     other: &FullViewingKey,
     rng: &mut StdRng,
 ) -> Vec<proto::CompactOrchardAction> {
-    let mut b = Builder::new(BundleType::DEFAULT, bv, bv.default_flags(), Anchor::empty_tree()).unwrap();
+    let mut b = Builder::new(
+        BundleType::DEFAULT,
+        bv,
+        bv.default_flags(),
+        Anchor::empty_tree(),
+    )
+    .unwrap();
     for i in 0..n {
         let (fvk, scope) = match plant {
             Some((f, s)) if i == 0 => (f, s),
             _ => (other, Scope::External),
         };
-        let value = if plant.is_some() && i == 0 { PLANTED_ZAT } else { 0 };
-        b.add_change_output(fvk.clone(), None, fvk.address_at(0u32, scope), NoteValue::from_raw(value), [0u8; 512]).unwrap();
+        let value = if plant.is_some() && i == 0 {
+            PLANTED_ZAT
+        } else {
+            0
+        };
+        b.add_change_output(
+            fvk.clone(),
+            None,
+            fvk.address_at(0u32, scope),
+            NoteValue::from_raw(value),
+            [0u8; 512],
+        )
+        .unwrap();
     }
     let (bundle, _) = b.build::<i64>(&mut *rng).unwrap().unwrap();
-    assert_eq!(bundle.actions().len(), n as usize, "one action per change output");
+    assert_eq!(
+        bundle.actions().len(),
+        n as usize,
+        "one action per change output"
+    );
     bundle
         .actions()
         .iter()
@@ -77,7 +106,8 @@ fn legacy(f: &Frontier<MerkleHashOrchard, 32>) -> Vec<u8> {
     if f.value().is_none() {
         return Vec::new();
     }
-    let t = incrementalmerkletree::frontier::CommitmentTree::<MerkleHashOrchard, 32>::from_frontier(f);
+    let t =
+        incrementalmerkletree::frontier::CommitmentTree::<MerkleHashOrchard, 32>::from_frontier(f);
     let mut out = Vec::new();
     let opt = |h: Option<&MerkleHashOrchard>, out: &mut Vec<u8>| match h {
         Some(h) => {
@@ -113,7 +143,10 @@ pub fn generate_with_end(p: Params) -> (Vec<u8>, [Vec<u8>; 2]) {
     };
     let _ = rng.random_range(0..2u32);
     let versions = [BundleVersion::orchard_v2(), BundleVersion::ironwood_v3()];
-    let mut frontiers = [Frontier::<MerkleHashOrchard, 32>::empty(), Frontier::empty()];
+    let mut frontiers = [
+        Frontier::<MerkleHashOrchard, 32>::empty(),
+        Frontier::empty(),
+    ];
     let mut start_trees = [Vec::new(), Vec::new()];
     let mut counts = [0u32; 2];
     let mut expected = [0u32; 4];
@@ -127,27 +160,51 @@ pub fn generate_with_end(p: Params) -> (Vec<u8>, [Vec<u8>; 2]) {
         let mut vtx = Vec::new();
         if bi % 4 != 3 {
             for t in 0..p.txs_per_block {
-                let mut tx = proto::CompactTx { index: t as u64, txid: vec![0; 32], ..Default::default() };
+                let mut tx = proto::CompactTx {
+                    index: t as u64,
+                    txid: vec![0; 32],
+                    ..Default::default()
+                };
                 for pool in 0..2 {
                     tx_counter[pool] += 1;
                     let due = tx_counter[pool] % p.ours_every == 0;
                     // Alternates per pool, so both pools get both scopes.
-                    let scope = if (tx_counter[pool] / p.ours_every) % 2 == 0 { Scope::External } else { Scope::Internal };
+                    let scope = if (tx_counter[pool] / p.ours_every) % 2 == 0 {
+                        Scope::External
+                    } else {
+                        Scope::Internal
+                    };
                     let plant = due.then_some((&ours, scope));
-                    let list = bundle_actions(versions[pool], p.actions_per_tx, plant, &other, &mut rng);
+                    let list =
+                        bundle_actions(versions[pool], p.actions_per_tx, plant, &other, &mut rng);
                     if plant.is_some() && in_range {
                         expected[pool * 2 + (scope == Scope::Internal) as usize] += 1;
                     }
-                    if pool == 0 { tx.actions = list } else { tx.ironwood_actions = list }
+                    if pool == 0 {
+                        tx.actions = list
+                    } else {
+                        tx.ironwood_actions = list
+                    }
                 }
                 vtx.push(tx);
             }
         }
         if bi == p.skip_blocks + 1 {
             if let Some(n) = p.big_tx {
-                let list = bundle_actions(versions[1], n, Some((&ours, Scope::External)), &other, &mut rng);
+                let list = bundle_actions(
+                    versions[1],
+                    n,
+                    Some((&ours, Scope::External)),
+                    &other,
+                    &mut rng,
+                );
                 expected[2] += 1;
-                vtx.push(proto::CompactTx { index: 99, txid: vec![1; 32], ironwood_actions: list, ..Default::default() });
+                vtx.push(proto::CompactTx {
+                    index: 99,
+                    txid: vec![1; 32],
+                    ironwood_actions: list,
+                    ..Default::default()
+                });
             }
         }
         for tx in &vtx {
@@ -181,10 +238,16 @@ pub fn generate_with_end(p: Params) -> (Vec<u8>, [Vec<u8>; 2]) {
         blocks: p.blocks,
         orchard_actions: counts[0],
         ironwood_actions: counts[1],
-        roots: Some((frontiers[0].root().to_bytes(), frontiers[1].root().to_bytes())),
+        roots: Some((
+            frontiers[0].root().to_bytes(),
+            frontiers[1].root().to_bytes(),
+        )),
         expected,
         orchard_tree: start_trees[0].clone(),
         ironwood_tree: start_trees[1].clone(),
     };
-    (corpus::write(&h, &messages), [legacy(&frontiers[0]), legacy(&frontiers[1])])
+    (
+        corpus::write(&h, &messages),
+        [legacy(&frontiers[0]), legacy(&frontiers[1])],
+    )
 }

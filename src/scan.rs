@@ -45,7 +45,8 @@ struct Tx {
 }
 
 /// How many start roots have been computed in this process. A test reads it to show that building a scan computes none.
-pub static START_ROOTS_COMPUTED: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+pub static START_ROOTS_COMPUTED: std::sync::atomic::AtomicUsize =
+    std::sync::atomic::AtomicUsize::new(0);
 
 #[wasm_bindgen]
 pub struct Scan {
@@ -80,7 +81,8 @@ pub struct Scan {
 }
 
 fn fixed_test_keys() -> Result<FullViewingKey, String> {
-    let sk = Option::<SpendingKey>::from(SpendingKey::from_bytes(crate::prove::KEY_SEED)).ok_or("bad seed")?;
+    let sk = Option::<SpendingKey>::from(SpendingKey::from_bytes(crate::prove::KEY_SEED))
+        .ok_or("bad seed")?;
     Ok(FullViewingKey::from(&sk))
 }
 
@@ -92,17 +94,38 @@ fn prepared(fvk: &FullViewingKey) -> [PreparedIncomingViewingKey; 2] {
 }
 
 fn decode_action(a: &proto::CompactOrchardAction) -> Result<CompactAction, String> {
-    let nf: [u8; 32] = a.nullifier.as_slice().try_into().map_err(|_| "nullifier length")?;
+    let nf: [u8; 32] = a
+        .nullifier
+        .as_slice()
+        .try_into()
+        .map_err(|_| "nullifier length")?;
     let cmx: [u8; 32] = a.cmx.as_slice().try_into().map_err(|_| "cmx length")?;
-    let epk: [u8; 32] = a.ephemeral_key.as_slice().try_into().map_err(|_| "ephemeral key length")?;
-    let enc: [u8; 52] = a.ciphertext.as_slice().try_into().map_err(|_| "ciphertext length")?;
+    let epk: [u8; 32] = a
+        .ephemeral_key
+        .as_slice()
+        .try_into()
+        .map_err(|_| "ephemeral key length")?;
+    let enc: [u8; 52] = a
+        .ciphertext
+        .as_slice()
+        .try_into()
+        .map_err(|_| "ciphertext length")?;
     let nf = Option::<Nullifier>::from(Nullifier::from_bytes(&nf)).ok_or("invalid nullifier")?;
-    let cmx = Option::<ExtractedNoteCommitment>::from(ExtractedNoteCommitment::from_bytes(&cmx)).ok_or("invalid cmx")?;
-    Ok(CompactAction::from_parts(nf, cmx, EphemeralKeyBytes(epk), enc))
+    let cmx = Option::<ExtractedNoteCommitment>::from(ExtractedNoteCommitment::from_bytes(&cmx))
+        .ok_or("invalid cmx")?;
+    Ok(CompactAction::from_parts(
+        nf,
+        cmx,
+        EphemeralKeyBytes(epk),
+        enc,
+    ))
 }
 
 impl Scan {
-    fn blank(start_height: u64, frontiers: [Frontier<MerkleHashOrchard, 32>; 2]) -> Result<Scan, String> {
+    fn blank(
+        start_height: u64,
+        frontiers: [Frontier<MerkleHashOrchard, 32>; 2],
+    ) -> Result<Scan, String> {
         let fvk = fixed_test_keys()?;
         let start_frontiers = frontiers.clone();
         Ok(Scan {
@@ -137,7 +160,10 @@ impl Scan {
 
     pub fn from_corpus(file: &[u8]) -> Result<Scan, String> {
         let (h, msgs, digest) = corpus::parse(file)?;
-        let f = [tree::parse_legacy(&h.orchard_tree)?, tree::parse_legacy(&h.ironwood_tree)?];
+        let f = [
+            tree::parse_legacy(&h.orchard_tree)?,
+            tree::parse_legacy(&h.ironwood_tree)?,
+        ];
         let mut s = Self::blank(h.start_height, f)?;
         s.messages = msgs.into_iter().map(|m| m.to_vec()).collect();
         s.message_sizes = s.messages.iter().map(|m| m.len() as u64).collect();
@@ -146,13 +172,25 @@ impl Scan {
         Ok(s)
     }
 
-    pub fn live(start_height: u64, orchard_tree: &[u8], ironwood_tree: &[u8]) -> Result<Scan, String> {
-        Self::blank(start_height, [tree::parse_legacy(orchard_tree)?, tree::parse_legacy(ironwood_tree)?])
+    pub fn live(
+        start_height: u64,
+        orchard_tree: &[u8],
+        ironwood_tree: &[u8],
+    ) -> Result<Scan, String> {
+        Self::blank(
+            start_height,
+            [
+                tree::parse_legacy(orchard_tree)?,
+                tree::parse_legacy(ironwood_tree)?,
+            ],
+        )
     }
 
     fn at(&self, want: Stage, name: &str) -> Result<(), String> {
         if self.stage != want {
-            return Err(format!("{name} is out of order: a Scan runs each stage once, in order"));
+            return Err(format!(
+                "{name} is out of order: a Scan runs each stage once, in order"
+            ));
         }
         Ok(())
     }
@@ -173,14 +211,18 @@ impl Scan {
         let mut next_height = self.start_height;
         let mut prev: Option<Vec<u8>> = None;
         for (bi, m) in std::mem::take(&mut self.messages).iter().enumerate() {
-            let b = proto::CompactBlock::decode(m.as_slice()).map_err(|e| format!("block {bi}: {e}"))?;
+            let b = proto::CompactBlock::decode(m.as_slice())
+                .map_err(|e| format!("block {bi}: {e}"))?;
             if b.height != next_height {
                 return Err(format!("expected block {next_height}, got {}", b.height));
             }
             next_height += 1;
             if let Some(p) = &prev {
                 if *p != b.prev_hash {
-                    return Err(format!("block {}: it does not follow the block before it", b.height));
+                    return Err(format!(
+                        "block {}: it does not follow the block before it",
+                        b.height
+                    ));
                 }
             }
             prev = Some(b.hash.clone());
@@ -188,14 +230,21 @@ impl Scan {
                 let mut actions: [Vec<CompactAction>; 2] = [Vec::new(), Vec::new()];
                 for (p, list) in [&t.actions, &t.ironwood_actions].into_iter().enumerate() {
                     for a in list {
-                        actions[p].push(decode_action(a).map_err(|e| format!("block {}: {e}", b.height))?);
+                        actions[p].push(
+                            decode_action(a).map_err(|e| format!("block {}: {e}", b.height))?,
+                        );
                     }
                     self.action_counts[p] += list.len() as u32;
                 }
                 let filtered = [false, false];
                 self.txs.push((bi, Tx { filtered, actions }));
             }
-            self.block_sizes.push(b.chain_metadata.as_ref().map(|c| [c.orchard_commitment_tree_size, c.ironwood_commitment_tree_size]));
+            self.block_sizes.push(b.chain_metadata.as_ref().map(|c| {
+                [
+                    c.orchard_commitment_tree_size,
+                    c.ironwood_commitment_tree_size,
+                ]
+            }));
         }
         if let Some(h) = &self.header {
             if self.block_sizes.len() != h.blocks as usize {
@@ -224,7 +273,12 @@ impl Scan {
             if let Some(d) = declared {
                 for p in 0..2 {
                     if d[p] as u64 != size[p] {
-                        return Err(format!("block {}: pool {p} tree size {} but counted {}", self.start_height + bi as u64, d[p], size[p]));
+                        return Err(format!(
+                            "block {}: pool {p} tree size {} but counted {}",
+                            self.start_height + bi as u64,
+                            d[p],
+                            size[p]
+                        ));
                     }
                 }
             }
@@ -235,7 +289,11 @@ impl Scan {
 
     fn decrypt_pool<D, F>(&mut self, p: usize, domain: F) -> Vec<Option<(usize, orchard::Note)>>
     where
-        D: zcash_note_encryption::BatchDomain<IncomingViewingKey = PreparedIncomingViewingKey, Note = orchard::Note> + Send + Sync,
+        D: zcash_note_encryption::BatchDomain<
+                IncomingViewingKey = PreparedIncomingViewingKey,
+                Note = orchard::Note,
+            > + Send
+            + Sync,
         D::Recipient: Send,
         F: Fn(&CompactAction) -> D + Sync,
         CompactAction: zcash_note_encryption::ShieldedOutput<D>,
@@ -254,7 +312,10 @@ impl Scan {
         let calls = std::sync::atomic::AtomicUsize::new(0);
         let run = |chunk: &[(usize, &CompactAction)]| -> Vec<(usize, usize, orchard::Note)> {
             calls.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-            let outputs: Vec<(D, CompactAction)> = chunk.iter().map(|(_, a)| (domain(a), (*a).clone())).collect();
+            let outputs: Vec<(D, CompactAction)> = chunk
+                .iter()
+                .map(|(_, a)| (domain(a), (*a).clone()))
+                .collect();
             try_compact_note_decryption(&self.keys, &outputs)
                 .into_iter()
                 .zip(chunk)
@@ -306,15 +367,24 @@ impl Scan {
         // A note is spent when its nullifier appears in an action of this range. Within the range only: a spend
         // before or after it is not seen, so this balance is the range's, and it is compared with a reference only
         // when the range starts at the vault's birthday and ends at the tip.
-        let spent: std::collections::HashSet<[u8; 32]> =
-            self.txs.iter().flat_map(|(_, t)| t.actions.iter().flatten()).map(|a| a.nullifier().to_bytes()).collect();
+        let spent: std::collections::HashSet<[u8; 32]> = self
+            .txs
+            .iter()
+            .flat_map(|(_, t)| t.actions.iter().flatten())
+            .map(|a| a.nullifier().to_bytes())
+            .collect();
         for note in &notes {
             if spent.contains(&note.nullifier(&self.fvk).to_bytes()) {
                 self.spent_zat += note.value().inner();
             }
         }
         if let Some(h) = &self.header {
-            let flat = [self.found[0][0], self.found[0][1], self.found[1][0], self.found[1][1]];
+            let flat = [
+                self.found[0][0],
+                self.found[0][1],
+                self.found[1][0],
+                self.found[1][1],
+            ];
             for (i, want) in h.expected.iter().enumerate() {
                 if *want != corpus::UNKNOWN && *want != flat[i] && self.filter.is_none() {
                     return Err(format!("expected notes {:?}, found {flat:?}", h.expected));
@@ -349,11 +419,18 @@ impl Scan {
             count += (t.size() - t.start_size()) as u32;
             self.trees[p] = Some(t);
         }
-        if let Some((o, i)) = self.header.as_ref().and_then(|h| h.roots).or(self.expected_end) {
+        if let Some((o, i)) = self
+            .header
+            .as_ref()
+            .and_then(|h| h.roots)
+            .or(self.expected_end)
+        {
             for (p, want) in [o, i].iter().enumerate() {
                 let got = self.trees[p].as_ref().unwrap().root()?.to_bytes();
                 if got != *want {
-                    return Err(format!("pool {p}: the tree root differs from the corpus root"));
+                    return Err(format!(
+                        "pool {p}: the tree root differs from the corpus root"
+                    ));
                 }
             }
         }
@@ -364,13 +441,18 @@ impl Scan {
     /// Stage 4. A witness for every note found, each checked against the root.
     pub fn witness_inner(&mut self) -> Result<u32, String> {
         self.at(Stage::Tree, "witness")?;
-        let n = self.trees[0].as_ref().unwrap().witnesses()? + self.trees[1].as_ref().unwrap().witnesses()?;
+        let n = self.trees[0].as_ref().unwrap().witnesses()?
+            + self.trees[1].as_ref().unwrap().witnesses()?;
         self.stage = Stage::Done;
         Ok(n)
     }
 
     /// For a live range: the tree states the server gives for the end of the range. tree_inner refuses another root.
-    pub fn set_expected_end_inner(&mut self, orchard_tree: &[u8], ironwood_tree: &[u8]) -> Result<(), String> {
+    pub fn set_expected_end_inner(
+        &mut self,
+        orchard_tree: &[u8],
+        ironwood_tree: &[u8],
+    ) -> Result<(), String> {
         self.at(Stage::New, "set_expected_end")?;
         self.expected_end = Some((
             tree::parse_legacy(orchard_tree)?.root().to_bytes(),
@@ -380,7 +462,9 @@ impl Scan {
     }
 
     pub fn start_is_empty(&self) -> bool {
-        self.frontiers.iter().all(|f| f.as_ref().is_none_or(|f| f.tree_size() == 0))
+        self.frontiers
+            .iter()
+            .all(|f| f.as_ref().is_none_or(|f| f.tree_size() == 0))
     }
 
     pub fn set_filter_inner(&mut self, limit: u32) -> Result<(), String> {
@@ -391,16 +475,28 @@ impl Scan {
 
     pub fn set_ufvk_inner(&mut self, ufvk: &str) -> Result<String, String> {
         self.at(Stage::New, "set_ufvk")?;
-        let (net, _, parsed) = unified::Ufvk::decode(ufvk).map_err(|e| format!("not a viewing key: {e}"))?;
+        let (net, _, parsed) =
+            unified::Ufvk::decode(ufvk).map_err(|e| format!("not a viewing key: {e}"))?;
         let orchard = parsed
             .items()
             .into_iter()
-            .find_map(|i| if let unified::Fvk::Orchard(b) = i { Some(b) } else { None })
+            .find_map(|i| {
+                if let unified::Fvk::Orchard(b) = i {
+                    Some(b)
+                } else {
+                    None
+                }
+            })
             .ok_or("this viewing key has no Orchard part")?;
         let fvk = FullViewingKey::from_bytes(&orchard).ok_or("invalid Orchard viewing key")?;
         self.keys = prepared(&fvk);
         self.fvk = fvk;
-        self.key_sha256 = Some(Sha256::digest(ufvk.as_bytes()).iter().map(|b| format!("{b:02x}")).collect());
+        self.key_sha256 = Some(
+            Sha256::digest(ufvk.as_bytes())
+                .iter()
+                .map(|b| format!("{b:02x}"))
+                .collect(),
+        );
         Ok(format!("{net:?}"))
     }
 
@@ -419,7 +515,11 @@ impl Scan {
     }
 
     pub fn root_bytes(&self, p: usize) -> Result<[u8; 32], String> {
-        Ok(self.trees[p].as_ref().ok_or("tree first")?.root()?.to_bytes())
+        Ok(self.trees[p]
+            .as_ref()
+            .ok_or("tree first")?
+            .root()?
+            .to_bytes())
     }
 }
 
@@ -431,7 +531,11 @@ impl Scan {
         Self::from_corpus(corpus).map_err(|e| JsError::new(&e))
     }
     /// A range the page downloads and pushes block by block. The trees are the bytes GetTreeState returns.
-    pub fn new_live(start_height: u64, orchard_tree: &[u8], ironwood_tree: &[u8]) -> Result<Scan, JsError> {
+    pub fn new_live(
+        start_height: u64,
+        orchard_tree: &[u8],
+        ironwood_tree: &[u8],
+    ) -> Result<Scan, JsError> {
         Self::live(start_height, orchard_tree, ironwood_tree).map_err(|e| JsError::new(&e))
     }
     pub fn push(&mut self, block: Vec<u8>) -> Result<(), JsError> {
@@ -449,8 +553,13 @@ impl Scan {
     pub fn witness(&mut self) -> Result<u32, JsError> {
         self.witness_inner().map_err(|e| JsError::new(&e))
     }
-    pub fn set_expected_end(&mut self, orchard_tree: &[u8], ironwood_tree: &[u8]) -> Result<(), JsError> {
-        self.set_expected_end_inner(orchard_tree, ironwood_tree).map_err(|e| JsError::new(&e))
+    pub fn set_expected_end(
+        &mut self,
+        orchard_tree: &[u8],
+        ironwood_tree: &[u8],
+    ) -> Result<(), JsError> {
+        self.set_expected_end_inner(orchard_tree, ironwood_tree)
+            .map_err(|e| JsError::new(&e))
     }
     /// True when both trees start empty, which a range from the middle of the chain never does.
     pub fn starts_empty(&self) -> bool {
@@ -469,7 +578,13 @@ impl Scan {
         let mut sizes = self.message_sizes.clone();
         sizes.sort_unstable();
         let n = sizes.len();
-        let median = if n == 0 { 0.0 } else if n % 2 == 1 { sizes[n / 2] as f64 } else { (sizes[n / 2 - 1] + sizes[n / 2]) as f64 / 2.0 };
+        let median = if n == 0 {
+            0.0
+        } else if n % 2 == 1 {
+            sizes[n / 2] as f64
+        } else {
+            (sizes[n / 2 - 1] + sizes[n / 2]) as f64 / 2.0
+        };
         let compact = format!(
             "\"compact_bytes\":{},\"compact_bytes_by_block\":{{\"min\":{},\"median\":{},\"max\":{}}}",
             sizes.iter().sum::<u64>(),
@@ -477,7 +592,14 @@ impl Scan {
             median,
             sizes.last().copied().unwrap_or(0)
         );
-        let root = |b: Option<[u8; 32]>| b.map_or("null".to_string(), |b| format!("\"{}\"", b.iter().map(|x| format!("{x:02x}")).collect::<String>()));
+        let root = |b: Option<[u8; 32]>| {
+            b.map_or("null".to_string(), |b| {
+                format!(
+                    "\"{}\"",
+                    b.iter().map(|x| format!("{x:02x}")).collect::<String>()
+                )
+            })
+        };
         let end = |p: usize| root(self.root_bytes(p).ok());
         let tree_roots = format!(
             "\"tree_roots\":{{\"orchard\":{{\"start\":{},\"end\":{}}},\"ironwood\":{{\"start\":{},\"end\":{}}}}}",
@@ -486,7 +608,9 @@ impl Scan {
             root(Some(self.start_root_bytes(1))),
             end(1)
         );
-        let hex = self.corpus_sha256.map(|d| d.iter().map(|b| format!("{b:02x}")).collect::<String>());
+        let hex = self
+            .corpus_sha256
+            .map(|d| d.iter().map(|b| format!("{b:02x}")).collect::<String>());
         format!(
             "{{\"blocks\":{},\"start_height\":{},\"actions_by_pool\":{{\"orchard\":{},\"ironwood\":{}}},\"found\":{{\"orchard_external\":{},\"orchard_internal\":{},\"ironwood_external\":{},\"ironwood_internal\":{}}},\"ivk_count\":2,\"batch_size\":{{\"orchard\":{},\"ironwood\":{}}},\"batches_made\":{{\"orchard\":{},\"ironwood\":{}}},\"filter\":{},\"corpus_sha256\":{},{},\"key_sha256\":{},\"received_zat\":{},\"spent_in_range_zat\":{},{}}}",
             self.block_sizes.len(),

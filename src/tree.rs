@@ -31,9 +31,11 @@ pub fn parse_legacy(bytes: &[u8]) -> Result<Frontier<MerkleHashOrchard, 32>, Str
                 }
                 let (h, rest) = p.split_at(32);
                 *p = rest;
-                Option::<MerkleHashOrchard>::from(MerkleHashOrchard::from_bytes(h.try_into().unwrap()))
-                    .map(Some)
-                    .ok_or_else(|| "invalid node in tree state".to_string())
+                Option::<MerkleHashOrchard>::from(MerkleHashOrchard::from_bytes(
+                    h.try_into().unwrap(),
+                ))
+                .map(Some)
+                .ok_or_else(|| "invalid node in tree state".to_string())
             }
             _ => Err("invalid flag in tree state".into()),
         }
@@ -71,8 +73,16 @@ impl PoolTree {
         let mut tree = Tree::new(MemoryShardStore::empty(), MAX_CHECKPOINTS);
         let next = start.tree_size();
         let start_root = start.root();
-        tree.insert_frontier(start, Retention::Ephemeral).map_err(|e| format!("{e:?}"))?;
-        Ok(PoolTree { tree, next, start_size: next, next_checkpoint: 0, start_root, marked: Vec::new() })
+        tree.insert_frontier(start, Retention::Ephemeral)
+            .map_err(|e| format!("{e:?}"))?;
+        Ok(PoolTree {
+            tree,
+            next,
+            start_size: next,
+            next_checkpoint: 0,
+            start_root,
+            marked: Vec::new(),
+        })
     }
 
     pub fn size(&self) -> u64 {
@@ -84,7 +94,11 @@ impl PoolTree {
     }
 
     /// One block's commitments, in chain order; the flags say which positions in this slice to keep a witness for.
-    pub fn append_block(&mut self, cmxs: &[MerkleHashOrchard], ours: &[bool]) -> Result<(), String> {
+    pub fn append_block(
+        &mut self,
+        cmxs: &[MerkleHashOrchard],
+        ours: &[bool],
+    ) -> Result<(), String> {
         if cmxs.is_empty() {
             return Ok(());
         }
@@ -92,7 +106,11 @@ impl PoolTree {
         let id = self.next_checkpoint;
         let start = Position::from(self.next);
         let leaves = cmxs.iter().enumerate().map(|(i, h)| {
-            let marking = if ours[i] { incrementalmerkletree::Marking::Marked } else { incrementalmerkletree::Marking::None };
+            let marking = if ours[i] {
+                incrementalmerkletree::Marking::Marked
+            } else {
+                incrementalmerkletree::Marking::None
+            };
             let retention = if i == last {
                 Retention::Checkpoint { id, marking }
             } else if ours[i] {
@@ -102,7 +120,9 @@ impl PoolTree {
             };
             (*h, retention)
         });
-        self.tree.batch_insert(start, leaves).map_err(|e| format!("{e:?}"))?;
+        self.tree
+            .batch_insert(start, leaves)
+            .map_err(|e| format!("{e:?}"))?;
         for (i, h) in cmxs.iter().enumerate() {
             if ours[i] {
                 self.marked.push((Position::from(self.next + i as u64), *h));
