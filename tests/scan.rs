@@ -395,3 +395,60 @@ fn the_summary_counts_the_bytes_of_the_compact_blocks_it_was_given() {
     let after = all_stages(&f).unwrap().summary();
     assert!(after.contains(&format!("\"compact_bytes\":{total},")), "{after}");
 }
+
+// The bare roots the result records
+fn root_hex(b: [u8; 32]) -> String {
+    b.iter().map(|x| format!("{x:02x}")).collect()
+}
+
+fn roots_of(summary: &str) -> String {
+    let i = summary.find("\"tree_roots\":").expect("tree_roots is in the summary");
+    summary[i..].to_string()
+}
+
+#[test]
+fn the_summary_records_the_bare_roots_the_scan_checks() {
+    let f = synth::generate(Params { blocks: 8, ..Default::default() });
+    let (h, _, _) = corpus::parse(&f).unwrap();
+    let (want_o, want_i) = h.roots.expect("the synthetic corpus carries its end roots");
+    let s = all_stages(&f).unwrap();
+    // The root the scan checks against the end tree state is the one it exports.
+    assert_eq!(s.root_bytes(0).unwrap(), want_o);
+    assert_eq!(s.root_bytes(1).unwrap(), want_i);
+    // From the start of the chain the trees are empty, so the start root is the empty root.
+    let empty = root_hex(konclave_benchmark::tree::empty_root().to_bytes());
+    let want = format!(
+        "\"tree_roots\":{{\"orchard\":{{\"start\":\"{empty}\",\"end\":\"{}\"}},\"ironwood\":{{\"start\":\"{empty}\",\"end\":\"{}\"}}}}",
+        root_hex(want_o),
+        root_hex(want_i)
+    );
+    assert_eq!(roots_of(&s.summary()), format!("{want}}}"));
+    // A range from the middle starts from a root that is not the empty one, and ends where the whole chain ends.
+    let whole = all_stages(&synth::generate(Params { blocks: 12, ..Default::default() })).unwrap();
+    let tail = all_stages(&synth::generate(Params { blocks: 7, skip_blocks: 5, ..Default::default() })).unwrap();
+    assert_ne!(tail.start_root_bytes(0), konclave_benchmark::tree::empty_root().to_bytes());
+    // It is the root the first five blocks end on, in both pools.
+    let head = all_stages(&synth::generate(Params { blocks: 5, ..Default::default() })).unwrap();
+    assert_eq!(tail.start_root_bytes(0), head.root_bytes(0).unwrap());
+    assert_eq!(tail.start_root_bytes(1), head.root_bytes(1).unwrap());
+    assert_eq!(tail.root_bytes(0).unwrap(), whole.root_bytes(0).unwrap());
+    // Before the tree stage there is no end root.
+    assert!(roots_of(&Scan::from_corpus(&f).unwrap().summary()).contains("\"end\":null"));
+}
+
+// new_live runs inside the tree_state stage, whose time is part of the total: it must not compute the start roots.
+// This counts the calls the scan makes for them; it cannot see a root taken some other way, so a change to the stages
+// is also measured (see the notes of the change), but the one place that is allowed to compute them is summary().
+#[test]
+fn building_a_scan_computes_no_root_and_summary_computes_the_start_roots() {
+    use konclave_benchmark::scan::START_ROOTS_COMPUTED as N;
+    use std::sync::atomic::Ordering::Relaxed;
+    let f = small();
+    let (h, _, _) = corpus::parse(&f).unwrap();
+    let before = N.load(Relaxed);
+    let s = Scan::live(h.start_height, &h.orchard_tree, &h.ironwood_tree).unwrap();
+    let c = Scan::from_corpus(&f).unwrap();
+    assert_eq!(N.load(Relaxed), before, "building a scan computed a start root");
+    let _ = (s.summary(), c.summary());
+    assert!(N.load(Relaxed) >= before + 4, "summary is where the start roots are computed");
+}

@@ -44,6 +44,9 @@ struct Tx {
     actions: [Vec<CompactAction>; 2],
 }
 
+/// How many start roots have been computed in this process. A test reads it to show that building a scan computes none.
+pub static START_ROOTS_COMPUTED: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+
 #[wasm_bindgen]
 pub struct Scan {
     stage: Stage,
@@ -58,6 +61,9 @@ pub struct Scan {
     keys: [PreparedIncomingViewingKey; 2],
     fvk: FullViewingKey,
     expected_end: Option<([u8; 32], [u8; 32])>,
+    /// The tree states the scan starts from, kept to give the bare start roots in summary(), which no timer covers. A root is not
+    /// computed when the scan is built: new_live runs inside the tree_state stage, whose time is part of the total.
+    start_frontiers: [Frontier<MerkleHashOrchard, 32>; 2],
     batches: [usize; 2],
     chunks: [usize; 2],
     received_zat: u64,
@@ -98,6 +104,7 @@ fn decode_action(a: &proto::CompactOrchardAction) -> Result<CompactAction, Strin
 impl Scan {
     fn blank(start_height: u64, frontiers: [Frontier<MerkleHashOrchard, 32>; 2]) -> Result<Scan, String> {
         let fvk = fixed_test_keys()?;
+        let start_frontiers = frontiers.clone();
         Ok(Scan {
             stage: Stage::New,
             messages: Vec::new(),
@@ -110,6 +117,7 @@ impl Scan {
             keys: prepared(&fvk),
             fvk,
             expected_end: None,
+            start_frontiers,
             batches: [0, 0],
             chunks: [0, 0],
             received_zat: 0,
@@ -404,6 +412,12 @@ impl Scan {
         (self.received_zat, self.spent_zat)
     }
 
+    /// The bare 32-byte root of pool p's tree before the range.
+    pub fn start_root_bytes(&self, p: usize) -> [u8; 32] {
+        START_ROOTS_COMPUTED.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        self.start_frontiers[p].root().to_bytes()
+    }
+
     pub fn root_bytes(&self, p: usize) -> Result<[u8; 32], String> {
         Ok(self.trees[p].as_ref().ok_or("tree first")?.root()?.to_bytes())
     }
@@ -463,9 +477,18 @@ impl Scan {
             median,
             sizes.last().copied().unwrap_or(0)
         );
+        let root = |b: Option<[u8; 32]>| b.map_or("null".to_string(), |b| format!("\"{}\"", b.iter().map(|x| format!("{x:02x}")).collect::<String>()));
+        let end = |p: usize| root(self.root_bytes(p).ok());
+        let tree_roots = format!(
+            "\"tree_roots\":{{\"orchard\":{{\"start\":{},\"end\":{}}},\"ironwood\":{{\"start\":{},\"end\":{}}}}}",
+            root(Some(self.start_root_bytes(0))),
+            end(0),
+            root(Some(self.start_root_bytes(1))),
+            end(1)
+        );
         let hex = self.corpus_sha256.map(|d| d.iter().map(|b| format!("{b:02x}")).collect::<String>());
         format!(
-            "{{\"blocks\":{},\"start_height\":{},\"actions_by_pool\":{{\"orchard\":{},\"ironwood\":{}}},\"found\":{{\"orchard_external\":{},\"orchard_internal\":{},\"ironwood_external\":{},\"ironwood_internal\":{}}},\"ivk_count\":2,\"batch_size\":{{\"orchard\":{},\"ironwood\":{}}},\"batches_made\":{{\"orchard\":{},\"ironwood\":{}}},\"filter\":{},\"corpus_sha256\":{},{},\"key_sha256\":{},\"received_zat\":{},\"spent_in_range_zat\":{}}}",
+            "{{\"blocks\":{},\"start_height\":{},\"actions_by_pool\":{{\"orchard\":{},\"ironwood\":{}}},\"found\":{{\"orchard_external\":{},\"orchard_internal\":{},\"ironwood_external\":{},\"ironwood_internal\":{}}},\"ivk_count\":2,\"batch_size\":{{\"orchard\":{},\"ironwood\":{}}},\"batches_made\":{{\"orchard\":{},\"ironwood\":{}}},\"filter\":{},\"corpus_sha256\":{},{},\"key_sha256\":{},\"received_zat\":{},\"spent_in_range_zat\":{},{}}}",
             self.block_sizes.len(),
             self.start_height,
             self.action_counts[0],
@@ -484,6 +507,7 @@ impl Scan {
             self.key_sha256.as_ref().map_or("null".to_string(), |h| format!("\"{h}\"")),
             self.received_zat,
             self.spent_zat,
+            tree_roots,
         )
     }
 }

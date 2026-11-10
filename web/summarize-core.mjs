@@ -113,6 +113,9 @@ export function refusals(ok, opts = {}) {
   each((r) => verdictEntry(r) && r.lightd_info && r.lightd_info.chain_name !== 'main', 'the upstream is not on mainnet');
   each((r) => verdictEntry(r) && r.tree_state_end && r.end_block_hash && r.end_block_hash !== r.tree_state_end.hash, "the end block hash is not the end tree state's");
   each((r) => verdictEntry(r) && !(r.lightd_info && r.tree_state_start && r.tree_state_end && r.end_block_hash), 'what the upstream said is not recorded');
+  // The bare roots of the trees (32 bytes, hex) at the start and end of the range, as the scan computed them: what anyone compares with another server.
+  const HEX32 = /^[0-9a-f]{64}$/;
+  each((r) => verdictEntry(r) && !['orchard', 'ironwood'].every((p) => HEX32.test(r.tree_roots?.[p]?.start) && HEX32.test(r.tree_roots?.[p]?.end)), 'the bare tree roots are not recorded');
   each((r) => r.kind === 'prove' && r.verified !== true, 'a proof was not verified');
   each((r) => r.kind === 'prove' && (r.cold !== true || !(r.key_build_ms > 0)), 'a run was not cold: the key build was not timed');
   each((r) => r.kind === 'scan' && !((r.actions_by_pool?.orchard ?? 0) + (r.actions_by_pool?.ironwood ?? 0) > 0), 'a range with no actions');

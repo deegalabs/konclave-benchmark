@@ -31,7 +31,7 @@ const prove = (over = {}) => {
   return { kind: 'prove', row: 'prove-n2', pool: 'ironwood-v3', device_label: 'Phone A', device_class: 'phone', user_agent: 'Firefox/158', outcome: 'ok', runs_planned: 5, temp_before: '30', page_hidden_during_run: false, ...stamps, key_build_ms: key, prove_ms: pr, prepare_ms: 0, verify_ms: 0, threads_asked: 0, started_at: 't', run_id: `r${++id}`, verified: true, cold: true, ...over, pipeline_ms: key + pr, elapsed_ms: key + pr };
 };
 const five = (mk, o = {}) => [0, 1, 2, 3, 4].map(() => mk(o));
-const OBSERVED = { lightd_info: { chain_name: 'main' }, tree_state_start: { height: 1, hash: 'a' }, tree_state_end: { height: 2, hash: 'b' }, end_block_hash: 'b' };
+const OBSERVED = { lightd_info: { chain_name: 'main' }, tree_state_start: { height: 1, hash: 'a' }, tree_state_end: { height: 2, hash: 'b' }, end_block_hash: 'b', tree_roots: { orchard: { start: '0a'.repeat(32), end: '0b'.repeat(32) }, ironwood: { start: '0c'.repeat(32), end: '0d'.repeat(32) } } };
 const scan = (over = {}) => ({ ...prove(), kind: 'scan', row: 'scan-daily-3000000-3003455', pool: undefined, key_build_ms: undefined, prove_ms: undefined, device_label: 'Phone A', total_ms: 20000, pipeline_ms: 20000, elapsed_ms: 20000, live_or_replay_asked: 'live', endpoint: HOSTED, ...declaredFor(HOSTED, TABLE), ...OBSERVED, actions_by_pool: { orchard: 1, ironwood: 1 }, key_sha256: PUBLISHED, range_kind: 'daily', start_height: 3000000, blocks: 3456, range_asked: { id: 'daily', kind: 'daily', start: 3000000, end: 3003455, blocks: 3456 }, ...over });
 
 test('a pass and a fail are drawn per device, with the bar from the code and the same verdict as the summary', () => {

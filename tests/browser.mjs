@@ -246,6 +246,8 @@ await ready(page); await page.click('#go');
 await finished(page);
 r = await results(page);
 check('live row', r[0].outcome === 'ok' && r[0].live_or_replay === 'live' && r[0].stages_ms.download >= 0 && r[0].stages_ms.end_tree_state >= 0 && r[0].stages_ms.tree_state >= 0 && r[0].corpus_sha256 === null);
+const hex64 = /^[0-9a-f]{64}$/;
+check('a live row records the bare roots, the end one being the one the mock served', ['orchard', 'ironwood'].every((p) => hex64.test(r[0].tree_roots?.[p]?.start) && hex64.test(r[0].tree_roots?.[p]?.end)) && r[0].tree_roots.orchard.end === '32a84e9abf28d49d146c6bf09b146faf3737004d1a9af96736625855c78a113a');
 check('the mock saw both calls', lwd.requests.includes('GetTreeState') && lwd.requests.includes('GetBlockRange'));
 
 // The server's end state does not match the blocks it sent

@@ -141,7 +141,7 @@ test('a row that mixes builds is refused', () => {
 });
 
 // What a live run saw of the upstream (web/observe.mjs): a verdict row without it is refused.
-const OBSERVED = { lightd_info: { version: 'v', vendor: 'v', chain_name: 'main', block_height: 1 }, tree_state_start: { height: 1, hash: 'a', orchard: '', ironwood: '' }, tree_state_end: { height: 2, hash: 'b', orchard: 'aa', ironwood: 'bb' }, end_block_hash: 'b' };
+const OBSERVED = { lightd_info: { version: 'v', vendor: 'v', chain_name: 'main', block_height: 1 }, tree_state_start: { height: 1, hash: 'a', orchard: '', ironwood: '' }, tree_state_end: { height: 2, hash: 'b', orchard: 'aa', ironwood: 'bb' }, end_block_hash: 'b', tree_roots: { orchard: { start: '0a'.repeat(32), end: '0b'.repeat(32) }, ironwood: { start: '0c'.repeat(32), end: '0d'.repeat(32) } } };
 const bareOriginOf = (e) => new URL(e).origin; // what the page records: planRows normalises the typed endpoint
 const scanRun = (o = {}) => {
   const endpoint = 'endpoint' in o ? o.endpoint : HOSTED;
@@ -2394,4 +2394,30 @@ test('check-no-keys says to run it on a fresh clone when it finds something, and
   assert.equal(out.status, 1);
   assert.match(out.stderr, /fresh clone/);
   assert.match(docsText(), /git clone \. \/tmp\/kb-fresh && node scripts\/check-no-keys\.mjs \/tmp\/kb-fresh/);
+});
+
+// The bare tree roots of a scan (src/scan.rs summary), kept in every result next to the serialised states
+test('a verdict row is refused without well-formed bare tree roots, and the roots change no verdict, row key or timer', () => {
+  const ok = fiveScan({ endpoint: HOSTED });
+  assert.equal(ok[0].tree_roots.orchard.end.length, 64);
+  const base = summarize(ok);
+  assert.equal(base[0].verdict, 'pass');
+  for (const bad of [undefined, null, { orchard: { start: 'a'.repeat(64), end: 'b'.repeat(64) } }, { ...ok[0].tree_roots, ironwood: { start: null, end: null } }, { ...ok[0].tree_roots, orchard: { start: 'zz'.repeat(32), end: 'b'.repeat(64) } }, { ...ok[0].tree_roots, orchard: { start: 'A'.repeat(64), end: 'b'.repeat(64) } }, { ...ok[0].tree_roots, orchard: { start: 'a'.repeat(63), end: 'b'.repeat(64) } }]) {
+    assert.match(summarize(fiveScan({ endpoint: HOSTED, tree_roots: bad }))[0].verdict, /^REFUSED: the bare tree roots are not recorded/, JSON.stringify(bad));
+  }
+  // A row that is not a verdict is not asked for it.
+  assert.equal(summarizeReal(fiveScan({ endpoint: 'https://zec.rocks', tree_roots: undefined }))[0].verdict, 'endpoint not named by the protocol, not a verdict');
+  // Different roots, same verdict, row key, bar and median.
+  const other = summarize(fiveScan({ endpoint: HOSTED, tree_roots: { orchard: { start: '1'.repeat(64), end: '2'.repeat(64) }, ironwood: { start: '3'.repeat(64), end: '4'.repeat(64) } } }));
+  assert.deepEqual(other.map((l) => [l.row, l.verdict, l.bar_ms, l.median_ms]), base.map((l) => [l.row, l.verdict, l.bar_ms, l.median_ms]));
+});
+
+test('the worker only passes a summary tree_roots through (the real wasm is checked in tests/browser.mjs) and leaves every timer and key alone', async () => {
+  const roots = { orchard: { start: '0a'.repeat(32), end: '0b'.repeat(32) }, ironwood: { start: null, end: null } };
+  const without = await scanInWorker({ ...AMOUNTS, key_sha256: null });
+  const withRoots = await scanInWorker({ ...AMOUNTS, key_sha256: null, tree_roots: roots });
+  assert.deepEqual(withRoots.tree_roots, roots);
+  const { tree_roots, ...rest } = withRoots;
+  assert.deepEqual(Object.keys(rest).sort(), Object.keys(without).sort());
+  assert.deepEqual(Object.keys(withRoots.stages_ms), Object.keys(without.stages_ms));
 });
