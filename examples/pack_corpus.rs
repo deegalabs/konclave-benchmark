@@ -6,10 +6,17 @@ use konclave_benchmark::{corpus, pack::pack};
 fn field<'a>(json: &'a str, name: &str) -> &'a str {
     let key = format!("\"{name}\":");
     let rest = &json[json.find(&key).unwrap_or_else(|| panic!("no {name}")) + key.len()..];
-    rest.trim_start().trim_start_matches('"').split(['"', ',', '}']).next().unwrap()
+    rest.trim_start()
+        .trim_start_matches('"')
+        .split(['"', ',', '}'])
+        .next()
+        .unwrap()
 }
 fn hex(s: &str) -> Vec<u8> {
-    (0..s.len()).step_by(2).map(|i| u8::from_str_radix(&s[i..i + 2], 16).expect("hex")).collect()
+    (0..s.len())
+        .step_by(2)
+        .map(|i| u8::from_str_radix(&s[i..i + 2], 16).expect("hex"))
+        .collect()
 }
 
 fn main() {
@@ -23,8 +30,19 @@ fn main() {
         msgs.push(raw[i + 4..i + 4 + n].to_vec());
         i += 4 + n;
     }
-    let (so, si, eo, ei) = (hex(field(&meta, "start_orchard")), hex(field(&meta, "start_ironwood")), hex(field(&meta, "end_orchard")), hex(field(&meta, "end_ironwood")));
-    let file = pack(field(&meta, "start").parse().unwrap(), &msgs, [&so, &si], [&eo, &ei]).unwrap();
+    let (so, si, eo, ei) = (
+        hex(field(&meta, "start_orchard")),
+        hex(field(&meta, "start_ironwood")),
+        hex(field(&meta, "end_orchard")),
+        hex(field(&meta, "end_ironwood")),
+    );
+    let file = pack(
+        field(&meta, "start").parse().unwrap(),
+        &msgs,
+        [&so, &si],
+        [&eo, &ei],
+    )
+    .unwrap();
     corpus::parse(&file).unwrap();
     std::fs::write(&a[3], &file).unwrap();
     let d: String = file[8..40].iter().map(|b| format!("{b:02x}")).collect();

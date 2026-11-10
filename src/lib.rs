@@ -3,13 +3,13 @@
 use wasm_bindgen::prelude::*;
 
 pub mod corpus;
+#[cfg(not(target_arch = "wasm32"))]
+pub mod pack;
 pub mod proto;
 pub mod prove;
 pub mod scan;
 #[cfg(not(target_arch = "wasm32"))]
 pub mod synth;
-#[cfg(not(target_arch = "wasm32"))]
-pub mod pack;
 pub mod tree;
 
 #[cfg(feature = "threads")]
@@ -30,5 +30,9 @@ pub fn thread_count() -> u32 {
 
 #[wasm_bindgen]
 pub fn build_flavour() -> String {
-    if cfg!(feature = "threads") { "threads".into() } else { "single".into() }
+    if cfg!(feature = "threads") {
+        "threads".into()
+    } else {
+        "single".into()
+    }
 }

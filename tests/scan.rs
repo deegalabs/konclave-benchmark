@@ -15,7 +15,10 @@ fn all_stages(file: &[u8]) -> Result<Scan, String> {
 }
 
 fn small() -> Vec<u8> {
-    synth::generate(Params { blocks: 8, ..Default::default() })
+    synth::generate(Params {
+        blocks: 8,
+        ..Default::default()
+    })
 }
 
 #[test]
@@ -34,9 +37,18 @@ fn a_truncated_corpus_or_a_wrong_block_count_is_refused() {
     assert!(Scan::from_corpus(&t).is_err());
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let fewer: Vec<Vec<u8>> = msgs[1..].iter().map(|m| m.to_vec()).collect();
-    let bad = corpus::write(&corpus::Header { blocks: h.blocks - 1, ..h }, &fewer);
+    let bad = corpus::write(
+        &corpus::Header {
+            blocks: h.blocks - 1,
+            ..h
+        },
+        &fewer,
+    );
     let mut s = Scan::from_corpus(&bad).unwrap();
-    assert!(s.decode_inner().is_err(), "the first height no longer matches");
+    assert!(
+        s.decode_inner().is_err(),
+        "the first height no longer matches"
+    );
 }
 
 #[test]
@@ -45,7 +57,13 @@ fn a_block_missing_from_the_middle_is_refused() {
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let mut m: Vec<Vec<u8>> = msgs.iter().map(|x| x.to_vec()).collect();
     m.remove(3);
-    let bad = corpus::write(&corpus::Header { blocks: h.blocks - 1, ..h }, &m);
+    let bad = corpus::write(
+        &corpus::Header {
+            blocks: h.blocks - 1,
+            ..h
+        },
+        &m,
+    );
     let mut s = Scan::from_corpus(&bad).unwrap();
     assert!(s.decode_inner().err().unwrap().contains("expected block"));
 }
@@ -75,8 +93,15 @@ fn the_tree_is_of_the_real_commitments() {
 // From the middle of a chain
 #[test]
 fn a_range_that_starts_inside_a_chain_reaches_the_same_root_as_the_whole_chain() {
-    let whole = synth::generate(Params { blocks: 12, ..Default::default() });
-    let tail = synth::generate(Params { blocks: 7, skip_blocks: 5, ..Default::default() });
+    let whole = synth::generate(Params {
+        blocks: 12,
+        ..Default::default()
+    });
+    let tail = synth::generate(Params {
+        blocks: 7,
+        skip_blocks: 5,
+        ..Default::default()
+    });
     let a = all_stages(&whole).unwrap();
     let b = all_stages(&tail).unwrap();
     assert_eq!(a.root_bytes(0).unwrap(), b.root_bytes(0).unwrap());
@@ -106,7 +131,11 @@ fn notes_are_found_in_both_pools_under_both_keys() {
 
 #[test]
 fn a_note_in_a_big_transaction_is_found_by_default_and_lost_with_a_filter() {
-    let f = synth::generate(Params { blocks: 3, big_tx: Some(60), ..Default::default() });
+    let f = synth::generate(Params {
+        blocks: 3,
+        big_tx: Some(60),
+        ..Default::default()
+    });
     let plain = all_stages(&f).unwrap();
     let (h, _, _) = corpus::parse(&f).unwrap();
     assert_eq!(plain.found_by_pool_and_key()[1][0], h.expected[2]);
@@ -125,7 +154,12 @@ fn an_unrelated_viewing_key_finds_nothing_and_the_tree_still_holds() {
     use zcash_protocol::consensus::NetworkType;
     let sk = orchard::keys::SpendingKey::from_bytes([42; 32]).unwrap();
     let fvk = orchard::keys::FullViewingKey::from(&sk);
-    let ufvk = unified::Ufvk::try_from_items(Revision::R0, vec![unified::Uitem::Data(unified::Fvk::Orchard(fvk.to_bytes()))]).unwrap().encode(&NetworkType::Test);
+    let ufvk = unified::Ufvk::try_from_items(
+        Revision::R0,
+        vec![unified::Uitem::Data(unified::Fvk::Orchard(fvk.to_bytes()))],
+    )
+    .unwrap()
+    .encode(&NetworkType::Test);
     let f = small();
     let mut s = Scan::from_corpus(&f).unwrap();
     assert!(s.set_ufvk_inner("not-a-key").is_err());
@@ -141,11 +175,22 @@ fn a_foreign_key_on_a_range_with_no_expectation_finds_zero() {
     use zcash_protocol::consensus::NetworkType;
     let sk = orchard::keys::SpendingKey::from_bytes([42; 32]).unwrap();
     let fvk = orchard::keys::FullViewingKey::from(&sk);
-    let ufvk = unified::Ufvk::try_from_items(Revision::R0, vec![unified::Uitem::Data(unified::Fvk::Orchard(fvk.to_bytes()))]).unwrap().encode(&NetworkType::Test);
+    let ufvk = unified::Ufvk::try_from_items(
+        Revision::R0,
+        vec![unified::Uitem::Data(unified::Fvk::Orchard(fvk.to_bytes()))],
+    )
+    .unwrap()
+    .encode(&NetworkType::Test);
     let f = small();
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let m: Vec<Vec<u8>> = msgs.iter().map(|x| x.to_vec()).collect();
-    let open = corpus::write(&corpus::Header { expected: [corpus::UNKNOWN; 4], ..h }, &m);
+    let open = corpus::write(
+        &corpus::Header {
+            expected: [corpus::UNKNOWN; 4],
+            ..h
+        },
+        &m,
+    );
     let mut s = Scan::from_corpus(&open).unwrap();
     s.set_ufvk_inner(&ufvk).unwrap();
     s.decode_inner().unwrap();
@@ -170,19 +215,30 @@ fn the_balance_counts_what_was_received_and_a_spend_in_the_range() {
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let mut m: Vec<Vec<u8>> = msgs.iter().map(|x| x.to_vec()).collect();
     let fvk = FullViewingKey::from(&SpendingKey::from_bytes([7; 32]).unwrap());
-    let ivk = orchard::keys::PreparedIncomingViewingKey::new(&fvk.to_ivk(orchard::keys::Scope::External));
+    let ivk =
+        orchard::keys::PreparedIncomingViewingKey::new(&fvk.to_ivk(orchard::keys::Scope::External));
     let mut nf = None;
     'outer: for bytes in &m {
         for tx in CompactBlock::decode(bytes.as_slice()).unwrap().vtx {
             for a in &tx.ironwood_actions {
                 let ca = orchard::note_encryption::CompactAction::from_parts(
-                    orchard::note::Nullifier::from_bytes(a.nullifier.as_slice().try_into().unwrap()).unwrap(),
-                    orchard::note::ExtractedNoteCommitment::from_bytes(a.cmx.as_slice().try_into().unwrap()).unwrap(),
-                    zcash_note_encryption::EphemeralKeyBytes(a.ephemeral_key.as_slice().try_into().unwrap()),
+                    orchard::note::Nullifier::from_bytes(
+                        a.nullifier.as_slice().try_into().unwrap(),
+                    )
+                    .unwrap(),
+                    orchard::note::ExtractedNoteCommitment::from_bytes(
+                        a.cmx.as_slice().try_into().unwrap(),
+                    )
+                    .unwrap(),
+                    zcash_note_encryption::EphemeralKeyBytes(
+                        a.ephemeral_key.as_slice().try_into().unwrap(),
+                    ),
                     a.ciphertext.as_slice().try_into().unwrap(),
                 );
                 let d = orchard::note_encryption::IronwoodDomain::for_compact_action(&ca);
-                if let Some((note, _)) = zcash_note_encryption::try_compact_note_decryption(&d, &ivk, &ca) {
+                if let Some((note, _)) =
+                    zcash_note_encryption::try_compact_note_decryption(&d, &ivk, &ca)
+                {
                     nf = Some(note.nullifier(&fvk).to_bytes().to_vec());
                     break 'outer;
                 }
@@ -192,10 +248,20 @@ fn the_balance_counts_what_was_received_and_a_spend_in_the_range() {
     let nf = nf.expect("a note of ours");
     let last = m.len() - 2; // the last block with transactions is not the final, empty pattern block
     let mut b = CompactBlock::decode(m[last].as_slice()).unwrap();
-    let t = b.vtx.iter_mut().find(|t| !t.actions.is_empty()).expect("a transaction");
+    let t = b
+        .vtx
+        .iter_mut()
+        .find(|t| !t.actions.is_empty())
+        .expect("a transaction");
     t.actions[0].nullifier = nf;
     m[last] = b.encode_to_vec();
-    let open = corpus::write(&corpus::Header { expected: [corpus::UNKNOWN; 4], ..h }, &m);
+    let open = corpus::write(
+        &corpus::Header {
+            expected: [corpus::UNKNOWN; 4],
+            ..h
+        },
+        &m,
+    );
     let s = all_stages(&open).unwrap();
     assert_eq!(s.received_and_spent().1, synth::PLANTED_ZAT);
 }
@@ -214,7 +280,11 @@ fn a_block_that_does_not_follow_the_one_before_it_is_refused() {
     assert!(s.decode_inner().err().unwrap().contains("does not follow"));
 }
 
-fn with_block(f: &[u8], i: usize, edit: impl Fn(&mut konclave_benchmark::proto::CompactBlock)) -> Vec<u8> {
+fn with_block(
+    f: &[u8],
+    i: usize,
+    edit: impl Fn(&mut konclave_benchmark::proto::CompactBlock),
+) -> Vec<u8> {
     use konclave_benchmark::proto::CompactBlock;
     use prost::Message;
     let (h, msgs, _) = corpus::parse(f).unwrap();
@@ -246,10 +316,17 @@ fn a_block_that_declares_another_tree_size_is_refused() {
     for pool in 0..2 {
         let bad = with_block(&small(), 2, |b| {
             let c = b.chain_metadata.as_mut().unwrap();
-            if pool == 0 { c.orchard_commitment_tree_size += 1 } else { c.ironwood_commitment_tree_size += 1 }
+            if pool == 0 {
+                c.orchard_commitment_tree_size += 1
+            } else {
+                c.ironwood_commitment_tree_size += 1
+            }
         });
         let mut s = Scan::from_corpus(&bad).unwrap();
-        assert!(s.decode_inner().err().unwrap().contains("tree size"), "pool {pool}");
+        assert!(
+            s.decode_inner().err().unwrap().contains("tree size"),
+            "pool {pool}"
+        );
     }
 }
 
@@ -258,7 +335,16 @@ fn a_header_with_other_action_counts_is_refused() {
     let f = small();
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let m: Vec<Vec<u8>> = msgs.iter().map(|x| x.to_vec()).collect();
-    for bad in [corpus::Header { orchard_actions: h.orchard_actions + 1, ..h.clone() }, corpus::Header { ironwood_actions: h.ironwood_actions + 1, ..h.clone() }] {
+    for bad in [
+        corpus::Header {
+            orchard_actions: h.orchard_actions + 1,
+            ..h.clone()
+        },
+        corpus::Header {
+            ironwood_actions: h.ironwood_actions + 1,
+            ..h.clone()
+        },
+    ] {
         let mut s = Scan::from_corpus(&corpus::write(&bad, &m)).unwrap();
         assert!(s.decode_inner().err().unwrap().contains("action counts"));
     }
@@ -270,7 +356,11 @@ fn the_summary_counts_each_pool_on_its_own() {
     use konclave_benchmark::proto::CompactBlock;
     use prost::Message;
     // A corpus with Ironwood actions only in one extra transaction, so the two pools differ.
-    let f = synth::generate(Params { blocks: 3, big_tx: Some(60), ..Default::default() });
+    let f = synth::generate(Params {
+        blocks: 3,
+        big_tx: Some(60),
+        ..Default::default()
+    });
     let (_, msgs, _) = corpus::parse(&f).unwrap();
     let (mut o, mut i) = (0, 0);
     for m in msgs {
@@ -281,7 +371,10 @@ fn the_summary_counts_each_pool_on_its_own() {
     }
     assert_ne!(o, i);
     let s = all_stages(&f).unwrap().summary();
-    assert!(s.contains(&format!("\"orchard\":{o},\"ironwood\":{i}")), "{s}");
+    assert!(
+        s.contains(&format!("\"orchard\":{o},\"ironwood\":{i}")),
+        "{s}"
+    );
 }
 
 #[test]
@@ -289,8 +382,17 @@ fn more_blocks_than_the_header_says_are_refused() {
     let f = small();
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let m: Vec<Vec<u8>> = msgs.iter().map(|x| x.to_vec()).collect();
-    let bad = corpus::write(&corpus::Header { blocks: h.blocks - 1, ..h }, &m);
-    assert!(Scan::from_corpus(&bad).err().unwrap().contains("more blocks"));
+    let bad = corpus::write(
+        &corpus::Header {
+            blocks: h.blocks - 1,
+            ..h
+        },
+        &m,
+    );
+    assert!(Scan::from_corpus(&bad)
+        .err()
+        .unwrap()
+        .contains("more blocks"));
 }
 
 // W-a
@@ -308,17 +410,23 @@ fn a_witness_is_made_for_every_note_found() {
 // A range packed from what a server sent is scanned like the corpus it came from, and a wrong end state is caught
 #[test]
 fn a_packed_range_scans_to_the_same_root() {
-    let (f, end) = synth::generate_with_end(Params { blocks: 6, ..Default::default() });
+    let (f, end) = synth::generate_with_end(Params {
+        blocks: 6,
+        ..Default::default()
+    });
     let (h, msgs, _) = corpus::parse(&f).unwrap();
     let m: Vec<Vec<u8>> = msgs.iter().map(|x| x.to_vec()).collect();
-    let packed = konclave_benchmark::pack::pack(h.start_height, &m, [&[], &[]], [&end[0], &end[1]]).unwrap();
+    let packed =
+        konclave_benchmark::pack::pack(h.start_height, &m, [&[], &[]], [&end[0], &end[1]]).unwrap();
     let a = all_stages(&f).unwrap();
     let b = all_stages(&packed).unwrap();
     assert_eq!(a.root_bytes(0).unwrap(), b.root_bytes(0).unwrap());
     assert_eq!(a.root_bytes(1).unwrap(), b.root_bytes(1).unwrap());
-    let wrong = konclave_benchmark::pack::pack(h.start_height, &m, [&[], &[]], [&end[1], &end[0]]).unwrap();
+    let wrong =
+        konclave_benchmark::pack::pack(h.start_height, &m, [&[], &[]], [&end[1], &end[0]]).unwrap();
     assert!(all_stages(&wrong).err().unwrap().contains("root"));
-    let gap = konclave_benchmark::pack::pack(h.start_height + 1, &m, [&[], &[]], [&end[0], &end[1]]);
+    let gap =
+        konclave_benchmark::pack::pack(h.start_height + 1, &m, [&[], &[]], [&end[0], &end[1]]);
     assert!(gap.is_err());
 }
 
@@ -336,8 +444,17 @@ fn a_small_pool_still_splits_into_batches_for_every_thread() {
 #[test]
 fn a_small_corpus_reports_the_batch_it_used() {
     // About 900 actions per pool: under the 1024 ceiling, over one minimum batch.
-    let s = all_stages(&synth::generate(Params { blocks: 40, actions_per_tx: 16, ..Default::default() })).unwrap();
-    assert!(!s.summary().contains("\"batch_size\":{\"orchard\":1024"), "{}", s.summary());
+    let s = all_stages(&synth::generate(Params {
+        blocks: 40,
+        actions_per_tx: 16,
+        ..Default::default()
+    }))
+    .unwrap();
+    assert!(
+        !s.summary().contains("\"batch_size\":{\"orchard\":1024"),
+        "{}",
+        s.summary()
+    );
     // More than one batch per pool on this corpus: decrypting it in one ceiling-sized batch would show 1.
     let made = s.summary();
     let n = |pool: &str| -> usize {
@@ -357,16 +474,36 @@ fn the_summary_holds_a_hash_of_the_key_and_no_part_of_it() {
     use zcash_protocol::consensus::NetworkType;
     let sk = orchard::keys::SpendingKey::from_bytes([42; 32]).unwrap();
     let fvk = orchard::keys::FullViewingKey::from(&sk);
-    let ufvk = unified::Ufvk::try_from_items(Revision::R0, vec![unified::Uitem::Data(unified::Fvk::Orchard(fvk.to_bytes()))]).unwrap().encode(&NetworkType::Test);
+    let ufvk = unified::Ufvk::try_from_items(
+        Revision::R0,
+        vec![unified::Uitem::Data(unified::Fvk::Orchard(fvk.to_bytes()))],
+    )
+    .unwrap()
+    .encode(&NetworkType::Test);
     let f = small();
-    assert!(Scan::from_corpus(&f).unwrap().summary().contains("\"key_sha256\":null"), "the synthetic key has no hash to show");
+    assert!(
+        Scan::from_corpus(&f)
+            .unwrap()
+            .summary()
+            .contains("\"key_sha256\":null"),
+        "the synthetic key has no hash to show"
+    );
     let mut s = Scan::from_corpus(&f).unwrap();
     s.set_ufvk_inner(&ufvk).unwrap();
     let summary = s.summary();
-    let want: String = Sha256::digest(ufvk.as_bytes()).iter().map(|b| format!("{b:02x}")).collect();
-    assert!(summary.contains(&format!("\"key_sha256\":\"{want}\"")), "{summary}");
+    let want: String = Sha256::digest(ufvk.as_bytes())
+        .iter()
+        .map(|b| format!("{b:02x}"))
+        .collect();
+    assert!(
+        summary.contains(&format!("\"key_sha256\":\"{want}\"")),
+        "{summary}"
+    );
     for n in [6, 8, 12, 20] {
-        assert!(!summary.contains(&ufvk[..n]), "the first {n} characters of the key are in the summary");
+        assert!(
+            !summary.contains(&ufvk[..n]),
+            "the first {n} characters of the key are in the summary"
+        );
     }
     assert!(!summary.contains("\"key\":"), "{summary}");
 }
@@ -381,19 +518,39 @@ fn the_summary_counts_the_bytes_of_the_compact_blocks_it_was_given() {
     let mut sorted = sizes.clone();
     sorted.sort();
     let summary = Scan::from_corpus(&f).unwrap().summary();
-    assert!(summary.contains(&format!("\"compact_bytes\":{total},")), "{summary}");
-    let median = if sorted.len() % 2 == 1 { sorted[sorted.len() / 2] as f64 } else { (sorted[sorted.len() / 2 - 1] + sorted[sorted.len() / 2]) as f64 / 2.0 };
-    assert!(summary.contains(&format!("\"compact_bytes_by_block\":{{\"min\":{},\"median\":{},\"max\":{}}}", sorted[0], median, sorted[sorted.len() - 1])), "{summary}");
+    assert!(
+        summary.contains(&format!("\"compact_bytes\":{total},")),
+        "{summary}"
+    );
+    let median = if sorted.len() % 2 == 1 {
+        sorted[sorted.len() / 2] as f64
+    } else {
+        (sorted[sorted.len() / 2 - 1] + sorted[sorted.len() / 2]) as f64 / 2.0
+    };
+    assert!(
+        summary.contains(&format!(
+            "\"compact_bytes_by_block\":{{\"min\":{},\"median\":{},\"max\":{}}}",
+            sorted[0],
+            median,
+            sorted[sorted.len() - 1]
+        )),
+        "{summary}"
+    );
     // pushed one by one, as a live row does
     let (h, _, _) = corpus::parse(&f).unwrap();
     let mut live = Scan::live(h.start_height, &h.orchard_tree, &h.ironwood_tree).unwrap();
     for m in &msgs {
         live.push_message(m.to_vec()).unwrap();
     }
-    assert!(live.summary().contains(&format!("\"compact_bytes\":{total},")));
+    assert!(live
+        .summary()
+        .contains(&format!("\"compact_bytes\":{total},")));
     // and the count is still there after the stages ran
     let after = all_stages(&f).unwrap().summary();
-    assert!(after.contains(&format!("\"compact_bytes\":{total},")), "{after}");
+    assert!(
+        after.contains(&format!("\"compact_bytes\":{total},")),
+        "{after}"
+    );
 }
 
 // The bare roots the result records
@@ -402,13 +559,18 @@ fn root_hex(b: [u8; 32]) -> String {
 }
 
 fn roots_of(summary: &str) -> String {
-    let i = summary.find("\"tree_roots\":").expect("tree_roots is in the summary");
+    let i = summary
+        .find("\"tree_roots\":")
+        .expect("tree_roots is in the summary");
     summary[i..].to_string()
 }
 
 #[test]
 fn the_summary_records_the_bare_roots_the_scan_checks() {
-    let f = synth::generate(Params { blocks: 8, ..Default::default() });
+    let f = synth::generate(Params {
+        blocks: 8,
+        ..Default::default()
+    });
     let (h, _, _) = corpus::parse(&f).unwrap();
     let (want_o, want_i) = h.roots.expect("the synthetic corpus carries its end roots");
     let s = all_stages(&f).unwrap();
@@ -424,11 +586,27 @@ fn the_summary_records_the_bare_roots_the_scan_checks() {
     );
     assert_eq!(roots_of(&s.summary()), format!("{want}}}"));
     // A range from the middle starts from a root that is not the empty one, and ends where the whole chain ends.
-    let whole = all_stages(&synth::generate(Params { blocks: 12, ..Default::default() })).unwrap();
-    let tail = all_stages(&synth::generate(Params { blocks: 7, skip_blocks: 5, ..Default::default() })).unwrap();
-    assert_ne!(tail.start_root_bytes(0), konclave_benchmark::tree::empty_root().to_bytes());
+    let whole = all_stages(&synth::generate(Params {
+        blocks: 12,
+        ..Default::default()
+    }))
+    .unwrap();
+    let tail = all_stages(&synth::generate(Params {
+        blocks: 7,
+        skip_blocks: 5,
+        ..Default::default()
+    }))
+    .unwrap();
+    assert_ne!(
+        tail.start_root_bytes(0),
+        konclave_benchmark::tree::empty_root().to_bytes()
+    );
     // It is the root the first five blocks end on, in both pools.
-    let head = all_stages(&synth::generate(Params { blocks: 5, ..Default::default() })).unwrap();
+    let head = all_stages(&synth::generate(Params {
+        blocks: 5,
+        ..Default::default()
+    }))
+    .unwrap();
     assert_eq!(tail.start_root_bytes(0), head.root_bytes(0).unwrap());
     assert_eq!(tail.start_root_bytes(1), head.root_bytes(1).unwrap());
     assert_eq!(tail.root_bytes(0).unwrap(), whole.root_bytes(0).unwrap());
@@ -448,7 +626,14 @@ fn building_a_scan_computes_no_root_and_summary_computes_the_start_roots() {
     let before = N.load(Relaxed);
     let s = Scan::live(h.start_height, &h.orchard_tree, &h.ironwood_tree).unwrap();
     let c = Scan::from_corpus(&f).unwrap();
-    assert_eq!(N.load(Relaxed), before, "building a scan computed a start root");
+    assert_eq!(
+        N.load(Relaxed),
+        before,
+        "building a scan computed a start root"
+    );
     let _ = (s.summary(), c.summary());
-    assert!(N.load(Relaxed) >= before + 4, "summary is where the start roots are computed");
+    assert!(
+        N.load(Relaxed) >= before + 4,
+        "summary is where the start roots are computed"
+    );
 }
