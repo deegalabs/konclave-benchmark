@@ -11,6 +11,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- `docs/method.md`, the method from end to end, linked from the README limits.
 - An SPDX licence line at the top of each file in `proxy/`; the file hashes in `web/endpoints.mjs` follow.
 - A line in the README limits: a link fills the endpoint only with an origin of the endpoint table (with a test).
 - A test that fails if a tracked file carries a private review id or review word (it reads every tracked file, not only `//` comments).
