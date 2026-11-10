@@ -50,6 +50,7 @@ Each number is the median of at least 5 counted runs of one session, as `scripts
 - The first-scan verdict is the 50,000-block row (`first-scan` in `web/ranges.mjs`); the 43.4-day row (`first-scan-43d` in the same table) is information only and never binds a verdict.
 - Information only, never a verdict: threads on, the proof alone, the 43.4-day range, a replay of a saved range, a live row on any other endpoint (a local one and the pipeline proxy included), a scan with any key but the published one, a row on a range that is not fixed, and every community result.
 - A link can fill the endpoint field only with an origin of the endpoint table in `web/endpoints.mjs`; any other server is typed in by hand, and nothing runs until you tap Run.
+- The method end to end (what is timed, devices, how a run counts, how a community result is accepted, the battery method, not yet posted or measured) is in [docs/method.md](docs/method.md).
 - The proxy: `allowOrigins` is not access control; any client can call the four routes the proxy allows. The route rules and a rate limit keep it from being an open relay. A proxy sees the address of its callers. The files and what is and is not proven are in [docs/protocol-details.md](docs/protocol-details.md).
 - The published test key, `config/test-vault.json`, is the one viewing key allowed in this repository; `docs/test-vault-key.md` says what it reveals.
 - The Content-Security-Policy does not protect against an edited copy of the page.

@@ -2163,6 +2163,13 @@ test('every proxy file starts with its SPDX line and the table hashes the file a
   for (const f of files) assert.equal(readFileSync(join(root, f), 'utf8').split('\n')[0], '# SPDX-License-Identifier: MIT OR Apache-2.0', f);
 });
 
+test('docs/method.md exists, is linked from the README and says the battery is not measured', () => {
+  const m = readFileSync(new URL('../docs/method.md', import.meta.url), 'utf8');
+  for (const h of ['## What is timed', '## Devices', '## How a run counts', '## How a community result is accepted', '## Battery']) assert.ok(m.includes(h), h);
+  assert.match(m, /nothing has been measured/);
+  assert.match(readFileSync(new URL('../README.md', import.meta.url), 'utf8'), /\]\(docs\/method\.md\)/);
+});
+
 // Free text is short: the page refuses a long field before a run, and the summary refuses a record that carries one, with its own reason.
 test('a free text field longer than its limit is refused by the page and by the summary, each with its reason', async () => {
   const { tooLongField, FORM_LIMITS } = await import('../web/plan.mjs');
