@@ -1,6 +1,6 @@
 # The published test vault key: what it reveals
 
-DRAFT, for when the vault exists. There is no such vault or key yet.
+This is the key in `config/test-vault.json`: the test vault of this benchmark, a 2-of-3 made only for it, with a small balance.
 
 A viewing key cannot be withdrawn once published. Anyone holding it can, for the whole life of that vault, past and future:
 - see every payment into and out of it, with amounts, destinations it paid, and memos;
