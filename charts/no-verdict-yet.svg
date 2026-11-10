@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="110" viewBox="0 0 720 110" role="img" aria-label="no verdict run yet">
+<rect width="720" height="110" fill="#fff" stroke="#999"/>
+<text x="20" y="38" font-size="18" font-weight="bold" font-family="sans-serif">No verdict run yet</text>
+<text x="20" y="62" font-size="12" font-family="sans-serif">Bars in the code (web/summarize-core.mjs BARS): prove 180.0 s phone, 90.0 s laptop; daily scan 30.0 s; first scan 600.0 s.</text>
+<text x="20" y="84" font-size="11" fill="#555" font-family="sans-serif">Drawn by scripts/charts.mjs from result files only. This one has no result.</text>
+</svg>

@@ -1,0 +1,48 @@
+[package]
+name = "konclave-benchmark"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.88"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "What scanning and proving cost in a browser on real devices: a measurement harness on the Konclave v0.16.0 crate line."
+
+[workspace]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+# Web Workers plus wasm threads: needs the nightly build in build.sh and a cross-origin isolated page.
+threads = ["dep:rayon", "dep:wasm-bindgen-rayon", "wasm-bindgen-rayon/no-bundler", "orchard/multicore"]
+
+[dependencies]
+# The same versions as konclave v0.16.0 (97db037) Cargo.lock. halo2_proofs, blake2b_simd and the rest of the proving
+# path are pinned to that line in Cargo.lock: build with --locked. Build tools and small utilities may be newer.
+orchard = { version = "=0.16.0", default-features = false, features = ["circuit", "std"] }
+zcash_note_encryption = "=0.5.1"
+incrementalmerkletree = { version = "=0.9.0", features = ["legacy-api"] }
+shardtree = "=0.8.0"
+zcash_address = "=0.14.0"
+zcash_protocol = { version = "=0.11.0", default-features = false }
+prost = { version = "0.14", default-features = false, features = ["derive", "std"] }
+sha2 = { version = "0.10", default-features = false }
+rand = { version = "0.10", default-features = false, features = ["std_rng"] }
+wasm-bindgen = "=0.2.127"
+rayon = { version = "1.8", optional = true }
+wasm-bindgen-rayon = { version = "1.3", optional = true }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+# Nothing here draws randomness at run time for a measurement; orchard's graph needs a backend to compile.
+getrandom = { version = "0.4", features = ["wasm_js"] }
+
+[dev-dependencies]
+# Only to check our message tags and frontier parser against the crates that define them.
+zcash_client_backend = { version = "=0.25.0", default-features = false, features = ["orchard"] }
+zcash_primitives = { version = "=0.31.0", default-features = false }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

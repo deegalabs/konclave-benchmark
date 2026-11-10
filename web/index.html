@@ -1,0 +1,55 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: MIT OR Apache-2.0 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Konclave benchmark</title>
+<style>
+body { font: 16px/1.4 system-ui, sans-serif; max-width: 42rem; margin: 0 auto; padding: 16px; background: #fff; color: #111; }
+label { display: block; margin: .5rem 0; }
+input[type=text], select, textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .4rem; }
+button { font: inherit; padding: .5rem 1rem; margin-right: .5rem; }
+pre { white-space: pre-wrap; background: #f4f4f4; padding: .5rem; min-height: 3rem; }
+textarea { height: 10rem; font-family: monospace; font-size: 12px; }
+small { color: #555; }
+</style>
+</head>
+<body>
+<h1>Konclave benchmark</h1>
+<p>What scanning and proving cost in this browser, on this device. Nothing leaves the page unless you type an endpoint below. Numbers are not a sync time: there is no wallet database here.</p>
+<p><small>Harness <span id="commit"></span>. Mode: <span id="isolated"></span>. <a href="threads.html">Threads page</a></small></p>
+<p id="trail-warning" style="color:#a00;font-weight:bold"></p>
+<p id="prefill"></p>
+<label>Device (model and RAM) <input type="text" id="device"></label>
+<label>Device class <select id="device-class"><option value="">choose</option><option>phone</option><option>laptop</option><option>other</option></select></label>
+<label>Temperature, from the phone (read at the start and at the end of each run; update it between runs) <input type="text" id="temp"></label>
+<label><input type="checkbox" id="charging"> On the charger</label>
+<label>Runs per row <input type="text" id="runs" value="5"></label>
+<label>Threads <select id="threads"><option value="off">off</option><option value="on">on</option></select></label>
+<label>Thread count (empty: this device's) <input type="text" id="nthreads"></label>
+<fieldset><legend><label><input type="checkbox" id="do-prove" checked> Prove</label></legend>
+<label>Pool <select id="pool"><option>ironwood-v3</option><option>orchard-v2</option></select></label>
+<label>Outputs, comma separated <input type="text" id="axis" value="2"></label>
+</fieldset>
+<fieldset><legend><label><input type="checkbox" id="do-scan"> Scan</label></legend>
+<label>This range is <select id="range-kind"><option value="other">other: the heights typed below</option><option value="daily">one day of blocks (3,456)</option><option value="first-scan">a first scan (50,000 blocks)</option><option value="first-scan-43d">43.4 days of blocks (information only)</option></select></label>
+<label>Saved range <input type="text" id="corpus" value="synthetic-10k.bin"></label>
+<label>Or a live light client endpoint (gRPC-web). Empty means no network <input type="text" id="endpoint"></label>
+<label>Live range, first height <input type="text" id="start"></label>
+<label>Live range, last height <input type="text" id="end"></label>
+<label>Viewing key to scan with. Empty means the synthetic test key. Use a published test key only <input type="text" id="ufvk" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off"></label>
+<label>Skip transactions over this many actions. Empty means none <input type="text" id="filter"></label>
+</fieldset>
+<p><button id="go" disabled>Run</button><button id="stop">Stop</button></p>
+<p id="stage"></p>
+<pre id="log"></pre>
+<h2>Result</h2>
+<pre id="summary"></pre>
+<p>Raw output. Nothing is uploaded: the numbers stay in this browser until you copy them.</p>
+<p><span id="count"></span> <button id="copy">Copy all</button><button id="clear">Clear</button></p>
+<textarea id="out" readonly></textarea>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

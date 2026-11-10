@@ -1,0 +1,9 @@
+{
+  "_": "The test vault of the M1 benchmark (a 2-of-3 made only for this benchmark, with a small balance). This viewing key is public for good: see docs/test-vault-key.md for what it reveals.",
+  "ufvk": "uview120w58ly524phk749ga2enmv4t6wgu5axndh04jdkzu63ajxnl4ulgewssjs9nmmzwvml0a980lc5jzz6vrkdm92sz2jhlsl3gj08fcadazwnajxedrlwr5q30y2pp6lsykng8pnz4q27p2hfzq6nm5ssml92cu3djq04pgcyr78kcmr6alludecc6pqaw",
+  "birthday": 3558848,
+  "address": "u1n0gv74hf9rxn8vp82n5n0s8wh2jc57etal565aejwrt8txcxycnc3v2rrhcjwpnsg57x7e9crllqjz04zjrvaemud8rssq9qvvlp6vyj",
+  "endpoint": null,
+  "reference_balance_zat": null,
+  "reference_read_with": "zcash-devtool wallet balance"
+}

@@ -1,0 +1,27 @@
+# Adapted from red-dev-inc/WebZjs traefik/ at c0457174 (MIT OR Apache-2.0, https://github.com/red-dev-inc/WebZjs).
+# Changes: file provider only, no docker socket, no dashboard, no API, allowOrigins limited to the pages that use the proxy, the
+# published ports pinned to 127.0.0.1, the image pinned by digest, routers limited to the four calls the harness makes, a rate limit.
+http:
+  routers:
+    testnet:
+      # Only the four calls the harness makes (POST), and OPTIONS for the browser's preflight on those paths: no SendTransaction, no address or mempool calls.
+      rule: "(Method(`POST`) || Method(`OPTIONS`)) && (Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLatestBlock`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetBlockRange`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetTreeState`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLightdInfo`))"
+      service: zec-testnet
+      middlewares: [rate-limit, grpc-web]
+      entryPoints: [testnet]
+  middlewares:
+    grpc-web:
+      # 8090: the harness page. Nothing else uses the testnet proxy.
+      grpcWeb:
+        allowOrigins: ["http://localhost:8090"]
+    rate-limit:
+      # Rate limit in front of the proxy.
+      rateLimit:
+        average: 20
+        period: 1s
+        burst: 40
+  services:
+    zec-testnet:
+      loadBalancer:
+        servers:
+          - url: https://testnet.zec.rocks:443

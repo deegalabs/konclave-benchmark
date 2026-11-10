@@ -1,0 +1,19 @@
+# Adapted from red-dev-inc/WebZjs traefik/ at c0457174 (MIT OR Apache-2.0, https://github.com/red-dev-inc/WebZjs).
+# Changes: file provider only, no docker socket, no dashboard, no API, allowOrigins limited to the pages that use the proxy, the
+# published ports pinned to 127.0.0.1, the image pinned by digest, routers limited to the four calls the harness makes, a rate limit.
+# A gRPC-web proxy for the pipeline checks, on this machine. Nothing else is in the path. Verdict runs use the hosted proxy
+# (web/endpoints.mjs), not this one. Start: docker compose -f proxy/compose.yml up -d
+name: m1-grpcweb-proxy
+services:
+  traefik:
+    image: traefik:v3.7.17@sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a
+    container_name: m1-grpcweb-proxy-compose
+    restart: "no"
+    # The default bridge: no network of its own is created (a host with many compose projects can run out of address pools).
+    network_mode: bridge
+    ports:
+      - "127.0.0.1:1234:80"
+      - "127.0.0.1:1235:81"
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./conf:/etc/traefik/conf:ro

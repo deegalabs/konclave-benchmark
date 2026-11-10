@@ -1,0 +1,5 @@
+[toolchain]
+# One compiler for both wasm flavours, so a threads row and a single row differ only in threads.
+channel = "nightly-2025-06-15"
+components = ["rust-src"]
+targets = ["wasm32-unknown-unknown"]

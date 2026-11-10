@@ -1,0 +1,8 @@
+/target
+/pkg
+/web/pkg
+/web/pkg-mt
+/web/stamp.json
+/web/corpus
+/corpus
+/node_modules
