@@ -43,7 +43,7 @@ A browser cannot call `zec.rocks` or `zec.global` directly: they send no CORS he
 
 ## Background
 
-The sections from here on were the README up to commit 157a510. They hold the verdict rules, the fields and flags and the scenario scripts. Only the links changed.
+The sections from here on come from the README as it stood at commit 157a510. They hold the verdict rules, the fields and flags and the scenario scripts. They were edited to read as part of this file: links, headings and the sentences that pointed to this file changed, and the licence and credits moved to the README.
 
 What scanning and proving cost in a browser, on phones and a laptop, timed stage by stage. It is not a sync time: there is no wallet database here.
 
@@ -55,7 +55,7 @@ Work in progress. No verdict run has been made yet, and nothing below is a resul
 
 ![No verdict run yet](../charts/no-verdict-yet.svg)
 
-One chart per device is drawn once the verdict runs exist, and the results table of the README links it: the proof (proving key build, circuit preparation and the first proof, threads off) and the scan (the daily range of 3,456 blocks, the first-scan range of 50,000 blocks), each against its bar, with the bar drawn as a line so a pass or a fail shows at a glance (a row that failed because runs were missing or killed is drawn as that reason, with no time). Which device carries the verdict is set by [the thresholds post](https://forum.zcashcommunity.com/t/58165/15), not by the code: the Galaxy A72 for the proof and both scans, and the laptop for the proof. The Galaxy A14 and S24 Ultra are drawn against the same bars and reported as they are, pass or fail. The code gives a pass or a fail to any row of class phone, and the device label is typed by whoever runs the page, so the report names the device and the chart of another phone is not the verdict. The bars are the ones in `BARS` in `web/summarize-core.mjs`.
+One chart per device is drawn in `charts/` once the verdict runs exist: the proof (proving key build, circuit preparation and the first proof, threads off) and the scan (the daily range of 3,456 blocks, the first-scan range of 50,000 blocks), each against its bar, with the bar drawn as a line so a pass or a fail shows at a glance (a row that failed because runs were missing or killed is drawn as that reason, with no time). Which device carries the verdict is set by [the thresholds post](https://forum.zcashcommunity.com/t/58165/15), not by the code: the Galaxy A72 for the proof and both scans, and the laptop for the proof. The Galaxy A14 and S24 Ultra are drawn against the same bars and reported as they are, pass or fail. The code gives a pass or a fail to any row of class phone, and the device label is typed by whoever runs the page, so the report names the device and the chart of another phone is not the verdict. The bars are the ones in `BARS` in `web/summarize-core.mjs`.
 
 The charts are made by `scripts/charts.mjs` from result files and by nothing else. A row is drawn only when the summary (`web/summarize-core.mjs`, the same code the page and `scripts/summarize.mjs` use) gives it a pass or a fail; a row it refuses, calls short, or calls "not a verdict" is not drawn, and each chart says how many rows of the report were left out. The picture above is the script's output on an empty results folder. A test checks that it is. No chart here is ever filled from a smoke run or drawn by hand.
 
@@ -93,10 +93,10 @@ node scripts/serve.mjs 8090
 ```
 Open `http://localhost:8090/`. On a phone: `adb reverse tcp:8090 tcp:8090`. `threads.html` turns on the threads flavour and isolates itself with a service worker. Served as above (without `--isolated`), `index.html` is not isolated and refuses a threads run. The scenario scripts below print the exact link for each row.
 
-Save what the page shows ("Copy all") into a `.json` file in a folder, then recompute every median and verdict from the raw JSON:
+Save what the page shows ("Copy all") into a `.json` file in a folder of your own (`my-results/` is ignored by git; `results/` is the project's folder), then recompute every median and verdict from the raw JSON:
 ```
-node scripts/summarize.mjs results --commit <the commit the report names>
-node scripts/charts.mjs results --commit <the commit the report names> --out charts
+node scripts/summarize.mjs my-results --commit <the commit the report names>
+node scripts/charts.mjs my-results --commit <the commit the report names> --out my-results/charts
 ```
 `--commit` is required: without it the build stamps cannot be checked, and the script prints no verdict and exits 2. `--session <id>` names the session that carries the verdict when a row has runs from more than one (see the flags table).
 
@@ -178,7 +178,7 @@ The proxy is Traefik (v3.7, pinned by digest) with the `grpcWeb` middleware and 
 
 ## Tests and what the proxy files were checked against
 
-The node tests read the synthetic corpus `web/corpus/synthetic-10k.bin` when they load, and it is not in the repository (`/web/corpus` is ignored): on a fresh clone make it first, with the `mkdir` and `gen_corpus` lines of "Reproduce it", or `node --test tests/node.test.mjs` fails before its first test. The charts and scenario tests need no corpus.
+The node tests read the synthetic corpus `web/corpus/synthetic-10k.bin` when they load, and it is not in the repository (`/web/corpus` is ignored): on a fresh clone make it first, with the `mkdir` and `gen_corpus` lines of "Reproduce it, in full" (or of "How to reproduce" in the README), or `node --test tests/node.test.mjs` fails before its first test. The charts and scenario tests need no corpus.
 ```
 cargo test --release
 node --test tests/node.test.mjs
