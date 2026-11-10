@@ -6,7 +6,7 @@ Why a community result is not a verdict: the verdict needs the project's endpoin
 
 ## How to send one
 
-1. Build or check out a commit of this repository, and run the page from that build (see "Reproduce it" in the README). Use the commit as it is: the page refuses to run when its script and wasm stamps differ.
+1. Build or check out a commit of this repository, and run the page from that build (see "How to reproduce" in the [README](../README.md)). Use the commit as it is: the page refuses to run when its script and wasm stamps differ.
 2. Run the rows you want, then copy the results from the page ("Copy all") into a file. Do not edit the file: every number in a report is recomputed from the raw JSON, and an edited result cannot be trusted.
 3. Check it on your side, naming the commit you built:
    ```

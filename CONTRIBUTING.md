@@ -14,4 +14,4 @@ This repository follows the [librustzcash style guides](https://github.com/zcash
   Co-Authored-By: Claude <noreply@anthropic.com>
   ```
 - The pull request fills in its AI disclosure line (see the template).
-- Before you open a pull request run `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`, `cargo test --release`, `node --test tests/node.test.mjs tests/charts.test.mjs`, `node scripts/check-no-keys.mjs` and `node scripts/check-history.mjs`. CI runs the same.
+- Before you open a pull request run `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`, `cargo test --release`, `node --test tests/node.test.mjs tests/charts.test.mjs`, `node scripts/check-no-keys.mjs` and `node scripts/check-history.mjs`. CI runs the same, with `--locked` on clippy and the Rust tests.
