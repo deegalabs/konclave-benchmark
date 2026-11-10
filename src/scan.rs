@@ -210,14 +210,14 @@ impl Scan {
         }
         // Each block must end at the tree size it declares, starting from the state before the range.
         let mut size = [0u64; 2];
-        for p in 0..2 {
-            size[p] = self.frontiers[p].as_ref().unwrap().tree_size();
+        for (p, s) in size.iter_mut().enumerate() {
+            *s = self.frontiers[p].as_ref().unwrap().tree_size();
         }
         let mut i = 0;
         for (bi, declared) in self.block_sizes.iter().enumerate() {
             while i < self.txs.len() && self.txs[i].0 == bi {
-                for p in 0..2 {
-                    size[p] += self.txs[i].1.actions[p].len() as u64;
+                for (p, s) in size.iter_mut().enumerate() {
+                    *s += self.txs[i].1.actions[p].len() as u64;
                 }
                 i += 1;
             }
@@ -300,7 +300,7 @@ impl Scan {
                 self.found[p][*k] += 1;
                 total += 1;
                 self.received_zat += note.value().inner();
-                notes.push(note.clone());
+                notes.push(*note);
             }
         }
         // A note is spent when its nullifier appears in an action of this range. Within the range only: a spend

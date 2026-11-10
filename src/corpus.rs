@@ -82,8 +82,11 @@ impl<'a> Reader<'a> {
     }
 }
 
+/// The header, the framed messages and the digest of a parsed corpus.
+pub type Parsed<'a> = (Header, Vec<&'a [u8]>, [u8; 32]);
+
 /// Refuses a corpus whose hash does not match, or whose framing does not match its own header.
-pub fn parse(file: &[u8]) -> Result<(Header, Vec<&[u8]>, [u8; 32]), String> {
+pub fn parse(file: &[u8]) -> Result<Parsed<'_>, String> {
     if file.len() < 40 || &file[0..4] != MAGIC {
         return Err("not a corpus file".into());
     }
