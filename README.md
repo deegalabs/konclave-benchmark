@@ -6,7 +6,7 @@ This is a measurement harness for what scanning and proving cost inside a browse
 
 ## How to reproduce
 
-The compiler is the one in `rust-toolchain.toml` (`nightly-2025-06-15`, with `rust-src`, `rustfmt`, `clippy` and the `wasm32-unknown-unknown` target); `rustup show` installs it. You need rustup, wasm-pack 0.13.1 and Node 24.
+The compiler is the one in `rust-toolchain.toml` (`nightly-2025-06-15`, with `rust-src`, `rustfmt`, `clippy` and the `wasm32-unknown-unknown` target); `rustup toolchain install` (run in the repository) installs it. You need rustup, wasm-pack 0.13.1 and Node 24.
 
 | Target | Command |
 |---|---|
