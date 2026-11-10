@@ -20,26 +20,26 @@ export const ENDPOINTS = [
   {
     origin: 'http://localhost:1234', hostname: null, via: 'proxy', role: 'pipeline', upstream: 'zec.rocks:443',
     files: {
-      'proxy/compose.yml': 'e780b26be7dda4ea7c8a2d14e4fa46cabf487ce35f223b2ffae58cfef91727ca',
-      'proxy/traefik.yml': 'abae3310eaf92c17356dcffc09aba198e2d76ed1d10d2a25498d0b23c23e77e7',
-      'proxy/conf/dynamic.yml': 'e1b5244516f4fe0c1a9d64ad9a9db89c7bd397b2fc4c84deb0a9695be2ae6d30',
+      'proxy/compose.yml': '715a29b3de37924bc05ce9f532ae90586e5a8bbcaa0452690039fe2a99e82561',
+      'proxy/traefik.yml': 'f2e4c2968c5dc9a589fb3ca1a6564b9bdbfa16e318c75ca001aabca0788857fe',
+      'proxy/conf/dynamic.yml': '5e4e6be0c3335214deba4c348533b83f761dd5dc8cfd538157adabca3759d70e',
     },
   },
   {
     origin: 'http://localhost:1235', hostname: null, via: 'proxy', role: 'pipeline', upstream: 'zec.global:443',
     files: {
-      'proxy/compose.yml': 'e780b26be7dda4ea7c8a2d14e4fa46cabf487ce35f223b2ffae58cfef91727ca',
-      'proxy/traefik.yml': 'abae3310eaf92c17356dcffc09aba198e2d76ed1d10d2a25498d0b23c23e77e7',
-      'proxy/conf/dynamic.yml': 'e1b5244516f4fe0c1a9d64ad9a9db89c7bd397b2fc4c84deb0a9695be2ae6d30',
+      'proxy/compose.yml': '715a29b3de37924bc05ce9f532ae90586e5a8bbcaa0452690039fe2a99e82561',
+      'proxy/traefik.yml': 'f2e4c2968c5dc9a589fb3ca1a6564b9bdbfa16e318c75ca001aabca0788857fe',
+      'proxy/conf/dynamic.yml': '5e4e6be0c3335214deba4c348533b83f761dd5dc8cfd538157adabca3759d70e',
     },
   },
   // The testnet variant (proxy/testnet/): to try the proxy and the latency script before any mainnet read. No verdict.
   {
     origin: 'http://localhost:1244', hostname: null, via: 'proxy', role: 'pipeline', upstream: 'testnet.zec.rocks:443',
     files: {
-      'proxy/testnet/compose.yml': '21a7e950107707cd099e1dbbee39e0b09c346855b930284081df7e6bc11a4bf9',
-      'proxy/testnet/traefik.yml': '2100bb10e5499f80e085ce8fceea666f702556f1b1b73fe997ff3d243116a897',
-      'proxy/testnet/conf/dynamic.yml': 'ea9f0385864361ad3a6825999db4846217da7a455933c1bf4db93d08cad50f02',
+      'proxy/testnet/compose.yml': 'a16aee413d587aeb8600d5727730ed4f1be1ea9bd8c8fa1d5521aa78ae25c2a4',
+      'proxy/testnet/traefik.yml': 'e7f74c01f5b4b8eb201b6fcee1c88b6d8b2f08336f9211df3b8d7651c1bb8199',
+      'proxy/testnet/conf/dynamic.yml': 'c6c48d31cd1958a2c6126bbc2def4a46343f47054bb5df444dbdb691c10be946',
     },
   },
   // The hosted proxy for verdict runs. Filled in after the deploy: the hostname, platform, edge/TLS termination, region and image digest,
