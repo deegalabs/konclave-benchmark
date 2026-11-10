@@ -6,32 +6,40 @@ This is a measurement harness for what scanning and proving cost inside a browse
 
 ## How to reproduce
 
-The compiler is the one in `rust-toolchain.toml` (`nightly-2025-06-15`, with `rust-src`, `rustfmt`, `clippy` and the `wasm32-unknown-unknown` target); `rustup toolchain install` (run in the repository) installs it. You need rustup, wasm-pack 0.13.1 and Node 24.
+The compiler is the one in `rust-toolchain.toml` (`nightly-2025-06-15`, with `rust-src`, `rustfmt`, `clippy` and the `wasm32-unknown-unknown` target). You need rustup, wasm-pack 0.13.1 and Node 24; Docker for a live row; adb and USB debugging for a phone.
 
 | Target | Command |
 |---|---|
+| Install the pinned compiler | `rustup toolchain install` |
 | Build the wasm, both flavours, and the stamps | `./build.sh` |
-| Make the synthetic corpus the page and the node tests read | `mkdir -p web/corpus && cargo run --release --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16` |
-| Serve the page (no hosted page exists) | `node scripts/serve.mjs 8090` |
+| Make the folder of the synthetic corpus | `mkdir -p web/corpus` |
+| Make the synthetic corpus the page and the tests read | `cargo run --release --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16` |
+| Serve the page (no hosted page exists); open `http://localhost:8090/` for a single-thread row or `http://localhost:8090/threads.html` for a threads row | `node scripts/serve.mjs 8090` |
 | Reach the page from an Android phone | `adb reverse tcp:8090 tcp:8090` |
-| Recompute every median and verdict from raw JSON | `node scripts/summarize.mjs results --commit <commit>` |
-| Draw the charts from raw JSON | `node scripts/charts.mjs results --commit <commit> --out charts` |
+| Start the pipeline proxy for a live row (its rows are never a verdict; without an endpoint the page replays the synthetic corpus) | `docker compose -f proxy/compose.yml up -d` |
+| Make the folder for your results, then save each "Copy all" from the page as a `.json` file in it | `mkdir -p my-results` |
+| Recompute every median and verdict from raw JSON | `node scripts/summarize.mjs my-results --commit <commit>` |
+| Draw the charts from raw JSON | `node scripts/charts.mjs my-results --commit <commit> --out my-results/charts` |
 | Rust tests | `cargo test --release` |
-| Format and lint | `cargo fmt --check` and `cargo clippy --all-targets -- -D warnings` |
+| Format check | `cargo fmt --check` |
+| Lint | `cargo clippy --all-targets -- -D warnings` |
 | Node tests (need the corpus above) | `node --test tests/node.test.mjs tests/charts.test.mjs` |
-| Key checks | `node scripts/check-no-keys.mjs` and `node scripts/check-history.mjs` |
-| Browser test (local only; needs Playwright and Chromium) | `PLAYWRIGHT_MODULE=.../playwright/index.js CHROMIUM=.../chrome node tests/browser.mjs` |
+| Key check of the tree | `node scripts/check-no-keys.mjs` |
+| Key check of the history | `node scripts/check-history.mjs` |
+| Browser test (local only; needs the build, the corpus, Playwright and Chromium) | `PLAYWRIGHT_MODULE=/path/to/playwright/index.js CHROMIUM=/path/to/chrome node tests/browser.mjs` |
 
 CI (`.github/workflows/ci.yml`) runs the format check, clippy, the Rust tests, the node tests and the two key checks; it does not run the browser test or the wasm build.
 
+The published test key, to scan with in the page, is the `ufvk` of `config/test-vault.json`. The page's fields and link parameters, and one script per scenario that prints the link of each row, are in [docs/protocol-details.md](docs/protocol-details.md).
+
 ## Results
 
-No verdict run has been made yet, so the table has no rows. Rows are added from the raw JSON files in [community-results/](community-results/) and from the project's own runs, with the numbers recomputed by `scripts/summarize.mjs`.
+No verdict run has been made yet, so the table has no rows. The project's own runs under the protocol go in [results/](results/), as raw JSON. Each row below will name the raw JSON file it is computed from, in this repository, and whether it is a verdict or information. A row from [community-results/](community-results/) is always information, never a verdict. Every number is recomputed from that file by `node scripts/summarize.mjs <folder> --commit <commit>`.
 
-| Device | Browser | Commit | Date | Proof (key build + preparation + first proof, threads off) | Daily scan (3,456 blocks) | First scan (50,000 blocks) |
-|---|---|---|---|---|---|---|
+| Device | Browser | Commit | Date | Kind (verdict or information) | Proof (key build + preparation + first proof, `prove-n2`, threads off) | Daily scan (3,456 blocks) | First scan (50,000 blocks) | Raw JSON |
+|---|---|---|---|---|---|---|---|---|
 
-The proof and scan columns are the medians of at least 5 counted runs of one session, as `scripts/summarize.mjs` computes them. The bars are in `BARS` in `web/summarize-core.mjs`. The chart of the empty state is `charts/no-verdict-yet.svg`.
+Each number is the median of at least 5 counted runs of one session, as `scripts/summarize.mjs` computes it. The bars are in `BARS` in `web/summarize-core.mjs`. The chart of the empty state is `charts/no-verdict-yet.svg`.
 
 ## What it does not measure, and known limits
 
@@ -39,7 +47,7 @@ The proof and scan columns are the medians of at least 5 counted runs of one ses
 - A verdict needs the one endpoint of `web/endpoints.mjs` with the role `verdict` (the project's hosted gRPC-web proxy), a range fixed in `web/ranges.mjs`, the published test key, at least 5 counted runs and one session per row. The hosted proxy has no host name in the table and the range heights are `null` today, so the code gives no live row a verdict.
 - The verdict device is set by [the thresholds post](https://forum.zcashcommunity.com/t/58165/15), not by the code. The device label is typed by whoever runs the page.
 - Information only, never a verdict: threads on, the proof alone, the 43.4-day range, a replay of a saved range, a live row on any other endpoint (a local one and the pipeline proxy included), a scan with any key but the published one, a row on a range that is not fixed, and every community result.
-- The proxy: `allowOrigins` is not access control; the routes and the rate limit are. A proxy sees the address of its callers. The files and what is and is not proven are in [docs/protocol-details.md](docs/protocol-details.md).
+- The proxy: `allowOrigins` is not access control; any client can call the four routes the proxy allows. The route rules and a rate limit keep it from being an open relay. A proxy sees the address of its callers. The files and what is and is not proven are in [docs/protocol-details.md](docs/protocol-details.md).
 - The published test key, `config/test-vault.json`, is the one viewing key allowed in this repository; `docs/test-vault-key.md` says what it reveals.
 - The Content-Security-Policy does not protect against an edited copy of the page.
 
@@ -51,7 +59,7 @@ Open a pull request that adds one folder, `community-results/<your GitHub name>/
 
 MIT or Apache-2.0, at your option (`LICENSE-MIT`, `LICENSE-APACHE`).
 
-Built on the Zcash Foundation and librustzcash crates, at the versions of `Cargo.lock`: orchard 0.16.0 (with its halo2_proofs 0.4.0), zcash_note_encryption 0.5.1, incrementalmerkletree 0.9.0, shardtree 0.8.0, zcash_address 0.14.0 and zcash_protocol 0.11.0; zcash_client_backend 0.25.0 and zcash_primitives 0.31.0 are used in tests only. Other dependencies are prost, sha2, rand, wasm-bindgen, rayon and wasm-bindgen-rayon.
+Built on crates from the zcash GitHub organisation, at the versions of `Cargo.lock`: orchard 0.16.0 ([zcash/orchard](https://github.com/zcash/orchard)) with halo2_proofs 0.4.0 ([zcash/halo2](https://github.com/zcash/halo2)); zcash_note_encryption 0.5.1 ([zcash/zcash_note_encryption](https://github.com/zcash/zcash_note_encryption)); incrementalmerkletree 0.9.0 and shardtree 0.8.0 ([zcash/incrementalmerkletree](https://github.com/zcash/incrementalmerkletree)); zcash_address 0.14.0 and zcash_protocol 0.11.0 ([zcash/librustzcash](https://github.com/zcash/librustzcash)). zcash_client_backend 0.25.0 and zcash_primitives 0.31.0, also from librustzcash, are used in tests only. orchard depends on reddsa 0.6.1 from the Zcash Foundation ([ZcashFoundation/reddsa](https://github.com/ZcashFoundation/reddsa)). The other direct dependencies are prost, sha2, rand, wasm-bindgen, getrandom (wasm build only), and rayon and wasm-bindgen-rayon (threads build only).
 
 - The method follows ChainSafe's [zcash-wasm-benchmark](https://github.com/ChainSafe/zcash-wasm-benchmark) ([report](https://blog.chainsafe.io/investigating-a-zcash-web-wallet/)). It declares no licence, so none of its code is here.
 - The proxy configuration is adapted from [red-dev-inc/WebZjs](https://github.com/red-dev-inc/WebZjs) `traefik/` at `c0457174` (MIT OR Apache-2.0, Copyright (c) 2024 ChainSafe Systems); its licence text is in `THIRD-PARTY-NOTICES`.
