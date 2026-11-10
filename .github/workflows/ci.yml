@@ -35,6 +35,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('Cargo.lock', 'rust-toolchain.toml') }}
       - name: Generate the synthetic corpus
         run: |
+          git ls-files --error-unmatch web/corpus/synthetic-10k.bin.sha256
           mkdir -p web/corpus
           cargo run --release --locked --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16
           git diff --exit-code -- web/corpus/synthetic-10k.bin.sha256
