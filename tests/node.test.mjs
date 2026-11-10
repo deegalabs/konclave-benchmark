@@ -2155,6 +2155,14 @@ test('the README limits say a link fills the endpoint only from the endpoint tab
   assert.match(readFileSync(new URL('../README.md', import.meta.url), 'utf8'), /A link can fill the endpoint field only with an origin of the endpoint table/);
 });
 
+test('every proxy file starts with its SPDX line and the table hashes the file as it is', async () => {
+  const { execFileSync } = await import('node:child_process');
+  const root = fileURLToPath(new URL('../', import.meta.url));
+  const files = execFileSync('git', ['ls-files', 'proxy'], { cwd: root, encoding: 'utf8' }).split('\n').filter(Boolean);
+  assert.equal(files.length, 6);
+  for (const f of files) assert.equal(readFileSync(join(root, f), 'utf8').split('\n')[0], '# SPDX-License-Identifier: MIT OR Apache-2.0', f);
+});
+
 // Free text is short: the page refuses a long field before a run, and the summary refuses a record that carries one, with its own reason.
 test('a free text field longer than its limit is refused by the page and by the summary, each with its reason', async () => {
   const { tooLongField, FORM_LIMITS } = await import('../web/plan.mjs');

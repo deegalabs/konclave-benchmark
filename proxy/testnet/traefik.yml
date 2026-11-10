@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Adapted from red-dev-inc/WebZjs traefik/ at c0457174 (MIT OR Apache-2.0, https://github.com/red-dev-inc/WebZjs).
 # Changes: file provider only, no docker socket, no dashboard, no API, allowOrigins limited to the pages that use the proxy, the
 # published ports pinned to 127.0.0.1, the image pinned by digest, routers limited to the four calls the harness makes, a rate limit.
