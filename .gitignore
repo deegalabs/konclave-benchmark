@@ -3,7 +3,8 @@
 /web/pkg
 /web/pkg-mt
 /web/stamp.json
-/web/corpus
+/web/corpus/*
+!/web/corpus/*.sha256
 /corpus
 /node_modules
 /my-results
