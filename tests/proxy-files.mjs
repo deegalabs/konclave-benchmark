@@ -135,3 +135,44 @@ export function deriveRoutes(files, root) {
   }
   return { routes, compose, stat, dyn, published };
 }
+
+// The hosted variant (proxy/hosted/<name>/): a Dockerfile that pins the image and copies two files, one entry point, one router, one service.
+// Returns the upstream the files route to, the digest the Dockerfile pins, and the two settings the rate limit depends on. It throws on anything
+// it does not read, as deriveRoutes does.
+export function deriveHosted(files, root) {
+  const path = (suffix) => { const p = Object.keys(files).find((f) => f.endsWith(suffix)); if (!p) throw new Error(`no ${suffix} in the entry's files`); return p; };
+  const text = (suffix) => readFileSync(join(root, path(suffix)), 'utf8');
+  const docker = text('Dockerfile').split('\n').filter((l) => l.trim() !== '' && !l.startsWith('#'));
+  const from = /^FROM (traefik:v3\.7\.\d+)@(sha256:[0-9a-f]{64})$/.exec(docker[0] ?? '');
+  if (!from) throw new Error('Dockerfile: the image is not the pinned traefik');
+  if (!same(docker.slice(1), ['COPY traefik.yml /etc/traefik/traefik.yml', 'COPY conf/dynamic.yml /etc/traefik/conf/dynamic.yml'])) throw new Error('Dockerfile: it must copy exactly the two hashed files');
+  const stat = parseYaml(text('traefik.yml')), dyn = parseYaml(text('dynamic.yml'));
+  only(stat, ['global', 'log', 'entryPoints', 'providers'], 'traefik.yml');
+  if (stat.accessLog !== undefined) throw new Error('traefik.yml: accessLog');
+  if (!same(stat.global, { sendAnonymousUsage: 'false', checkNewVersion: 'false' })) throw new Error('traefik.yml: global must be exactly sendAnonymousUsage false and checkNewVersion false');
+  if (!same(stat.providers, { file: { filename: '/etc/traefik/conf/dynamic.yml' } })) throw new Error('traefik.yml: the only provider must be the one file');
+  if (!same(Object.keys(stat.entryPoints), ['web'])) throw new Error('traefik.yml: exactly one entry point, web');
+  const ep = stat.entryPoints.web;
+  only(ep, ['address', 'http', 'forwardedHeaders'], 'entry point web');
+  if (!same(ep.http, { aliasHeadersStrategy: 'delete' })) throw new Error('entry point web: aliasHeadersStrategy must be delete');
+  if (!same(ep.forwardedHeaders, { trustedIPs: ['100.64.0.0/10'] })) throw new Error('entry point web: trustedIPs must be exactly 100.64.0.0/10');
+  only(dyn, ['http'], 'dynamic.yml');
+  only(dyn.http, ['routers', 'middlewares', 'services'], 'dynamic.yml http');
+  const routers = Object.values(dyn.http.routers);
+  if (routers.length !== 1) throw new Error('exactly one router');
+  const [r] = routers;
+  only(r, ['rule', 'service', 'middlewares', 'entryPoints'], 'router');
+  if (r.rule !== ROUTER_RULE) throw new Error('router rule is not the four calls the harness makes');
+  if (!same(r.middlewares, ['rate-limit', 'grpc-web']) || !same(r.entryPoints, ['web'])) throw new Error('a router must have the rate limit, then the proxy, on web');
+  if (!same(Object.keys(dyn.http.middlewares).sort(), ['grpc-web', 'rate-limit'])) throw new Error('the middlewares are not exactly grpc-web and rate-limit');
+  const gw = dyn.http.middlewares['grpc-web'], rl = dyn.http.middlewares['rate-limit'];
+  only(gw, ['grpcWeb'], 'middleware grpc-web'); only(gw.grpcWeb, ['allowOrigins'], 'middleware grpc-web');
+  only(rl, ['rateLimit'], 'middleware rate-limit'); only(rl.rateLimit, [...RATE_KEYS, 'sourceCriterion'], 'middleware rate-limit');
+  if (!same(rl.rateLimit.sourceCriterion, { requestHeaderName: 'X-Real-IP' })) throw new Error('rate-limit: keyed on X-Real-IP');
+  const sv = dyn.http.services[r.service];
+  only(sv, ['loadBalancer'], 'service'); only(sv.loadBalancer, ['servers'], 'service loadBalancer');
+  const urls = (sv.loadBalancer.servers ?? []).map((s) => { only(s, ['url'], 'server'); return new URL(s.url); });
+  if (urls.length !== 1) throw new Error('a service must have exactly one server');
+  if (urls[0].protocol !== 'https:') throw new Error('an upstream must be https');
+  return { upstream: `${urls[0].hostname}:${urls[0].port || 443}`, image_digest: from[2], allowOrigins: gw.grpcWeb.allowOrigins, rateLimit: rl.rateLimit, dyn, stat };
+}

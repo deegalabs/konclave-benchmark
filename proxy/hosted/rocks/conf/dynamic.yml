@@ -1,0 +1,27 @@
+# Hosted variant of the benchmark repo's proxy/conf/dynamic.yml (adapted from red-dev-inc/WebZjs traefik/ at c0457174, MIT OR Apache-2.0).
+# One origin per upstream: this service forwards to zec.rocks only.
+http:
+  routers:
+    rocks:
+      rule: "(Method(`POST`) || Method(`OPTIONS`)) && (Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLatestBlock`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetBlockRange`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetTreeState`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLightdInfo`))"
+      service: zec-rocks
+      middlewares: [rate-limit, grpc-web]
+      entryPoints: [web]
+  middlewares:
+    grpc-web:
+      grpcWeb:
+        allowOrigins: ["http://localhost:8090"]
+    rate-limit:
+      # Keyed on X-Real-IP, the header the platform's edge sets; the default key (the socket address) is the edge itself here.
+      # Whether a client-written X-Real-IP changes the bucket is measured, not assumed.
+      rateLimit:
+        average: 20
+        period: 1s
+        burst: 40
+        sourceCriterion:
+          requestHeaderName: X-Real-IP
+  services:
+    zec-rocks:
+      loadBalancer:
+        servers:
+          - url: https://zec.rocks:443
