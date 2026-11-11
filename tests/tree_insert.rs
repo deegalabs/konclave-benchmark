@@ -16,14 +16,18 @@ fn leaf(rng: &mut StdRng) -> MerkleHashOrchard {
     MerkleHashOrchard::from_bytes(&b).unwrap()
 }
 
-/// A start state that is not empty and ends just before a shard boundary (shards hold 65,536 leaves), with made-up nodes:
-/// both modes read the same ones, so the roots are comparable with each other.
-fn start_near_shard_end(rng: &mut StdRng) -> Frontier<MerkleHashOrchard, 32> {
-    let position = Position::from(65_533u64);
+/// A start state at `pos` (not empty), with made-up nodes: both modes read the same ones, so the roots are comparable with
+/// each other. Shards hold 65,536 leaves, so 65,533 to 65,536 are the starts next to a shard boundary.
+fn start_at(pos: u64, rng: &mut StdRng) -> Frontier<MerkleHashOrchard, 32> {
+    let position = Position::from(pos);
     let ommers = (0..position.past_ommer_count())
         .map(|_| leaf(rng))
         .collect();
     Frontier::from_parts(position, leaf(rng), ommers).unwrap()
+}
+
+fn start_near_shard_end(rng: &mut StdRng) -> Frontier<MerkleHashOrchard, 32> {
+    start_at(65_533, rng)
 }
 
 /// What a range holds: leaves per block (a zero is a block with no commitments), and which leaves are ours.
@@ -242,24 +246,28 @@ fn a_scan_gives_the_same_roots_and_witnesses_in_every_mode_and_records_the_mode(
 }
 
 /// The real chunk size over a range of three chunks. Blocks 9,997 to 10,003 are empty, so the first boundary is inside a run of
-/// empty blocks; block 19,999, the last of the second chunk, ends with a note of ours.
+/// empty blocks; block 19,999, the last of the second chunk, ends with a note of ours, and block 15,000 has one in its middle.
 #[test]
 fn the_real_chunk_size_over_three_chunks_agrees_with_per_block() {
     let mut rng = StdRng::seed_from_u64(4);
     let blocks = 25_000;
     let mut sizes = Vec::new();
     for b in 0..blocks {
-        let empty = b % 3 == 2 || (9_997..=10_003).contains(&b) || b + 2 >= blocks;
+        let empty = b % 6 >= 2 || (9_997..=10_003).contains(&b) || b + 2 >= blocks;
         sizes.push(if empty { 0 } else { 1 + b % 2 });
     }
     sizes[19_999] = 2;
+    sizes[15_000] = 3;
     let n: usize = sizes.iter().sum();
     let mut ours = vec![false; n];
     let mut end = 0;
     for (b, s) in sizes.iter().enumerate() {
         end += s;
-        if b == 19_999 || b == 5_000 || b == 24_990 {
+        if b == 19_999 || b == 5_004 || b == 24_990 {
             ours[end - 1] = true;
+        }
+        if b == 15_000 {
+            ours[end - 2] = true;
         }
     }
     let r = Range {
@@ -270,9 +278,115 @@ fn the_real_chunk_size_over_three_chunks_agrees_with_per_block() {
     let start = Frontier::empty();
     let per_block = build(&start, &r, 1, 100);
     let chunked = build(&start, &r, CHUNK_BLOCKS, 100);
-    assert_eq!(per_block.marked().len(), 3);
+    assert_eq!(per_block.marked().len(), 4);
     same(&per_block, &chunked, blocks as u64 - 100..blocks as u64);
     same_witnesses(&per_block, &chunked, blocks as u64 - 100..blocks as u64);
+}
+
+/// A range of `blocks` blocks around the chunk size: every fifth block has one commitment, and the last leaf of block 9,999 (the
+/// end of chunk 1), the first leaf of block 10,000 (the start of chunk 2) and the last leaf of the range are ours.
+/// `all_empty` leaves every block without commitments.
+fn edge_range(blocks: usize, all_empty: bool, rng: &mut StdRng) -> Range {
+    let mut sizes = vec![0usize; blocks];
+    if !all_empty {
+        for (b, s) in sizes.iter_mut().enumerate() {
+            *s = usize::from(b % 5 == 0);
+        }
+        for b in [9_998usize, 9_999, 10_000, blocks - 1] {
+            if b < blocks {
+                sizes[b] = 2;
+            }
+        }
+    }
+    let n: usize = sizes.iter().sum();
+    let mut ours = vec![false; n];
+    let mut end = 0;
+    for (b, s) in sizes.iter().enumerate() {
+        let begin = end;
+        end += s;
+        if *s > 0 && (b == 9_999 || b + 1 == blocks) {
+            ours[end - 1] = true;
+        }
+        if *s > 0 && b == 10_000 {
+            ours[begin] = true;
+        }
+    }
+    Range {
+        sizes,
+        ours,
+        cmxs: (0..n).map(|_| leaf(rng)).collect(),
+    }
+}
+
+/// Ranges of 9,999, 10,000 and 10,001 blocks (one short of a chunk, exactly one, one over), empty and mixed, from the starts
+/// next to a shard boundary and from an empty tree, with the real chunk size and the real number of checkpoints.
+#[test]
+fn ranges_at_the_chunk_size_agree_with_per_block_from_every_start_next_to_a_shard_boundary() {
+    let mut rng = StdRng::seed_from_u64(5);
+    for blocks in [9_999usize, 10_000, 10_001] {
+        let top = blocks as u64;
+        for all_empty in [true, false] {
+            let r = edge_range(blocks, all_empty, &mut rng);
+            let mut starts = vec![Frontier::empty()];
+            starts.extend((65_533..=65_536).map(|p| start_at(p, &mut rng)));
+            for start in starts {
+                let per_block = build(&start, &r, 1, 100);
+                let chunked = build(&start, &r, CHUNK_BLOCKS, 100);
+                assert!(chunked.checkpoint_ids().unwrap().len() <= 100);
+                same(&per_block, &chunked, top - 100..top);
+                same_witnesses(&per_block, &chunked, top - 100..top);
+            }
+        }
+    }
+}
+
+/// A pool with no commitments for 50,000 blocks (the likely case for a thin pool): the work and the checkpoints kept stay
+/// bounded in both modes, from an empty tree and from a start state. Both keep at most the maximum, chunked included.
+#[test]
+fn fifty_thousand_empty_blocks_cost_little_and_keep_at_most_the_maximum() {
+    let mut rng = StdRng::seed_from_u64(6);
+    let r = Range {
+        sizes: vec![0; 50_000],
+        ours: Vec::new(),
+        cmxs: Vec::new(),
+    };
+    for start in [Frontier::empty(), start_at(65_534, &mut rng)] {
+        for chunk in [1, CHUNK_BLOCKS] {
+            let t0 = std::time::Instant::now();
+            let t = build(&start, &r, chunk, 100);
+            let took = t0.elapsed().as_secs_f64();
+            assert!(
+                took < 5.0,
+                "chunk {chunk}: {took:.2} s for 50,000 empty blocks"
+            );
+            let ids = t.checkpoint_ids().unwrap();
+            assert!(
+                ids.len() <= 100,
+                "chunk {chunk}: {} checkpoints kept",
+                ids.len()
+            );
+            assert_eq!(ids.last(), Some(&49_999));
+            assert_eq!(t.root().unwrap(), start.root());
+        }
+    }
+}
+
+/// The skip rule: an empty block older than the checkpoints kept is not added at all.
+#[test]
+fn an_empty_block_older_than_the_checkpoints_kept_is_not_added() {
+    let mut rng = StdRng::seed_from_u64(7);
+    let start = start_at(65_534, &mut rng);
+    let mut t = PoolTree::with_max_checkpoints(start, 10).unwrap();
+    t.append_chunk(&[], &[], &[0; 1_000]).unwrap();
+    assert_eq!(
+        t.empty_checkpoints_added(),
+        10,
+        "of 1,000 empty blocks only the newest 10 are added"
+    );
+    assert_eq!(
+        t.checkpoint_ids().unwrap(),
+        (990..1_000).collect::<Vec<_>>()
+    );
 }
 
 #[test]
