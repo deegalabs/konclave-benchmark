@@ -145,7 +145,7 @@ const OBSERVED = { lightd_info: { version: 'v', vendor: 'v', chain_name: 'main',
 const bareOriginOf = (e) => new URL(e).origin; // what the page records: planRows normalises the typed endpoint
 const scanRun = (o = {}) => {
   const endpoint = 'endpoint' in o ? o.endpoint : HOSTED;
-  return run({ kind: 'scan', row: 'scan-daily-x', pool: undefined, device_label: 'A72', user_agent: 'Chrome/155', runs_planned: 1, total_ms: 1000, live_or_replay_asked: 'live', endpoint, ...(endpoint ? { ...declaredFor(bareOriginOf(endpoint), TEST_TABLE), ...OBSERVED } : {}), actions_by_pool: { orchard: 1, ironwood: 1 }, key_sha256: TEST_PUBLISHED, ...DAILY, ...o, pipeline_ms: o?.pipeline_ms ?? o?.total_ms ?? 1000 });
+  return run({ kind: 'scan', row: 'scan-daily-x', pool: undefined, device_label: 'A72', user_agent: 'Chrome/155', runs_planned: 1, total_ms: 1000, live_or_replay_asked: 'live', endpoint, ...(endpoint ? { ...declaredFor(bareOriginOf(endpoint), TEST_TABLE), ...OBSERVED } : {}), actions_by_pool: { orchard: 1, ironwood: 1 }, key_sha256: TEST_PUBLISHED, tree_insert: 'chunk-10000', ...DAILY, ...o, pipeline_ms: o?.pipeline_ms ?? o?.total_ms ?? 1000 });
 };
 
 test('a replay never carries a verdict, pass or fail, and live rows have bars', () => {
@@ -1269,7 +1269,7 @@ test('a live run in the worker, against the mock, puts the observations and the 
   // A stand-in for the wasm: it takes what the worker gives it and times nothing real.
   writeFileSync(join(dir, 'pkg', 'konclave_benchmark.js'), `export default async () => ({ memory: { buffer: new ArrayBuffer(8) } });
 export const thread_count = () => 1, build_flavour = () => 'fake';
-export class Scan { static new_live() { return new Scan(); } push() {} set_expected_end() {} starts_empty() { return false; } set_filter() {} set_ufvk() {} decode() {} decrypt() { return 0; } tree() {} witness() { return 0; } summary() { return '{}'; } }
+export class Scan { static new_live() { return new Scan(); } push() {} set_expected_end() {} starts_empty() { return false; } set_filter() {} set_tree_insert() {} set_ufvk() {} decode() {} decrypt() { return 0; } tree() {} witness() { return 0; } summary() { return '{}'; } }
 `);
   const end = JSON.parse(readFileSync(new URL('../web/corpus/synthetic-10k.bin.end.json', import.meta.url), 'utf8'));
   const { server, start, count, requests } = await mock(18923, corpus, { end, info });
@@ -1517,7 +1517,7 @@ test('the worker records the time GetLightdInfo took as a number, and a slow one
   writeFileSync(join(dir, 'package.json'), '{"type":"module"}');
   writeFileSync(join(dir, 'pkg', 'konclave_benchmark.js'), `export default async () => ({ memory: { buffer: new ArrayBuffer(8) } });
 export const thread_count = () => 1, build_flavour = () => 'fake';
-export class Scan { static new_live() { return new Scan(); } push() {} set_expected_end() {} starts_empty() { return false; } set_filter() {} set_ufvk() {} decode() {} decrypt() { return 0; } tree() {} witness() { return 0; } summary() { return '{}'; } }
+export class Scan { static new_live() { return new Scan(); } push() {} set_expected_end() {} starts_empty() { return false; } set_filter() {} set_tree_insert() {} set_ufvk() {} decode() {} decrypt() { return 0; } tree() {} witness() { return 0; } summary() { return '{}'; } }
 `);
   const end = JSON.parse(readFileSync(new URL('../web/corpus/synthetic-10k.bin.end.json', import.meta.url), 'utf8'));
   const { server, start, count } = await mock(18924, corpus, { end, info, infoDelayMs: 300 });
@@ -1769,7 +1769,7 @@ async function scanInWorker(summary, job = {}) {
   writeFileSync(join(dir, 'package.json'), '{"type":"module"}');
   writeFileSync(join(dir, 'pkg', 'konclave_benchmark.js'), `export default async () => ({ memory: { buffer: new ArrayBuffer(8) } });
 export const thread_count = () => 1, build_flavour = () => 'fake';
-export class Scan { constructor() {} starts_empty() { return false; } set_filter() {} set_ufvk() {} decode() {} decrypt() { return 7; } tree() {} witness() { return 3; } summary() { return ${JSON.stringify(JSON.stringify(summary))}; } }
+export class Scan { constructor() {} starts_empty() { return false; } set_filter() {} set_tree_insert() {} set_ufvk() {} decode() {} decrypt() { return 7; } tree() {} witness() { return 3; } summary() { return ${JSON.stringify(JSON.stringify(summary))}; } }
 `);
   const sent = [];
   const realFetch = globalThis.fetch;
@@ -2470,4 +2470,62 @@ test('the worker only passes a summary tree_roots through (the real wasm is chec
   const { tree_roots, ...rest } = withRoots;
   assert.deepEqual(Object.keys(rest).sort(), Object.keys(without).sort());
   assert.deepEqual(Object.keys(withRoots.stages_ms), Object.keys(without.stages_ms));
+});
+
+// ---- tree insertion mode: chunked is the default, per-block is information ----
+const PER_BLOCK = { tree_insert_asked: 'per-block', tree_insert: 'per-block' };
+
+test('a per-block row keeps its bar and its time but never a verdict, whatever the time', () => {
+  for (const total_ms of [1000, 99e6]) {
+    const [l] = summarize(fiveScan({ ...PER_BLOCK, total_ms }));
+    assert.equal(l.verdict, 'per-block tree insertion, information only, not a verdict');
+    assert.equal(l.bar_ms, 30000, 'the bar is printed as information');
+    assert.match(line(l), /bar 30\.00 s/);
+    assert.match(line(l), /per-block tree insertion, information only, not a verdict/);
+  }
+  const first = summarize(fiveScan({ row: 'scan-first-sync-x', ...FIRST_SCAN, ...PER_BLOCK, total_ms: 700000 }))[0];
+  assert.equal(first.bar_ms, 600000);
+  assert.match(first.verdict, /per-block tree insertion, information only, not a verdict/);
+  // The same row, chunked, still has its verdict.
+  assert.equal(summarize(fiveScan({ row: 'scan-first-sync-x', ...FIRST_SCAN, total_ms: 700000 }))[0].verdict, 'fail');
+  // One run is enough to say so: a per-block row is never short, never a pass.
+  assert.match(summarize([scanRun({ ...PER_BLOCK })])[0].verdict, /per-block tree insertion/);
+});
+
+test('per-block and chunked runs are two rows, and a row that mixes the two is refused', () => {
+  assert.equal(summarize([...fiveScan(), ...fiveScan(PER_BLOCK)]).length, 2);
+  const mixed = summarize([...fiveScan(), scanRun({ runs_planned: 5, tree_insert: 'per-block' })])[0].verdict;
+  assert.match(mixed, /^REFUSED: /);
+  assert.match(mixed, /the tree insertion recorded is not the one asked for/);
+  assert.match(mixed, /this row mixes tree_insert/);
+});
+
+test('every scan result names its tree insertion, and it is the one the row asked for', () => {
+  const { tree_insert, ...without } = scanRun({ runs_planned: 1 });
+  assert.match(summarize([without])[0].verdict, /^REFUSED: .*the tree insertion mode is not recorded/);
+  assert.match(summarize([scanRun({ tree_insert: 'every-now-and-then' })])[0].verdict, /the tree insertion mode is not recorded/);
+  assert.match(summarize([scanRun({ tree_insert_asked: 'per-block' })])[0].verdict, /^REFUSED: .*not the one asked for/);
+  assert.equal(summarize(fiveScan({ tree_insert: 'chunk-10000' }))[0].verdict, 'pass');
+  assert.equal(summarize(fiveScan({ tree_insert: 'chunk-500', tree_insert_asked: 'chunked' }))[0].verdict, 'pass');
+});
+
+test('a link or the form sets the tree insertion, the row and the job carry it, and the page and worker pass it on', async () => {
+  const { parsePrefill } = await import('../web/prefill.mjs');
+  const { planRows } = await import('../web/plan.mjs');
+  assert.deepEqual(parsePrefill('?tree=per-block').fields, { 'tree-insert': 'per-block' });
+  assert.deepEqual(parsePrefill('?tree=chunked').fields, { 'tree-insert': 'chunked' });
+  assert.deepEqual(parsePrefill('?tree=sometimes').invalid, ['tree']);
+  assert.equal(planRows(form()).rows[0].tree_insert, 'chunked');
+  assert.equal(planRows(form()).rows[0].job.tree_insert, 'chunked');
+  const [row] = planRows(form({ treeInsert: 'per-block' })).rows;
+  assert.deepEqual([row.tree_insert, row.job.tree_insert], ['per-block', 'per-block']);
+  const [live] = planRows(form({ treeInsert: 'per-block', endpoint: 'https://lwd.example:9067' })).rows;
+  assert.deepEqual([live.tree_insert, live.job.tree_insert], ['per-block', 'per-block']);
+  const app = readFileSync(new URL('../web/app.js', import.meta.url), 'utf8');
+  assert.match(app, /treeInsert: \$\('tree-insert'\)\.value/);
+  assert.match(app, /tree_insert_asked: r\.tree_insert/, 'every record, a dead one too, says what was asked');
+  assert.match(readFileSync(new URL('../web/index.html', import.meta.url), 'utf8'), /id="tree-insert"/);
+  const worker = readFileSync(new URL('../web/worker.js', import.meta.url), 'utf8');
+  assert.match(worker, /s\.set_tree_insert\(ev\.tree_insert === 'per-block' \? 'per-block' : 'chunked'\)/);
+  assert.ok(worker.indexOf('set_tree_insert(') < worker.indexOf("timed('decode'"), 'set before the first stage');
 });

@@ -3,7 +3,7 @@
 // can never carry a viewing key, because a key in a link lands in the browser's history. Pure, so a test can read it.
 export const PARAM_FIELDS = {
   device: 'device', class: 'device-class', runs: 'runs', threads: 'threads', prove: 'do-prove', scan: 'do-scan', pool: 'pool',
-  outputs: 'axis', corpus: 'corpus', endpoint: 'endpoint', start: 'start', end: 'end',
+  outputs: 'axis', corpus: 'corpus', endpoint: 'endpoint', start: 'start', end: 'end', tree: 'tree-insert',
 };
 
 import { looksLikeKey } from './keys.mjs';
@@ -31,6 +31,7 @@ const CHECK = {
   // An origin of the endpoint table and nothing else: a link cannot point the page at a server of its own choosing. A person who needs
   // another endpoint types it in (the page shows what it will contact before Run).
   endpoint: (v) => { const o = bareOrigin(v); return o && findEndpoint(o) ? o : undefined; },
+  tree: (v) => (v === 'chunked' || v === 'per-block' ? v : undefined),
   start: (v) => (/^\d{1,10}$/.test(v) ? v : undefined),
   end: (v) => (/^\d{1,10}$/.test(v) ? v : undefined),
 };
