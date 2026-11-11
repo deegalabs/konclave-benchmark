@@ -1235,6 +1235,8 @@ test('the hosted proxy files route to the upstream the table declares, pin the i
   assert.throws(mutate(rocks, 'traefik.yml', '["100.64.0.0/10"]', '["0.0.0.0/0"]'), /trustedIPs/);
   assert.throws(mutate(rocks, 'traefik.yml', 'aliasHeadersStrategy: delete', 'aliasHeadersStrategy: keep'), /aliasHeadersStrategy/);
   assert.throws(mutate(rocks, 'traefik.yml', 'providers:', 'accessLog:\n  filePath: /x\nproviders:'), /not an allowed key|accessLog/);
+  assert.throws(mutate(rocks, 'dynamic.yml', 'burst: 40', 'burst: 4000'), /average 20, period 1s, burst 40/);
+  assert.throws(mutate(rocks, 'dynamic.yml', 'average: 20', 'average: 2000'), /average 20, period 1s, burst 40/);
   assert.throws(mutate(rocks, 'dynamic.yml', 'requestHeaderName: X-Real-IP', 'requestHeaderName: X-Forwarded-For'), /keyed on X-Real-IP/);
   assert.throws(mutate(rocks, 'Dockerfile', 'COPY traefik.yml', 'COPY --chmod=777 traefik.yml'), /copy exactly/);
   assert.notEqual(mutate(rocks, 'Dockerfile', 'f4bb143d', '00000000')().image_digest, rocks.image_digest);
