@@ -4,13 +4,14 @@
 //! `batch_insert` per chunk of blocks (`TreeInsert`); a chunk of one block is the per-block mode.
 use incrementalmerkletree::{
     frontier::{CommitmentTree, Frontier},
-    Hashable, Level, Position, Retention,
+    Address, Hashable, Level, Position, Retention,
 };
 use orchard::tree::MerkleHashOrchard;
 use shardtree::{
     store::{memory::MemoryShardStore, Checkpoint, ShardStore},
-    ShardTree,
+    LocatedPrunableTree, ShardTree,
 };
+use std::collections::VecDeque;
 
 pub const DEPTH: u8 = 32;
 const SHARD_HEIGHT: u8 = 16;
@@ -108,6 +109,9 @@ pub struct PoolTree {
     start_size: u64,
     next_checkpoint: u64,
     max_checkpoints: usize,
+    /// Ids of the checkpoints the tree keeps, oldest first, so a block does not have to read the store.
+    kept: VecDeque<u64>,
+    empty_added: u64,
     /// Position of the last leaf in the tree so far (the frontier's, before the first leaf of the range).
     tip: Option<Position>,
     start_root: MerkleHashOrchard,
@@ -136,6 +140,8 @@ impl PoolTree {
             start_size: next,
             next_checkpoint: 0,
             max_checkpoints,
+            kept: VecDeque::new(),
+            empty_added: 0,
             tip,
             start_root,
             marked: Vec::new(),
@@ -150,25 +156,21 @@ impl PoolTree {
         self.start_size
     }
 
-    /// One block's commitments, in chain order; the flags say which positions in this slice to keep a witness for.
-    pub fn append_block(
-        &mut self,
-        cmxs: &[MerkleHashOrchard],
-        ours: &[bool],
-    ) -> Result<(), String> {
-        self.append_chunk(cmxs, ours, &[cmxs.len()])
-    }
-
     /// The commitments of several blocks in one `batch_insert`. `ends[b]` is where block b ends in `cmxs`, so a block
     /// with no commitments repeats the end before it. Every block gets a checkpoint, with the block's index in the
     /// range as its id: a block that has commitments carries it on its last leaf, as `Retention::Checkpoint`; the
     /// notes that are ours stay `Marked`.
     ///
     /// A block with none gets its checkpoint at the position of the last leaf before it (the frontier's when no leaf
-    /// came yet, or the empty tree), added to the store after the insert, the way zcash_client_backend's
-    /// `ensure_checkpoints` and `update_tree` (data_api/ll/wallet.rs) do for a height whose block has no commitments
-    /// in this pool. As there, a checkpoint older than the oldest one kept is skipped. The insert prunes to
-    /// `max_checkpoints` once, at its end; the checkpoints added after it stay until the next insert prunes.
+    /// came yet, or the empty tree). That position rule is the one `ensure_checkpoints` (zcash_client_backend,
+    /// data_api/ll/wallet.rs) uses for a height at which the pool has no commitment but another pool has one, or
+    /// which an anchor-retention policy keeps; that function does not checkpoint a block that is empty in every
+    /// pool. Giving every block a checkpoint is this harness's own choice, so that the checkpoints of the two
+    /// insertion modes can be compared.
+    ///
+    /// The checkpoints of empty blocks are added after the insert, and the tree is pruned to `max_checkpoints`
+    /// again after them (an insert of an empty subtree for the ones that have a position, which prunes as any
+    /// insert does). A block older than the newest `max_checkpoints` of the ones held and these is skipped.
     pub fn append_chunk(
         &mut self,
         cmxs: &[MerkleHashOrchard],
@@ -181,6 +183,7 @@ impl PoolTree {
         let first_id = self.next_checkpoint;
         let mut leaves = Vec::with_capacity(cmxs.len());
         let mut empty: Vec<(u64, Option<Position>)> = Vec::new();
+        let mut nonempty: Vec<u64> = Vec::new();
         let mut at = 0usize;
         for (b, end) in ends.iter().enumerate() {
             let id = first_id + b as u64;
@@ -206,6 +209,7 @@ impl PoolTree {
                 };
                 leaves.push((cmxs[i], retention));
             }
+            nonempty.push(id);
             self.tip = Some(Position::from(self.next + *end as u64 - 1));
             at = *end;
         }
@@ -214,23 +218,63 @@ impl PoolTree {
                 .batch_insert(Position::from(self.next), leaves.into_iter())
                 .map_err(|e| format!("{e:?}"))?;
         }
+        let keep = self.max_checkpoints.max(1);
+        let mut added: Vec<u64> = nonempty;
         if !empty.is_empty() {
-            // The checkpoints the tree will keep are the newest `max_checkpoints` of those it holds and these. A block older
-            // than that is skipped: the insert may have pruned the leaf it would point at (zcash_client_backend skips a
-            // height below the oldest checkpoint kept, for the same reason).
-            let mut ids = self.checkpoint_ids()?;
-            ids.extend(empty.iter().map(|(id, _)| *id));
-            ids.sort_unstable();
-            let keep = self.max_checkpoints.max(1);
-            let oldest = ids[ids.len().saturating_sub(keep)];
+            // The checkpoints the tree will keep are the newest `keep` of those held (`self.kept`) and the ones of this
+            // chunk. An empty block older than that is skipped.
+            let mut all: Vec<u64> = added
+                .iter()
+                .copied()
+                .chain(empty.iter().map(|e| e.0))
+                .collect();
+            all.sort_unstable();
+            let total = self.kept.len() + all.len();
+            let floor = if total > keep {
+                let at = total - keep;
+                if at < self.kept.len() {
+                    self.kept[at]
+                } else {
+                    all[at - self.kept.len()]
+                }
+            } else {
+                0
+            };
+            let mut positioned = std::collections::BTreeMap::new();
             for (id, tip) in empty {
-                if id < oldest {
+                if id < floor {
                     continue;
                 }
-                let cp = tip.map_or_else(Checkpoint::tree_empty, Checkpoint::at_position);
+                added.push(id);
+                self.empty_added += 1;
+                match tip {
+                    Some(pos) => {
+                        positioned.insert(id, pos);
+                    }
+                    None => self
+                        .tree
+                        .store_mut()
+                        .add_checkpoint(id, Checkpoint::tree_empty())
+                        .map_err(|e| format!("{e:?}"))?,
+                }
+            }
+            if !positioned.is_empty() {
+                // No leaves: only the checkpoints are added, and the tree prunes to its maximum.
+                let none =
+                    LocatedPrunableTree::empty(Address::from_parts(Level::from(SHARD_HEIGHT), 0));
+                self.tree
+                    .insert_tree(none, positioned)
+                    .map_err(|e| format!("{e:?}"))?;
+            }
+            added.sort_unstable();
+        }
+        self.kept.extend(added);
+        while self.kept.len() > keep {
+            if let Some(old) = self.kept.pop_front() {
+                // Already gone when the tree pruned it; only a checkpoint with no position can still be there.
                 self.tree
                     .store_mut()
-                    .add_checkpoint(id, cp)
+                    .remove_checkpoint(&old)
                     .map_err(|e| format!("{e:?}"))?;
             }
         }
@@ -249,6 +293,11 @@ impl PoolTree {
         self.tree
             .root_at_checkpoint_id(&id)
             .map_err(|e| format!("{e:?}"))
+    }
+
+    /// How many checkpoints of blocks with no commitments were added to the tree (a test reads it).
+    pub fn empty_checkpoints_added(&self) -> u64 {
+        self.empty_added
     }
 
     /// The ids of the checkpoints kept, oldest first.

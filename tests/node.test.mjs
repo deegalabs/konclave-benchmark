@@ -11,6 +11,7 @@ import { openRun, markStage, closeRun, recoverKilled } from '../web/runs.js';
 import { summarize as summarizeWith, median, line, report } from '../scripts/summarize.mjs';
 import { ENDPOINTS, declaredFor, findEndpoint, verdictReady, originOf } from '../web/endpoints.mjs';
 import { scan } from '../scripts/check-no-keys.mjs';
+import { CHUNKED_TREE_INSERT } from '../web/summarize-core.mjs';
 import { RANGES, askedEntry } from '../web/ranges.mjs';
 import { mock } from '../scripts/mock-lightwalletd.mjs';
 import { saveRange } from '../scripts/save-range.mjs';
@@ -145,7 +146,7 @@ const OBSERVED = { lightd_info: { version: 'v', vendor: 'v', chain_name: 'main',
 const bareOriginOf = (e) => new URL(e).origin; // what the page records: planRows normalises the typed endpoint
 const scanRun = (o = {}) => {
   const endpoint = 'endpoint' in o ? o.endpoint : HOSTED;
-  return run({ kind: 'scan', row: 'scan-daily-x', pool: undefined, device_label: 'A72', user_agent: 'Chrome/155', runs_planned: 1, total_ms: 1000, live_or_replay_asked: 'live', endpoint, ...(endpoint ? { ...declaredFor(bareOriginOf(endpoint), TEST_TABLE), ...OBSERVED } : {}), actions_by_pool: { orchard: 1, ironwood: 1 }, key_sha256: TEST_PUBLISHED, tree_insert: 'chunk-10000', ...DAILY, ...o, pipeline_ms: o?.pipeline_ms ?? o?.total_ms ?? 1000 });
+  return run({ kind: 'scan', row: 'scan-daily-x', pool: undefined, device_label: 'A72', user_agent: 'Chrome/155', runs_planned: 1, total_ms: 1000, live_or_replay_asked: 'live', endpoint, ...(endpoint ? { ...declaredFor(bareOriginOf(endpoint), TEST_TABLE), ...OBSERVED } : {}), actions_by_pool: { orchard: 1, ironwood: 1 }, key_sha256: TEST_PUBLISHED, tree_insert: 'chunk-10000', tree_insert_asked: 'chunked', ...DAILY, ...o, pipeline_ms: o?.pipeline_ms ?? o?.total_ms ?? 1000 });
 };
 
 test('a replay never carries a verdict, pass or fail, and live rows have bars', () => {
@@ -2506,7 +2507,17 @@ test('every scan result names its tree insertion, and it is the one the row aske
   assert.match(summarize([scanRun({ tree_insert: 'every-now-and-then' })])[0].verdict, /the tree insertion mode is not recorded/);
   assert.match(summarize([scanRun({ tree_insert_asked: 'per-block' })])[0].verdict, /^REFUSED: .*not the one asked for/);
   assert.equal(summarize(fiveScan({ tree_insert: 'chunk-10000' }))[0].verdict, 'pass');
-  assert.equal(summarize(fiveScan({ tree_insert: 'chunk-500', tree_insert_asked: 'chunked' }))[0].verdict, 'pass');
+  // Only chunk-10000 is chunked: another size, chunk-1 (which is per-block insertion) included, is refused.
+  for (const tree_insert of ['chunk-500', 'chunk-1', 'chunk-10001']) assert.match(summarize(fiveScan({ tree_insert, tree_insert_asked: 'chunked' }))[0].verdict, /^REFUSED: .*the tree insertion recorded is not the one asked for/, tree_insert);
+  assert.match(summarize(fiveScan({ tree_insert: 'per-block', tree_insert_asked: 'chunked' }))[0].verdict, /not the one asked for/);
+  assert.match(summarize(fiveScan({ tree_insert: 'chunk-10000', tree_insert_asked: 'per-block' }))[0].verdict, /not the one asked for/);
+  // What was asked must be recorded, and be one of the two.
+  const { tree_insert_asked, ...noAsk } = scanRun({ runs_planned: 5 });
+  assert.match(summarize([0, 1, 2, 3, 4].map(() => ({ ...noAsk, run_id: `na${++id}` })))[0].verdict, /^REFUSED: .*the tree insertion asked for is not recorded/);
+  for (const bad of ['', 'Chunked', 'chunk-10000', 'every-block', null]) assert.match(summarize(fiveScan({ tree_insert_asked: bad }))[0].verdict, /the tree insertion asked for is not recorded/, String(bad));
+  // The label the summary accepts is the one the code writes.
+  assert.match(readFileSync(new URL('../src/tree.rs', import.meta.url), 'utf8'), /pub const CHUNK_BLOCKS: usize = 10_000;/);
+  assert.equal(CHUNKED_TREE_INSERT, `chunk-${10000}`);
 });
 
 test('a link or the form sets the tree insertion, the row and the job carry it, and the page and worker pass it on', async () => {

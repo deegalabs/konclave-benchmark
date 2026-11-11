@@ -53,6 +53,8 @@ function barFor(r, range) {
 
 // A row asked to insert block by block is information about the tree stage, never a verdict: the bar's tree stage is the chunked one.
 const PER_BLOCK_INFO = 'per-block tree insertion, information only, not a verdict';
+// What a chunked result records: the wasm's label for the default (TreeInsert::DEFAULT in src/tree.rs; a test ties the two).
+export const CHUNKED_TREE_INSERT = 'chunk-10000';
 const askedPerBlock = (r) => r.tree_insert_asked === 'per-block';
 
 const hasScanShape = (r) => /^scan-(daily|first-sync)-/.test(r.row);
@@ -120,9 +122,11 @@ export function refusals(ok, opts = {}) {
   // The bare roots of the trees (32 bytes, hex) at the start and end of the range, as the scan computed them: what anyone compares with another server.
   const HEX32 = /^[0-9a-f]{64}$/;
   each((r) => verdictEntry(r) && !['orchard', 'ironwood'].every((p) => HEX32.test(r.tree_roots?.[p]?.start) && HEX32.test(r.tree_roots?.[p]?.end)), 'the bare tree roots are not recorded');
-  // Every scan result says how the tree stage inserted (the wasm writes it): chunk-<blocks> or per-block, and it must be what the row asked.
+  // Every scan result says how the tree stage inserted (the wasm writes it) and which the row asked for (the page writes it). Chunked is the one
+  // chunk size the protocol names (CHUNKED_TREE_INSERT, the label of src/tree.rs); chunk-1 or any other size is not it.
+  each((r) => r.kind === 'scan' && !['chunked', 'per-block'].includes(r.tree_insert_asked), 'the tree insertion asked for is not recorded');
   each((r) => r.kind === 'scan' && !/^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? ''), 'the tree insertion mode is not recorded');
-  each((r) => r.kind === 'scan' && /^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? '') && askedPerBlock(r) !== (r.tree_insert === 'per-block'), 'the tree insertion recorded is not the one asked for');
+  each((r) => r.kind === 'scan' && ['chunked', 'per-block'].includes(r.tree_insert_asked) && /^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? '') && r.tree_insert !== (r.tree_insert_asked === 'per-block' ? 'per-block' : CHUNKED_TREE_INSERT), 'the tree insertion recorded is not the one asked for');
   each((r) => r.kind === 'prove' && r.verified !== true, 'a proof was not verified');
   each((r) => r.kind === 'prove' && (r.cold !== true || !(r.key_build_ms > 0)), 'a run was not cold: the key build was not timed');
   each((r) => r.kind === 'scan' && !((r.actions_by_pool?.orchard ?? 0) + (r.actions_by_pool?.ironwood ?? 0) > 0), 'a range with no actions');
