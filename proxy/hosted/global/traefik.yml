@@ -1,0 +1,22 @@
+# Hosted variant of the benchmark repo's proxy/traefik.yml (adapted from red-dev-inc/WebZjs traefik/ at c0457174, MIT OR Apache-2.0).
+# Changes from the local file: one entry point on the platform's port; NO access log (the proxy keeps no record of who uses it);
+# alias headers deleted; forwarded headers trusted only from the platform edge's range.
+global:
+  sendAnonymousUsage: false
+  checkNewVersion: false
+log:
+  level: INFO
+entryPoints:
+  web:
+    address: :8080
+    http:
+      # Headers whose name aliases another (X_Real_IP for X-Real-IP) are dropped, so none can stand in for one the edge sets.
+      aliasHeadersStrategy: delete
+    # The platform's edge reaches the proxy from 100.64.0.0/10 and sets X-Real-IP / X-Forwarded-For itself (measured: a value a
+    # client writes never reaches the service). Trusting the forwarded headers only from that range keeps Traefik from replacing
+    # X-Real-IP with the edge node's own address, which changes per request and would put every request in a bucket of its own.
+    forwardedHeaders:
+      trustedIPs: ["100.64.0.0/10"]
+providers:
+  file:
+    filename: /etc/traefik/conf/dynamic.yml

@@ -3,7 +3,7 @@
 import test from 'node:test';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync, mkdtempSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, readdirSync, mkdtempSync, writeFileSync, mkdirSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { treeState, blocks, call, lightdInfo } from '../web/grpcweb.js';
@@ -866,12 +866,32 @@ test('the public endpoints, direct, are not named by the table: no verdict', () 
   }
 });
 
-test('a verdict entry with no hostname gives no verdict: until the hosted proxy exists nothing in the shipped table does', () => {
-  assert.ok(ENDPOINTS.some((e) => e.role === 'verdict' && !e.hostname));
+test('a verdict entry with no hostname gives no verdict, and nothing but the two hosted proxies is verdict-ready', () => {
+  const placeholder = { origin: null, hostname: null, via: 'proxy', role: 'verdict', upstream: 'zec.rocks:443', files: {}, platform: null, edge_tls: null, region: null, image_digest: null };
+  assert.equal(verdictReady(placeholder), false);
+  assert.equal(findEndpoint(null), null);
   for (const endpoint of ['https://m1-hosted.example', 'https://zec.rocks', 'http://localhost:1234', null]) {
     assert.doesNotMatch(summarizeReal(fiveScan({ endpoint: endpoint ?? undefined }))[0].verdict, /^(pass|fail)$/, String(endpoint));
   }
-  assert.equal(findEndpoint(null), null);
+  const ready = ENDPOINTS.filter(verdictReady).map(originOf);
+  assert.deepEqual(ready, ['https://m1-rocks.konclave.xyz', 'https://m1-global.konclave.xyz']);
+  assert.deepEqual(ENDPOINTS.filter((e) => !verdictReady(e)).map((e) => e.role), ['pipeline', 'pipeline', 'pipeline']);
+});
+
+// The shipped table: a live row through a hosted origin is judged on the range and the key, not on the endpoint
+test('a live row through a hosted origin of the shipped table is not "endpoint not named by the protocol": it is judged on the range, then the key', () => {
+  for (const [origin, upstream] of [['https://m1-rocks.konclave.xyz', 'zec.rocks:443'], ['https://m1-global.konclave.xyz', 'zec.global:443']]) {
+    const rows = fiveScan({ endpoint: origin, ...declaredFor(origin) });
+    assert.equal(rows[0].upstream_declared, upstream);
+    // The shipped ranges have no heights yet: the range is what stops the row, with its own reason.
+    assert.equal(summarizeReal(rows)[0].verdict, 'range not fixed by the protocol, not a verdict', origin);
+    // With a range that is fixed, the key decides: the synthetic key is no verdict, the published one is a pass.
+    const withRanges = (r, o = {}) => summarizeWith(r, { ranges: TEST_RANGES, publishedKey: TEST_PUBLISHED, ...o })[0].verdict;
+    assert.equal(withRanges(rows), 'pass', origin);
+    assert.match(withRanges(fiveScan({ endpoint: origin, ...declaredFor(origin), key_sha256: undefined })), /not a verdict/, origin);
+    // A forged origin next to it is still not named.
+    assert.equal(withRanges(fiveScan({ endpoint: `${origin}.evil.example` })), 'endpoint not named by the protocol, not a verdict');
+  }
 });
 
 test('a direct entry can be a verdict once the table names it; a pipeline entry never is', () => {
@@ -1128,7 +1148,9 @@ test('which thread counts run and which build each uses is written once', async 
 
 // ---- The endpoint table and the proxy files ----
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
-const proxyEntries = (table) => table.filter((e) => e.files && Object.keys(e.files).length);
+// proxyEntries: the proxies that anyone starts from proxy/ (compose); hostedEntries: the hosted ones (Dockerfile), read by deriveHosted.
+const proxyEntries = (table) => table.filter((e) => e.files && Object.keys(e.files).some((f) => f.endsWith('compose.yml')));
+const hostedEntries = (table) => table.filter((e) => e.files && Object.keys(e.files).some((f) => f.endsWith('Dockerfile')));
 
 test('the proxy image is pinned by digest, the ports stay on this machine, and nothing reaches the docker socket or a dashboard', async () => {
   const { ENDPOINTS } = await import('../web/endpoints.mjs');
@@ -1179,10 +1201,48 @@ test('the table says what the proxy files route: origin to upstream, derived fro
 test('each proxy file has a sha256 in the table that a stranger can recompute', async () => {
   const { ENDPOINTS } = await import('../web/endpoints.mjs');
   const { sha256 } = await import('./proxy-files.mjs');
-  for (const e of proxyEntries(ENDPOINTS)) {
-    assert.ok(Object.keys(e.files).length === 3, 'compose, static and dynamic');
+  assert.equal([...proxyEntries(ENDPOINTS), ...hostedEntries(ENDPOINTS)].length, ENDPOINTS.filter((e) => Object.keys(e.files).length).length, 'every entry with files is read');
+  for (const e of [...proxyEntries(ENDPOINTS), ...hostedEntries(ENDPOINTS)]) {
+    assert.ok(Object.keys(e.files).length === 3, 'compose or Dockerfile, static and dynamic');
     for (const [path, want] of Object.entries(e.files)) assert.equal(sha256(path, ROOT), want, path);
   }
+});
+
+test('the hosted proxy files route to the upstream the table declares, pin the image the table names, and the derivation refuses a change', async () => {
+  const { deriveHosted } = await import('./proxy-files.mjs');
+  const hosted = hostedEntries(ENDPOINTS);
+  assert.deepEqual(hosted.map((e) => e.upstream).sort(), ['zec.global:443', 'zec.rocks:443']);
+  assert.deepEqual(hosted.map((e) => e.role), ['verdict', 'verdict']);
+  for (const e of hosted) {
+    const d = deriveHosted(e.files, ROOT);
+    assert.equal(d.upstream, e.upstream, e.origin);
+    assert.equal(d.image_digest, e.image_digest, `${e.origin}: the table names the image the Dockerfile pins`);
+    assert.deepEqual(d.allowOrigins, ['http://localhost:8090']);
+    assert.equal(d.stat.accessLog, undefined);
+    assert.ok(verdictReady(e), e.origin);
+  }
+  // Teeth: each change is refused, or no longer matches the table.
+  const mutate = (e, file, from, to) => {
+    const root = mkdtempSync(join(tmpdir(), 'kb-hosted-'));
+    cpSync(join(ROOT, 'proxy'), join(root, 'proxy'), { recursive: true });
+    const f = join(root, Object.keys(e.files).find((x) => x.endsWith(file)));
+    const t = readFileSync(f, 'utf8'); assert.ok(t.includes(from), from); writeFileSync(f, t.replace(from, to));
+    return () => deriveHosted(e.files, root);
+  };
+  const [rocks] = hosted;
+  assert.equal(mutate(rocks, 'dynamic.yml', 'https://zec.rocks:443', 'https://zec.global:443')().upstream, 'zec.global:443');
+  assert.throws(mutate(rocks, 'dynamic.yml', 'https://zec.rocks:443', 'http://zec.rocks:443'), /must be https/);
+  assert.throws(mutate(rocks, 'traefik.yml', '["100.64.0.0/10"]', '["0.0.0.0/0"]'), /trustedIPs/);
+  assert.throws(mutate(rocks, 'traefik.yml', 'aliasHeadersStrategy: delete', 'aliasHeadersStrategy: keep'), /aliasHeadersStrategy/);
+  assert.throws(mutate(rocks, 'traefik.yml', 'providers:', 'accessLog:\n  filePath: /x\nproviders:'), /not an allowed key|accessLog/);
+  assert.throws(mutate(rocks, 'dynamic.yml', 'requestHeaderName: X-Real-IP', 'requestHeaderName: X-Forwarded-For'), /keyed on X-Real-IP/);
+  assert.throws(mutate(rocks, 'Dockerfile', 'COPY traefik.yml', 'COPY --chmod=777 traefik.yml'), /copy exactly/);
+  assert.notEqual(mutate(rocks, 'Dockerfile', 'f4bb143d', '00000000')().image_digest, rocks.image_digest);
+});
+
+test('the hosted files are the files deployed: no line of ours is added, so the hash in the table is the hash of what runs', () => {
+  for (const e of hostedEntries(ENDPOINTS)) for (const f of Object.keys(e.files)) assert.doesNotMatch(readFileSync(join(ROOT, f), 'utf8').split('\n')[0], /SPDX/, f);
+  assert.deepEqual(new Set(hostedEntries(ENDPOINTS).flatMap((e) => Object.values(e.files))).size, 4, 'Dockerfile and traefik.yml are shared; the two dynamic.yml differ');
 });
 
 test('no verdict entry is local or plain http, every origin is a bare origin, and a verdict entry that names a host is complete', async () => {
@@ -2159,7 +2219,8 @@ test('the README limits say a link fills the endpoint only from the endpoint tab
 test('every proxy file starts with its SPDX line (the hashes are checked by the sha256 test)', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = fileURLToPath(new URL('../', import.meta.url));
-  const files = execFileSync('git', ['ls-files', 'proxy'], { cwd: root, encoding: 'utf8' }).split('\n').filter(Boolean);
+  // proxy/hosted/ is the other way round: its files are the files deployed, byte for byte, so they carry no line of ours.
+  const files = execFileSync('git', ['ls-files', 'proxy'], { cwd: root, encoding: 'utf8' }).split('\n').filter(Boolean).filter((f) => !f.startsWith('proxy/hosted/'));
   assert.equal(files.length, 6);
   for (const f of files) assert.equal(readFileSync(join(root, f), 'utf8').split('\n')[0], '# SPDX-License-Identifier: MIT OR Apache-2.0', f);
 });
@@ -2220,7 +2281,8 @@ test('no comment or test name carries a review reference', async () => {
   const { execFileSync } = await import('node:child_process');
   const root = fileURLToPath(new URL('../', import.meta.url));
   const files = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' }).split('\n')
-    .filter((f) => f && !/^web\/corpus\/|^Cargo\.lock$|^LICENSE|\.(svg|bin)$/.test(f));
+    // proxy/hosted/ is left out: its files are the bytes deployed and are not edited here (the hash says so).
+    .filter((f) => f && !/^web\/corpus\/|^Cargo\.lock$|^LICENSE|^proxy\/hosted\/|\.(svg|bin)$/.test(f));
   assert.ok(files.length > 50, 'the file list is read');
   for (const f of ['src/corpus.rs', 'examples/gen_corpus.rs', 'examples/pack_corpus.rs', 'web/plan.mjs', 'tests/scan.rs', 'proxy/compose.yml', '.github/workflows/ci.yml', 'docs/method.md', 'README.md']) assert.ok(files.includes(f), `${f} is read`);
   const bad = [];
