@@ -76,6 +76,7 @@ pub struct Scan {
     ours: [Vec<bool>; 2],
     frontiers: [Option<Frontier<MerkleHashOrchard, 32>>; 2],
     trees: [Option<tree::PoolTree>; 2],
+    tree_insert: tree::TreeInsert,
     /// sha256 of the viewing key text typed in, hex; None for the synthetic key. No part of the key is kept.
     key_sha256: Option<String>,
 }
@@ -154,6 +155,7 @@ impl Scan {
                 [Some(a), Some(b)]
             },
             trees: [None, None],
+            tree_insert: tree::TreeInsert::DEFAULT,
             key_sha256: None,
         })
     }
@@ -395,26 +397,35 @@ impl Scan {
         Ok(total)
     }
 
-    /// Stage 3. Appends every commitment of the range, block by block, and refuses a root that differs from the
-    /// corpus's. Returns the commitments appended.
+    /// Stage 3. Appends every commitment of the range, in chunks of blocks (`tree::TreeInsert`, one `batch_insert` per
+    /// chunk, a checkpoint per block), and refuses a root that differs from the corpus's. Returns the commitments
+    /// appended.
     pub fn tree_inner(&mut self) -> Result<u32, String> {
         self.at(Stage::Decrypted, "tree")?;
+        let chunk_blocks = self.tree_insert.chunk_blocks();
         let mut count = 0;
         for p in 0..2 {
             let mut t = tree::PoolTree::new(self.frontiers[p].take().unwrap())?;
             let mut offset = 0usize;
             let mut i = 0;
-            for bi in 0..self.block_sizes.len() {
-                let mut cmxs = Vec::new();
+            let mut bi = 0;
+            while bi < self.block_sizes.len() {
+                let last = (bi + chunk_blocks).min(self.block_sizes.len());
                 let begin = offset;
-                while i < self.txs.len() && self.txs[i].0 == bi {
-                    for a in &self.txs[i].1.actions[p] {
-                        cmxs.push(MerkleHashOrchard::from_cmx(&a.cmx()));
-                        offset += 1;
+                let mut cmxs = Vec::new();
+                let mut ends = Vec::with_capacity(last - bi);
+                for b in bi..last {
+                    while i < self.txs.len() && self.txs[i].0 == b {
+                        for a in &self.txs[i].1.actions[p] {
+                            cmxs.push(MerkleHashOrchard::from_cmx(&a.cmx()));
+                            offset += 1;
+                        }
+                        i += 1;
                     }
-                    i += 1;
+                    ends.push(offset - begin);
                 }
-                t.append_block(&cmxs, &self.ours[p][begin..offset])?;
+                t.append_chunk(&cmxs, &self.ours[p][begin..offset], &ends)?;
+                bi = last;
             }
             count += (t.size() - t.start_size()) as u32;
             self.trees[p] = Some(t);
@@ -470,6 +481,18 @@ impl Scan {
     pub fn set_filter_inner(&mut self, limit: u32) -> Result<(), String> {
         self.at(Stage::New, "set_filter")?;
         self.filter = Some(limit);
+        Ok(())
+    }
+
+    /// How the tree stage inserts (`chunked`, the default, or `per-block`); before anything else runs.
+    pub fn set_tree_insert_inner(&mut self, name: &str) -> Result<(), String> {
+        self.set_tree_insert_mode(tree::TreeInsert::from_name(name)?)
+    }
+
+    /// The same with the mode itself, so a test can choose a chunk size.
+    pub fn set_tree_insert_mode(&mut self, mode: tree::TreeInsert) -> Result<(), String> {
+        self.at(Stage::New, "set_tree_insert")?;
+        self.tree_insert = mode;
         Ok(())
     }
 
@@ -569,6 +592,11 @@ impl Scan {
     pub fn set_filter(&mut self, limit: u32) -> Result<(), JsError> {
         self.set_filter_inner(limit).map_err(|e| JsError::new(&e))
     }
+    /// How the tree stage inserts: `chunked` (the default) or `per-block`.
+    pub fn set_tree_insert(&mut self, mode: &str) -> Result<(), JsError> {
+        self.set_tree_insert_inner(mode)
+            .map_err(|e| JsError::new(&e))
+    }
     /// Scan with a published viewing key instead of the synthetic one. Returns its network.
     pub fn set_ufvk(&mut self, ufvk: &str) -> Result<String, JsError> {
         self.set_ufvk_inner(ufvk).map_err(|e| JsError::new(&e))
@@ -612,7 +640,7 @@ impl Scan {
             .corpus_sha256
             .map(|d| d.iter().map(|b| format!("{b:02x}")).collect::<String>());
         format!(
-            "{{\"blocks\":{},\"start_height\":{},\"actions_by_pool\":{{\"orchard\":{},\"ironwood\":{}}},\"found\":{{\"orchard_external\":{},\"orchard_internal\":{},\"ironwood_external\":{},\"ironwood_internal\":{}}},\"ivk_count\":2,\"batch_size\":{{\"orchard\":{},\"ironwood\":{}}},\"batches_made\":{{\"orchard\":{},\"ironwood\":{}}},\"filter\":{},\"corpus_sha256\":{},{},\"key_sha256\":{},\"received_zat\":{},\"spent_in_range_zat\":{},{}}}",
+            "{{\"blocks\":{},\"start_height\":{},\"actions_by_pool\":{{\"orchard\":{},\"ironwood\":{}}},\"found\":{{\"orchard_external\":{},\"orchard_internal\":{},\"ironwood_external\":{},\"ironwood_internal\":{}}},\"ivk_count\":2,\"batch_size\":{{\"orchard\":{},\"ironwood\":{}}},\"batches_made\":{{\"orchard\":{},\"ironwood\":{}}},\"filter\":{},\"tree_insert\":\"{}\",\"corpus_sha256\":{},{},\"key_sha256\":{},\"received_zat\":{},\"spent_in_range_zat\":{},{}}}",
             self.block_sizes.len(),
             self.start_height,
             self.action_counts[0],
@@ -626,6 +654,7 @@ impl Scan {
             self.chunks[0],
             self.chunks[1],
             self.filter.map_or("null".to_string(), |f| f.to_string()),
+            self.tree_insert.label(),
             hex.map_or("null".to_string(), |h| format!("\"{h}\"")),
             compact,
             self.key_sha256.as_ref().map_or("null".to_string(), |h| format!("\"{h}\"")),

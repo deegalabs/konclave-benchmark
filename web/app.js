@@ -75,7 +75,7 @@ function readForm() {
   return {
     threads: $('threads').value, nthreads: $('nthreads').value, hardwareConcurrency: navigator.hardwareConcurrency, runs: $('runs').value,
     prove: $('do-prove').checked, axis: $('axis').value, pool: $('pool').value,
-    scan: $('do-scan').checked, endpoint: $('endpoint').value, ufvk: $('ufvk').value, filter: $('filter').value, rangeKind: $('range-kind').value,
+    scan: $('do-scan').checked, endpoint: $('endpoint').value, ufvk: $('ufvk').value, filter: $('filter').value, treeInsert: $('tree-insert').value, rangeKind: $('range-kind').value,
     corpus: $('corpus').value, start: $('start').value, end: $('end').value,
   };
 }
@@ -108,7 +108,7 @@ async function runAll() {
   const counts = threadCounts(threads);
   for (const r of rows) for (const t of counts) {
     for (let i = 1; i <= runs && !stopped; i++) {
-      const row = { ...context(t), row: r.row, range_asked: r.range_asked ?? null, pool: r.pool, filter: r.filter, live_or_replay_asked: r.live_or_replay_asked, endpoint: r.endpoint, ...r.declared, run_index: i, runs_planned: runs, order_in_session: ++order, threads_asked: t };
+      const row = { ...context(t), row: r.row, range_asked: r.range_asked ?? null, pool: r.pool, filter: r.filter, tree_insert_asked: r.tree_insert, live_or_replay_asked: r.live_or_replay_asked, endpoint: r.endpoint, ...r.declared, run_index: i, runs_planned: runs, order_in_session: ++order, threads_asked: t };
       const res = await runOnce({ ...r.job, threads: t, wasm_sha256_stamped: metas[buildFor(t)].wasm_sha256, glue_sha256_stamped: metas[buildFor(t)].glue_sha256, snippets_sha256_stamped: metas[buildFor(t)].snippets_sha256 }, row);
       const shown = res.outcome !== 'ok' ? `${res.outcome}: ${res.error}` : res.kind === 'prove'
         ? `key ${(res.key_build_ms / 1000).toFixed(1)} s, proof ${(res.prove_ms / 1000).toFixed(1)} s, ${res.n_actions} actions`

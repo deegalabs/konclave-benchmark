@@ -41,6 +41,7 @@ small { color: #555; }
 <label>Live range, last height <input type="text" id="end"></label>
 <label>Viewing key to scan with. Empty means the synthetic test key. Use a published test key only <input type="text" id="ufvk" spellcheck="false" autocomplete="off" autocapitalize="none" autocorrect="off"></label>
 <label>Skip transactions over this many actions. Empty means none <input type="text" id="filter"></label>
+<label>Tree stage inserts <select id="tree-insert"><option value="chunked">in chunks of 10,000 blocks (default)</option><option value="per-block">block by block (information only, never a verdict)</option></select></label>
 </fieldset>
 <p><button id="go" disabled>Run</button><button id="stop">Stop</button></p>
 <p id="stage"></p>

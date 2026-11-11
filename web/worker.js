@@ -108,6 +108,8 @@ async function scan(ev, lib) {
   // A day's sync continues from a wallet's state, so a daily range that starts from nothing measures something else.
   if (ev.range_kind === 'daily' && s.starts_empty()) throw new Error('a daily range must start from the tree state before it');
   if (ev.filter != null) s.set_filter(ev.filter);
+  // Chunked unless the row asked for per-block; the result records which (tree_insert, from the wasm).
+  s.set_tree_insert(ev.tree_insert === 'per-block' ? 'per-block' : 'chunked');
   if (ev.ufvk) s.set_ufvk(ev.ufvk);
   timed('decode', () => s.decode());
   const notes = timed('decrypt', () => s.decrypt());

@@ -51,6 +51,10 @@ function barFor(r, range) {
   return null;
 }
 
+// A row asked to insert block by block is information about the tree stage, never a verdict: the bar's tree stage is the chunked one.
+const PER_BLOCK_INFO = 'per-block tree insertion, information only, not a verdict';
+const askedPerBlock = (r) => r.tree_insert_asked === 'per-block';
+
 const hasScanShape = (r) => /^scan-(daily|first-sync)-/.test(r.row);
 const isRangeRow = (r) => /^scan-(daily|first-sync|information)-/.test(r.row);
 
@@ -116,6 +120,9 @@ export function refusals(ok, opts = {}) {
   // The bare roots of the trees (32 bytes, hex) at the start and end of the range, as the scan computed them: what anyone compares with another server.
   const HEX32 = /^[0-9a-f]{64}$/;
   each((r) => verdictEntry(r) && !['orchard', 'ironwood'].every((p) => HEX32.test(r.tree_roots?.[p]?.start) && HEX32.test(r.tree_roots?.[p]?.end)), 'the bare tree roots are not recorded');
+  // Every scan result says how the tree stage inserted (the wasm writes it): chunk-<blocks> or per-block, and it must be what the row asked.
+  each((r) => r.kind === 'scan' && !/^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? ''), 'the tree insertion mode is not recorded');
+  each((r) => r.kind === 'scan' && /^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? '') && askedPerBlock(r) !== (r.tree_insert === 'per-block'), 'the tree insertion recorded is not the one asked for');
   each((r) => r.kind === 'prove' && r.verified !== true, 'a proof was not verified');
   each((r) => r.kind === 'prove' && (r.cold !== true || !(r.key_build_ms > 0)), 'a run was not cold: the key build was not timed');
   each((r) => r.kind === 'scan' && !((r.actions_by_pool?.orchard ?? 0) + (r.actions_by_pool?.ironwood ?? 0) > 0), 'a range with no actions');
@@ -131,7 +138,7 @@ export function refusals(ok, opts = {}) {
     const accounted = (r.wasm_load_ms ?? 0) + (r.preflight_ms ?? 0) + (r.pipeline_ms ?? 0) + (r.witness_ms ?? 0);
     return !(r.elapsed_ms >= 0) || r.elapsed_ms - accounted > Math.max(500, 0.05 * r.elapsed_ms);
   }, 'the page saw time that no stage accounts for');
-  for (const f of ['key_sha256', 'corpus_sha256']) if (new Set(ok.map((r) => r[f] ?? null)).size > 1) why.push(`this row mixes ${f}`);
+  for (const f of ['key_sha256', 'corpus_sha256', 'tree_insert']) if (new Set(ok.map((r) => r[f] ?? null)).size > 1) why.push(`this row mixes ${f}`);
   return why;
 }
 
@@ -188,7 +195,7 @@ function commitWhy(runs, commit) {
 }
 
 // What makes two runs one row. The endpoint is its origin, so the same server spelled two ways is one row.
-const rowParts = (r) => [r.device_label, browser(r.user_agent), r.row, r.pool ?? '', `threads ${r.threads_asked ?? 0}`, r.live_or_replay_asked ?? '', `endpoint ${r.endpoint ? (bareOrigin(r.endpoint) ?? r.endpoint) : '-'}`];
+const rowParts = (r) => [r.device_label, browser(r.user_agent), r.row, r.pool ?? '', `threads ${r.threads_asked ?? 0}`, r.live_or_replay_asked ?? '', `endpoint ${r.endpoint ? (bareOrigin(r.endpoint) ?? r.endpoint) : '-'}`, ...(askedPerBlock(r) ? ['tree per-block'] : [])];
 export function rowKey(r) {
   return [...rowParts(r), `session ${r.session_id ?? '-'}`, `filter ${r.filter ?? 'none'}`].join(' | ');
 }
@@ -238,6 +245,7 @@ export function summarize(input, opts = {}) {
     const range = live && isRangeRow(sample) ? rangeOf(runs, opts) : null;
     const bar = barFor(sample, range);
     if (hidesBar) verdict = 'REFUSED: class other hides the bar; choose phone or laptop';
+    else if (askedPerBlock(sample)) verdict = PER_BLOCK_INFO;
     else if (sample.live_or_replay_asked === 'replay' && hasBarShape(sample) && sample.device_class === 'phone') verdict = 'replay, not a verdict';
     else if (bar === null && !range?.text) verdict = bad.length || missing > 0 || clearedDead ? 'incomplete' : 'no bar';
     else if (sample.threads_asked) verdict = 'threads, reported, not a verdict';
