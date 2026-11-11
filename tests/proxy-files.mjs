@@ -168,6 +168,7 @@ export function deriveHosted(files, root) {
   const gw = dyn.http.middlewares['grpc-web'], rl = dyn.http.middlewares['rate-limit'];
   only(gw, ['grpcWeb'], 'middleware grpc-web'); only(gw.grpcWeb, ['allowOrigins'], 'middleware grpc-web');
   only(rl, ['rateLimit'], 'middleware rate-limit'); only(rl.rateLimit, [...RATE_KEYS, 'sourceCriterion'], 'middleware rate-limit');
+  if (rl.rateLimit.average !== '20' || rl.rateLimit.period !== '1s' || rl.rateLimit.burst !== '40') throw new Error('rate-limit: average 20, period 1s, burst 40');
   if (!same(rl.rateLimit.sourceCriterion, { requestHeaderName: 'X-Real-IP' })) throw new Error('rate-limit: keyed on X-Real-IP');
   const sv = dyn.http.services[r.service];
   only(sv, ['loadBalancer'], 'service'); only(sv.loadBalancer, ['servers'], 'service loadBalancer');
