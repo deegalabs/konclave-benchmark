@@ -4,12 +4,12 @@
 // carries a verdict; a row on any other range reads "range not fixed by the protocol, not a verdict".
 //   daily           3,456 blocks, under the daily bar
 //   first-scan      50,000 blocks, under the first-scan bar
-//   first-scan-43d  43.4 days of blocks, information only
-// blocks is what the protocol says a range holds; a fixed entry must be that long. The information row has no length until it is fixed.
+//   first-scan-43d  150,000 blocks (43.4 days at 3,456 blocks a day), information only
+// blocks is what the protocol says a range holds; a fixed entry must be that long.
 export const RANGES = [
   { id: 'daily', kind: 'daily', blocks: 3456, start_height: null, end_height: null },
   { id: 'first-scan', kind: 'first-sync', blocks: 50000, start_height: null, end_height: null },
-  { id: 'first-scan-43d', kind: 'information', blocks: null, start_height: null, end_height: null },
+  { id: 'first-scan-43d', kind: 'information', blocks: 150000, start_height: null, end_height: null },
 ];
 
 // Whether an entry is fixed: both heights given and, where the protocol names a length, that length.

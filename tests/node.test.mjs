@@ -181,7 +181,7 @@ test('a live scan gets a verdict only on a range the protocol fixed', () => {
 });
 
 test('the shipped RANGES fix no height yet, so no live scan carries a verdict, and a fixed entry has the length the protocol says', () => {
-  assert.deepEqual(RANGES.map((e) => [e.id, e.blocks, e.start_height, e.end_height]), [['daily', 3456, null, null], ['first-scan', 50000, null, null], ['first-scan-43d', null, null, null]]);
+  assert.deepEqual(RANGES.map((e) => [e.id, e.blocks, e.start_height, e.end_height]), [['daily', 3456, null, null], ['first-scan', 50000, null, null], ['first-scan-43d', 150000, null, null]]);
   assert.match(summarizeReal(fiveScan({}), { endpoints: TEST_TABLE })[0].verdict, /^range not fixed by the protocol, not a verdict$/);
   assert.equal(askedEntry(DAILY.range_asked, [{ id: 'daily', kind: 'daily', blocks: 3456, start_height: 3000000, end_height: 3003455 }]).id, 'daily');
   assert.equal(askedEntry({ ...DAILY.range_asked, start: 1, end: 3455 }, [{ id: 'daily', kind: 'daily', blocks: 3456, start_height: 1, end_height: 3455 }]), null, 'an entry of the wrong length is not fixed');
@@ -2623,12 +2623,8 @@ test('fix-ranges: T is the last block before the cutoff, at the boundary (equal 
       const r = await findRanges(`http://127.0.0.1:${port}`, { ownMock: true });
       assert.equal(r.T, want);
       assert.ok(r.time < CUT && r.next_time >= CUT);
-      assert.deepEqual(r.ranges.map((e) => [e.id, e.start_height, e.end_height]), [['daily', want - 3455, want], ['first-scan', want - 49999, want], ['first-scan-43d', r.ranges[2].start_height, want]]);
-      assert.equal(new Date((CUT - 3_749_760) * 1000).toISOString(), '2026-10-04T14:24:00.000Z');
+      assert.deepEqual(r.ranges.map((e) => [e.id, e.start_height, e.end_height]), [['daily', want - 3455, want], ['first-scan', want - 49999, want], ['first-scan-43d', want - 149999, want]]);
       assert.equal(r.hash, want.toString(16).padStart(64, '0'));
-      // The information row starts at the block after the last one before cutoff minus 43.4 days.
-      const u = r.ranges[2].start_height - 1;
-      assert.ok(CUT + 25 * (u - 2_900_000) < CUT - 3_749_760 && CUT + 25 * (u + 1 - 2_900_000) >= CUT - 3_749_760);
     } finally { server.close(); }
   }
 });
@@ -2688,6 +2684,6 @@ test('fix-ranges: --write changes only the six heights, and rangeFixed holds aft
     const mod = await import(`${pathToFileURL(file).href}?w`);
     assert.equal(mod.RANGES.length, 3);
     for (const e of mod.RANGES) assert.ok(mod.rangeFixed(e), e.id);
-    assert.deepEqual(mod.RANGES.slice(0, 2).map((e) => [e.start_height, e.end_height]), [[2_899_999 - 3455, 2_899_999], [2_899_999 - 49999, 2_899_999]]);
+    assert.deepEqual(mod.RANGES.map((e) => [e.start_height, e.end_height]), [[2_899_999 - 3455, 2_899_999], [2_899_999 - 49999, 2_899_999], [2_899_999 - 149999, 2_899_999]]);
   } finally { server.close(); }
 });
