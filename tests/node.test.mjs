@@ -2618,12 +2618,13 @@ test('fix-ranges: T is the last block before the cutoff, at the boundary (equal 
   const { findRanges } = await fixMod();
   for (const [port, edge, want] of [[18921, 0, 2_899_999], [18922, -1, 2_900_000]]) {
     // time(h) = CUT + 25 (h - 2,900,000) + edge at h = 2,900,000: the block there is at the cutoff, or one second before it.
-    const { server } = await fixChain(port, (h) => CUT + 25 * (h - 2_900_000) + (h === 2_900_000 ? edge : 0), 2_900_060);
+    const { server } = await fixChain(port, (h) => CUT + 25 * (h - 2_900_000) + (h === 2_900_000 ? edge : 0), 2_900_150);
     try {
       const r = await findRanges(`http://127.0.0.1:${port}`, { ownMock: true });
       assert.equal(r.T, want);
       assert.ok(r.time < CUT && r.next_time >= CUT);
       assert.deepEqual(r.ranges.map((e) => [e.id, e.start_height, e.end_height]), [['daily', want - 3455, want], ['first-scan', want - 49999, want], ['first-scan-43d', r.ranges[2].start_height, want]]);
+      assert.equal(new Date((CUT - 3_749_760) * 1000).toISOString(), '2026-10-04T14:24:00.000Z');
       assert.equal(r.hash, want.toString(16).padStart(64, '0'));
       // The information row starts at the block after the last one before cutoff minus 43.4 days.
       const u = r.ranges[2].start_height - 1;
@@ -2635,23 +2636,23 @@ test('fix-ranges: T is the last block before the cutoff, at the boundary (equal 
 test('fix-ranges: block times that are not monotonic: T is the highest block below the cutoff, not the first crossing', async () => {
   const { findRanges } = await fixMod();
   // The block 2,900,003 is five seconds before the cutoff while 2,900,000 to 2,900,002 are after it.
-  const { server } = await fixChain(18923, (h) => (h === 2_900_003 ? CUT - 5 : CUT + 25 * (h - 2_900_000)), 2_900_060);
+  const { server } = await fixChain(18923, (h) => (h === 2_900_003 ? CUT - 5 : CUT + 25 * (h - 2_900_000)), 2_900_150);
   try {
     assert.equal((await findRanges('http://127.0.0.1:18923', { ownMock: true })).T, 2_900_003);
   } finally { server.close(); }
 });
 
-test('fix-ranges: refuses a tip before the cutoff, or one with fewer than 11 blocks past T', async () => {
+test('fix-ranges: refuses a tip before the cutoff, or one with fewer than 11 or fewer than 100 blocks past T', async () => {
   const { findRanges } = await fixMod();
   const time = (h) => CUT + 25 * (h - 2_900_000);
-  for (const [port, tip, re] of [[18924, 2_899_990, /still before/], [18925, 2_900_005, /fewer than 11 blocks/]]) {
+  for (const [port, tip, re] of [[18924, 2_899_990, /still before/], [18925, 2_900_005, /fewer than 11 blocks/], [18928, 2_900_098, /wait for 100/]]) {
     const { server } = await fixChain(port, time, tip);
     try { await assert.rejects(() => findRanges(`http://127.0.0.1:${port}`, { ownMock: true }), re); } finally { server.close(); }
   }
 });
 
 test('fix-ranges: reads nothing without --read-approved, and writes nothing when it refuses', async () => {
-  const { server } = await fixChain(18926, (h) => CUT + 25 * (h - 2_900_000), 2_900_060);
+  const { server } = await fixChain(18926, (h) => CUT + 25 * (h - 2_900_000), 2_900_150);
   const dir = mkdtempSync(join(tmpdir(), 'fix-'));
   try {
     const { findRanges } = await fixMod();
@@ -2667,7 +2668,7 @@ test('fix-ranges: reads nothing without --read-approved, and writes nothing when
 });
 
 test('fix-ranges: --write changes only the six heights, and rangeFixed holds after it', async () => {
-  const { server } = await fixChain(18927, (h) => CUT + 25 * (h - 2_900_000), 2_900_060);
+  const { server } = await fixChain(18927, (h) => CUT + 25 * (h - 2_900_000), 2_900_150);
   const dir = mkdtempSync(join(tmpdir(), 'fix-'));
   try {
     const file = join(dir, 'ranges.mjs');
