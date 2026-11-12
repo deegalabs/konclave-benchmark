@@ -26,8 +26,13 @@ function readRange(msg) { // BlockRange { start = 1, end = 2 }
   return [readHeight(msg.subarray(2, 2 + n)), readHeight(msg.subarray(4 + n))];
 }
 
-export function mock(port, corpus, { dropBlock = null, failWith = null, trailersOnly = false, end = null, treeHeightOffset = 0, info = {}, infoDelayMs = 0 } = {}) {
-  const { start, blocks } = parseCorpus(corpus);
+const vi = (n) => { const out = []; while (n > 127) { out.push((n % 128) | 128); n = Math.floor(n / 128); } out.push(n); return out; };
+const bytesField = (tag, b) => Buffer.concat([Buffer.from([tag, b.length]), b]);
+export const chainHash = (h) => Buffer.from(h.toString(16).padStart(64, '0'), 'hex');
+
+export function mock(port, corpus, { dropBlock = null, failWith = null, trailersOnly = false, end = null, treeHeightOffset = 0, info = {}, infoDelayMs = 0, chain = null } = {}) {
+  // chain: { tip, time(h) } makes a chain of bare compact blocks (height, hash, time) with the block times the test gives, for GetLatestBlock and GetBlockRange.
+  const { start, blocks } = corpus ? parseCorpus(corpus) : { start: 0, blocks: [] };
   const requests = [];
   const s = createServer((req, res) => {
     const cors = { 'access-control-allow-origin': '*', 'access-control-allow-headers': '*' };
@@ -45,6 +50,13 @@ export function mock(port, corpus, { dropBlock = null, failWith = null, trailers
         const height = []; let x = info.block_height ?? 1; while (x > 127) { height.push((x & 127) | 128); x = Math.floor(x / 128); } height.push(x);
         const body = Buffer.concat([str(0x0a, info.version ?? 'mock'), str(0x12, info.vendor ?? 'mock'), str(0x22, info.chain_name ?? 'main'), Buffer.from([0x38, ...height])]);
         setTimeout(() => res.writeHead(200, headers).end(Buffer.concat([frame(0, body), trailer()])), infoDelayMs);
+      } else if (chain && method === 'GetLatestBlock') {
+        res.writeHead(200, headers).end(Buffer.concat([frame(0, Buffer.concat([Buffer.from([0x08, ...vi(chain.tip)]), bytesField(0x12, chainHash(chain.tip))])), trailer()]));
+      } else if (chain && method === 'GetBlockRange') {
+        const [a, b] = readRange(body);
+        const parts = [];
+        for (let h = a; h <= Math.min(b, chain.tip); h++) parts.push(frame(0, Buffer.concat([Buffer.from([0x10, ...vi(h)]), bytesField(0x1a, chainHash(h)), Buffer.from([0x28, ...vi(chain.time(h))])])));
+        res.writeHead(200, headers).end(Buffer.concat([...parts, trailer()]));
       } else if (method === 'GetTreeState') {
         // Field 2 height, then the tree strings: empty before the range, the corpus's end at its last height.
         const h = readHeight(body);
