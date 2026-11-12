@@ -7,7 +7,8 @@
 // read from one comparison: every block above T, up to the tip, has time >= CUTOFF. Consensus requires a block's time to be greater
 // than the median of the 11 blocks before it, so once 11 consecutive blocks have time >= CUTOFF every later block does too. The
 // script therefore finds a block below the cutoff by bisection, walks up from it to the first 11 consecutive blocks at or after the
-// cutoff, and takes the last block below the cutoff it met. A tip that does not have 11 such blocks above T is refused.
+// cutoff, and takes the last block below the cutoff it met. A tip that does not have 11 such blocks above T is refused. Those 11 make T final by consensus; the tip must also be at least
+// MARGIN (100) blocks past T before the heights are read, as a margin against a reorganisation.
 //   daily           T-3,455 to T       (3,456 blocks)
 //   first-scan      T-49,999 to T      (50,000 blocks)
 //   first-scan-43d  from the block after U to T, U being the highest height with time(U) < CUTOFF minus 43.4 days (3,749,760 s),
@@ -22,6 +23,7 @@ import { requireReadApproval } from './read-guard.mjs';
 export const CUTOFF = Date.UTC(2026, 10, 17, 0, 0, 0) / 1000;
 export const INFO_SPAN_S = 3_749_760; // 43.4 days
 export const QUIET = 11; // the median span of the time rule
+export const MARGIN = 100; // blocks the tip must be past T before the heights are read: a margin against a reorganisation
 const RANGES_FILE = fileURLToPath(new URL('../web/ranges.mjs', import.meta.url));
 
 // Reads the varint and bytes fields of one message.
@@ -82,6 +84,7 @@ export async function findRanges(endpoint, { readApproved = false, ownMock = fal
   const T = await lastBelow(endpoint, cutoff, tip, headers);
   const t = headers.get(T), next = headers.get(T + 1);
   if (!(t.time < cutoff && next && next.time >= cutoff)) throw new Error(`block ${T} is not the last before the cutoff`);
+  if (tip - T < MARGIN) throw new Error(`the tip ${tip} is ${tip - T} blocks past T ${T}: wait for ${MARGIN}, a margin against a reorganisation`);
   const U = await lastBelow(endpoint, cutoff - INFO_SPAN_S, tip, headers);
   const ranges = [
     { id: 'daily', start_height: T - 3455, end_height: T },
@@ -118,7 +121,7 @@ export async function main(argv, log = console.log) {
   const r = await findRanges(args[0], { readApproved, ownMock });
   const iso = (s) => new Date(s * 1000).toISOString();
   log(`cutoff ${iso(r.cutoff)}, tip ${r.tip}`);
-  log(`T ${r.T} time ${r.time} (${iso(r.time)}) hash ${r.hash} (the bytes the server sent; an explorer shows them reversed); next block time ${r.next_time} (${iso(r.next_time)})`);
+  log(`T ${r.T} time ${r.time} (${iso(r.time)}) hash ${r.hash} (as the server sent it); next block time ${r.next_time} (${iso(r.next_time)})`);
   for (const e of r.ranges) log(`${e.id}: ${e.start_height} to ${e.end_height} (${e.end_height - e.start_height + 1} blocks)`);
   if (write) {
     const before = readFileSync(file, 'utf8');
