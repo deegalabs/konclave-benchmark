@@ -4,6 +4,7 @@ import test from 'node:test';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, mkdtempSync, writeFileSync, mkdirSync, cpSync } from 'node:fs';
+import { spawnSync, spawn } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { treeState, blocks, call, lightdInfo } from '../web/grpcweb.js';
@@ -2603,4 +2604,89 @@ test('a link or the form sets the tree insertion, the row and the job carry it, 
   const worker = readFileSync(new URL('../web/worker.js', import.meta.url), 'utf8');
   assert.match(worker, /s\.set_tree_insert\(ev\.tree_insert === 'per-block' \? 'per-block' : 'chunked'\)/);
   assert.ok(worker.indexOf('set_tree_insert(') < worker.indexOf("timed('decode'"), 'set before the first stage');
+});
+
+// scripts/fix-ranges.mjs: the heights of the verdict ranges by the published rule, read from a mock chain whose block times the test gives.
+const FIX = fileURLToPath(new URL('../scripts/fix-ranges.mjs', import.meta.url));
+const CUT = Date.UTC(2026, 10, 17) / 1000;
+const RANGES_SRC = fileURLToPath(new URL('../web/ranges.mjs', import.meta.url));
+const fixChain = (port, timeAt, tip) => mock(port, null, { chain: { tip, time: timeAt } });
+const fixMod = () => import('../scripts/fix-ranges.mjs');
+const runFix = (args) => spawnSync(process.execPath, [FIX, ...args], { encoding: 'utf8' });
+
+test('fix-ranges: T is the last block before the cutoff, at the boundary (equal to the cutoff is not before it)', async () => {
+  const { findRanges } = await fixMod();
+  for (const [port, edge, want] of [[18921, 0, 2_899_999], [18922, -1, 2_900_000]]) {
+    // time(h) = CUT + 25 (h - 2,900,000) + edge at h = 2,900,000: the block there is at the cutoff, or one second before it.
+    const { server } = await fixChain(port, (h) => CUT + 25 * (h - 2_900_000) + (h === 2_900_000 ? edge : 0), 2_900_060);
+    try {
+      const r = await findRanges(`http://127.0.0.1:${port}`, { ownMock: true });
+      assert.equal(r.T, want);
+      assert.ok(r.time < CUT && r.next_time >= CUT);
+      assert.deepEqual(r.ranges.map((e) => [e.id, e.start_height, e.end_height]), [['daily', want - 3455, want], ['first-scan', want - 49999, want], ['first-scan-43d', r.ranges[2].start_height, want]]);
+      assert.equal(r.hash, want.toString(16).padStart(64, '0'));
+      // The information row starts at the block after the last one before cutoff minus 43.4 days.
+      const u = r.ranges[2].start_height - 1;
+      assert.ok(CUT + 25 * (u - 2_900_000) < CUT - 3_749_760 && CUT + 25 * (u + 1 - 2_900_000) >= CUT - 3_749_760);
+    } finally { server.close(); }
+  }
+});
+
+test('fix-ranges: block times that are not monotonic: T is the highest block below the cutoff, not the first crossing', async () => {
+  const { findRanges } = await fixMod();
+  // The block 2,900,003 is five seconds before the cutoff while 2,900,000 to 2,900,002 are after it.
+  const { server } = await fixChain(18923, (h) => (h === 2_900_003 ? CUT - 5 : CUT + 25 * (h - 2_900_000)), 2_900_060);
+  try {
+    assert.equal((await findRanges('http://127.0.0.1:18923', { ownMock: true })).T, 2_900_003);
+  } finally { server.close(); }
+});
+
+test('fix-ranges: refuses a tip before the cutoff, or one with fewer than 11 blocks past T', async () => {
+  const { findRanges } = await fixMod();
+  const time = (h) => CUT + 25 * (h - 2_900_000);
+  for (const [port, tip, re] of [[18924, 2_899_990, /still before/], [18925, 2_900_005, /fewer than 11 blocks/]]) {
+    const { server } = await fixChain(port, time, tip);
+    try { await assert.rejects(() => findRanges(`http://127.0.0.1:${port}`, { ownMock: true }), re); } finally { server.close(); }
+  }
+});
+
+test('fix-ranges: reads nothing without --read-approved, and writes nothing when it refuses', async () => {
+  const { server } = await fixChain(18926, (h) => CUT + 25 * (h - 2_900_000), 2_900_060);
+  const dir = mkdtempSync(join(tmpdir(), 'fix-'));
+  try {
+    const { findRanges } = await fixMod();
+    await assert.rejects(() => findRanges('https://m1-rocks.konclave.xyz'), /read-approved/);
+    await assert.rejects(() => findRanges('http://127.0.0.1:18926'), /read-approved/);
+    const file = join(dir, 'ranges.mjs');
+    cpSync(RANGES_SRC, file);
+    const r = runFix(['http://127.0.0.1:18926', '--write', '--ranges-file', file]);
+    assert.notEqual(r.status, 0);
+    assert.match(r.stderr, /read-approved/);
+    assert.equal(readFileSync(file, 'utf8'), readFileSync(RANGES_SRC, 'utf8'));
+  } finally { server.close(); }
+});
+
+test('fix-ranges: --write changes only the six heights, and rangeFixed holds after it', async () => {
+  const { server } = await fixChain(18927, (h) => CUT + 25 * (h - 2_900_000), 2_900_060);
+  const dir = mkdtempSync(join(tmpdir(), 'fix-'));
+  try {
+    const file = join(dir, 'ranges.mjs');
+    cpSync(RANGES_SRC, file);
+    const before = readFileSync(file, 'utf8');
+    // Without --write the file stays as it was.
+    const dry = await new Promise((ok) => { const c = spawn(process.execPath, [FIX, 'http://127.0.0.1:18927', '--own-mock', '--ranges-file', file]); let out = ''; c.stdout.on('data', (d) => { out += d; }); c.on('close', (code) => ok({ code, out })); });
+    assert.equal(dry.code, 0);
+    assert.match(dry.out, /T 2899999 /);
+    assert.equal(readFileSync(file, 'utf8'), before);
+    const w = await new Promise((ok) => { const c = spawn(process.execPath, [FIX, 'http://127.0.0.1:18927', '--own-mock', '--write', '--ranges-file', file]); let out = ''; c.stdout.on('data', (d) => { out += d; }); c.on('close', (code) => ok({ code, out })); });
+    assert.equal(w.code, 0);
+    const after = readFileSync(file, 'utf8');
+    assert.match(w.out, /^\+ .*first-scan'/m);
+    const strip = (t) => t.replace(/start_height: (null|\d+), end_height: (null|\d+)/g, 'H');
+    assert.equal(strip(after), strip(before));
+    const mod = await import(`${pathToFileURL(file).href}?w`);
+    assert.equal(mod.RANGES.length, 3);
+    for (const e of mod.RANGES) assert.ok(mod.rangeFixed(e), e.id);
+    assert.deepEqual(mod.RANGES.slice(0, 2).map((e) => [e.start_height, e.end_height]), [[2_899_999 - 3455, 2_899_999], [2_899_999 - 49999, 2_899_999]]);
+  } finally { server.close(); }
 });
