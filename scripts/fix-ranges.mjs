@@ -11,8 +11,7 @@
 // MARGIN (100) blocks past T before the heights are read, as a margin against a reorganisation.
 //   daily           T-3,455 to T       (3,456 blocks)
 //   first-scan      T-49,999 to T      (50,000 blocks)
-//   first-scan-43d  from the block after U to T, U being the highest height with time(U) < CUTOFF minus 43.4 days (3,749,760 s),
-//                   found by the same rule
+//   first-scan-43d  T-149,999 to T     (150,000 blocks, information only)
 // Reading the chain needs --read-approved (scripts/read-guard.mjs). Nothing is written without --write, and a write changes the six
 // height values of web/ranges.mjs and nothing else.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -21,7 +20,6 @@ import { call, blocks } from '../web/grpcweb.js';
 import { requireReadApproval } from './read-guard.mjs';
 
 export const CUTOFF = Date.UTC(2026, 10, 17, 0, 0, 0) / 1000;
-export const INFO_SPAN_S = 3_749_760; // 43.4 days
 export const QUIET = 11; // the median span of the time rule
 export const MARGIN = 100; // blocks the tip must be past T before the heights are read: a margin against a reorganisation
 const RANGES_FILE = fileURLToPath(new URL('../web/ranges.mjs', import.meta.url));
@@ -85,11 +83,10 @@ export async function findRanges(endpoint, { readApproved = false, ownMock = fal
   const t = headers.get(T), next = headers.get(T + 1);
   if (!(t.time < cutoff && next && next.time >= cutoff)) throw new Error(`block ${T} is not the last before the cutoff`);
   if (tip - T < MARGIN) throw new Error(`the tip ${tip} is ${tip - T} blocks past T ${T}: wait for ${MARGIN}, a margin against a reorganisation`);
-  const U = await lastBelow(endpoint, cutoff - INFO_SPAN_S, tip, headers);
   const ranges = [
     { id: 'daily', start_height: T - 3455, end_height: T },
     { id: 'first-scan', start_height: T - 49999, end_height: T },
-    { id: 'first-scan-43d', start_height: U + 1, end_height: T },
+    { id: 'first-scan-43d', start_height: T - 149999, end_height: T },
   ];
   return { tip, cutoff, T, time: t.time, hash: t.hash, next_time: next.time, ranges };
 }
