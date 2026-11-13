@@ -597,7 +597,8 @@ test('the battery log reads the first temperature line only and tenths of a degr
 
 test('the battery log reads the charge counter and current from the service lines, never from the event history', async () => {
   const { parseBattery, logLine } = await import('../scripts/battery-log.mjs');
-  const text = `Current Battery Service state:
+  const text = `11-12 11:39:00.000  history: Charge counter: 7 current now: 8 cc:1
+Current Battery Service state:
   AC powered: false
   USB powered: false
   Charge counter: 4965000
