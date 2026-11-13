@@ -61,4 +61,6 @@ A battery run lasts at least 20 minutes, on the laptop and on the phones. A work
 - Laptop: about 50 mWh over the two ends of a run against about 4,300 mWh drained in 20 minutes at about 13 W, so about 1%.
 - Phones: the charge counter moves in steps of about 5 mAh, about 10 mAh over the two ends of a run. At about 450 mA, 20 minutes drain about 150 mAh, so the counter alone gives about 7%; `current now` summed every 10 s is reported beside it as the finer reading. A phone whose counter moves in larger steps, or whose counter scale does not match its battery, reports the share used with its own step size stated.
 
+The net result per job carries the uncertainty of both the run and the baseline, and is published with it.
+
 Nothing that identifies a device leaves the host: published battery results hold the model, the energy per job and, for phones, the battery temperature, not serials, account names, network names, raw battery history or the battery report file.
