@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
-// Optional, on the host: writes the phone's battery level, temperature and charging state to a file every 10 s, with the time,
+// Optional, on the host: writes the phone's battery level, temperature, charging state, charge counter and current to a file every 10 s, with the time,
 // so a run's temperature does not depend on anyone typing it. The page cannot read a battery; this can.
 // usage: node scripts/battery-log.mjs battery.log [adb serial]
 // It is never run by the tests: they only read the parser. It talks to the phone through the adb on this machine.
@@ -17,10 +17,16 @@ export function parseBattery(text) {
   const level = first(/^\s*level:\s*(\d+)\s*$/m);
   if (temp === undefined || level === undefined) return null;
   const charging = ['AC', 'USB', 'Wireless', 'Dock'].some((k) => new RegExp(`^\\s*${k} powered:\\s*true\\s*$`, 'm').test(text));
-  return { level: Number(level), temperature_c: Number(temp) / 10, charging };
+  // The charge counter (µAh) and the current (mA, negative while discharging), from the service's own lines only: the battery event
+  // history that dumpsys prints below them is never read, since it holds times of use and other apps (docs/method.md, Battery).
+  // Either is null on a phone that does not print it.
+  const counter = first(/^\s*Charge counter:\s*(-?\d+)\s*$/m);
+  const current = first(/^\s*current now:\s*(-?\d+)\s*$/m);
+  return { level: Number(level), temperature_c: Number(temp) / 10, charging,
+    charge_counter_uah: counter === undefined ? null : Number(counter), current_now_ma: current === undefined ? null : Number(current) };
 }
 
-export const logLine = (b, at) => `${at} level=${b.level} temperature_c=${b.temperature_c} charging=${b.charging}`;
+export const logLine = (b, at) => `${at} level=${b.level} temperature_c=${b.temperature_c} charging=${b.charging} charge_counter_uah=${b.charge_counter_uah ?? 'none'} current_now_ma=${b.current_now_ma ?? 'none'}`;
 
 function poll(serial) {
   return new Promise((resolve) => {
