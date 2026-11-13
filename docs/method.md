@@ -44,4 +44,14 @@ A result for [community-results/](../community-results/README.md) is sent by pul
 
 ## Battery
 
-The harness has no battery bar, and nothing has been measured. The page cannot read a battery. The method is coarse (a phone off the charger, the battery level read from the host at intervals, a fixed job repeated, the result in percentage points) and will be posted on the forum for confirmation, separately, before any battery measurement is made. This file does not fix the method; the post does.
+The harness has no battery bar, and nothing has been measured. The page cannot read a battery: battery is read on the host, outside the page. The method below is a proposal. It will be posted on the forum for confirmation before any battery measurement is made, and this file does not fix it; the post does. Battery results are information, never a verdict.
+
+### Phones (proposal)
+
+A phone off the charger, reached by adb over Wi-Fi so it is not charging, with the battery between 80% and 60% at the start. The host reads `dumpsys battery` every 10 s: the level, the charge counter and `current now`. A fixed job is repeated, and the result is the energy used per job, net of an idle baseline of the same length, from the charge counter where it moves with use and from `current now` summed over the run. On a phone whose counter scale does not match its battery, the share of the counter or of the level used is reported instead of mAh.
+
+### Laptop (proposal)
+
+The verdict laptop (Dell G7, 24 GB) is unplugged for the whole run. The host logs the battery's `RemainingCapacity` (mWh, from the Windows `root\wmi` `BatteryStatus` class) every 10 s with the time, and the start and the end of each run are marked by their timestamps. The result is the drop in `RemainingCapacity` between the start and the end of the run, net of an idle baseline of the same length taken just before or after, with the laptop on the same settings and nothing else running. As a cross-check, the row of `powercfg /batteryreport` for the same unplugged session gives the energy drained by the battery's own report. `DischargeRate` from the same class is not used as the measure: in a first check it read about 7% above the capacity drop, while the capacity drop and the report row agreed within about 1%. The capacity moves in steps of about 15 mWh, so a run of a few minutes is measured to better than 1%.
+
+Nothing that identifies a device leaves the host: published battery results hold the model, the energy per job and the temperatures, not serials, account names, network names, raw battery history or the battery report file.
