@@ -12,7 +12,6 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 ### Added
 
 - `docs/method.md`, Battery: the proposed method for phones and for the verdict laptop (RemainingCapacity every 10 s, run start and end by timestamp, an idle baseline of the same length, the battery report row as a cross-check), to be posted on the forum for confirmation before any battery measurement.
-
 - `web/ranges.mjs`: the first-scan-43d row holds 150,000 blocks and ends at T like the others (T-149,999 to T); `scripts/fix-ranges.mjs` writes it with the other two.
 - `scripts/fix-ranges.mjs`: finds T, the highest block with a block time before 2026-11-17 00:00:00 UTC (with 11 consecutive blocks at or after it above T, so a block time out of order cannot move it), and prints the three verdict ranges; with `--write` it writes only the six heights into `web/ranges.mjs`. It reads the chain only with `--read-approved`. `scripts/mock-lightwalletd.mjs` can serve a chain of block times for its tests.
 - `docs/method.md`, "What is fixed before the runs": the range rule, Firefox as the verdict browser on the A72 and Chrome on the verdict laptop (Dell G7, 24 GB) with the other browsers as information, the row through `m1-rocks` as the verdict endpoint with `m1-global` as information, and the first session started on 17 November 2026 as the verdict of each row. The README limits and `docs/protocol-details.md` no longer say one endpoint.
