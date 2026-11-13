@@ -48,7 +48,7 @@ The harness has no battery bar, and nothing has been measured. The page cannot r
 
 ### Phones (proposal)
 
-A phone off the charger, reached by adb over Wi-Fi so it is not charging, with the battery between 80% and 60% at the start. The host reads `dumpsys battery` every 10 s: the level, the charge counter and `current now` (`scripts/battery-log.mjs` records the level, temperature and charging state today; the counter and current fields are added before any battery measurement). A fixed job is repeated, and the result is the energy used per job, net of an idle baseline of the same length, from the charge counter where it moves with use and from `current now` summed over the run. On a phone whose counter scale does not match its battery, the share of the counter or of the level used is reported instead of mAh.
+A phone off the charger, reached by adb over Wi-Fi so it is not charging, with the battery between 80% and 60% at the start. The host reads `dumpsys battery` every 10 s: the level, the charge counter and `current now` (`scripts/battery-log.mjs` records them with the temperature and charging state, from the battery service's own lines and never from its event history). A fixed job is repeated, and the result is the energy used per job, net of an idle baseline of the same length, from the charge counter where it moves with use and from `current now` summed over the run. On a phone whose counter scale does not match its battery, the share of the counter or of the level used is reported instead of mAh.
 
 ### Laptop (proposal)
 

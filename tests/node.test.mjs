@@ -589,10 +589,32 @@ test('the battery log reads the first temperature line only and tenths of a degr
 01-01 12:00:00.000 I/ThermalService: temperature: 999 throttling
   temperature: 777
 `;
-  assert.deepEqual(parseBattery(text), { level: 87, temperature_c: 30.9, charging: true });
+  assert.deepEqual(parseBattery(text), { level: 87, temperature_c: 30.9, charging: true, charge_counter_uah: null, current_now_ma: null });
   assert.equal(parseBattery(text.replace('USB powered: true', 'USB powered: false')).charging, false);
   assert.equal(parseBattery('nothing useful here'), null);
-  assert.equal(logLine(parseBattery(text), '2026-11-09T10:00:00.000Z'), '2026-11-09T10:00:00.000Z level=87 temperature_c=30.9 charging=true');
+  assert.equal(logLine(parseBattery(text), '2026-11-09T10:00:00.000Z'), '2026-11-09T10:00:00.000Z level=87 temperature_c=30.9 charging=true charge_counter_uah=none current_now_ma=none');
+});
+
+test('the battery log reads the charge counter and current from the service lines, never from the event history', async () => {
+  const { parseBattery, logLine } = await import('../scripts/battery-log.mjs');
+  const text = `Current Battery Service state:
+  AC powered: false
+  USB powered: false
+  Charge counter: 4965000
+  level: 99
+  temperature: 332
+  current now: -433
+11-12 11:40:02.993  Sending ACTION_BATTERY_CHANGED: level:58, current_avg:-1000, cc:2868397, temperature:319
+  Charge counter: 1
+  current now: 999
+`;
+  const b = parseBattery(text);
+  assert.equal(b.charge_counter_uah, 4965000);
+  assert.equal(b.current_now_ma, -433);
+  assert.equal(b.charging, false);
+  assert.equal(logLine(b, 't'), 't level=99 temperature_c=33.2 charging=false charge_counter_uah=4965000 current_now_ma=-433');
+  // Nothing from the history line reaches the log: no time of day, no cc value.
+  assert.doesNotMatch(logLine(b, 't'), /2868397|11:40|ACTION/);
 });
 
 // The build stamp, for the wasm and for the page's own script
