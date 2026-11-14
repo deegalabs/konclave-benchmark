@@ -11,10 +11,10 @@ Method: the "Storage (option A)" section of the M1 run sheet. The WebZjs build i
 (cd /path/to/WebZjs && just build-wallet)
 storage/copy-pkg.sh /path/to/WebZjs
 # 2. the local gRPC-web proxy (zec.rocks on :1234)
-docker compose -f proxy/compose.yml up -d
-# 3. one run per birthday (playwright-core must be resolvable, for example through NODE_PATH)
+docker compose -f storage/proxy/compose.yml up -d
+# 3. one run per birthday (run npm install once in storage/ for playwright-core)
 node storage/run.mjs --birthday 3558848 --webzjs-commit <sha> --label reported --out storage/out/run-3558848.json
-docker compose -f proxy/compose.yml down
+docker compose -f storage/proxy/compose.yml down
 ```
 
 The driver uses a fresh throwaway profile and deletes it. It exits 1 and keeps the log if the page shows no console

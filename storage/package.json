@@ -1,0 +1,7 @@
+{
+  "name": "kbp-storage",
+  "private": true,
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "dependencies": { "playwright-core": "1.65.0" }
+}

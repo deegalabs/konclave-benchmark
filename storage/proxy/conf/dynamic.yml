@@ -1,24 +1,24 @@
 # SPDX-License-Identifier: MIT OR Apache-2.0
 # Adapted from red-dev-inc/WebZjs traefik/ at c0457174 (MIT OR Apache-2.0, https://github.com/red-dev-inc/WebZjs).
 # Changes: file provider only, no docker socket, no dashboard, no API, allowOrigins limited to the pages that use the proxy, the
-# published ports pinned to 127.0.0.1, the image pinned by digest, routers limited to the four calls the harness makes, a rate limit.
+# published ports pinned to 127.0.0.1, the image pinned by digest, routers limited to the read-only calls the storage page needs, a rate limit.
 http:
   routers:
     rocks:
-      # Only the four calls the harness makes (POST), and OPTIONS for the browser's preflight on those paths: no SendTransaction, no address or mempool calls.
+      # The storage page's proxy: read-only calls only (POST), and OPTIONS for the browser's preflight on those paths. SendTransaction and the address and mempool calls are blocked.
       rule: "(Method(`POST`) || Method(`OPTIONS`)) && (Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLatestBlock`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetBlockRange`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetTreeState`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLightdInfo`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetSubtreeRoots`))"
       service: zec-rocks
       middlewares: [rate-limit, grpc-web]
       entryPoints: [rocks]
     global:
-      # Only the four calls the harness makes (POST), and OPTIONS for the browser's preflight on those paths: no SendTransaction, no address or mempool calls.
+      # The storage page's proxy: read-only calls only (POST), and OPTIONS for the browser's preflight on those paths. SendTransaction and the address and mempool calls are blocked.
       rule: "(Method(`POST`) || Method(`OPTIONS`)) && (Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLatestBlock`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetBlockRange`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetTreeState`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetLightdInfo`) || Path(`/cash.z.wallet.sdk.rpc.CompactTxStreamer/GetSubtreeRoots`))"
       service: zec-global
       middlewares: [rate-limit, grpc-web]
       entryPoints: [global]
   middlewares:
     grpc-web:
-      # 8090: the harness page. 8091: the WebZjs no-threads test page, on this pipeline proxy only (never a verdict proxy).
+      # 8090 and 8091: the pages that use this proxy. Storage measurement only, never a verdict proxy.
       grpcWeb:
         allowOrigins: ["http://localhost:8090", "http://localhost:8091"]
     rate-limit:
