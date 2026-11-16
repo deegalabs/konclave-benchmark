@@ -34,6 +34,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 - `results/`, the folder for the project's own runs under the protocol (empty today).
 
 ### Changed
+- `docs/method.md` and `docs/protocol-details.md` say that on the verdict laptop no temperature source the method can use responds to heat (its only ACPI thermal zone read the same 25.1 C before and after about five minutes of proving in the 16 November rehearsal), that its proof row records that reading, and that the hot-start rule therefore does not guard that row, where heat can only slow the median. No rule or code changes.
 - The scan's timed stages name the tree state calls of a live row in the README and the docs.
 - The README holds what it measures, how to reproduce, results, limits, how to submit and credits; the rest moved to `docs/protocol-details.md`.
 - The README gives the page URL, the proxy start and the results folder, and its credits name each crate with its repository.
