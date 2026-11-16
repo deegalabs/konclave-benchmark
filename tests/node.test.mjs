@@ -351,6 +351,16 @@ test('the scripts run from a path with a space', async () => {
   assert.throws(() => execFileSync('node', [join(d, 'scripts', 'check-no-keys.mjs'), d], { stdio: 'pipe' }));
 });
 
+test('the server finds the page at / on Windows too', async () => {
+  const { win32, posix } = await import('node:path');
+  const { localPath } = await import('../scripts/serve.mjs');
+  for (const p of [win32, posix]) {
+    assert.equal(localPath('/', p), 'index.html');
+    assert.equal(localPath('/worker.js', p), 'worker.js');
+    assert.equal(localPath('/pkg/meta.json', p), p.normalize('pkg/meta.json'));
+  }
+});
+
 test('the policy header and the meta tag say the same, and a worker gets the header', async () => {
   const { serve, CSP } = await import('../scripts/serve.mjs');
   const s = await serve(18907);

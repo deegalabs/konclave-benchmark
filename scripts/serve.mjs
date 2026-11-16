@@ -4,18 +4,23 @@
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
-import { extname, join, normalize } from 'node:path';
+import nodePath, { extname, join } from 'node:path';
 
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.wasm': 'application/wasm', '.json': 'application/json', '.bin': 'application/octet-stream' };
 
 export const CSP = "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'";
+
+// The file under web/ that an address names. The platform's path rules by default; a test passes path.win32, where normalize turns "/" into "\\".
+export function localPath(pathname, p = nodePath) {
+  return p.normalize(decodeURIComponent(pathname)).replace(/^[\/\\]+/, '') || 'index.html';
+}
 
 export function serve(port, { isolated = false, root = fileURLToPath(new URL('../web/', import.meta.url)) } = {}) {
   return new Promise((ok) => {
     const s = createServer(async (req, res) => {
       // An address that does not decode is a bad request, not a crash: one malformed request must not stop a measuring session.
       let path;
-      try { path = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname)).replace(/^\/+/, '') || 'index.html'; } catch { res.writeHead(400).end(); return; }
+      try { path = localPath(new URL(req.url, 'http://x').pathname); } catch { res.writeHead(400).end(); return; }
       if (path.includes('..')) { res.writeHead(403).end(); return; }
       try {
         const body = await readFile(join(root, path));
