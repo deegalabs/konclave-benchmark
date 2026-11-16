@@ -39,3 +39,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 - The README gives the page URL, the proxy start and the results folder, and its credits name each crate with its repository.
 - The Rust code is formatted with rustfmt, and the clippy warnings are fixed (no change in behaviour).
 - `CONTRIBUTING.md` names the commit trailer for AI-assisted commits.
+
+### Fixed
+
+- `scripts/serve.mjs` answered 404 for `/` on Windows, where the path is normalised to `\` and only forward slashes were stripped, so the page opened only at `/index.html`. The address is now resolved by `localPath`, tested with both the Windows and the POSIX path rules.
