@@ -4,6 +4,6 @@
   "birthday": 3558848,
   "address": "u1n0gv74hf9rxn8vp82n5n0s8wh2jc57etal565aejwrt8txcxycnc3v2rrhcjwpnsg57x7e9crllqjz04zjrvaemud8rssq9qvvlp6vyj",
   "endpoint": null,
-  "reference_balance_zat": null,
+  "reference_balance_zat": 110000,
   "reference_read_with": "zcash-devtool wallet balance"
 }

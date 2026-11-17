@@ -180,8 +180,9 @@ test('a live scan gets a verdict only on a range the protocol fixed', () => {
   assert.match(summarize(unrecorded)[0].verdict, /^range not fixed/);
 });
 
-test('the shipped RANGES fix no height yet, so no live scan carries a verdict, and a fixed entry has the length the protocol says', () => {
-  assert.deepEqual(RANGES.map((e) => [e.id, e.blocks, e.start_height, e.end_height]), [['daily', 3456, null, null], ['first-scan', 50000, null, null], ['first-scan-43d', 150000, null, null]]);
+test('the shipped RANGES end at T = 3,580,868 with the lengths the protocol says, a scan of other heights carries no verdict, and a fixed entry has that length', () => {
+  assert.deepEqual(RANGES.map((e) => [e.id, e.blocks, e.start_height, e.end_height]), [['daily', 3456, 3577413, 3580868], ['first-scan', 50000, 3530869, 3580868], ['first-scan-43d', 150000, 3430869, 3580868]]);
+  for (const e of RANGES) assert.equal(e.end_height - e.start_height + 1, e.blocks, e.id);
   assert.match(summarizeReal(fiveScan({}), { endpoints: TEST_TABLE })[0].verdict, /^range not fixed by the protocol, not a verdict$/);
   assert.equal(askedEntry(DAILY.range_asked, [{ id: 'daily', kind: 'daily', blocks: 3456, start_height: 3000000, end_height: 3003455 }]).id, 'daily');
   assert.equal(askedEntry({ ...DAILY.range_asked, start: 1, end: 3455 }, [{ id: 'daily', kind: 'daily', blocks: 3456, start_height: 1, end_height: 3455 }]), null, 'an entry of the wrong length is not fixed');
@@ -2208,7 +2209,10 @@ test('naming a session in the summary matches a row exactly, so a prefix names n
 test('the page picks a live range by its id, records the request on every run, and types heights only for "other"', async () => {
   const { planRows } = await import('../web/plan.mjs');
   const live = (o) => form({ endpoint: 'http://localhost:1234', start: '5', end: '9', ...o });
-  assert.throws(() => planRows(live({ rangeKind: 'daily' })), /not fixed by the protocol yet/, 'the shipped table has no heights');
+  const UNFIXED = TEST_RANGES.map((e) => ({ ...e, start_height: null, end_height: null }));
+  assert.throws(() => planRows(live({ rangeKind: 'daily' }), UNFIXED), /not fixed by the protocol yet/, 'an entry with no heights is refused');
+  const [shipped] = planRows(live({ rangeKind: 'daily' })).rows;
+  assert.deepEqual(shipped.job.live, { endpoint: 'http://localhost:1234', start: 3577413, end: 3580868 }, 'the shipped table gives the fixed heights, not the typed ones');
   const [first] = planRows(live({ rangeKind: 'first-scan' }), TEST_RANGES).rows;
   assert.equal(first.row, 'scan-first-sync-3100000-3149999', 'the heights are the entry\'s, not the typed ones');
   assert.deepEqual(first.job.live, { endpoint: 'http://localhost:1234', start: 3100000, end: 3149999 });
