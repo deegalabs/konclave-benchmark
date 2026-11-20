@@ -3019,6 +3019,171 @@
    "temp_after": "29.5",
    "temp_after_at": "2026-11-20T02:59:31.501Z",
    "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "A72 6GB",
+   "session_id": "af5508d1-d7bf-4af0-9e70-c0267be3e081",
+   "url_params": {
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "runs": "1",
+    "tree-insert": "per-block",
+    "device": "A72 6GB",
+    "device-class": "phone",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "30.9",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": false,
+   "row": "scan-first-sync-3530869-3580868",
+   "range_asked": {
+    "id": "first-scan",
+    "kind": "first-sync",
+    "start": 3530869,
+    "end": 3580868,
+    "blocks": 50000
+   },
+   "filter": null,
+   "tree_insert_asked": "per-block",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 1,
+   "runs_planned": 1,
+   "order_in_session": 1,
+   "threads_asked": 0,
+   "run_id": "951abb38-c4fa-498c-ad7b-2a230d13111d",
+   "started_at": "2026-11-20T13:48:33.849Z",
+   "kind": "scan",
+   "range_kind": "first-sync",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 2,
+   "witnesses": 2,
+   "stages_ms": {
+    "tree_state": 468,
+    "download": 3461,
+    "end_tree_state": 343,
+    "decode": 794,
+    "decrypt": 343547,
+    "tree": 717471
+   },
+   "total_ms": 1066084,
+   "pipeline_ms": 1066107,
+   "preflight_ms": 667,
+   "witness_ms": 438,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3593241,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3530868,
+    "hash": "00000000001ae81f9222c4aaf24ee981aaf4cd5ad1fc1e272ce6360d8c2a3cf4",
+    "orchard": "01848cd233346c52dde7e331067d386f59527b86f58a1a16e367d3c37d16b74218001f01ca5149c89043b8fd579e96a1275b1a521e06b8671910944eaac14e94b757a11901d9cf6062237112714f2c2080544e6c0a98c895bb1becd176d23c7d2daa68b229013b23388398b36cc23f57e16f41260620d9214e9b476b2d3c7dda0d2ffc0dda1700018040cc0f64e1d018e2c219d3c4d6e47155a641ea00b198fa9ad9314b827a120e01ca0cfdce2cc93905ea9e9184b9135fe6cee723163b168eacafb7508a0626a8080001b49975fa7e3fa061abc3471e5b868b9febeca6fc84faedbdcae263c33b256c18000107dcf4041dc92bd6c54eee7c8da0bd1629ea7145ae1a03a4fd95313dc2afd63601a538560c9f39299c75535abaa1e1039896e10bab6f8f5235ce7b990eb23d8e380114a25189d166762f0f151f4b4cc9fd4c9eb6fc385cc948c6c0c728546ea3342401e3d9037be42750f5612324ef2e93202c9b43e7ef7c230b584341745ea7048d0800000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "014f7854eb83ca705e012d1f5de16652b2f917c5b71e80605a8d868c1ad8ce9916017dd4589011d2a2e07b8cbd780c9d72760e0844b07cc079ed8c71d9092b49583c1f00000001ef807e5c6a5fdd03fa4e1c00bdebe098693423b6c63a5b839d325b99b0397b2200017058a163f80d13606db5b19677a73f3f859074adcf7d867cff1b5a0dacf5e20f000001138af6d9b2ab3a95567d5709f942baf0f1023fd1cd75bc857a1384550fd9ac1c01f3dc42499a78909ea02e0cb5f6e57b147f252ede26f6af4c7136a0c58377c31f0001fa099757585f5eabf2db908811f6be2eb11e4f9c26d8832d2d364150fd42df04014cb465d15e553f6e6ef5e4766c2f79894d53be98fde388da5347a719967c0234000000015f7f2dc687ac6dfaebe531895cb0523ca11dc48a6af289a61c4a300e6c8d2817019844c931c19fb7c8170d8423ad63fc585c2e67ba92c8af9bf5706bef1bbd2505012c2dcb40357e27f39d1bae2f39a755c31f09814123d54c3056004fb3304c1526000000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 50000,
+   "start_height": 3530869,
+   "actions_by_pool": {
+    "orchard": 4902,
+    "ironwood": 362427
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 2,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 1024,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 5,
+    "ironwood": 354
+   },
+   "tree_insert": "per-block",
+   "corpus_sha256": null,
+   "compact_bytes": 69274757,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 78435
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 110000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "23a8c44f6fe57be197442cce137a8c0371a0d3aa569e64a98f1963f6a9480f01",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "6bfd4c1ecfc4e0af5904657babe6f0a8cd26f3d51188a2168e625f6de666f63b",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 1616,
+   "wasm_memory_bytes": 253427712,
+   "outcome": "ok",
+   "elapsed_ms": 1069226,
+   "temp_after": "30.9",
+   "temp_after_at": "2026-11-20T14:06:23.097Z",
+   "page_hidden_during_run": false
   }
  ],
  "cleared": []
