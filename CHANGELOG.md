@@ -11,6 +11,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- `results/m1/`: the Milestone 1 raw page exports (A72, A14, S24 Ultra, Dell G7; Firefox and Chrome), a host temperature extract and logs, the storage runs, the per-block action count of the one-day range and the proxy latency file; the README results table with each row's kind, result, full session id and conditions; a dated note in `docs/method.md` on stale temperature fields and room conditions.
 - `scripts/battery-log.mjs` also records the charge counter (µAh) and the current (mA) from the battery service lines, and never reads the event history dumpsys prints after them.
 - `docs/method.md`, Battery: the proposed method for phones and for the verdict laptop (RemainingCapacity every 10 s, run start and end by timestamp, runs of at least 20 minutes, an idle baseline of the same length, the battery report row as a cross-check), to be posted on the forum for confirmation before any battery measurement.
 - `web/ranges.mjs`: the first-scan-43d row holds 150,000 blocks and ends at T like the others (T-149,999 to T); `scripts/fix-ranges.mjs` writes it with the other two.

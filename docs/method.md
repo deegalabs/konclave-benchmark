@@ -21,6 +21,8 @@ Four choices are fixed before the verdict runs of 17 November 2026. Each one is 
 3. **The endpoint.** The verdict row is the one through `https://m1-rocks.konclave.xyz` (`zec.rocks`). The row through `https://m1-global.konclave.xyz` (`zec.global`) is reported beside it as information. The code gives both rows the same rules, so it prints a pass or a fail for either; the protocol says the first is the verdict.
 4. **The session.** For each verdict row, the first session started on 17 November 2026 is the verdict, whatever it gives: pass, FAIL or short. A row is not run again to get another number. Later sessions are information.
 
+**Dated note, 20 November 2026 (after the runs).** Six sessions had a temperature typed in the page that did not follow the phone during the session (A72 84b795a0, 6f51f58a, 2c40a105, fff15dbc; A14 c33ea3fc; S24 89309ca0). For them the host log is published beside the printed result (`results/m1/host-temperature-extract.json`): the printed result stands as the method says, and a stale row never supports a pass unless the host log agrees (it agrees for 84b795a0). Some evening rows of 19-20 November ran in an air-conditioned room, and some ran while another phone used the same proxy and Wi-Fi; the README's results table names the conditions of each row. Smoke and rehearsal sessions of 9, 11, 12 and 16 November are in the files and are refused by the summary as another commit.
+
 ## What is timed
 
 - Proof: key build, circuit preparation, proof and verify, each timed apart. The proof verdict sums key build, preparation and the first proof, with threads off; preparation takes milliseconds, so counting it errs on the slow side.
