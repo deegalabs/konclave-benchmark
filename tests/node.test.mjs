@@ -2269,7 +2269,7 @@ test('docs/method.md exists, is linked from the README and says the battery is n
   const m = readFileSync(new URL('../docs/method.md', import.meta.url), 'utf8');
   for (const h of ['## What is timed', '## Devices', '## How a run counts', '## What a verdict is', '## How a community result is sent', '## Battery']) assert.ok(m.includes(h), h);
   assert.match(m, /nothing has been measured/);
-  assert.match(m, /No verdict run has been made/);
+  assert.match(m, /The verdict runs were made on 17 November 2026/);
   assert.match(m, /objections by 16 November 2026 \(UTC\)/);
   assert.match(m, /the browser is read from its user agent/);
   assert.match(m, /the tree state before the range, the download and the tree state at its end/);
