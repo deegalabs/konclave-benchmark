@@ -3349,6 +3349,766 @@
    "temp_after": "33.6",
    "temp_after_at": "2026-11-20T18:42:08.539Z",
    "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "A72 6GB",
+   "session_id": "21baeae3-7c73-4333-8fbf-f07c301b6edf",
+   "url_params": {
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "runs": "5",
+    "tree-insert": "chunked",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.9",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 0,
+   "run_id": "6d112037-35dc-4a7d-93dc-8ea14124f504",
+   "started_at": "2026-11-20T18:44:44.152Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 542,
+    "download": 6143,
+    "end_tree_state": 300,
+    "decode": 128,
+    "decrypt": 55157,
+    "tree": 67098
+   },
+   "total_ms": 129368,
+   "pipeline_ms": 129386,
+   "preflight_ms": 178,
+   "witness_ms": 274,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3593960,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 334,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 130606,
+   "temp_after": "34.9",
+   "temp_after_at": "2026-11-20T18:46:54.760Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "A72 6GB",
+   "session_id": "21baeae3-7c73-4333-8fbf-f07c301b6edf",
+   "url_params": {
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "runs": "5",
+    "tree-insert": "chunked",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.9",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 0,
+   "run_id": "34d934d3-c8c8-42fc-b043-ca8ea120cc9c",
+   "started_at": "2026-11-20T18:46:54.811Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 272,
+    "download": 3400,
+    "end_tree_state": 387,
+    "decode": 121,
+    "decrypt": 55074,
+    "tree": 68303
+   },
+   "total_ms": 127557,
+   "pipeline_ms": 127572,
+   "preflight_ms": 174,
+   "witness_ms": 278,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3593964,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 331,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 128806,
+   "temp_after": "34.9",
+   "temp_after_at": "2026-11-20T18:49:03.618Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "A72 6GB",
+   "session_id": "21baeae3-7c73-4333-8fbf-f07c301b6edf",
+   "url_params": {
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "runs": "5",
+    "tree-insert": "chunked",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.9",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 0,
+   "run_id": "b82995ea-2938-4d00-bbbb-e9334f6fce20",
+   "started_at": "2026-11-20T18:49:03.675Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 246,
+    "download": 1697,
+    "end_tree_state": 351,
+    "decode": 124,
+    "decrypt": 55842,
+    "tree": 67908
+   },
+   "total_ms": 126168,
+   "pipeline_ms": 126184,
+   "preflight_ms": 530,
+   "witness_ms": 276,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3593968,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 622,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 128162,
+   "temp_after": "34.9",
+   "temp_after_at": "2026-11-20T18:51:11.838Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "A72 6GB",
+   "session_id": "21baeae3-7c73-4333-8fbf-f07c301b6edf",
+   "url_params": {
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "runs": "5",
+    "tree-insert": "chunked",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.9",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 0,
+   "run_id": "2c662431-e5eb-4352-9b88-dbcb6f20fe26",
+   "started_at": "2026-11-20T18:51:11.896Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 238,
+    "download": 1690,
+    "end_tree_state": 369,
+    "decode": 124,
+    "decrypt": 55421,
+    "tree": 66141
+   },
+   "total_ms": 123983,
+   "pipeline_ms": 123998,
+   "preflight_ms": 157,
+   "witness_ms": 268,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3593975,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 711,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 125611,
+   "temp_after": "34.9",
+   "temp_after_at": "2026-11-20T18:53:17.508Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "A72 6GB",
+   "session_id": "21baeae3-7c73-4333-8fbf-f07c301b6edf",
+   "url_params": {
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "runs": "5",
+    "tree-insert": "chunked",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.9",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 0,
+   "run_id": "0db4a8bf-80bd-47d1-bcc8-3564d2894b0d",
+   "started_at": "2026-11-20T18:53:17.584Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 266,
+    "download": 1699,
+    "end_tree_state": 265,
+    "decode": 121,
+    "decrypt": 55034,
+    "tree": 66012
+   },
+   "total_ms": 123397,
+   "pipeline_ms": 123412,
+   "preflight_ms": 153,
+   "witness_ms": 270,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3593979,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 542,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 124870,
+   "temp_after": "34.9",
+   "temp_after_at": "2026-11-20T18:55:22.455Z",
+   "page_hidden_during_run": false
   }
  ],
  "cleared": []
