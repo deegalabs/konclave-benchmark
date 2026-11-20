@@ -1187,6 +1187,2467 @@
    "temp_after": "25,1",
    "temp_after_at": "2026-11-20T06:24:15.623Z",
    "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 0,
+   "run_id": "98eeca04-9c47-405f-ba7c-46f98f04c079",
+   "started_at": "2026-11-20T06:45:08.517Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 330,
+    "download": 676,
+    "end_tree_state": 245,
+    "decode": 79,
+    "decrypt": 28380,
+    "tree": 30694
+   },
+   "total_ms": 60404,
+   "pipeline_ms": 60410,
+   "preflight_ms": 491,
+   "witness_ms": 128,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592200,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 28,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 61182,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T06:46:09.699Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 0,
+   "run_id": "ca066d10-5031-41ce-b35e-97311149d7d5",
+   "started_at": "2026-11-20T06:46:09.705Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 210,
+    "download": 768,
+    "end_tree_state": 198,
+    "decode": 73,
+    "decrypt": 27709,
+    "tree": 30563
+   },
+   "total_ms": 59521,
+   "pipeline_ms": 59527,
+   "preflight_ms": 149,
+   "witness_ms": 124,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592201,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 29,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 59968,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T06:47:09.674Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 0,
+   "run_id": "54883195-445b-4b02-88da-611842c8ae80",
+   "started_at": "2026-11-20T06:47:09.680Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 165,
+    "download": 536,
+    "end_tree_state": 196,
+    "decode": 73,
+    "decrypt": 27966,
+    "tree": 30905
+   },
+   "total_ms": 59841,
+   "pipeline_ms": 59847,
+   "preflight_ms": 156,
+   "witness_ms": 126,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592204,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 28,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 60297,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T06:48:09.977Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 0,
+   "run_id": "b12d6cd3-7786-444c-ba50-1e2a25a1a0f5",
+   "started_at": "2026-11-20T06:48:09.982Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 169,
+    "download": 703,
+    "end_tree_state": 228,
+    "decode": 73,
+    "decrypt": 27535,
+    "tree": 30487
+   },
+   "total_ms": 59195,
+   "pipeline_ms": 59201,
+   "preflight_ms": 341,
+   "witness_ms": 125,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592204,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 27,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 59834,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T06:49:09.816Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 0,
+   "run_id": "b265f9a1-5b7b-4d0f-8837-0c51a3bffb6e",
+   "started_at": "2026-11-20T06:49:09.822Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 200,
+    "download": 788,
+    "end_tree_state": 223,
+    "decode": 75,
+    "decrypt": 27731,
+    "tree": 30598
+   },
+   "total_ms": 59615,
+   "pipeline_ms": 59621,
+   "preflight_ms": 151,
+   "witness_ms": 125,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592204,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 30,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 60070,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T06:50:09.892Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 0,
+   "run_id": "23334d97-6b67-41b1-8b6f-bc943798493b",
+   "started_at": "2026-11-20T07:55:34.908Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 361,
+    "download": 682,
+    "end_tree_state": 244,
+    "decode": 72,
+    "decrypt": 27802,
+    "tree": 30518
+   },
+   "total_ms": 59679,
+   "pipeline_ms": 59686,
+   "preflight_ms": 555,
+   "witness_ms": 124,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592384,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 28,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 60517,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T07:56:35.425Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 0,
+   "run_id": "93443d9a-0294-46ea-bd45-1056ecbec331",
+   "started_at": "2026-11-20T07:56:35.432Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 183,
+    "download": 537,
+    "end_tree_state": 260,
+    "decode": 73,
+    "decrypt": 27609,
+    "tree": 30545
+   },
+   "total_ms": 59207,
+   "pipeline_ms": 59213,
+   "preflight_ms": 359,
+   "witness_ms": 126,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592387,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 27,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 59881,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T07:57:35.313Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 0,
+   "run_id": "c34262c8-fd09-469f-998a-c5a61d51acc9",
+   "started_at": "2026-11-20T07:57:35.320Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 178,
+    "download": 525,
+    "end_tree_state": 199,
+    "decode": 72,
+    "decrypt": 31484,
+    "tree": 33017
+   },
+   "total_ms": 65475,
+   "pipeline_ms": 65481,
+   "preflight_ms": 162,
+   "witness_ms": 139,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592388,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 28,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 65978,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T07:58:41.298Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 0,
+   "run_id": "1d1ebb7c-52c6-440e-8f4e-03fe48ac1e6a",
+   "started_at": "2026-11-20T07:58:41.305Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 164,
+    "download": 630,
+    "end_tree_state": 235,
+    "decode": 72,
+    "decrypt": 31263,
+    "tree": 33408
+   },
+   "total_ms": 65772,
+   "pipeline_ms": 65778,
+   "preflight_ms": 496,
+   "witness_ms": 136,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592390,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 27,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 66600,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T07:59:47.905Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 0,
+   "run_id": "191178f9-c5d4-4ffd-9ba9-1ac57fe4a6a2",
+   "started_at": "2026-11-20T07:59:47.913Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 163,
+    "download": 543,
+    "end_tree_state": 197,
+    "decode": 73,
+    "decrypt": 28293,
+    "tree": 30540
+   },
+   "total_ms": 59809,
+   "pipeline_ms": 59815,
+   "preflight_ms": 164,
+   "witness_ms": 126,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592391,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 27,
+   "wasm_memory_bytes": 38535168,
+   "outcome": "ok",
+   "elapsed_ms": 60295,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T08:00:48.209Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-first-sync-3530869-3580868",
+   "range_asked": {
+    "id": "first-scan",
+    "kind": "first-sync",
+    "start": 3530869,
+    "end": 3580868,
+    "blocks": 50000
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 0,
+   "run_id": "c2af2f0b-b7a8-4696-b012-caf53799fff7",
+   "started_at": "2026-11-20T08:16:45.691Z",
+   "kind": "scan",
+   "range_kind": "first-sync",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 2,
+   "witnesses": 2,
+   "stages_ms": {
+    "tree_state": 330,
+    "download": 2905,
+    "end_tree_state": 241,
+    "decode": 1220,
+    "decrypt": 178181,
+    "tree": 256842
+   },
+   "total_ms": 439719,
+   "pipeline_ms": 439725,
+   "preflight_ms": 493,
+   "witness_ms": 240,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592432,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3530868,
+    "hash": "00000000001ae81f9222c4aaf24ee981aaf4cd5ad1fc1e272ce6360d8c2a3cf4",
+    "orchard": "01848cd233346c52dde7e331067d386f59527b86f58a1a16e367d3c37d16b74218001f01ca5149c89043b8fd579e96a1275b1a521e06b8671910944eaac14e94b757a11901d9cf6062237112714f2c2080544e6c0a98c895bb1becd176d23c7d2daa68b229013b23388398b36cc23f57e16f41260620d9214e9b476b2d3c7dda0d2ffc0dda1700018040cc0f64e1d018e2c219d3c4d6e47155a641ea00b198fa9ad9314b827a120e01ca0cfdce2cc93905ea9e9184b9135fe6cee723163b168eacafb7508a0626a8080001b49975fa7e3fa061abc3471e5b868b9febeca6fc84faedbdcae263c33b256c18000107dcf4041dc92bd6c54eee7c8da0bd1629ea7145ae1a03a4fd95313dc2afd63601a538560c9f39299c75535abaa1e1039896e10bab6f8f5235ce7b990eb23d8e380114a25189d166762f0f151f4b4cc9fd4c9eb6fc385cc948c6c0c728546ea3342401e3d9037be42750f5612324ef2e93202c9b43e7ef7c230b584341745ea7048d0800000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "014f7854eb83ca705e012d1f5de16652b2f917c5b71e80605a8d868c1ad8ce9916017dd4589011d2a2e07b8cbd780c9d72760e0844b07cc079ed8c71d9092b49583c1f00000001ef807e5c6a5fdd03fa4e1c00bdebe098693423b6c63a5b839d325b99b0397b2200017058a163f80d13606db5b19677a73f3f859074adcf7d867cff1b5a0dacf5e20f000001138af6d9b2ab3a95567d5709f942baf0f1023fd1cd75bc857a1384550fd9ac1c01f3dc42499a78909ea02e0cb5f6e57b147f252ede26f6af4c7136a0c58377c31f0001fa099757585f5eabf2db908811f6be2eb11e4f9c26d8832d2d364150fd42df04014cb465d15e553f6e6ef5e4766c2f79894d53be98fde388da5347a719967c0234000000015f7f2dc687ac6dfaebe531895cb0523ca11dc48a6af289a61c4a300e6c8d2817019844c931c19fb7c8170d8423ad63fc585c2e67ba92c8af9bf5706bef1bbd2505012c2dcb40357e27f39d1bae2f39a755c31f09814123d54c3056004fb3304c1526000000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 50000,
+   "start_height": 3530869,
+   "actions_by_pool": {
+    "orchard": 4902,
+    "ironwood": 362427
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 2,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 1024,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 5,
+    "ironwood": 354
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 69274757,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 78435
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 110000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "23a8c44f6fe57be197442cce137a8c0371a0d3aa569e64a98f1963f6a9480f01",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "6bfd4c1ecfc4e0af5904657babe6f0a8cd26f3d51188a2168e625f6de666f63b",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 29,
+   "wasm_memory_bytes": 253427712,
+   "outcome": "ok",
+   "elapsed_ms": 440631,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T08:24:06.321Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-first-sync-3530869-3580868",
+   "range_asked": {
+    "id": "first-scan",
+    "kind": "first-sync",
+    "start": 3530869,
+    "end": 3580868,
+    "blocks": 50000
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 0,
+   "run_id": "00374df3-bdec-4108-8c15-b6a200c989dd",
+   "started_at": "2026-11-20T08:24:06.331Z",
+   "kind": "scan",
+   "range_kind": "first-sync",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 2,
+   "witnesses": 2,
+   "stages_ms": {
+    "tree_state": 200,
+    "download": 2805,
+    "end_tree_state": 235,
+    "decode": 1193,
+    "decrypt": 171256,
+    "tree": 212455
+   },
+   "total_ms": 388144,
+   "pipeline_ms": 388151,
+   "preflight_ms": 356,
+   "witness_ms": 217,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592446,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3530868,
+    "hash": "00000000001ae81f9222c4aaf24ee981aaf4cd5ad1fc1e272ce6360d8c2a3cf4",
+    "orchard": "01848cd233346c52dde7e331067d386f59527b86f58a1a16e367d3c37d16b74218001f01ca5149c89043b8fd579e96a1275b1a521e06b8671910944eaac14e94b757a11901d9cf6062237112714f2c2080544e6c0a98c895bb1becd176d23c7d2daa68b229013b23388398b36cc23f57e16f41260620d9214e9b476b2d3c7dda0d2ffc0dda1700018040cc0f64e1d018e2c219d3c4d6e47155a641ea00b198fa9ad9314b827a120e01ca0cfdce2cc93905ea9e9184b9135fe6cee723163b168eacafb7508a0626a8080001b49975fa7e3fa061abc3471e5b868b9febeca6fc84faedbdcae263c33b256c18000107dcf4041dc92bd6c54eee7c8da0bd1629ea7145ae1a03a4fd95313dc2afd63601a538560c9f39299c75535abaa1e1039896e10bab6f8f5235ce7b990eb23d8e380114a25189d166762f0f151f4b4cc9fd4c9eb6fc385cc948c6c0c728546ea3342401e3d9037be42750f5612324ef2e93202c9b43e7ef7c230b584341745ea7048d0800000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "014f7854eb83ca705e012d1f5de16652b2f917c5b71e80605a8d868c1ad8ce9916017dd4589011d2a2e07b8cbd780c9d72760e0844b07cc079ed8c71d9092b49583c1f00000001ef807e5c6a5fdd03fa4e1c00bdebe098693423b6c63a5b839d325b99b0397b2200017058a163f80d13606db5b19677a73f3f859074adcf7d867cff1b5a0dacf5e20f000001138af6d9b2ab3a95567d5709f942baf0f1023fd1cd75bc857a1384550fd9ac1c01f3dc42499a78909ea02e0cb5f6e57b147f252ede26f6af4c7136a0c58377c31f0001fa099757585f5eabf2db908811f6be2eb11e4f9c26d8832d2d364150fd42df04014cb465d15e553f6e6ef5e4766c2f79894d53be98fde388da5347a719967c0234000000015f7f2dc687ac6dfaebe531895cb0523ca11dc48a6af289a61c4a300e6c8d2817019844c931c19fb7c8170d8423ad63fc585c2e67ba92c8af9bf5706bef1bbd2505012c2dcb40357e27f39d1bae2f39a755c31f09814123d54c3056004fb3304c1526000000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 50000,
+   "start_height": 3530869,
+   "actions_by_pool": {
+    "orchard": 4902,
+    "ironwood": 362427
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 2,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 1024,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 5,
+    "ironwood": 354
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 69274757,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 78435
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 110000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "23a8c44f6fe57be197442cce137a8c0371a0d3aa569e64a98f1963f6a9480f01",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "6bfd4c1ecfc4e0af5904657babe6f0a8cd26f3d51188a2168e625f6de666f63b",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 27,
+   "wasm_memory_bytes": 253427712,
+   "outcome": "ok",
+   "elapsed_ms": 388934,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T08:30:35.265Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-first-sync-3530869-3580868",
+   "range_asked": {
+    "id": "first-scan",
+    "kind": "first-sync",
+    "start": 3530869,
+    "end": 3580868,
+    "blocks": 50000
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 0,
+   "run_id": "9f4b864b-dd71-4705-aedc-d0cd985f3311",
+   "started_at": "2026-11-20T08:30:35.273Z",
+   "kind": "scan",
+   "range_kind": "first-sync",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 2,
+   "witnesses": 2,
+   "stages_ms": {
+    "tree_state": 461,
+    "download": 3031,
+    "end_tree_state": 233,
+    "decode": 1217,
+    "decrypt": 173791,
+    "tree": 211718
+   },
+   "total_ms": 390451,
+   "pipeline_ms": 390455,
+   "preflight_ms": 500,
+   "witness_ms": 199,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592456,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3530868,
+    "hash": "00000000001ae81f9222c4aaf24ee981aaf4cd5ad1fc1e272ce6360d8c2a3cf4",
+    "orchard": "01848cd233346c52dde7e331067d386f59527b86f58a1a16e367d3c37d16b74218001f01ca5149c89043b8fd579e96a1275b1a521e06b8671910944eaac14e94b757a11901d9cf6062237112714f2c2080544e6c0a98c895bb1becd176d23c7d2daa68b229013b23388398b36cc23f57e16f41260620d9214e9b476b2d3c7dda0d2ffc0dda1700018040cc0f64e1d018e2c219d3c4d6e47155a641ea00b198fa9ad9314b827a120e01ca0cfdce2cc93905ea9e9184b9135fe6cee723163b168eacafb7508a0626a8080001b49975fa7e3fa061abc3471e5b868b9febeca6fc84faedbdcae263c33b256c18000107dcf4041dc92bd6c54eee7c8da0bd1629ea7145ae1a03a4fd95313dc2afd63601a538560c9f39299c75535abaa1e1039896e10bab6f8f5235ce7b990eb23d8e380114a25189d166762f0f151f4b4cc9fd4c9eb6fc385cc948c6c0c728546ea3342401e3d9037be42750f5612324ef2e93202c9b43e7ef7c230b584341745ea7048d0800000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "014f7854eb83ca705e012d1f5de16652b2f917c5b71e80605a8d868c1ad8ce9916017dd4589011d2a2e07b8cbd780c9d72760e0844b07cc079ed8c71d9092b49583c1f00000001ef807e5c6a5fdd03fa4e1c00bdebe098693423b6c63a5b839d325b99b0397b2200017058a163f80d13606db5b19677a73f3f859074adcf7d867cff1b5a0dacf5e20f000001138af6d9b2ab3a95567d5709f942baf0f1023fd1cd75bc857a1384550fd9ac1c01f3dc42499a78909ea02e0cb5f6e57b147f252ede26f6af4c7136a0c58377c31f0001fa099757585f5eabf2db908811f6be2eb11e4f9c26d8832d2d364150fd42df04014cb465d15e553f6e6ef5e4766c2f79894d53be98fde388da5347a719967c0234000000015f7f2dc687ac6dfaebe531895cb0523ca11dc48a6af289a61c4a300e6c8d2817019844c931c19fb7c8170d8423ad63fc585c2e67ba92c8af9bf5706bef1bbd2505012c2dcb40357e27f39d1bae2f39a755c31f09814123d54c3056004fb3304c1526000000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 50000,
+   "start_height": 3530869,
+   "actions_by_pool": {
+    "orchard": 4902,
+    "ironwood": 362427
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 2,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 1024,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 5,
+    "ironwood": 354
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 69274757,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 78435
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 110000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "23a8c44f6fe57be197442cce137a8c0371a0d3aa569e64a98f1963f6a9480f01",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "6bfd4c1ecfc4e0af5904657babe6f0a8cd26f3d51188a2168e625f6de666f63b",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 28,
+   "wasm_memory_bytes": 253427712,
+   "outcome": "ok",
+   "elapsed_ms": 391365,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T08:37:06.637Z",
+   "page_hidden_during_run": true,
+   "reason": "page hidden during run"
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-first-sync-3530869-3580868",
+   "range_asked": {
+    "id": "first-scan",
+    "kind": "first-sync",
+    "start": 3530869,
+    "end": 3580868,
+    "blocks": 50000
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 0,
+   "run_id": "e7dc071a-d464-43a2-ac9e-9a31c84d1d65",
+   "started_at": "2026-11-20T08:37:06.646Z",
+   "kind": "scan",
+   "range_kind": "first-sync",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 2,
+   "witnesses": 2,
+   "stages_ms": {
+    "tree_state": 201,
+    "download": 2929,
+    "end_tree_state": 196,
+    "decode": 1163,
+    "decrypt": 171715,
+    "tree": 213074
+   },
+   "total_ms": 389278,
+   "pipeline_ms": 389284,
+   "preflight_ms": 351,
+   "witness_ms": 198,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592474,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3530868,
+    "hash": "00000000001ae81f9222c4aaf24ee981aaf4cd5ad1fc1e272ce6360d8c2a3cf4",
+    "orchard": "01848cd233346c52dde7e331067d386f59527b86f58a1a16e367d3c37d16b74218001f01ca5149c89043b8fd579e96a1275b1a521e06b8671910944eaac14e94b757a11901d9cf6062237112714f2c2080544e6c0a98c895bb1becd176d23c7d2daa68b229013b23388398b36cc23f57e16f41260620d9214e9b476b2d3c7dda0d2ffc0dda1700018040cc0f64e1d018e2c219d3c4d6e47155a641ea00b198fa9ad9314b827a120e01ca0cfdce2cc93905ea9e9184b9135fe6cee723163b168eacafb7508a0626a8080001b49975fa7e3fa061abc3471e5b868b9febeca6fc84faedbdcae263c33b256c18000107dcf4041dc92bd6c54eee7c8da0bd1629ea7145ae1a03a4fd95313dc2afd63601a538560c9f39299c75535abaa1e1039896e10bab6f8f5235ce7b990eb23d8e380114a25189d166762f0f151f4b4cc9fd4c9eb6fc385cc948c6c0c728546ea3342401e3d9037be42750f5612324ef2e93202c9b43e7ef7c230b584341745ea7048d0800000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "014f7854eb83ca705e012d1f5de16652b2f917c5b71e80605a8d868c1ad8ce9916017dd4589011d2a2e07b8cbd780c9d72760e0844b07cc079ed8c71d9092b49583c1f00000001ef807e5c6a5fdd03fa4e1c00bdebe098693423b6c63a5b839d325b99b0397b2200017058a163f80d13606db5b19677a73f3f859074adcf7d867cff1b5a0dacf5e20f000001138af6d9b2ab3a95567d5709f942baf0f1023fd1cd75bc857a1384550fd9ac1c01f3dc42499a78909ea02e0cb5f6e57b147f252ede26f6af4c7136a0c58377c31f0001fa099757585f5eabf2db908811f6be2eb11e4f9c26d8832d2d364150fd42df04014cb465d15e553f6e6ef5e4766c2f79894d53be98fde388da5347a719967c0234000000015f7f2dc687ac6dfaebe531895cb0523ca11dc48a6af289a61c4a300e6c8d2817019844c931c19fb7c8170d8423ad63fc585c2e67ba92c8af9bf5706bef1bbd2505012c2dcb40357e27f39d1bae2f39a755c31f09814123d54c3056004fb3304c1526000000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 50000,
+   "start_height": 3530869,
+   "actions_by_pool": {
+    "orchard": 4902,
+    "ironwood": 362427
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 2,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 1024,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 5,
+    "ironwood": 354
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 69274757,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 78435
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 110000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "23a8c44f6fe57be197442cce137a8c0371a0d3aa569e64a98f1963f6a9480f01",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "6bfd4c1ecfc4e0af5904657babe6f0a8cd26f3d51188a2168e625f6de666f63b",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 27,
+   "wasm_memory_bytes": 253427712,
+   "outcome": "ok",
+   "elapsed_ms": 390055,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T08:43:36.701Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "single",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256_stamped": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256_stamped": {},
+   "device_label": "Dell G7 24GB",
+   "session_id": "dae9fe2a-3242-4370-9a29-9c9b2f0e9509",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "off",
+    "endpoint": "https://m1-rocks.konclave.xyz"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "not isolated: single thread only",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": false,
+   "row": "scan-first-sync-3530869-3580868",
+   "range_asked": {
+    "id": "first-scan",
+    "kind": "first-sync",
+    "start": 3530869,
+    "end": 3580868,
+    "blocks": 50000
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 0,
+   "run_id": "9aa61072-0eed-4c91-9c76-c45c16896136",
+   "started_at": "2026-11-20T08:43:36.716Z",
+   "kind": "scan",
+   "range_kind": "first-sync",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 2,
+   "witnesses": 2,
+   "stages_ms": {
+    "tree_state": 339,
+    "download": 3817,
+    "end_tree_state": 241,
+    "decode": 1170,
+    "decrypt": 170585,
+    "tree": 212137
+   },
+   "total_ms": 388289,
+   "pipeline_ms": 388295,
+   "preflight_ms": 503,
+   "witness_ms": 199,
+   "lightd_info": {
+    "version": "v0.6.1",
+    "vendor": "ECC LightWalletD",
+    "chain_name": "main",
+    "block_height": 3592493,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "af8ad1bd38d1d9a9951669b4bf193409ce5768e1",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3530868,
+    "hash": "00000000001ae81f9222c4aaf24ee981aaf4cd5ad1fc1e272ce6360d8c2a3cf4",
+    "orchard": "01848cd233346c52dde7e331067d386f59527b86f58a1a16e367d3c37d16b74218001f01ca5149c89043b8fd579e96a1275b1a521e06b8671910944eaac14e94b757a11901d9cf6062237112714f2c2080544e6c0a98c895bb1becd176d23c7d2daa68b229013b23388398b36cc23f57e16f41260620d9214e9b476b2d3c7dda0d2ffc0dda1700018040cc0f64e1d018e2c219d3c4d6e47155a641ea00b198fa9ad9314b827a120e01ca0cfdce2cc93905ea9e9184b9135fe6cee723163b168eacafb7508a0626a8080001b49975fa7e3fa061abc3471e5b868b9febeca6fc84faedbdcae263c33b256c18000107dcf4041dc92bd6c54eee7c8da0bd1629ea7145ae1a03a4fd95313dc2afd63601a538560c9f39299c75535abaa1e1039896e10bab6f8f5235ce7b990eb23d8e380114a25189d166762f0f151f4b4cc9fd4c9eb6fc385cc948c6c0c728546ea3342401e3d9037be42750f5612324ef2e93202c9b43e7ef7c230b584341745ea7048d0800000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "014f7854eb83ca705e012d1f5de16652b2f917c5b71e80605a8d868c1ad8ce9916017dd4589011d2a2e07b8cbd780c9d72760e0844b07cc079ed8c71d9092b49583c1f00000001ef807e5c6a5fdd03fa4e1c00bdebe098693423b6c63a5b839d325b99b0397b2200017058a163f80d13606db5b19677a73f3f859074adcf7d867cff1b5a0dacf5e20f000001138af6d9b2ab3a95567d5709f942baf0f1023fd1cd75bc857a1384550fd9ac1c01f3dc42499a78909ea02e0cb5f6e57b147f252ede26f6af4c7136a0c58377c31f0001fa099757585f5eabf2db908811f6be2eb11e4f9c26d8832d2d364150fd42df04014cb465d15e553f6e6ef5e4766c2f79894d53be98fde388da5347a719967c0234000000015f7f2dc687ac6dfaebe531895cb0523ca11dc48a6af289a61c4a300e6c8d2817019844c931c19fb7c8170d8423ad63fc585c2e67ba92c8af9bf5706bef1bbd2505012c2dcb40357e27f39d1bae2f39a755c31f09814123d54c3056004fb3304c1526000000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 50000,
+   "start_height": 3530869,
+   "actions_by_pool": {
+    "orchard": 4902,
+    "ironwood": 362427
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 2,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 1024,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 5,
+    "ironwood": 354
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 69274757,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 78435
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 110000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "23a8c44f6fe57be197442cce137a8c0371a0d3aa569e64a98f1963f6a9480f01",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "6bfd4c1ecfc4e0af5904657babe6f0a8cd26f3d51188a2168e625f6de666f63b",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": false,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "single",
+   "wasm_sha256": "09ca3d8aec33ea760c32accd85e70c46133c78947d4f36247c857b4f176b6f54",
+   "glue_sha256": "1f3d4167b7b5ca17359e0303d391c73b3a1d6bb109caf522526a50d3f65311db",
+   "snippets_sha256": {},
+   "wasm_load_ms": 34,
+   "wasm_memory_bytes": 253427712,
+   "outcome": "ok",
+   "elapsed_ms": 389220,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-20T08:50:05.936Z",
+   "page_hidden_during_run": false
   }
  ],
  "cleared": []
