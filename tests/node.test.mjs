@@ -2265,10 +2265,10 @@ test('every proxy file starts with its SPDX line (the hashes are checked by the 
   for (const f of files) assert.equal(readFileSync(join(root, f), 'utf8').split('\n')[0], '# SPDX-License-Identifier: MIT OR Apache-2.0', f);
 });
 
-test('docs/method.md exists, is linked from the README and says the battery is not measured', () => {
+test('docs/method.md exists, is linked from the README and says the phones were measured for battery', () => {
   const m = readFileSync(new URL('../docs/method.md', import.meta.url), 'utf8');
   for (const h of ['## What is timed', '## Devices', '## How a run counts', '## What a verdict is', '## How a community result is sent', '## Battery']) assert.ok(m.includes(h), h);
-  assert.match(m, /The phones were measured on 21 November 2026/);
+  assert.match(m, /The phones were measured by it on 21 November 2026/);
   assert.match(m, /The verdict runs were made on 17 November 2026/);
   assert.match(m, /objections by 16 November 2026 \(UTC\)/);
   assert.match(m, /the browser is read from its user agent/);

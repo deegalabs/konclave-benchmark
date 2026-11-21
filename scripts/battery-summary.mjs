@@ -3,7 +3,8 @@
 // usage: node scripts/battery-summary.mjs <folder with <name>-<date>.log files and markers.log>
 // A marker line is "<ISO time> <name> <text>"; a block runs from "<block> block starts" to "<block> block ends",
 // the idle baseline from "idle baseline starts" to "idle baseline ends". Net energy of a block = its energy minus
-// the baseline's rate times the block's length, read two ways: the charge counter and current now summed over time.
+// the baseline's rate times the block's length, read two ways: the charge counter and current now summed over time
+// (trapezoid; an interval with a missing current reading is left out and counted in currentGaps).
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -23,8 +24,12 @@ export function blockEnergy(rows, a, b) {
   const min = (seg.at(-1).t - seg[0].t) / 60000;
   const counterMah = seg[0].counter != null && seg.at(-1).counter != null ? (seg[0].counter - seg.at(-1).counter) / 1000 : null;
   let currentMah = 0;
-  for (let i = 1; i < seg.length; i++) currentMah += (-(seg[i - 1].current + seg[i].current) / 2) * ((seg[i].t - seg[i - 1].t) / 3600000);
-  return { min, counterMah, currentMah, level: [seg[0].level, seg.at(-1).level], maxTemp: Math.max(...seg.map((r) => r.temp)), charging: seg.some((r) => r.charging), samples: seg.length };
+  let currentGaps = 0;
+  for (let i = 1; i < seg.length; i++) {
+    if (seg[i - 1].current == null || seg[i].current == null) { currentGaps++; continue; }
+    currentMah += (-(seg[i - 1].current + seg[i].current) / 2) * ((seg[i].t - seg[i - 1].t) / 3600000);
+  }
+  return { min, counterMah, currentMah, level: [seg[0].level, seg.at(-1).level], maxTemp: Math.max(...seg.map((r) => r.temp)), charging: seg.some((r) => r.charging), samples: seg.length, currentGaps };
 }
 
 export function summarize(dir) {
@@ -36,7 +41,11 @@ export function summarize(dir) {
   for (const f of readdirSync(dir).filter((x) => /^[a-z0-9]+-\d{4}-\d{2}-\d{2}\.log$/.test(x))) {
     const name = f.split('-')[0];
     const rows = parseLog(readFileSync(join(dir, f), 'utf8'));
-    const at = (pat) => markers.find((m) => m.name === name && m.text.includes(pat))?.t;
+    const at = (pat) => {
+      const hits = markers.filter((m) => m.name === name && m.text.includes(pat));
+      if (hits.length > 1) throw new Error(`${name}: ${hits.length} markers match "${pat}"; one block, one start and one end`);
+      return hits[0]?.t;
+    };
     const spans = [['baseline', at('idle baseline starts'), at('idle baseline ends')],
       ...['proof', 'replay', 'firstscan'].map((b) => [b, at(`${b} block starts`), at(`${b} block ends`)])];
     const res = spans.map(([block, a, b]) => ({ block, ...(a && b ? blockEnergy(rows, a, b) : {}) }));
