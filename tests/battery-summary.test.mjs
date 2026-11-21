@@ -119,4 +119,9 @@ test('the committed battery folder reproduces the README figures', () => {
   assert.equal(Math.round(net('dell', 'proof-screen-on', 'netMwh') / 9), 176);
   assert.equal(Math.round(net('dell', 'replay', 'netMwh') / 22), 178);
   assert.equal(Math.round(net('dell', 'replay-screen-on', 'netMwh') / 9), 227);
+  assert.equal(net('dell2', 'baseline', 'energyMwh'), 4420);
+  assert.equal(net('dell2', 'proof', 'energyMwh'), 8055);
+  assert.equal(net('dell2', 'replay', 'energyMwh'), 8393);
+  assert.equal(Math.round(net('dell2', 'proof', 'netMwh') / 16), 200);
+  assert.equal(Math.round(net('dell2', 'replay', 'netMwh') / 15), 228);
 });

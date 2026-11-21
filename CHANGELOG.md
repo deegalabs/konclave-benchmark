@@ -15,6 +15,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- Battery, laptop run 2 (screen held on): the Dell G7 log and page export in `results/m1/battery/`, its block markers, and the README table (proof 200 to 212 mWh, one-day replay 228 to 241 mWh per job, by the part of the baseline scaled); run 1 is kept and marked superseded in the README.
 - Battery, laptop run 1: the Dell G7 log and page export in `results/m1/battery/`, its block markers, the README laptop table with its defect (the page went hidden from run 10), and laptop logs (`RemainingCapacity`) read by `scripts/battery-summary.mjs`, which now takes the blocks from the markers.
 - Battery, phones: `results/m1/battery/` (logs every 10 s of level, temperature, charge counter and current; block markers; the page exports), `scripts/battery-summary.mjs` that recomputes the net energy per job from them (with `tests/battery-summary.test.mjs`, run in CI; two markers for one block stop it, and a missing current reading is left out and counted), the README battery table, and the record of the one-day replay corpus `web/corpus/daily-3577413-3580868.bin.sha256`.
 - `docs/reviewer.md`: how a reviewer checks the release zip, serves the page, runs a proof row and a one-day scan row (through the project's proxies or directly through `zec.global`, run by Zingo Labs) and compares the median with the results table.

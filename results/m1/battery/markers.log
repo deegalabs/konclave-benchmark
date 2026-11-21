@@ -35,3 +35,9 @@
 2026-11-21T15:18:11Z dell replay block ends
 2026-11-21T14:45:16Z dell replay-screen-on block starts (runs 1-9 before the page went hidden, times from the page export)
 2026-11-21T14:58:57Z dell replay-screen-on block ends
+2026-11-21T18:41:49Z dell2 idle baseline starts (run 2, screen held on; times noted by the operator)
+2026-11-21T19:01:52Z dell2 idle baseline ends
+2026-11-21T19:14:39Z dell2 proof block starts (16 runs)
+2026-11-21T19:36:47Z dell2 proof block ends
+2026-11-21T19:47:36Z dell2 replay block starts (15 runs)
+2026-11-21T20:10:14Z dell2 replay block ends
