@@ -49,7 +49,7 @@ What scanning and proving cost in a browser, on phones and a laptop, timed stage
 
 It is part of Milestone 1 of Konclave's Zcash Community Grants grant ([forum thread](https://forum.zcashcommunity.com/t/58165)). Native mobile wallets already scan and prove; the open question here is the cost inside a phone's browser, where the Konclave app ([private, collective FROST vaults on Zcash](https://github.com/deegalabs/konclave)) runs. A row is one setting (device, browser, task, pool, endpoint, threads) run several times in one session; its median is what is judged.
 
-Work in progress. No verdict run has been made yet, and nothing below is a result.
+The Milestone 1 results, verdict rows included, are in the README results table and in `results/m1/`; this file describes the method and the code.
 
 ## Verdict charts and what counts
 
@@ -80,7 +80,7 @@ Not judged by this harness: storage (bar 50 MB, reported with the note count) is
 
 ## Reproduce it, in full
 
-Before the first verdict run, this repository will hold everything needed to repeat it under the same conditions. The fixed heights are in `web/ranges.mjs` (see above) and the two hosted proxies in `web/endpoints.mjs`. A run you make is informative, never a verdict (see "Community results"). The grant's acceptance check is a run of this kind: a reviewer chosen by ZCG, or any committee member, opens the benchmark on an Android phone or a laptop that is not ours and gets the same order of magnitude for that class of device.
+This repository holds everything needed to repeat the verdict runs under the same conditions. The fixed heights are in `web/ranges.mjs` (see above) and the two hosted proxies in `web/endpoints.mjs`. A run you make is informative, never a verdict (see "Community results"). The grant's acceptance check is a run of this kind: a reviewer chosen by ZCG, or any committee member, opens the benchmark on an Android phone or a laptop that is not ours and gets the same order of magnitude for that class of device.
 
 - **The test vault's viewing key** is in `config/test-vault.json` (`ufvk`, in full), with its `birthday` and its address. It is a 2-of-3 vault made only for this benchmark, with a small balance, and the one viewing key allowed in this repository; `web/test-vault.mjs` holds the sha256 of that key (`TEST_KEY_SHA256`), so only scans with it keep their amounts. `docs/test-vault-key.md` says what a published viewing key reveals.
 - **The exact block ranges**, start and end height of the daily range and the first-scan range, are in the `RANGES` table in `web/ranges.mjs` (the 43.4-day range, information only, is in it too): daily 3,577,413 to 3,580,868, first scan 3,530,869 to 3,580,868, 43.4 days 3,430,869 to 3,580,868, written on 17 November 2026 by the rule in [method.md](method.md#what-is-fixed-before-the-runs).

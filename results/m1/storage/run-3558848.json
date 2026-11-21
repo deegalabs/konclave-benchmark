@@ -1,0 +1,117 @@
+{
+  "label": "reported",
+  "webzjsCommit": "9ad0a589f65e767c34334a2992c76bd9c07c2e68",
+  "webzjsNote": "unreleased open PR red-dev-inc/WebZjs#27, threads on, view-only, desktop, local proxy to zec.rocks",
+  "vaultFile": "config/test-vault.json",
+  "startedAt": "2026-11-18T11:51:15.240Z",
+  "ok": true,
+  "failure": null,
+  "result": {
+    "birthday": 3558848,
+    "accountId": 1,
+    "endpoint": "http://localhost:1234",
+    "tipAtStart": 3586020,
+    "scannedAtStart": 3558847,
+    "scannedAtEnd": 3586029,
+    "chainTipAtEnd": 3586029,
+    "syncCalls": 2,
+    "syncErrors": [],
+    "syncMs": 107206.2349999994,
+    "totalMs": 110978.47499999404,
+    "dbToBytes": 1960906,
+    "noteCount": 2,
+    "noteCountSource": "received_note_table records (field 5) in the db_to_bytes protobuf",
+    "transactionCount": 2,
+    "blockRecords": 27182,
+    "blockRecordMinHeight": 3558848,
+    "blockRecordMaxHeight": 3586029,
+    "protobufTopLevelFields": {
+      "1": {
+        "count": 1,
+        "bytes": 2
+      },
+      "2": {
+        "count": 1,
+        "bytes": 1524
+      },
+      "3": {
+        "count": 27182,
+        "bytes": 1821881
+      },
+      "4": {
+        "count": 2,
+        "bytes": 108
+      },
+      "5": {
+        "count": 2,
+        "bytes": 1533
+      },
+      "7": {
+        "count": 202,
+        "bytes": 9434
+      },
+      "9": {
+        "count": 127,
+        "bytes": 5697
+      },
+      "10": {
+        "count": 2,
+        "bytes": 25
+      },
+      "11": {
+        "count": 1,
+        "bytes": 53520
+      },
+      "12": {
+        "count": 1129,
+        "bytes": 12322
+      },
+      "13": {
+        "count": 1,
+        "bytes": 35105
+      },
+      "14": {
+        "count": 770,
+        "bytes": 8395
+      },
+      "19": {
+        "count": 1,
+        "bytes": 11122
+      },
+      "20": {
+        "count": 20,
+        "bytes": 238
+      }
+    },
+    "storageUsageBeforeBytes": 0,
+    "storageEstimateAfterIdbSave": [
+      {
+        "usage": 1276596,
+        "quota": 10738694836,
+        "usageDetails": {
+          "indexedDB": 1276596
+        }
+      },
+      {
+        "usage": 1276596,
+        "quota": 10738694836,
+        "usageDetails": {
+          "indexedDB": 1276596
+        }
+      },
+      {
+        "usage": 1276596,
+        "quota": 10738694836,
+        "usageDetails": {
+          "indexedDB": 1276596
+        }
+      }
+    ],
+    "hardwareConcurrency": 16,
+    "crossOriginIsolated": true,
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+    "wallClockMs": 110978,
+    "browserVersion": "151.0.7922.34"
+  },
+  "log": "run-3558848.log"
+}

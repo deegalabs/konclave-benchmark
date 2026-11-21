@@ -1,0 +1,64 @@
+{
+ "label": "proxied path minus a direct path, measured from the project PC",
+ "said": "Proxy overhead: the proxied path (gRPC-web through the proxy) minus a direct gRPC/HTTP2 path to the declared upstream, over 5 alternating runs of 3456 blocks, measured from the project PC. It is not from the phone: it does not include the phone's radio or ISP path or the browser's own fetch cost. It is a per-call time, and the proxied time is never corrected by it.",
+ "host": "the project PC (name withheld)",
+ "at": "2026-11-17T17:21:23.055Z",
+ "proxy_origin": "https://m1-rocks.konclave.xyz",
+ "upstream_declared": "zec.rocks:443",
+ "proxy_config_declared": {
+  "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+  "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+  "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+ },
+ "runs": 5,
+ "range": {
+  "start": 3427413,
+  "end": 3430868,
+  "blocks": 3456
+ },
+ "order": [
+  "proxy,direct",
+  "direct,proxy",
+  "proxy,direct",
+  "direct,proxy",
+  "proxy,direct"
+ ],
+ "proxy": {
+  "latest_block": {
+   "n": 5,
+   "median": 196.8658579999992,
+   "min": 150.87075499999992,
+   "max": 430.5564480000003
+  },
+  "block_range": {
+   "n": 5,
+   "median": 633.5026089999992,
+   "min": 504.4385510000002,
+   "max": 882.5588799999969,
+   "messages": 3456,
+   "bytes": 10102611,
+   "bytes_per_s": 15947229
+  }
+ },
+ "direct": {
+  "latest_block": {
+   "n": 5,
+   "median": 18.466719000000012,
+   "min": 17.227827999999135,
+   "max": 20.62094199999774
+  },
+  "block_range": {
+   "n": 5,
+   "median": 4243.252593999998,
+   "min": 4026.448956,
+   "max": 4339.2676790000005,
+   "messages": 3456,
+   "bytes": 10102611,
+   "bytes_per_s": 2380865
+  }
+ },
+ "difference_ms": {
+  "latest_block": 178.4,
+  "block_range": -3609.75
+ }
+}

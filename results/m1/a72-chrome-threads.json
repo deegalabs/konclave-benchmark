@@ -1,0 +1,3016 @@
+{
+ "schema": 1,
+ "results": [
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "67adf3ae-d968-48ce-a56e-ebc8b4d7df0c",
+   "started_at": "2026-11-20T19:00:34.406Z",
+   "kind": "prove",
+   "pipeline_ms": 132946,
+   "n_actions": 2,
+   "key_build_ms": 41133,
+   "prepare_ms": 250,
+   "prove_ms": 62201,
+   "verify_ms": 29351,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 1047,
+   "wasm_memory_bytes": 106823680,
+   "outcome": "ok",
+   "elapsed_ms": 134200,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:02:48.622Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "d8829143-f716-41f4-a5f2-8a9e51bbd7a4",
+   "started_at": "2026-11-20T19:02:48.661Z",
+   "kind": "prove",
+   "pipeline_ms": 131390,
+   "n_actions": 2,
+   "key_build_ms": 41144,
+   "prepare_ms": 176,
+   "prove_ms": 60665,
+   "verify_ms": 29401,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 645,
+   "wasm_memory_bytes": 106889216,
+   "outcome": "ok",
+   "elapsed_ms": 132180,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:05:00.844Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "c6f7857c-3374-4632-8d31-26613bbd8da8",
+   "started_at": "2026-11-20T19:05:00.856Z",
+   "kind": "prove",
+   "pipeline_ms": 132624,
+   "n_actions": 2,
+   "key_build_ms": 41405,
+   "prepare_ms": 187,
+   "prove_ms": 61618,
+   "verify_ms": 29408,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 837,
+   "wasm_memory_bytes": 106889216,
+   "outcome": "ok",
+   "elapsed_ms": 133698,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:07:14.556Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "d7c4b252-3fa3-4183-943c-94b009c25d94",
+   "started_at": "2026-11-20T19:07:14.570Z",
+   "kind": "prove",
+   "pipeline_ms": 132928,
+   "n_actions": 2,
+   "key_build_ms": 41189,
+   "prepare_ms": 174,
+   "prove_ms": 62112,
+   "verify_ms": 29447,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 872,
+   "wasm_memory_bytes": 106889216,
+   "outcome": "ok",
+   "elapsed_ms": 134018,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:09:28.592Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "3cfaaff9-5b6e-4793-aabe-65b5b0dc0b5f",
+   "started_at": "2026-11-20T19:09:28.606Z",
+   "kind": "prove",
+   "pipeline_ms": 132980,
+   "n_actions": 2,
+   "key_build_ms": 41447,
+   "prepare_ms": 197,
+   "prove_ms": 61903,
+   "verify_ms": 29430,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 851,
+   "wasm_memory_bytes": 106889216,
+   "outcome": "ok",
+   "elapsed_ms": 134025,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:11:42.633Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 4,
+   "run_id": "3a65f333-2704-4bc6-b645-73c00f134ad9",
+   "started_at": "2026-11-20T19:11:42.641Z",
+   "kind": "prove",
+   "pipeline_ms": 71279,
+   "n_actions": 2,
+   "key_build_ms": 25574,
+   "prepare_ms": 207,
+   "prove_ms": 28718,
+   "verify_ms": 16776,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 770,
+   "wasm_memory_bytes": 112787456,
+   "outcome": "ok",
+   "elapsed_ms": 72183,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:12:54.825Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 4,
+   "run_id": "26c57a85-53b8-4ab3-9d80-8f9de18a2ce2",
+   "started_at": "2026-11-20T19:12:54.837Z",
+   "kind": "prove",
+   "pipeline_ms": 71324,
+   "n_actions": 2,
+   "key_build_ms": 25303,
+   "prepare_ms": 196,
+   "prove_ms": 28875,
+   "verify_ms": 16945,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 950,
+   "wasm_memory_bytes": 112787456,
+   "outcome": "ok",
+   "elapsed_ms": 72435,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:14:07.272Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 4,
+   "run_id": "4598fe76-d6fa-4227-b9ac-f5bb1a347518",
+   "started_at": "2026-11-20T19:14:07.295Z",
+   "kind": "prove",
+   "pipeline_ms": 71505,
+   "n_actions": 2,
+   "key_build_ms": 25831,
+   "prepare_ms": 158,
+   "prove_ms": 28525,
+   "verify_ms": 16986,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 982,
+   "wasm_memory_bytes": 112787456,
+   "outcome": "ok",
+   "elapsed_ms": 72649,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:15:19.947Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 4,
+   "run_id": "b08230df-f670-4bd1-81dd-0cf99ae28f31",
+   "started_at": "2026-11-20T19:15:19.968Z",
+   "kind": "prove",
+   "pipeline_ms": 71361,
+   "n_actions": 2,
+   "key_build_ms": 25839,
+   "prepare_ms": 194,
+   "prove_ms": 28250,
+   "verify_ms": 17077,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 815,
+   "wasm_memory_bytes": 112787456,
+   "outcome": "ok",
+   "elapsed_ms": 72329,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:16:32.301Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "prove-n2",
+   "range_asked": null,
+   "pool": "ironwood-v3",
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 4,
+   "run_id": "345d8f1f-7adb-4868-94ca-26a8490f0ec0",
+   "started_at": "2026-11-20T19:16:32.313Z",
+   "kind": "prove",
+   "pipeline_ms": 71170,
+   "n_actions": 2,
+   "key_build_ms": 25518,
+   "prepare_ms": 177,
+   "prove_ms": 28567,
+   "verify_ms": 16904,
+   "cold": true,
+   "verified": true,
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 797,
+   "wasm_memory_bytes": 112787456,
+   "outcome": "ok",
+   "elapsed_ms": 72151,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:17:44.465Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "6e991c57-53b8-4d20-a930-b244f907fe5f",
+   "started_at": "2026-11-20T19:19:21.958Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 1132,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:23.091Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "6832e960-5ffc-492b-836d-3ef569bf3afa",
+   "started_at": "2026-11-20T19:19:23.122Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 786,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:23.910Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "d8586699-2419-4698-a8b8-9d2e19fca43b",
+   "started_at": "2026-11-20T19:19:23.937Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 891,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:24.830Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "3914ac2c-a2ff-4632-bbec-c66570d6ef99",
+   "started_at": "2026-11-20T19:19:24.870Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 977,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:25.849Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "052a51dc-b1bf-4afb-ba23-f8a5534eb7c6",
+   "started_at": "2026-11-20T19:19:25.889Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 1000,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:26.891Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 4,
+   "run_id": "f2e2355a-5d6a-4c6a-ba24-66b904014b3b",
+   "started_at": "2026-11-20T19:19:26.923Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 892,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:27.817Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 4,
+   "run_id": "0ea342be-47e6-4e5f-afab-a56c29ebffeb",
+   "started_at": "2026-11-20T19:19:27.848Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 900,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:28.750Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 4,
+   "run_id": "14c526a5-56b0-420c-b04c-aecfdb846831",
+   "started_at": "2026-11-20T19:19:28.792Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 851,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:29.644Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 4,
+   "run_id": "0af1dd71-2a7b-47c0-a47c-1c1aafc9b3d4",
+   "started_at": "2026-11-20T19:19:29.683Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 850,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:30.536Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.4",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://m1-rocks.konclave.xyz",
+   "upstream_declared": "zec.rocks:443",
+   "proxy_config_declared": {
+    "proxy/hosted/rocks/Dockerfile": "28fa4b515e29a4ba1ccb6e88f245e8e08a7c08059eced036e6a1464497910e4f",
+    "proxy/hosted/rocks/traefik.yml": "73a72042bf4d14cb1f22ba0f2b8b3e46bb30e3b547f4cc02dfe52f84582f6008",
+    "proxy/hosted/rocks/conf/dynamic.yml": "336d1426a795c8d999660c21f85010aee229c569b8ec371ae6559b204025c995"
+   },
+   "proxy_host_declared": {
+    "platform": "Railway",
+    "edge_tls": "TLS ends at the Railway edge; the container serves plain http on :8080",
+    "region": "container region not read (Railway default); edge regions seen: gru1, us-east4",
+    "image_digest": "sha256:f4bb143d1135a579b630ed491e17ec50f6f7c9c6a30585ff3d385471d2a86f5a"
+   },
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 4,
+   "run_id": "e7f94717-f47d-4edb-bec8-18881161dc49",
+   "started_at": "2026-11-20T19:19:30.576Z",
+   "outcome": "failed",
+   "error": "Failed to fetch",
+   "elapsed_ms": 883,
+   "temp_after": "34.4",
+   "temp_after_at": "2026-11-20T19:19:31.461Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "e6db2319-9ad4-4d9c-a868-87a42460566d",
+   "started_at": "2026-11-20T19:21:51.897Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 339,
+    "download": 1859,
+    "end_tree_state": 299,
+    "decode": 141,
+    "decrypt": 56140,
+    "tree": 67373
+   },
+   "total_ms": 126151,
+   "pipeline_ms": 126166,
+   "preflight_ms": 688,
+   "witness_ms": 275,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594048,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 527,
+   "wasm_memory_bytes": 40697856,
+   "outcome": "ok",
+   "elapsed_ms": 127987,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:23:59.885Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "6b52e747-2d0e-41ee-9c5d-12403a5a8cbe",
+   "started_at": "2026-11-20T19:23:59.932Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 243,
+    "download": 1738,
+    "end_tree_state": 351,
+    "decode": 113,
+    "decrypt": 55815,
+    "tree": 67461
+   },
+   "total_ms": 125721,
+   "pipeline_ms": 125731,
+   "preflight_ms": 161,
+   "witness_ms": 275,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594053,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 902,
+   "wasm_memory_bytes": 40697856,
+   "outcome": "ok",
+   "elapsed_ms": 127438,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:26:07.371Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "b05460e6-718d-41ad-ac25-9cdfef66b9ed",
+   "started_at": "2026-11-20T19:26:07.425Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 216,
+    "download": 5648,
+    "end_tree_state": 354,
+    "decode": 114,
+    "decrypt": 55755,
+    "tree": 67036
+   },
+   "total_ms": 129123,
+   "pipeline_ms": 129135,
+   "preflight_ms": 17840,
+   "witness_ms": 274,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594056,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 828,
+   "wasm_memory_bytes": 40697856,
+   "outcome": "ok",
+   "elapsed_ms": 148529,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:28:35.956Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "8a741aa2-05f1-4668-af5b-448b2b1f2037",
+   "started_at": "2026-11-20T19:28:36.010Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 221,
+    "download": 2730,
+    "end_tree_state": 350,
+    "decode": 114,
+    "decrypt": 55909,
+    "tree": 66095
+   },
+   "total_ms": 125419,
+   "pipeline_ms": 125431,
+   "preflight_ms": 161,
+   "witness_ms": 271,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594058,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 948,
+   "wasm_memory_bytes": 40697856,
+   "outcome": "ok",
+   "elapsed_ms": 127250,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:30:43.261Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "1c820de7-4d5a-4349-9e13-079a6f81f508",
+   "started_at": "2026-11-20T19:30:43.271Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 222,
+    "download": 2236,
+    "end_tree_state": 352,
+    "decode": 114,
+    "decrypt": 55995,
+    "tree": 67381
+   },
+   "total_ms": 126300,
+   "pipeline_ms": 126310,
+   "preflight_ms": 182,
+   "witness_ms": 274,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594060,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 594,
+   "wasm_memory_bytes": 40697856,
+   "outcome": "ok",
+   "elapsed_ms": 127745,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:32:51.017Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 4,
+   "run_id": "07108051-c683-41fe-8952-be39f83f033b",
+   "started_at": "2026-11-20T19:32:51.079Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 193,
+    "download": 1986,
+    "end_tree_state": 332,
+    "decode": 117,
+    "decrypt": 23241,
+    "tree": 67357
+   },
+   "total_ms": 93226,
+   "pipeline_ms": 93239,
+   "preflight_ms": 153,
+   "witness_ms": 274,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594065,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 752,
+   "wasm_memory_bytes": 46989312,
+   "outcome": "ok",
+   "elapsed_ms": 94835,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:34:25.916Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 4,
+   "run_id": "0913b65b-2622-498b-b20e-e21bc64cdb9b",
+   "started_at": "2026-11-20T19:34:25.975Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 242,
+    "download": 1842,
+    "end_tree_state": 356,
+    "decode": 115,
+    "decrypt": 23161,
+    "tree": 65924
+   },
+   "total_ms": 91640,
+   "pipeline_ms": 91651,
+   "preflight_ms": 174,
+   "witness_ms": 269,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594068,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 849,
+   "wasm_memory_bytes": 46989312,
+   "outcome": "ok",
+   "elapsed_ms": 93435,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:35:59.413Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 4,
+   "run_id": "5932b5d7-6983-479d-80ec-df0a8cdaa4e2",
+   "started_at": "2026-11-20T19:35:59.480Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 196,
+    "download": 1713,
+    "end_tree_state": 339,
+    "decode": 120,
+    "decrypt": 23169,
+    "tree": 67034
+   },
+   "total_ms": 92571,
+   "pipeline_ms": 92582,
+   "preflight_ms": 150,
+   "witness_ms": 274,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594075,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 860,
+   "wasm_memory_bytes": 46989312,
+   "outcome": "ok",
+   "elapsed_ms": 94249,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:37:33.730Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 4,
+   "run_id": "a0bb018c-6906-4b90-a1b0-30d63c70789e",
+   "started_at": "2026-11-20T19:37:33.805Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 223,
+    "download": 1698,
+    "end_tree_state": 345,
+    "decode": 115,
+    "decrypt": 23042,
+    "tree": 66934
+   },
+   "total_ms": 92357,
+   "pipeline_ms": 92367,
+   "preflight_ms": 157,
+   "witness_ms": 276,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594080,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 885,
+   "wasm_memory_bytes": 46989312,
+   "outcome": "ok",
+   "elapsed_ms": 94208,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:39:08.014Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "37aa10f",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "A72 6GB",
+   "session_id": "36468006-661a-433b-a825-4a2d2f9d2a0d",
+   "url_params": {
+    "do-prove": true,
+    "do-scan": false,
+    "threads": "on",
+    "runs": "5",
+    "device": "A72 6GB",
+    "device-class": "phone"
+   },
+   "js_commit": "37aa10f",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "phone",
+   "android": "10",
+   "temp_before": "34.5",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+   "hardware_concurrency": 8,
+   "cross_origin_isolated": true,
+   "row": "scan-daily-3577413-3580868",
+   "range_asked": {
+    "id": "daily",
+    "kind": "daily",
+    "start": 3577413,
+    "end": 3580868,
+    "blocks": 3456
+   },
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "live",
+   "endpoint": "https://zec.global",
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 4,
+   "run_id": "431167bd-ab25-4d3d-a339-fc82549a3ba2",
+   "started_at": "2026-11-20T19:39:08.077Z",
+   "kind": "scan",
+   "range_kind": "daily",
+   "live_or_replay": "live",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "tree_state": 236,
+    "download": 1736,
+    "end_tree_state": 284,
+    "decode": 115,
+    "decrypt": 23149,
+    "tree": 66849
+   },
+   "total_ms": 92369,
+   "pipeline_ms": 92378,
+   "preflight_ms": 149,
+   "witness_ms": 274,
+   "lightd_info": {
+    "version": "1.2.0",
+    "vendor": "zingod",
+    "chain_name": "main",
+    "block_height": 3594083,
+    "consensus_branch_id": "77190ad9",
+    "git_commit": "",
+    "lightwallet_protocol_version": "v0.6.0"
+   },
+   "tree_state_start": {
+    "height": 3577412,
+    "hash": "0000000000388ed154c829aadbbb051984a6165b3005f7f844c3499cd71185af",
+    "orchard": "010ad90621e59d93aff4ff2bab5024884c942c5df88f7e946953126b0f6e0a4139012445c23bcd068d65ed95674a580fdacc60d57d3712ab180b8bb35490f1d9b3301f00019649b2625c454f4ef65cb1fc4457279bfdf7c18f88d9c883baad3a6c21ebaa290000000196097bf7dc41bc7c7b88c1c5e0049e8d6b192f83451f873a11c02b7e824ced2301bbfa94b05a5026b4b461dcd33a05d6b611936e95f70cab2f97dcf3140bcd6923017cca8bb9d91b26e6334ac29c0481a374a75fb435e573dbf69f9963fda48f3a370199199fe9c18014763894c46c0cf22ae6d1e5fcbe6a9ce6ffb8c04f2f48fb7a2e0141fb9a472d274ff6247f5ad86f5f3a3d4a475003944611600728837613f3592901119b8ab6d63c5684ad76fe2e505f1b583db1c7f9b03c5e6ce53a7328e09a54340000010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "01f1394b0feffe97205722d1530065d59f50fe961fd52a008c3e20c89ea9262c0f01402c64397a2449858cf4b5b47488c7665b9fa8200e85083b2f33636613eefc391f000194152cb89fdaabc1c2c7334bc2beef9479ae83cc87bec9614f354c820b06641d01cd884b98d3b60d5930989f0ddbd4df222b5c6c77f748b412b72832ec56d9df38013d5863f7f7a99a34bd2b9ce51ef551324d4282cc268760a46907b9b60b5f0e3f0001e378619c9a5cb067bc0fc52d4c526537d7bd01789a85a45fbedeaa1753969f240126e3789d04de0581926a7fdf48d52eb97c7d0aec256d19c5c1c04f93c8de9125013fb17212cc891dbd8aa9fe6da48276268eefe7a118320ecf40816d4528344d2600000177a2233a635565b956c9420cfe1cee02cb650e3cb7346a426de694f3772d070b01110f99cd77cfe9a88212c3d3d5814fdb1a4010a97fcc165f5b93dc7cdd52f8210001588122f0173c184357de1afdc31dd00ac4648945ad3b9dfa7da52b1bda896d280117c477ee1fa0324a626060cac6ea62b604066538f77a5ade6848b2c03425692300012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "tree_state_end": {
+    "height": 3580868,
+    "hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+    "orchard": "018e961c2613f03efd85059acd398c075c336d9b2f552cea81562053d15a411929001f00015ba301b8f81aea1174063c0d56fe66f61d6087c6f6d6a7afc865bbbcef9dd42900014a460c811cf1f884ded061f4e33efe398ec63fa5b3d10f1d3b6de064ccc32b1f000001d24349359ebfd7819027e2b7ddeeb586f89dccc125d98da250afa1ec6150ed230000000001db86e79d495e9537f1fd9e902bf1b32e01540bb2127b65cdf148d7d640b41b3300010dcf207faf6945a570d7e6bd5c578256f50ae363a8542efb4bcfc7afb23bd104000001aa8c6c409fee053e43d7c0f2c8546e53def51496fa82276e8bcfcf827cbc3823000000000000013f3ddc746e57791a2cf8900143b86b9ff7b82454626f0ba633404f9305b6c32701e2bca6a8d987d668defba89dc082196a922634ed88e065c669e526bb8815ee1b000000000000",
+    "ironwood": "0155304db8618d9123996bda11b66bf8bb24a9cc02d3cc998f7d6d03fdc3b90f32001f000154d8402ff6511aa3fa3b0a7c0c3145dbd5fbd4522a25b9327a749e1b6fbbf4120138d8e25d32f024bdaae76144223456087fbe6d7de3f58ef0711414b9727b2011000000000001aab7f2fea82be7a44b565757d377d84e6bdd1427a8b9322ef8b777d3ddf8d118013315779effcbc2bd3c89061045b62d94b8178d15d1fc62bf8263895c1ebdd31f0166ce0e83466edb13a3f582c9aff32e2ea629fe28c0196900651b803d75ca973301c38a18baecb70e89ec2c5e15e2d2d7e7fa116594f875b0c7e82523433ca66d2401a61366422b2df12dce1c3039ceb380f1b28891a4c8553801f77fa350059edb1700019c5161c116a49db90ee1b8824ed0a92145a51fc21995526e5a491692179df31b01f610c3ff393e6aef2a05cb411330767b418c6de105cb8ae7f4e9f98df3fd0c09012129b0199740c1380cc4f0972558bade7b500366fe468bb5a8fea6ca53be721100000148090d2241f62c620398eadef62e3bd30c748c3ffda74368169256693ba5f1070000000000000000000000"
+   },
+   "end_block_hash": "0000000000bd5c8ea51705de14ce6b87c0f58b6e676cc0e8869ffa75fca9b3af",
+   "end_block_hash_from": "GetTreeState at the end of the range",
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": null,
+   "compact_bytes": 9851149,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49927
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "71c6d2a702eb128ffcbe4ebf7aa1effb789bba2293d6abbf43900d2e4f366301",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 608,
+   "wasm_memory_bytes": 46989312,
+   "outcome": "ok",
+   "elapsed_ms": 93813,
+   "temp_after": "34.5",
+   "temp_after_at": "2026-11-20T19:40:41.891Z",
+   "page_hidden_during_run": false
+  }
+ ],
+ "cleared": []
+}

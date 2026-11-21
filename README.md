@@ -35,12 +35,55 @@ The published test key, to scan with in the page, is the `ufvk` of `config/test-
 
 ## Results
 
-No verdict run has been made yet, so the table has no rows. The project's own runs under the protocol go in [results/](results/), as raw JSON. Each row below will name the raw JSON file it is computed from, in this repository, and whether it is a verdict or information. A row from [community-results/](community-results/) is always information, never a verdict. Every number is recomputed from that file by `node scripts/summarize.mjs <folder> --commit <commit>`.
+Milestone 1 runs, build `37aa10f`, raw page exports in [results/m1/](results/m1/) (unedited; each file is one browser's export and may hold several sessions). Every number is recomputed with `node scripts/summarize.mjs results/m1 --commit 37aa10f`; a row whose file holds more than one session of the same row needs `--session <full session id>`, one command per row (short ids do not match). A **verdict** is only a row the protocol names (A72 Firefox through `m1-rocks`, the laptop proof in Chrome, first session of 17 November 2026, see [docs/method.md](docs/method.md#what-is-fixed-before-the-runs)); a **bar row** is another named phone against the same bar; everything else is **information**.
 
-| Device | Browser | Commit | Date | Kind (verdict or information) | Proof (key build + preparation + first proof, `prove-n2`, threads off) | Daily scan (3,456 blocks) | First scan (50,000 blocks) | Raw JSON |
-|---|---|---|---|---|---|---|---|---|
+Dates are UTC. "AC" means the room's air conditioning was on. The temperature rule: a run counts only if the phone's own reading at its start is at most 35 °C and at most 2 °C above the session's first reading. Where the temperature typed in the page went stale, the host log (adb, time and temperature only, [results/m1/host-temperature-extract.json](results/m1/host-temperature-extract.json) and `results/m1/host-log-*.log`) is shown beside the printed result, and a stale row never supports a pass unless the host log agrees.
 
-Each number is the median of at least 5 counted runs of one session, as `scripts/summarize.mjs` computes it. The bars are in `BARS` in `web/summarize-core.mjs`. The chart of the empty state is `charts/no-verdict-yet.svg`.
+| Device | Browser | Row (bar) | Kind | Result | Session (full id) | Conditions |
+|---|---|---|---|---|---|---|
+| A72 6GB | Firefox 160 | proof (180 s) | verdict | **PASS** 89.68 s, 5/5 (the typed field stayed at 32.8 °C; host readings just after the starts 33.1, 33.6, 34.0, 34.5, 35.0 °C: run 5 starts at the 35.0 °C ceiling and within 2 °C of the first host reading, so the host log agrees, with no margin; with the typed 32.8 °C as the first reading it would not; runs 89.58-89.76 s) | 84b795a0-f46f-4741-a124-ecad1e5d2ac7 | 17/11, "On the charger" ticked; AC not recorded |
+| A72 6GB | Firefox 160 | one day (30 s) | verdict | **FAIL** 127.74 s, 5/5 | ad4f402f-97ff-45b2-a86e-c066345da873 | 17/11, off charger; AC not recorded |
+| A72 6GB | Firefox 160 | first scan (600 s) | verdict | short, 2 of 5 counted (hot starts; one run page-hidden); all runs over 600 s | d10969e7-a80d-462d-bb24-4b9ead10dc5d | 17/11, off charger; AC not recorded |
+| Dell G7 24GB | Chrome 157 | proof (90 s) | verdict | **PASS** 43.84 s, 5/5 | 51faa818-1037-47b5-aae0-f4345c931145 | 17/11, on the charger (`charging: true`) |
+| A14 4GB | Firefox 160 | proof (180 s) | bar row | **FAIL** 248.63 s as printed (stale field; host log would exclude runs 3-5; every run 248.4-248.9 s) | c33ea3fc-632b-4b48-b072-e4c8888325ba | 18/11, off charger; AC not recorded |
+| A14 4GB | Firefox 160 | one day (30 s) | bar row | short, 2 of 5 (hot starts); runs 384.8-389.6 s | e656b0ab-ffa7-4731-8c05-6c1537ff76fa | 19/11 afternoon, no AC, alone |
+| A14 4GB | Firefox 160 | first scan (600 s) | bar row | **FAIL** 2,687.53 s, 5/5 | e656b0ab-ffa7-4731-8c05-6c1537ff76fa | 19/11 evening, AC on, concurrent with other phones (download inflated; cannot change the result) |
+| S24 Ultra 12GB | Firefox 160 | proof (180 s) | bar row | short, 3 of 5 (hot starts); counted runs 25.54-28.44 s | fbb75131-be1b-4a8b-baf7-a070888693ea | 19/11, off charger |
+| S24 Ultra 12GB | Firefox 160 | one day (30 s) | bar row | SHORT by the rule (3 of 5 runs within the temperature rule, median of those 3 runs 39.02 s; host log `host-log-s24-2026-11-20-b.log`: 28.1, 28.3, 29.0, 30.3, 30.8 °C at the starts); all 5 runs over the 30 s bar (38.59 to 40.22 s); printed: FAIL 39.77 s with all 5 counted (the typed field stayed at 30.6 °C) | ba4074b6-7fb7-4d60-8a2c-6f8cd2058a68 | 20/11, alone, **AC on** (the no-AC condition could not be held, room warm), off charger |
+| S24 Ultra 12GB | Firefox 160 | first scan (600 s) | bar row | no verdict: printed pass 269.29 s with `--session`, not claimed (stale field; on the host log runs 2-5 start over the limit); every run 262-275 s | 89309ca0-1ba3-4f59-b98f-ac84d1f68c3c | 19/11, AC on, concurrent with the A14 |
+| Dell G7 24GB | Chrome 157 | one day | information (no laptop scan bar) | 59.74 s (10 runs, the row was run twice in one session) | dae9fe2a-3242-4370-9a29-9c9b2f0e9509 | 20/11, charger on |
+| Dell G7 24GB | Chrome 157 | first scan | information | 388.78 s, 4 counted (one page-hidden) | dae9fe2a-3242-4370-9a29-9c9b2f0e9509 | 20/11, charger on |
+| Dell G7 24GB | Firefox 160 | proof | information | 40.90 s, 5/5 | 5446a2aa-9be7-4482-b7bb-176f8ae97cb0 | 20/11, charger on, Firefox installed for the row |
+| A72 6GB | Chrome 157 | proof | information | 88.72 s, 5/5 | 6f51f58a-4f61-4687-a84a-67b5ca00718a | 18/11, off charger |
+| A72 6GB | Chrome 157 | one day | information | 125.58 s, 5/5 | 2c40a105-7f0e-461b-b01f-86164e2650c8 | 18/11 |
+| A72 6GB | Firefox 160 | one day via `m1-global` | information | 125.66 s, 5/5 | fff15dbc-0fe2-46f3-8acc-352571a7a28a | 18/11 |
+| A72 6GB | Chrome 157 | first scan | information | 897.86 s, 5/5 | 7aed8fd1-30c0-42e7-9ef6-e778b0bf8643 | 19/11, AC on, concurrent with the A14 (download 82.6 s) |
+| A72 6GB | Chrome 157 | first scan via `m1-global` | information | printed FAIL (run 5 missing): runs 1-4 866-961 s, only run 1 within the temperature rule; run 5 failed to start (our operator notes: the adb server restarted) | a114249b-c5aa-46a4-8618-f9c2b1f91698 | 20/11, AC on |
+| A72 6GB | Chrome 157 | first scan, per-block tree | information | 1,066.08 s, 1 run (tree 1.52x the chunked tree) | af5508d1-d7bf-4af0-9e70-c0267be3e081 | 20/11, AC on, alone |
+| A72 6GB | Chrome 157 | 43.4 days (150,000 blocks; 43.4 days at 25 s, but the range crosses NU7 at 3,543,405 and blocks before it were 75 s, so it covers about 108 days of chain) | information | 3,830.87 s, 1 run | 6dca0720-a836-40d2-8b0f-e9ab92312a7d | 20/11, AC on, alone |
+| A72 6GB | Chrome 157 | one day direct to `https://zec.global` (no proxy) | information | 126.17 s, 5/5 | 21baeae3-7c73-4333-8fbf-f07c301b6edf | 20/11, AC on, alone |
+| A72 6GB | Chrome 157 | threads on: proof, 4 threads | information | 54.37 s (single-thread build 88.72 s) | 36468006-661a-433b-a825-4a2d2f9d2a0d | 20/11, AC on; threads page with the missing tree-insert control added (see below) |
+| A72 6GB | Chrome 157 | threads on: one day via `zec.global`, 4 threads | information | 92.37 s (1 thread 126.15 s; decrypt 2.4x faster, tree stage unchanged) | 36468006-661a-433b-a825-4a2d2f9d2a0d | 20/11, AC on |
+
+Sessions listed but not counted: S24 one day 673d49fc-4085-4d40-85a6-b80314d6e8d6 (40.27 s, 5/5, run while the A14 used the same proxy and Wi-Fi: a disclosed note, not the bar row); A72 Chrome proof 68686726 (killed at run 1 by a page reload the operator caused); A72 Chrome first scan c503ad96-73cb-4f21-9f8e-df84aa952463 (stopped at run 1); A72 per-block 09ea3bcf-c7e5-4005-ab86-c4a202944587 (network error); S24 first scan 673d49fc-4085-4d40-85a6-b80314d6e8d6 (refused: time no stage accounts for); S24 one day b443e05a-f0dc-478a-9c47-e5a658788952 (refused: more runs than planned, temperature not recorded); Dell 13318cdd-74b7-4b95-9d82-feb0296c115c (first scan: temperature empty on all runs; one day: the key field did not hold the published key). Smoke and rehearsal sessions from 9, 11, 12 and 16 November are in the files and are refused by the summary as another commit.
+
+Commands for the rows that share a file with another session of the same row:
+
+```
+node scripts/summarize.mjs results/m1 --commit 37aa10f --session ba4074b6-7fb7-4d60-8a2c-6f8cd2058a68
+node scripts/summarize.mjs results/m1 --commit 37aa10f --session 89309ca0-1ba3-4f59-b98f-ac84d1f68c3c
+node scripts/summarize.mjs results/m1 --commit 37aa10f --session 6f51f58a-4f61-4687-a84a-67b5ca00718a
+node scripts/summarize.mjs results/m1 --commit 37aa10f --session 7aed8fd1-30c0-42e7-9ef6-e778b0bf8643
+node scripts/summarize.mjs results/m1 --commit 37aa10f --session dae9fe2a-3242-4370-9a29-9c9b2f0e9509
+```
+
+Storage (information, not a verdict row: measured in headless desktop Chromium with WebZjs PR #27, method fixed in an internal run sheet and not published before): a 12-month projection of 86.8 MB serialized / 57.3 MB IndexedDB against the 50 MB bar, computed as the test vault as measured (1.96 MB / 1.28 MB for 27,182 blocks and 2 notes, run 3558848) plus 12 months of new blocks (1,261,440 at 25 s) times the per-block growth between the shortest and longest runs (67.23 B / 44.44 B per block, runs 3558848 and 3500000) ([results/m1/storage/](results/m1/storage/)). The per-block action count of the one-day range is [results/m1/daily-perblock-actions.json](results/m1/daily-perblock-actions.json) (153 blocks with more than 250 actions hold 78.9% of its 58,622 actions).
+
+The bars are in `BARS` in `web/summarize-core.mjs`. The charts for these rows are drawn by the scenario scripts; on a folder with no verdict they draw `charts/no-verdict-yet.svg`.
+
+**A public endpoint with no proxy.** `https://zec.global`, run by Zingo Labs, answered gRPC-web to a browser page on another origin on 20 November 2026 (row 21baeae3 above, started 18:44 UTC). A reviewer can point the page at it directly for the one-day row, as information: it is not a verdict endpoint in `web/endpoints.mjs`. Zingo Labs reports that zec.global has been validated with up to 16k concurrent scanning wallets (their statement, not our measurement). The verdict path stays the project's two proxies, kept up until the independent review is published.
+
+**Threads.** At `37aa10f`, `web/threads.html` lacks the "Tree stage inserts" control the page script reads, so Run does nothing on the threads page. The threads rows above were run from that page with the one control added (`<select id="tree-insert">` with the same two options as in `index.html`, placed after the "Skip transactions" field, as in the fix PR) (the page script and wasm stamps are unchanged, `37aa10f`; the stamp does not cover the HTML), served with `node scripts/serve.mjs <port> --isolated`, since the service worker did not isolate the page in Chrome on the phone. The hosted proxies refuse that page's origin, so the threads one-day row ran through `zec.global`, and so did its single-thread control.
 
 ## What it does not measure, and known limits
 
