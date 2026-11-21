@@ -15,6 +15,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- Battery, laptop run 1: the Dell G7 log and page export in `results/m1/battery/`, its block markers, the README laptop table with its defect (the page went hidden from run 10), and laptop logs (`RemainingCapacity`) read by `scripts/battery-summary.mjs`, which now takes the blocks from the markers.
 - Battery, phones: `results/m1/battery/` (logs every 10 s of level, temperature, charge counter and current; block markers; the page exports), `scripts/battery-summary.mjs` that recomputes the net energy per job from them (with `tests/battery-summary.test.mjs`, run in CI; two markers for one block stop it, and a missing current reading is left out and counted), the README battery table, and the record of the one-day replay corpus `web/corpus/daily-3577413-3580868.bin.sha256`.
 - `docs/reviewer.md`: how a reviewer checks the release zip, serves the page, runs a proof row and a one-day scan row (through the project's proxies or directly through `zec.global`, run by Zingo Labs) and compares the median with the results table.
 - `results/m1/`: the Milestone 1 raw page exports (A72, A14, S24 Ultra, Dell G7; Firefox and Chrome), a host temperature extract and logs, the storage runs, the per-block action count of the one-day range and the proxy latency file; the README results table with each row's kind, result, full session id and conditions; a dated note in `docs/method.md` on stale temperature fields and room conditions.

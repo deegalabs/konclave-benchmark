@@ -50,14 +50,14 @@ function fixture({ extraMarker = false, chargingInBlock = false, nullCounter = f
 test('summarize nets a block against the baseline, by trapezoid, for each log file named <name>-<date>.log', () => {
   const out = summarize(fixture());
   assert.deepEqual(Object.keys(out), ['p1']);
-  const [base, proof, replay] = out.p1;
+  assert.deepEqual(out.p1.map((r) => r.block), ['baseline', 'proof']);
+  const [base, proof] = out.p1;
   assert.equal(base.block, 'baseline');
   assert.ok(Math.abs(base.currentMah - 10) < 1e-9);
   assert.ok(Math.abs(proof.currentMah - 100 / 3) < 1e-9);
   assert.ok(Math.abs(proof.netCurrentMah - (100 / 3 - 10)) < 1e-9);
   assert.ok(Math.abs(proof.netCounterMah - 20) < 1e-9);
   assert.equal(proof.charging, false);
-  assert.equal(replay.min, undefined);
 });
 
 test('a charging reading inside a block is reported', () => {
@@ -87,4 +87,36 @@ test('two markers for the same block stop the summary instead of picking one', (
 test('a block with one reading has no energy, not a zero', () => {
   const rows = parseLog(log);
   assert.equal(blockEnergy(rows, Date.parse('2026-11-21T00:00:00Z'), Date.parse('2026-11-21T00:10:00Z')), null);
+});
+
+test('a laptop log reads the drop in RemainingCapacity, takes its blocks from the markers, and nets it against the baseline', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'battery-laptop-'));
+  writeFileSync(join(dir, 'lap-2026-11-21.log'), [
+    '2026-11-21T00:00:00Z remaining_mwh=50000 charging=False discharging=True',
+    '2026-11-21T00:20:00Z remaining_mwh=45000 charging=False discharging=True',
+    '2026-11-21T00:21:00Z remaining_mwh=44900 charging=False discharging=True',
+    '2026-11-21T00:41:00Z remaining_mwh=36900 charging=True discharging=False',
+  ].join('\r\n'));
+  writeFileSync(join(dir, 'markers.log'), [
+    '2026-11-21T00:00:00Z lap idle baseline starts', '2026-11-21T00:20:00Z lap idle baseline ends',
+    '2026-11-21T00:21:00Z lap proof-screen-on block starts', '2026-11-21T00:41:00Z lap proof-screen-on block ends',
+  ].join('\n'));
+  const [base, block] = summarize(dir).lap;
+  assert.equal(base.energyMwh, 5000);
+  assert.equal(block.block, 'proof-screen-on');
+  assert.equal(block.energyMwh, 8000);
+  assert.equal(block.netMwh, 3000);
+  assert.equal(block.charging, true);
+});
+
+test('the committed battery folder reproduces the README figures', () => {
+  const out = summarize(new URL('../results/m1/battery', import.meta.url).pathname);
+  const net = (name, block, key) => out[name].find((r) => r.block === block)[key];
+  assert.equal(Math.round(net('s24', 'proof', 'netCounterMah') / 45 * 10) / 10, 8.5);
+  assert.equal(Math.round(net('a72', 'replay', 'netCounterMah') / 10 * 10) / 10, 12.0);
+  assert.equal(Math.round(net('a14', 'firstscan', 'netCurrentMah')), 107);
+  assert.equal(Math.round(net('dell', 'proof', 'netMwh') / 29), 117);
+  assert.equal(Math.round(net('dell', 'proof-screen-on', 'netMwh') / 9), 176);
+  assert.equal(Math.round(net('dell', 'replay', 'netMwh') / 22), 178);
+  assert.equal(Math.round(net('dell', 'replay-screen-on', 'netMwh') / 9), 227);
 });

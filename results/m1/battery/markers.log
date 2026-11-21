@@ -25,3 +25,13 @@
 2026-11-21T05:30:35Z a14 all blocks done
 2026-11-21T05:38:38Z a72 firstscan block ends ("value":"finished || visible")
 2026-11-21T05:38:40Z a72 all blocks done
+2026-11-21T13:28:01Z dell idle baseline starts (times noted by hand by the operator)
+2026-11-21T13:48:04Z dell idle baseline ends
+2026-11-21T13:54:25Z dell proof block starts (29 runs)
+2026-11-21T14:32:29Z dell proof block ends
+2026-11-21T13:54:25Z dell proof-screen-on block starts (runs 1-9 before the page went hidden, times from the page export)
+2026-11-21T14:06:28Z dell proof-screen-on block ends
+2026-11-21T14:45:16Z dell replay block starts (22 runs)
+2026-11-21T15:18:11Z dell replay block ends
+2026-11-21T14:45:16Z dell replay-screen-on block starts (runs 1-9 before the page went hidden, times from the page export)
+2026-11-21T14:58:57Z dell replay-screen-on block ends
