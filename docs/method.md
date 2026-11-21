@@ -48,7 +48,7 @@ A result for [community-results/](../community-results/README.md) is sent by pul
 
 ## Battery
 
-The harness has no battery bar. The page cannot read a battery: battery is read on the host, outside the page. The method below is the one posted on the forum on 14 November 2026; the post fixes it, this file records it. The phones were measured by it on 21 November 2026 (README and `results/m1/battery/`, with the departures listed there); the laptop had a first run on the same day, with a defect stated in the README. Battery results are information, never a verdict.
+The harness has no battery bar. The page cannot read a battery: battery is read on the host, outside the page. The method below is the one posted on the forum on 14 November 2026; the post fixes it, this file records it. The phones were measured by it on 21 November 2026 (README and `results/m1/battery/`, with the departures listed there); the laptop had a first run on the same day, with a defect stated in the README, and a second run with the screen held on. Battery results are information, never a verdict.
 
 ### Phones
 
