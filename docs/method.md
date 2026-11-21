@@ -48,13 +48,13 @@ A result for [community-results/](../community-results/README.md) is sent by pul
 
 ## Battery
 
-The harness has no battery bar. The page cannot read a battery: battery is read on the host, outside the page. The method below is the one posted on the forum on 14 November 2026; the post fixes it, this file records it. The phones were measured by it on 21 November 2026 (README and `results/m1/battery/`, with the departures listed there); the laptop has not been measured yet. Battery results are information, never a verdict.
+The harness has no battery bar. The page cannot read a battery: battery is read on the host, outside the page. The method below is the one posted on the forum on 14 November 2026; the post fixes it, this file records it. The phones were measured by it on 21 November 2026 (README and `results/m1/battery/`, with the departures listed there); the laptop had a first run on the same day, with a defect stated in the README. Battery results are information, never a verdict.
 
 ### Phones
 
 A phone off the charger, reached by adb over Wi-Fi so it is not charging, with the battery between 80% and 60% at the start. The host reads `dumpsys battery` every 10 s: the level, the charge counter and `current now` (`scripts/battery-log.mjs` records them with the temperature and charging state, from the battery service's own lines and never from its event history). A fixed job is repeated, and the result is the energy used per job, net of an idle baseline of the same length, from the charge counter where it moves with use and from `current now` summed over the run. On a phone whose counter scale does not match its battery, the share of the counter or of the level used is reported instead of mAh.
 
-### Laptop (proposal)
+### Laptop
 
 The verdict laptop (Dell G7, 24 GB) is unplugged for the whole run. The host logs the battery's `RemainingCapacity` (mWh, from the Windows `root\wmi` `BatteryStatus` class) every 10 s with the time, and the start and the end of each run are marked by their timestamps. The result is the drop in `RemainingCapacity` between the start and the end of the run, net of an idle baseline of the same length taken just before or after, with the laptop on the same settings and nothing else running. As a cross-check, the drop in `RemainingCapacity` over the whole unplugged session is compared with that session's row in `powercfg /batteryreport`, the battery's own report. `DischargeRate` from the same class is not used as the measure: in a check of the counters during ordinary use, not a benchmark run, it read about 7% above the capacity drop, while the capacity drop and the report row differed by about 1.2%. The smallest change seen in `RemainingCapacity` was 15 mWh, and a reading every 10 s at about 13 W moves about 36 mWh, so each end of a run is known to within a few tens of mWh.
 

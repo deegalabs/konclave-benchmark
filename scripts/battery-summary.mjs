@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
-// Recomputes the phone battery table from the battery logs (scripts/battery-log.mjs output) and the block markers.
+// Recomputes the battery tables from the battery logs and the block markers: phone logs from scripts/battery-log.mjs,
+// and laptop logs of Windows BatteryStatus.RemainingCapacity ("<ISO time> remaining_mwh=<n> charging=<True|False> ...").
 // usage: node scripts/battery-summary.mjs <folder with <name>-<date>.log files and markers.log>
 // A marker line is "<ISO time> <name> <text>"; a block runs from "<block> block starts" to "<block> block ends",
 // the idle baseline from "idle baseline starts" to "idle baseline ends". Net energy of a block = its energy minus
@@ -11,8 +12,13 @@ import { pathToFileURL } from 'node:url';
 
 const LINE = /^(\S+Z) level=(\d+) temperature_c=([\d.]+) charging=(true|false) charge_counter_uah=(-?\d+|null) current_now_ma=(-?\d+|null)/;
 
+const LAPTOP = /^(\S+Z) remaining_mwh=(\d+) charging=(True|False)/;
+
 export function parseLog(text) {
-  return text.split('\n').map((l) => LINE.exec(l)).filter(Boolean).map((m) => ({
+  const lines = text.split(/\r?\n/);
+  const laptop = lines.map((l) => LAPTOP.exec(l)).filter(Boolean);
+  if (laptop.length) return laptop.map((m) => ({ t: Date.parse(m[1]), mwh: Number(m[2]), charging: m[3] === 'True' }));
+  return lines.map((l) => LINE.exec(l)).filter(Boolean).map((m) => ({
     t: Date.parse(m[1]), level: Number(m[2]), temp: Number(m[3]), charging: m[4] === 'true',
     counter: m[5] === 'null' ? null : Number(m[5]), current: m[6] === 'null' ? null : Number(m[6]),
   }));
@@ -22,6 +28,7 @@ export function blockEnergy(rows, a, b) {
   const seg = rows.filter((r) => r.t >= a && r.t <= b);
   if (seg.length < 2) return null;
   const min = (seg.at(-1).t - seg[0].t) / 60000;
+  if ('mwh' in seg[0]) return { min, energyMwh: seg[0].mwh - seg.at(-1).mwh, charging: seg.some((r) => r.charging), samples: seg.length };
   const counterMah = seg[0].counter != null && seg.at(-1).counter != null ? (seg[0].counter - seg.at(-1).counter) / 1000 : null;
   let currentMah = 0;
   let currentGaps = 0;
@@ -46,13 +53,15 @@ export function summarize(dir) {
       if (hits.length > 1) throw new Error(`${name}: ${hits.length} markers match "${pat}"; one block, one start and one end`);
       return hits[0]?.t;
     };
+    const blocks = [...new Set(markers.filter((m) => m.name === name).map((m) => / (\S+) block starts/.exec(' ' + m.text)?.[1]).filter(Boolean))];
     const spans = [['baseline', at('idle baseline starts'), at('idle baseline ends')],
-      ...['proof', 'replay', 'firstscan'].map((b) => [b, at(`${b} block starts`), at(`${b} block ends`)])];
+      ...blocks.map((b) => [b, at(`${b} block starts`), at(`${b} block ends`)])];
     const res = spans.map(([block, a, b]) => ({ block, ...(a && b ? blockEnergy(rows, a, b) : {}) }));
     const base = res[0];
     for (const r of res.slice(1)) {
       if (!r.min || !base.min) continue;
       r.netCounterMah = r.counterMah != null && base.counterMah != null ? r.counterMah - (base.counterMah / base.min) * r.min : null;
+      if (r.energyMwh != null) { r.netMwh = r.energyMwh - (base.energyMwh / base.min) * r.min; continue; }
       r.netCurrentMah = r.currentMah - (base.currentMah / base.min) * r.min;
     }
     out[name] = res;
@@ -67,6 +76,7 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
   for (const [name, res] of Object.entries(summarize(dir))) {
     for (const r of res) {
       if (!r.min) { console.log(`${name} | ${r.block} | no data`); continue; }
+      if (r.energyMwh != null) { console.log(`${name} | ${r.block} | ${f(r.min)} min | charging ${r.charging} | ${r.energyMwh} mWh | ${f(r.energyMwh / r.min * 60 / 1000, 2)} W${r.block === 'baseline' ? '' : ` | net ${f(r.netMwh, 0)} mWh`}`); continue; }
       console.log(`${name} | ${r.block} | ${f(r.min)} min | level ${r.level[0]} -> ${r.level[1]} | max ${f(r.maxTemp)} C | charging ${r.charging} | counter ${f(r.counterMah)} mAh | current ${f(r.currentMah)} mAh${r.block === 'baseline' ? '' : ` | net counter ${f(r.netCounterMah)} mAh | net current ${f(r.netCurrentMah)} mAh`}`);
     }
   }

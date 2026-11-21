@@ -1,1 +1,2 @@
 proxy/** -text
+results/m1/battery/*.log -text
