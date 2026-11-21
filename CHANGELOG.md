@@ -9,6 +9,10 @@ The project has no released version yet.
 
 Starts at commit 157a510 (the bare note-commitment tree roots of each scan are recorded).
 
+### Fixed
+
+- `web/threads.html` had no "Tree stage inserts" control, which the page script reads since the chunked tree insertion, so tapping Run on the threads page threw an error and did nothing in every browser. The control is added, and `tests/pages.test.mjs` (run in CI) fails if the two pages ever carry different form controls.
+
 ### Added
 
 - `results/m1/`: the Milestone 1 raw page exports (A72, A14, S24 Ultra, Dell G7; Firefox and Chrome), a host temperature extract and logs, the storage runs, the per-block action count of the one-day range and the proxy latency file; the README results table with each row's kind, result, full session id and conditions; a dated note in `docs/method.md` on stale temperature fields and room conditions.
