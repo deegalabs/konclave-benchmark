@@ -5,6 +5,7 @@
 /web/stamp.json
 /web/corpus/*
 !/web/corpus/synthetic-10k.bin.sha256
+!/web/corpus/daily-3577413-3580868.bin.sha256
 /corpus
 /node_modules
 /my-results

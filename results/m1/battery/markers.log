@@ -1,0 +1,27 @@
+2026-11-21T02:14:12Z s24 warm-up stopped at level 80 (cpu after stop 0); idle baseline starts
+2026-11-21T02:34:22Z s24 idle baseline ends (20 min)
+2026-11-21T02:34:36Z s24 proof block starts (page 2682, typed temp 29.0)
+2026-11-21T02:56:58Z a14 warm-up stopped at level 80 (cpu after stop 0); idle baseline starts
+2026-11-21T03:16:29Z s24 proof block ends ("value":"finished || visible")
+2026-11-21T03:16:46Z s24 replay block starts (page 2684, typed temp 34.5)
+2026-11-21T03:17:03Z a14 idle baseline ends (20 min)
+2026-11-21T03:17:17Z a14 proof block starts (page 65, typed temp 25.1)
+2026-11-21T03:48:10Z s24 replay block ends ("value":"finished || visible")
+2026-11-21T03:48:26Z s24 firstscan block starts (page 2685, typed temp 32.6)
+2026-11-21T03:58:02Z a14 proof block ends ("value":"finished || visible")
+2026-11-21T03:58:19Z a14 replay block starts (page 67, typed temp 25.3)
+2026-11-21T04:00:15Z a72 warm-up stopped at level 80; idle baseline starts
+2026-11-21T04:20:24Z a72 idle baseline ends (20 min)
+2026-11-21T04:20:38Z a72 proof block starts (page 3096, typed temp 27.0)
+2026-11-21T04:23:00Z s24 firstscan block ends ("value":"finished || visible")
+2026-11-21T04:23:02Z s24 all blocks done
+2026-11-21T04:32:47Z a14 replay block ends ("value":"finished || visible")
+2026-11-21T04:33:03Z a14 firstscan block starts (page 68, typed temp 24.9)
+2026-11-21T04:48:54Z a72 proof block ends ("value":"finished || visible")
+2026-11-21T04:49:10Z a72 replay block starts (page 3097, typed temp 28.6)
+2026-11-21T05:10:06Z a72 replay block ends ("value":"finished || visible")
+2026-11-21T05:10:23Z a72 firstscan block starts (page 3098, typed temp 28.0)
+2026-11-21T05:30:32Z a14 firstscan block ends ("value":"finished || visible")
+2026-11-21T05:30:35Z a14 all blocks done
+2026-11-21T05:38:38Z a72 firstscan block ends ("value":"finished || visible")
+2026-11-21T05:38:40Z a72 all blocks done

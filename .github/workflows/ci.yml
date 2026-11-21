@@ -40,7 +40,7 @@ jobs:
           cargo run --release --locked --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16
           git diff --exit-code -- web/corpus/synthetic-10k.bin.sha256
       - name: Node tests
-        run: node --test tests/node.test.mjs tests/charts.test.mjs tests/pages.test.mjs
+        run: node --test tests/node.test.mjs tests/charts.test.mjs tests/pages.test.mjs tests/battery-summary.test.mjs
       - name: Check the tree for keys
         run: node scripts/check-no-keys.mjs
       - name: Check the history for keys

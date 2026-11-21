@@ -76,7 +76,7 @@ The range heights were filled on 17 November 2026 in `web/ranges.mjs` (T = 3,580
 
 The thresholds are the ones proposed in that post: the application's 1,150 daily blocks assumed 75-second blocks, and NU7 set 25 seconds in November 2026, so a day is now 3,456 blocks. The viewing key and the exact range were promised in [post #17](https://forum.zcashcommunity.com/t/58165/17).
 
-Not judged by this harness: storage (bar 50 MB, reported with the note count) is read from the candidate wallet library and reported apart; battery has no bar, and its method will be posted on the forum for confirmation before any battery measurement. Stability (the tab must not be killed during the proof) does show here: a killed run makes its row FAIL.
+Not judged by this harness: storage (bar 50 MB, reported with the note count) is read from the candidate wallet library and reported apart; battery has no bar; its method was posted on the forum on 14 November and the phones were measured on 21 November (information only). Stability (the tab must not be killed during the proof) does show here: a killed run makes its row FAIL.
 
 ## Reproduce it, in full
 
