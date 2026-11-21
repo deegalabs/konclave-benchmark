@@ -53,7 +53,7 @@ export function summarize(dir) {
       if (hits.length > 1) throw new Error(`${name}: ${hits.length} markers match "${pat}"; one block, one start and one end`);
       return hits[0]?.t;
     };
-    const blocks = [...new Set(markers.filter((m) => m.name === name).map((m) => / (\S+) block starts/.exec(' ' + m.text)?.[1]).filter(Boolean))];
+    const blocks = [...new Set(markers.filter((m) => m.name === name).map((m) => / (\S+) block (?:starts|ends)/.exec(' ' + m.text)?.[1]).filter(Boolean))];
     const spans = [['baseline', at('idle baseline starts'), at('idle baseline ends')],
       ...blocks.map((b) => [b, at(`${b} block starts`), at(`${b} block ends`)])];
     const res = spans.map(([block, a, b]) => ({ block, ...(a && b ? blockEnergy(rows, a, b) : {}) }));

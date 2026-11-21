@@ -108,3 +108,15 @@ test('a laptop log reads the drop in RemainingCapacity, takes its blocks from th
   assert.equal(block.netMwh, 3000);
   assert.equal(block.charging, true);
 });
+
+test('the committed battery folder reproduces the README figures', () => {
+  const out = summarize(new URL('../results/m1/battery', import.meta.url).pathname);
+  const net = (name, block, key) => out[name].find((r) => r.block === block)[key];
+  assert.equal(Math.round(net('s24', 'proof', 'netCounterMah') / 45 * 10) / 10, 8.5);
+  assert.equal(Math.round(net('a72', 'replay', 'netCounterMah') / 10 * 10) / 10, 12.0);
+  assert.equal(Math.round(net('a14', 'firstscan', 'netCurrentMah')), 107);
+  assert.equal(Math.round(net('dell', 'proof', 'netMwh') / 29), 117);
+  assert.equal(Math.round(net('dell', 'proof-screen-on', 'netMwh') / 9), 176);
+  assert.equal(Math.round(net('dell', 'replay', 'netMwh') / 22), 178);
+  assert.equal(Math.round(net('dell', 'replay-screen-on', 'netMwh') / 9), 227);
+});
