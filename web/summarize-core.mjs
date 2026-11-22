@@ -56,6 +56,13 @@ const PER_BLOCK_INFO = 'per-block tree insertion, information only, not a verdic
 // What a chunked result records: the wasm's label for the default (TreeInsert::DEFAULT in src/tree.rs; a test ties the two).
 export const CHUNKED_TREE_INSERT = 'chunk-10000';
 const askedPerBlock = (r) => r.tree_insert_asked === 'per-block';
+// A row asked to build the tree as one subtree per shard (the zcash_client_backend way) is information too.
+const SUBTREES_INFO = 'subtrees tree insertion, information only, not a verdict';
+export const SUBTREES_TREE_INSERT = 'subtrees-10000';
+const askedSubtrees = (r) => r.tree_insert_asked === 'subtrees';
+const TREE_ASKED = ['chunked', 'per-block', 'subtrees'];
+const TREE_RECORDED = /^(chunk-[1-9]\d*|per-block|subtrees-[1-9]\d*)$/;
+const treeExpected = (asked) => (asked === 'per-block' ? 'per-block' : asked === 'subtrees' ? SUBTREES_TREE_INSERT : CHUNKED_TREE_INSERT);
 
 const hasScanShape = (r) => /^scan-(daily|first-sync)-/.test(r.row);
 const isRangeRow = (r) => /^scan-(daily|first-sync|information)-/.test(r.row);
@@ -124,9 +131,9 @@ export function refusals(ok, opts = {}) {
   each((r) => verdictEntry(r) && !['orchard', 'ironwood'].every((p) => HEX32.test(r.tree_roots?.[p]?.start) && HEX32.test(r.tree_roots?.[p]?.end)), 'the bare tree roots are not recorded');
   // Every scan result says how the tree stage inserted (the wasm writes it) and which the row asked for (the page writes it). Chunked is the one
   // chunk size the protocol names (CHUNKED_TREE_INSERT, the label of src/tree.rs); chunk-1 or any other size is not it.
-  each((r) => r.kind === 'scan' && !['chunked', 'per-block'].includes(r.tree_insert_asked), 'the tree insertion asked for is not recorded');
-  each((r) => r.kind === 'scan' && !/^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? ''), 'the tree insertion mode is not recorded');
-  each((r) => r.kind === 'scan' && ['chunked', 'per-block'].includes(r.tree_insert_asked) && /^(chunk-[1-9]\d*|per-block)$/.test(r.tree_insert ?? '') && r.tree_insert !== (r.tree_insert_asked === 'per-block' ? 'per-block' : CHUNKED_TREE_INSERT), 'the tree insertion recorded is not the one asked for');
+  each((r) => r.kind === 'scan' && !TREE_ASKED.includes(r.tree_insert_asked), 'the tree insertion asked for is not recorded');
+  each((r) => r.kind === 'scan' && !TREE_RECORDED.test(r.tree_insert ?? ''), 'the tree insertion mode is not recorded');
+  each((r) => r.kind === 'scan' && TREE_ASKED.includes(r.tree_insert_asked) && TREE_RECORDED.test(r.tree_insert ?? '') && r.tree_insert !== treeExpected(r.tree_insert_asked), 'the tree insertion recorded is not the one asked for');
   each((r) => r.kind === 'prove' && r.verified !== true, 'a proof was not verified');
   each((r) => r.kind === 'prove' && (r.cold !== true || !(r.key_build_ms > 0)), 'a run was not cold: the key build was not timed');
   each((r) => r.kind === 'scan' && !((r.actions_by_pool?.orchard ?? 0) + (r.actions_by_pool?.ironwood ?? 0) > 0), 'a range with no actions');
@@ -199,7 +206,7 @@ function commitWhy(runs, commit) {
 }
 
 // What makes two runs one row. The endpoint is its origin, so the same server spelled two ways is one row.
-const rowParts = (r) => [r.device_label, browser(r.user_agent), r.row, r.pool ?? '', `threads ${r.threads_asked ?? 0}`, r.live_or_replay_asked ?? '', `endpoint ${r.endpoint ? (bareOrigin(r.endpoint) ?? r.endpoint) : '-'}`, ...(askedPerBlock(r) ? ['tree per-block'] : [])];
+const rowParts = (r) => [r.device_label, browser(r.user_agent), r.row, r.pool ?? '', `threads ${r.threads_asked ?? 0}`, r.live_or_replay_asked ?? '', `endpoint ${r.endpoint ? (bareOrigin(r.endpoint) ?? r.endpoint) : '-'}`, ...(askedPerBlock(r) ? ['tree per-block'] : []), ...(askedSubtrees(r) ? ['tree subtrees'] : [])];
 export function rowKey(r) {
   return [...rowParts(r), `session ${r.session_id ?? '-'}`, `filter ${r.filter ?? 'none'}`].join(' | ');
 }
@@ -250,6 +257,7 @@ export function summarize(input, opts = {}) {
     const bar = barFor(sample, range);
     if (hidesBar) verdict = 'REFUSED: class other hides the bar; choose phone or laptop';
     else if (askedPerBlock(sample)) verdict = PER_BLOCK_INFO;
+    else if (askedSubtrees(sample)) verdict = SUBTREES_INFO;
     else if (sample.live_or_replay_asked === 'replay' && hasBarShape(sample) && sample.device_class === 'phone') verdict = 'replay, not a verdict';
     else if (bar === null && !range?.text) verdict = bad.length || missing > 0 || clearedDead ? 'incomplete' : 'no bar';
     else if (sample.threads_asked) verdict = 'threads, reported, not a verdict';

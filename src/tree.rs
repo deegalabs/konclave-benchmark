@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
 //! The note commitment tree of one pool: a shard tree with a checkpoint per block, and witnesses for the notes that are
 //! ours. Orchard and Ironwood each have their own tree and share the Orchard hash. Commitments go in with one
-//! `batch_insert` per chunk of blocks (`TreeInsert`); a chunk of one block is the per-block mode.
+//! `batch_insert` per chunk of blocks (`TreeInsert`); a chunk of one block is the per-block mode. The `subtrees` mode
+//! builds one located subtree per shard a chunk touches, apart from the tree (in parallel in the threads flavour), and
+//! inserts them with `insert_tree`, as zcash_client_backend 0.25 does (`build_subtrees`, data_api/ll/wallet.rs).
 use incrementalmerkletree::{
     frontier::{CommitmentTree, Frontier},
     Address, Hashable, Level, Position, Retention,
@@ -9,7 +11,7 @@ use incrementalmerkletree::{
 use orchard::tree::MerkleHashOrchard;
 use shardtree::{
     store::{memory::MemoryShardStore, Checkpoint, ShardStore},
-    LocatedPrunableTree, ShardTree,
+    LocatedPrunableTree, LocatedTree, ShardTree,
 };
 use std::collections::VecDeque;
 
@@ -26,6 +28,8 @@ type Tree = ShardTree<MemoryShardStore<MerkleHashOrchard, u64>, 32, SHARD_HEIGHT
 pub enum TreeInsert {
     Chunked(usize),
     PerBlock,
+    /// Chunks of this many blocks, each built as one subtree per shard and then inserted.
+    Subtrees(usize),
 }
 
 impl TreeInsert {
@@ -34,25 +38,27 @@ impl TreeInsert {
     /// Blocks per `batch_insert`.
     pub fn chunk_blocks(self) -> usize {
         match self {
-            TreeInsert::Chunked(n) => n.max(1),
+            TreeInsert::Chunked(n) | TreeInsert::Subtrees(n) => n.max(1),
             TreeInsert::PerBlock => 1,
         }
     }
 
-    /// The text every result records: `chunk-10000` or `per-block`.
+    /// The text every result records: `chunk-10000`, `per-block` or `subtrees-10000`.
     pub fn label(self) -> String {
         match self {
             TreeInsert::Chunked(n) => format!("chunk-{}", n.max(1)),
             TreeInsert::PerBlock => "per-block".to_string(),
+            TreeInsert::Subtrees(n) => format!("subtrees-{}", n.max(1)),
         }
     }
 
-    /// The page's word for the mode: `chunked` (the default) or `per-block`.
+    /// The page's word for the mode: `chunked` (the default), `per-block` or `subtrees`.
     pub fn from_name(name: &str) -> Result<TreeInsert, String> {
         match name {
             "chunked" => Ok(TreeInsert::DEFAULT),
             "per-block" => Ok(TreeInsert::PerBlock),
-            _ => Err("tree insertion is chunked or per-block".to_string()),
+            "subtrees" => Ok(TreeInsert::Subtrees(CHUNK_BLOCKS)),
+            _ => Err("tree insertion is chunked, per-block or subtrees".to_string()),
         }
     }
 }
@@ -116,6 +122,9 @@ pub struct PoolTree {
     tip: Option<Position>,
     start_root: MerkleHashOrchard,
     marked: Vec<(Position, MerkleHashOrchard)>,
+    /// Build each chunk as one subtree per shard (`TreeInsert::Subtrees`) instead of one `batch_insert`.
+    subtrees: bool,
+    subtrees_inserted: u64,
 }
 
 impl PoolTree {
@@ -145,6 +154,8 @@ impl PoolTree {
             tip,
             start_root,
             marked: Vec::new(),
+            subtrees: false,
+            subtrees_inserted: 0,
         })
     }
 
@@ -154,6 +165,61 @@ impl PoolTree {
 
     pub fn start_size(&self) -> u64 {
         self.start_size
+    }
+
+    /// Insert the next chunks as one subtree per shard (`TreeInsert::Subtrees`).
+    pub fn set_subtrees(&mut self, on: bool) {
+        self.subtrees = on;
+    }
+
+    /// How many subtrees the `subtrees` mode built and inserted (a test reads it).
+    pub fn subtrees_inserted(&self) -> u64 {
+        self.subtrees_inserted
+    }
+
+    /// One subtree per shard the leaves touch, from `self.next` on: each built apart with `LocatedTree::from_iter`
+    /// (pruned below the shard level, as zcash_client_backend does), in parallel when the threads flavour is built, then
+    /// inserted in order with `insert_tree`, which adds each subtree's checkpoints and prunes to the maximum.
+    fn insert_subtrees(
+        &mut self,
+        leaves: Vec<(MerkleHashOrchard, Retention<u64>)>,
+    ) -> Result<(), String> {
+        let shard = 1u64 << SHARD_HEIGHT;
+        let start = self.next;
+        let mut ranges = Vec::new();
+        let mut at = 0usize;
+        while at < leaves.len() {
+            let pos = start + at as u64;
+            let room = (shard - pos % shard) as usize;
+            let end = (at + room).min(leaves.len());
+            ranges.push(at..end);
+            at = end;
+        }
+        let build = |r: &std::ops::Range<usize>| {
+            let first = Position::from(start + r.start as u64);
+            let last = Position::from(start + r.end as u64);
+            LocatedTree::from_iter(
+                first..last,
+                Level::from(SHARD_HEIGHT),
+                leaves[r.clone()].iter().cloned(),
+            )
+            .map(|res| (res.subtree, res.checkpoints))
+        };
+        #[cfg(feature = "threads")]
+        let built: Vec<_> = {
+            use rayon::prelude::*;
+            ranges.par_iter().map(build).collect()
+        };
+        #[cfg(not(feature = "threads"))]
+        let built: Vec<_> = ranges.iter().map(build).collect();
+        for b in built {
+            let (subtree, checkpoints) = b.ok_or("a subtree could not be built")?;
+            self.tree
+                .insert_tree(subtree, checkpoints)
+                .map_err(|e| format!("{e:?}"))?;
+            self.subtrees_inserted += 1;
+        }
+        Ok(())
     }
 
     /// The commitments of several blocks in one `batch_insert`. `ends[b]` is where block b ends in `cmxs`, so a block
@@ -214,9 +280,13 @@ impl PoolTree {
             at = *end;
         }
         if !leaves.is_empty() {
-            self.tree
-                .batch_insert(Position::from(self.next), leaves.into_iter())
-                .map_err(|e| format!("{e:?}"))?;
+            if self.subtrees {
+                self.insert_subtrees(leaves)?;
+            } else {
+                self.tree
+                    .batch_insert(Position::from(self.next), leaves.into_iter())
+                    .map_err(|e| format!("{e:?}"))?;
+            }
         }
         let keep = self.max_checkpoints.max(1);
         let mut added: Vec<u64> = nonempty;

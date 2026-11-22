@@ -31,7 +31,7 @@ const CHECK = {
   // An origin of the endpoint table and nothing else: a link cannot point the page at a server of its own choosing. A person who needs
   // another endpoint types it in (the page shows what it will contact before Run).
   endpoint: (v) => { const o = bareOrigin(v); return o && findEndpoint(o) ? o : undefined; },
-  tree: (v) => (v === 'chunked' || v === 'per-block' ? v : undefined),
+  tree: (v) => (v === 'chunked' || v === 'per-block' || v === 'subtrees' ? v : undefined),
   start: (v) => (/^\d{1,10}$/.test(v) ? v : undefined),
   end: (v) => (/^\d{1,10}$/.test(v) ? v : undefined),
 };

@@ -406,6 +406,7 @@ impl Scan {
         let mut count = 0;
         for p in 0..2 {
             let mut t = tree::PoolTree::new(self.frontiers[p].take().unwrap())?;
+            t.set_subtrees(matches!(self.tree_insert, tree::TreeInsert::Subtrees(_)));
             let mut offset = 0usize;
             let mut i = 0;
             let mut bi = 0;
