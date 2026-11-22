@@ -102,7 +102,7 @@ fn same(a: &PoolTree, b: &PoolTree, blocks: u64) {
 }
 
 #[test]
-fn subtrees_give_the_same_roots_checkpoints_and_witnesses_as_chunks_and_per_block() {
+fn subtrees_give_the_same_roots_checkpoints_and_witnesses_as_chunks_and_chunked_scan() {
     let mut rng = StdRng::seed_from_u64(11);
     let (sizes, cmxs, ours) = range(60, &mut rng);
     let blocks = sizes.len() as u64;
@@ -113,11 +113,11 @@ fn subtrees_give_the_same_roots_checkpoints_and_witnesses_as_chunks_and_per_bloc
         start_at(SHARD - 3, &mut rng),
         start_at(SHARD - 1, &mut rng),
     ] {
-        let per_block = build(&start, &sizes, &cmxs, &ours, 1, false);
+        let chunked_scan = build(&start, &sizes, &cmxs, &ours, 1, false);
         for chunk in [7, 60] {
             let chunked = build(&start, &sizes, &cmxs, &ours, chunk, false);
             let sub = build(&start, &sizes, &cmxs, &ours, chunk, true);
-            same(&per_block, &sub, blocks);
+            same(&chunked_scan, &sub, blocks);
             same(&chunked, &sub, blocks);
         }
     }
@@ -177,7 +177,7 @@ fn a_chunk_is_cut_into_pieces_of_1024_leaves_counted_from_its_start_and_crosses_
 }
 
 #[test]
-fn a_scan_in_subtrees_mode_matches_per_block_and_records_the_mode() {
+fn a_scan_in_subtrees_mode_matches_the_chunked_default_and_records_the_mode() {
     let file = synth::generate(Params {
         blocks: 53,
         txs_per_block: 1,
@@ -195,14 +195,17 @@ fn a_scan_in_subtrees_mode_matches_per_block_and_records_the_mode() {
         s
     };
     // Against the chunked default (tests/tree_insert.rs ties chunked to per-block), which keeps this test fast.
-    let per_block = run(TreeInsert::DEFAULT);
+    let chunked_scan = run(TreeInsert::DEFAULT);
     let sub = run(TreeInsert::from_name("subtrees").unwrap());
     for p in 0..2 {
-        assert_eq!(sub.root_bytes(p).unwrap(), per_block.root_bytes(p).unwrap());
+        assert_eq!(
+            sub.root_bytes(p).unwrap(),
+            chunked_scan.root_bytes(p).unwrap()
+        );
     }
     assert!(sub.summary().contains("\"tree_insert\":\"subtrees-10000\""));
     let (pieces, batches) = sub.tree_insert_counts();
     assert!(pieces >= 2, "the scan built its subtrees ({pieces})");
     assert_eq!(batches, 0, "and made no batch_insert");
-    assert_eq!(per_block.tree_insert_counts().0, 0);
+    assert_eq!(chunked_scan.tree_insert_counts().0, 0);
 }

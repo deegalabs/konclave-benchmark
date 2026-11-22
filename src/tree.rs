@@ -126,7 +126,7 @@ pub struct PoolTree {
     tip: Option<Position>,
     start_root: MerkleHashOrchard,
     marked: Vec<(Position, MerkleHashOrchard)>,
-    /// Build each chunk as one subtree per shard (`TreeInsert::Subtrees`) instead of one `batch_insert`.
+    /// Build each chunk as pieces of `SUBTREE_LEAVES` leaves (`TreeInsert::Subtrees`) instead of one `batch_insert`.
     subtrees: bool,
     subtrees_inserted: u64,
     batch_inserts: u64,
@@ -173,7 +173,7 @@ impl PoolTree {
         self.start_size
     }
 
-    /// Insert the next chunks as one subtree per shard (`TreeInsert::Subtrees`).
+    /// Insert the next chunks as pieces of `SUBTREE_LEAVES` leaves (`TreeInsert::Subtrees`).
     pub fn set_subtrees(&mut self, on: bool) {
         self.subtrees = on;
     }
