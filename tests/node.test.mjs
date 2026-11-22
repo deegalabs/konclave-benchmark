@@ -2746,3 +2746,21 @@ test('the page asks for subtrees by its select, its link and its plan, and the w
   const [row] = planRows(form({ treeInsert: 'subtrees' })).rows;
   assert.deepEqual([row.tree_insert, row.job.tree_insert], ['subtrees', 'subtrees']);
 });
+
+test('the tree modes the wasm accepts are the ones the page offers, plans and summarize knows', async () => {
+  const rs = readFileSync(new URL('../src/tree.rs', import.meta.url), 'utf8');
+  const fromName = rs.slice(rs.indexOf('pub fn from_name'), rs.indexOf('pub fn from_name') + 600);
+  const wasm = [...fromName.matchAll(/"([a-z-]+)" => Ok/g)].map((m) => m[1]).sort();
+  for (const page of ['index.html', 'threads.html']) {
+    const html = readFileSync(new URL(`../web/${page}`, import.meta.url), 'utf8');
+    const select = html.slice(html.indexOf('id="tree-insert"'), html.indexOf('</select>', html.indexOf('id="tree-insert"')));
+    assert.deepEqual([...select.matchAll(/<option value="([a-z-]+)"/g)].map((m) => m[1]).sort(), wasm, page);
+  }
+  const { parsePrefill } = await import('../web/prefill.mjs');
+  const { planRows } = await import('../web/plan.mjs');
+  for (const mode of wasm) {
+    assert.deepEqual(parsePrefill(`?tree=${mode}`).fields, { 'tree-insert': mode }, `link ${mode}`);
+    assert.equal(planRows(form({ treeInsert: mode })).rows[0].tree_insert, mode, `plan ${mode}`);
+    assert.doesNotMatch(summarize([scanRun({ tree_insert_asked: mode, tree_insert: mode === 'per-block' ? 'per-block' : mode === 'subtrees' ? 'subtrees-10000' : 'chunk-10000' })])[0].verdict, /not recorded|not the one asked/, `summarize ${mode}`);
+  }
+});

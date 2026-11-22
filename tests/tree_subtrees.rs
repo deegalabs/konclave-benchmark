@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
-//! The `subtrees` insertion mode (one located subtree per shard, built apart and then inserted, as zcash_client_backend
-//! 0.25 `build_subtrees` does, data_api/ll/wallet.rs) against the chunked and per-block modes: the same roots at every
-//! checkpoint, the same witnesses, wherever the range starts, and the subtrees really are built and inserted per shard.
+//! The `subtrees` insertion mode (pieces of 1,024 leaves built apart and then inserted, as zcash_client_backend 0.25
+//! `update_tree` / `build_subtrees` do, data_api/ll/wallet.rs) against the chunked and per-block modes: the same roots at
+//! every checkpoint, the same witnesses, wherever the range starts, with pruning on, and the mode really builds its
+//! pieces and makes no `batch_insert`.
 use incrementalmerkletree::{frontier::Frontier, Position};
 use konclave_benchmark::{
     scan::Scan,
     synth::{self, Params},
-    tree::{PoolTree, TreeInsert},
+    tree::{PoolTree, TreeInsert, SUBTREE_LEAVES},
 };
 use orchard::tree::MerkleHashOrchard;
 use rand::{rngs::StdRng, Rng, SeedableRng};
@@ -46,7 +47,19 @@ fn build(
     chunk: usize,
     subtrees: bool,
 ) -> PoolTree {
-    let mut t = PoolTree::with_max_checkpoints(start.clone(), 100_000).unwrap();
+    build_keep(start, sizes, cmxs, ours, chunk, subtrees, 100_000)
+}
+
+fn build_keep(
+    start: &Frontier<MerkleHashOrchard, 32>,
+    sizes: &[usize],
+    cmxs: &[MerkleHashOrchard],
+    ours: &[bool],
+    chunk: usize,
+    subtrees: bool,
+    keep: usize,
+) -> PoolTree {
+    let mut t = PoolTree::with_max_checkpoints(start.clone(), keep).unwrap();
     t.set_subtrees(subtrees);
     let mut at = 0;
     for blocks in sizes.chunks(chunk) {
@@ -111,34 +124,56 @@ fn subtrees_give_the_same_roots_checkpoints_and_witnesses_as_chunks_and_per_bloc
 }
 
 #[test]
-fn a_range_over_several_shards_is_built_as_one_subtree_per_shard() {
+fn a_chunk_is_cut_into_pieces_of_1024_leaves_counted_from_its_start_and_crosses_a_shard_boundary() {
     let mut rng = StdRng::seed_from_u64(12);
-    // About 140,000 leaves in 200 blocks from position 30,001: shards 0 (part), 1 (whole) and 2 (part), so three
-    // subtrees in one chunk. Big blocks keep the checkpoints few, so the test stays fast.
-    let sizes: Vec<usize> = (0..200)
-        .map(|b| if b % 9 == 8 { 0 } else { 700 + 7 * (b % 9) })
+    // 5,000 leaves in 400 blocks from position SHARD - 2,000: five pieces (4 x 1,024 + 904), one of them across the shard
+    // boundary, not aligned to it; pruning on (100 checkpoints, as a scan keeps).
+    let sizes: Vec<usize> = (0..400)
+        .map(|b| if b % 7 == 6 { 0 } else { 14 + b % 3 })
         .collect();
     let n: usize = sizes.iter().sum();
     let cmxs: Vec<MerkleHashOrchard> = (0..n).map(|_| leaf(&mut rng)).collect();
-    let ours: Vec<bool> = (0..n).map(|i| i % 9_001 == 0).collect();
-    let start = start_at(30_000, &mut rng);
-    let blocks = sizes.len() as u64;
-    let chunked = build(&start, &sizes, &cmxs, &ours, 200, false);
-    let sub = build(&start, &sizes, &cmxs, &ours, 200, true);
-    same(&chunked, &sub, blocks);
-    let first = 30_001u64;
-    let last = first + cmxs.len() as u64 - 1;
-    let expected = last / SHARD - first / SHARD + 1;
-    assert_eq!(
-        sub.subtrees_inserted(),
-        expected,
-        "one subtree per shard the leaves touch"
-    );
-    assert_eq!(
-        chunked.subtrees_inserted(),
-        0,
-        "the chunked mode builds no subtree"
-    );
+    let ours: Vec<bool> = (0..n).map(|i| i % 97 == 0).collect();
+    let start = start_at(SHARD - 2_001, &mut rng);
+    for keep in [100, 100_000] {
+        let chunked = build_keep(&start, &sizes, &cmxs, &ours, 400, false, keep);
+        let sub = build_keep(&start, &sizes, &cmxs, &ours, 400, true, keep);
+        assert_eq!(chunked.root().unwrap(), sub.root().unwrap());
+        assert_eq!(
+            chunked.checkpoint_ids().unwrap(),
+            sub.checkpoint_ids().unwrap()
+        );
+        // Every 13th checkpoint and the newest (a root at a checkpoint is the slow read).
+        let ids = sub.checkpoint_ids().unwrap();
+        for id in ids.iter().copied().step_by(13).chain(ids.last().copied()) {
+            assert_eq!(
+                chunked.root_at_block(id).unwrap(),
+                sub.root_at_block(id).unwrap(),
+                "root at block {id}, keep {keep}"
+            );
+        }
+        assert_eq!(chunked.witnesses().unwrap(), sub.witnesses().unwrap());
+        assert_eq!(
+            sub.subtrees_inserted(),
+            n.div_ceil(SUBTREE_LEAVES) as u64,
+            "pieces of 1,024 leaves"
+        );
+        assert_eq!(
+            sub.batch_inserts(),
+            0,
+            "the subtrees mode makes no batch_insert"
+        );
+        assert_eq!(
+            chunked.subtrees_inserted(),
+            0,
+            "the chunked mode builds no subtree"
+        );
+        assert_eq!(
+            chunked.batch_inserts(),
+            1,
+            "one batch_insert for the one chunk"
+        );
+    }
 }
 
 #[test]
@@ -159,10 +194,15 @@ fn a_scan_in_subtrees_mode_matches_per_block_and_records_the_mode() {
         s.witness_inner().unwrap();
         s
     };
-    let per_block = run(TreeInsert::PerBlock);
+    // Against the chunked default (tests/tree_insert.rs ties chunked to per-block), which keeps this test fast.
+    let per_block = run(TreeInsert::DEFAULT);
     let sub = run(TreeInsert::from_name("subtrees").unwrap());
     for p in 0..2 {
         assert_eq!(sub.root_bytes(p).unwrap(), per_block.root_bytes(p).unwrap());
     }
     assert!(sub.summary().contains("\"tree_insert\":\"subtrees-10000\""));
+    let (pieces, batches) = sub.tree_insert_counts();
+    assert!(pieces >= 2, "the scan built its subtrees ({pieces})");
+    assert_eq!(batches, 0, "and made no batch_insert");
+    assert_eq!(per_block.tree_insert_counts().0, 0);
 }

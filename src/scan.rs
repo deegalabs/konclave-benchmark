@@ -538,6 +538,13 @@ impl Scan {
         self.start_frontiers[p].root().to_bytes()
     }
 
+    /// Subtrees built and `batch_insert` calls made by the tree stage, both pools (a test reads them).
+    pub fn tree_insert_counts(&self) -> (u64, u64) {
+        self.trees.iter().flatten().fold((0, 0), |(s, b), t| {
+            (s + t.subtrees_inserted(), b + t.batch_inserts())
+        })
+    }
+
     pub fn root_bytes(&self, p: usize) -> Result<[u8; 32], String> {
         Ok(self.trees[p]
             .as_ref()

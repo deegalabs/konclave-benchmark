@@ -2,8 +2,10 @@
 //! The note commitment tree of one pool: a shard tree with a checkpoint per block, and witnesses for the notes that are
 //! ours. Orchard and Ironwood each have their own tree and share the Orchard hash. Commitments go in with one
 //! `batch_insert` per chunk of blocks (`TreeInsert`); a chunk of one block is the per-block mode. The `subtrees` mode
-//! builds one located subtree per shard a chunk touches, apart from the tree (in parallel in the threads flavour), and
-//! inserts them with `insert_tree`, as zcash_client_backend 0.25 does (`build_subtrees`, data_api/ll/wallet.rs).
+//! does what zcash_client_backend 0.25 does in `update_tree` and `build_subtrees` (data_api/ll/wallet.rs): it cuts a
+//! chunk's commitments into pieces of 1,024 leaves counted from the chunk's first position (not aligned to shards),
+//! builds each piece as a located subtree apart from the tree (in parallel in the threads flavour), and inserts them in
+//! order with `insert_tree`, which splits a piece that crosses a shard boundary.
 use incrementalmerkletree::{
     frontier::{CommitmentTree, Frontier},
     Address, Hashable, Level, Position, Retention,
@@ -20,6 +22,8 @@ const SHARD_HEIGHT: u8 = 16;
 pub const MAX_CHECKPOINTS: usize = 100;
 /// Blocks per `batch_insert` in the default mode.
 pub const CHUNK_BLOCKS: usize = 10_000;
+/// Leaves per subtree in the `subtrees` mode: zcash_client_backend 0.25's `CHUNK_SIZE` in `update_tree`.
+pub const SUBTREE_LEAVES: usize = 1024;
 type Tree = ShardTree<MemoryShardStore<MerkleHashOrchard, u64>, 32, SHARD_HEIGHT>;
 
 /// How a scan puts the commitments of a range into the tree: one `batch_insert` per chunk of this many blocks, with a
@@ -28,7 +32,7 @@ type Tree = ShardTree<MemoryShardStore<MerkleHashOrchard, u64>, 32, SHARD_HEIGHT
 pub enum TreeInsert {
     Chunked(usize),
     PerBlock,
-    /// Chunks of this many blocks, each built as one subtree per shard and then inserted.
+    /// Chunks of this many blocks, each cut into pieces of `SUBTREE_LEAVES` leaves built apart and then inserted.
     Subtrees(usize),
 }
 
@@ -125,6 +129,7 @@ pub struct PoolTree {
     /// Build each chunk as one subtree per shard (`TreeInsert::Subtrees`) instead of one `batch_insert`.
     subtrees: bool,
     subtrees_inserted: u64,
+    batch_inserts: u64,
 }
 
 impl PoolTree {
@@ -156,6 +161,7 @@ impl PoolTree {
             marked: Vec::new(),
             subtrees: false,
             subtrees_inserted: 0,
+            batch_inserts: 0,
         })
     }
 
@@ -177,24 +183,24 @@ impl PoolTree {
         self.subtrees_inserted
     }
 
-    /// One subtree per shard the leaves touch, from `self.next` on: each built apart with `LocatedTree::from_iter`
-    /// (pruned below the shard level, as zcash_client_backend does), in parallel when the threads flavour is built, then
-    /// inserted in order with `insert_tree`, which adds each subtree's checkpoints and prunes to the maximum.
+    /// How many `batch_insert` calls the chunked and per-block modes made (a test checks the `subtrees` mode makes none).
+    pub fn batch_inserts(&self) -> u64 {
+        self.batch_inserts
+    }
+
+    /// Pieces of `SUBTREE_LEAVES` leaves from `self.next` on, as `build_subtrees` cuts them: each built apart with
+    /// `LocatedTree::from_iter` (pruned below the shard level, as zcash_client_backend does), in parallel when the threads
+    /// flavour is built, then inserted in order with `insert_tree`, which adds each piece's checkpoints and prunes to the
+    /// maximum.
     fn insert_subtrees(
         &mut self,
         leaves: Vec<(MerkleHashOrchard, Retention<u64>)>,
     ) -> Result<(), String> {
-        let shard = 1u64 << SHARD_HEIGHT;
         let start = self.next;
-        let mut ranges = Vec::new();
-        let mut at = 0usize;
-        while at < leaves.len() {
-            let pos = start + at as u64;
-            let room = (shard - pos % shard) as usize;
-            let end = (at + room).min(leaves.len());
-            ranges.push(at..end);
-            at = end;
-        }
+        let ranges: Vec<std::ops::Range<usize>> = (0..leaves.len())
+            .step_by(SUBTREE_LEAVES)
+            .map(|at| at..(at + SUBTREE_LEAVES).min(leaves.len()))
+            .collect();
         let build = |r: &std::ops::Range<usize>| {
             let first = Position::from(start + r.start as u64);
             let last = Position::from(start + r.end as u64);
@@ -286,6 +292,7 @@ impl PoolTree {
                 self.tree
                     .batch_insert(Position::from(self.next), leaves.into_iter())
                     .map_err(|e| format!("{e:?}"))?;
+                self.batch_inserts += 1;
             }
         }
         let keep = self.max_checkpoints.max(1);
