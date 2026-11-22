@@ -41,6 +41,8 @@ The page prints a summary line per row. Compare its median with the rows of the 
 | A14 4GB (phone, entry) | 248.63 s, printed FAIL (Firefox) | about 386 s (Firefox; row short, 2 of 5 counted) |
 | Dell G7 24GB (laptop) | 43.84 s PASS (Chrome, verdict row) | 59.74 s (Chrome; information, the laptop has no scan bar) |
 
+Your runs from the release zip carry commit 656e967; the project's rows above were run at 37aa10f. The two builds differ only by one control on the threads page (`web/threads.html`): the harness wasm and the page script are byte-identical (single-thread wasm sha256 `09ca3d8a...`, recorded as `wasm_sha256` in every run), so the medians compare directly. Recompute each with its own commit: `node scripts/summarize.mjs <your folder> --commit 656e967` for yours, `node scripts/summarize.mjs results/m1 --commit 37aa10f` for ours. A run of another commit than the one named is printed as REFUSED with the reason, never dropped.
+
 No phone met the 30 s one-day bar. A result is in the same order of magnitude, as we read the grant's acceptance sentence, when its median is within a factor of about 3 of the row of a comparable device; this is our reading, not a rule set by ZCG, and the phone class alone spans almost a factor of 10 (S24 to A14), so compare with the nearest device.
 
 ## 5. Send it (optional)
