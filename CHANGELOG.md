@@ -17,6 +17,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- The README and `docs/reviewer.md` give the address of the hosted copy, https://deegalabs.github.io/konclave-benchmark/, live since 23 November; the landing page's step 5 says to fill step 3 again after a reload and why the range must be set to one day.
 - The hosted landing page in five steps that match the reviewer sheet (copy the key, open the build in a new tab, fill the top of the form, the proof row, the one-day scan row through `zec.global`), with a copy button, a Compare note and the privacy note, in the Konclave colours (light and dark).
 - A hosted copy of the Milestone 1 review build for reviewers with nothing to install: `.github/workflows/pages.yml` (run by hand) publishes the `web/` folder of a release zip listed in `pages/releases.txt` unchanged to GitHub Pages, after checking the zip's sha256 and comparing every published file with the zip, plus a landing page (`pages/`) that says what leaves the device and shows the published test key. The README and the reviewer sheet name its address once it answers.
 - Milestone 1 addendum, storage on the Galaxy A14 and the laptop (Dell G7): two runs each from the A72 rows' birthdays, `results/m1/addendum/storage/` and a README section; per-block growth 67.24 B (A14) and 66.86 B (laptop) serialized, as on the A72 and the desktop. A first laptop pair with device emulation on by mistake is kept and marked unused.
