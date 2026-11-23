@@ -9,6 +9,10 @@ The project has no released version yet.
 
 Starts at commit 157a510 (the bare note-commitment tree roots of each scan are recorded).
 
+### Changed
+
+- The A14 proof row (c33ea3fc) changed label on 23 November, from FAIL as printed to SHORT by the temperature rule (2 of 5 runs within it on the host log), as the S24 one-day row reads. Every run is over the 180 s bar and the printed FAIL 248.63 s stays beside the label. The method carries a dated note: for a stale typed temperature the label follows the host log in both directions, a departure from "the summary reads only the typed field".
+
 ### Fixed
 
 - The hosted landing page: on a desktop the key box grew to the width of the key on one line and pushed the steps off the page (`field-sizing: content`); the box now wraps the key at every width.
