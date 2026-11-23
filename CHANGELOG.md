@@ -11,6 +11,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Fixed
 
+- Addendum texts: the recompute commands for the `cold/` and `s24/` folders, the date and browser of the A72 verdict row cited for comparison (17 November, Firefox), WSL2 times worded as an upper bound in `native/machine.txt`, and the reviewer sheet's time for an entry phone (about an hour).
 - `web/threads.html` had no "Tree stage inserts" control, which the page script reads since the chunked tree insertion, so tapping Run on the threads page threw an error and did nothing in every browser. The control is added, and `tests/pages.test.mjs` (run in CI) fails if the two pages ever carry different form controls.
 
 ### Added
