@@ -38,7 +38,7 @@ The page prints a summary line per row. Compare its median with the rows of the 
 |---|---|---|
 | S24 Ultra 12GB (phone, high end) | about 26 s (Firefox; row short, 3 of 5 runs counted) | 38.6 to 40.2 s on every run (Firefox; row short by the temperature rule) |
 | A72 6GB (phone, mid range) | 89.68 s PASS (Firefox, verdict row; 88.72 s in Chrome) | 127.74 s FAIL (Firefox through m1-rocks, verdict row; about 126 s in Chrome and directly through zec.global) |
-| A14 4GB (phone, entry) | 248.63 s, printed FAIL (Firefox) | about 386 s (Firefox; row short, 2 of 5 counted) |
+| A14 4GB (phone, entry) | about 249 s (Firefox; row short by the temperature rule, 2 of 5 counted; every run over the 180 s bar) | about 386 s (Firefox; row short, 2 of 5 counted) |
 | Dell G7 24GB (laptop) | 43.84 s PASS (Chrome, verdict row) | 59.74 s (Chrome; information, the laptop has no scan bar) |
 
 Your runs from the release zip carry commit 656e967; the project's rows above were run at 37aa10f. The two builds differ only by one control on the threads page (`web/threads.html`): the harness wasm and the page script are byte-identical (single-thread wasm sha256 `09ca3d8a...`, recorded as `wasm_sha256` in every run), so the medians compare directly. Recompute each with its own commit: `node scripts/summarize.mjs <your folder> --commit 656e967` for yours, `node scripts/summarize.mjs results/m1 --commit 37aa10f` for ours. A run of another commit than the one named is printed as REFUSED with the reason, never dropped.
