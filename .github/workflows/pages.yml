@@ -1,0 +1,72 @@
+# Publishes the hosted reviewer page: the web/ folder of a release zip listed in pages/releases.txt, unchanged, under
+# /<tag>/, plus the landing page in pages/. Run by hand only; it never builds the page, so the bytes are the release's.
+# Each deploy replaces the whole site, so it publishes one tag: pages/releases.txt holds one row (tests/pages.test.mjs).
+name: pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag listed in pages/releases.txt
+        required: true
+        default: m1-review-656e967
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Fetch the release zip and check its sha256
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          case "$TAG" in (*[!A-Za-z0-9._-]*|"") echo "bad tag"; exit 1;; esac
+          line=$(awk '$1 == ENVIRON["TAG"]' pages/releases.txt)
+          if [ -z "$line" ]; then echo "tag not listed in pages/releases.txt"; exit 1; fi
+          asset=$(echo "$line" | awk '{print $2}')
+          want=$(echo "$line" | awk '{print $3}')
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$asset" --dir "$RUNNER_TEMP"
+          got=$(sha256sum "$RUNNER_TEMP/$asset" | cut -d' ' -f1)
+          if [ "$got" != "$want" ]; then echo "sha256 mismatch: $got"; exit 1; fi
+          unzip -q "$RUNNER_TEMP/$asset" -d "$RUNNER_TEMP/zip"
+          tops=$(find "$RUNNER_TEMP/zip" -mindepth 1 -maxdepth 1)
+          if [ "$(echo "$tops" | wc -l)" != 1 ] || [ ! -d "$tops" ]; then echo "the zip must hold one top folder"; exit 1; fi
+          root=$tops
+          if [ ! -d "$root/web" ] || [ ! -f "$root/config/test-vault.json" ]; then echo "web/ or config/test-vault.json missing"; exit 1; fi
+          if [ -n "$(find "$root/web" ! -type f ! -type d)" ]; then echo "web/ holds something that is not a file"; exit 1; fi
+          cmp "$root/config/test-vault.json" config/test-vault.json
+          mkdir -p _site
+          cp -R "$root/web" "_site/$TAG"
+          cp "$root/config/test-vault.json" _site/test-vault.json
+          cp pages/index.html pages/landing.js _site/
+          (cd "$root/web" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/zip.sums"
+          (cd "_site/$TAG" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/site.sums"
+          diff "$RUNNER_TEMP/zip.sums" "$RUNNER_TEMP/site.sums"
+          echo "published web/ of $asset unchanged: $(wc -l < "$RUNNER_TEMP/site.sums") files"
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
