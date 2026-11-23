@@ -23,7 +23,7 @@ code { font: 14px ui-monospace, monospace; overflow-wrap: anywhere; }
 <p>What scanning and proving a Zcash shielded wallet cost in this browser, on this device. This is the acceptance check of Milestone 1 of the Konclave grant; the full instructions are in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>.</p>
 
 <p><a class="go" href="./m1-review-656e967/">Open the Milestone 1 review build (656e967)</a></p>
-<p class="muted">The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged (zip sha256 <code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>). Its header shows "Harness wasm 656e967 ... page script 656e967". The main page runs on one thread, as the verdict rows did; its "Threads page" link turns threads on through a service worker, since this host cannot send the isolation headers.</p>
+<p class="muted">The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged (zip sha256 <code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>). Its header shows "Harness wasm 656e967 ... page script 656e967". The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked (on the A72's Chrome it did not).</p>
 
 <h2>What leaves your device</h2>
 <p>Results stay in the browser until you press "Copy all"; nothing is sent to us. A scan row calls the light client server you type (for example <code>https://zec.global</code>, run by Zingo Labs): that server sees your IP address and the range of blocks you ask for, as it would for any wallet. Never paste a key of your own: use only the published test key below.</p>
@@ -31,6 +31,7 @@ code { font: 14px ui-monospace, monospace; overflow-wrap: anywhere; }
 <h2>The published test key</h2>
 <p>A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>). It cannot spend.</p>
 <textarea id="key" rows="4" readonly aria-label="Published test key">Loading...</textarea>
+<noscript><p>Without JavaScript the key is not shown here: open config/test-vault.json in the repository.</p></noscript>
 
 <h2>Rows from this page</h2>
 <p>A row run here through <code>zec.global</code> is information, not a verdict: the verdict rows of the results table went through the project's proxies. Compare the median with the class of your device in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>.</p>

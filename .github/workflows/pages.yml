@@ -1,5 +1,6 @@
 # Publishes the hosted reviewer page: the web/ folder of a release zip listed in pages/releases.txt, unchanged, under
 # /<tag>/, plus the landing page in pages/. Run by hand only; it never builds the page, so the bytes are the release's.
+# Each deploy replaces the whole site, so it publishes one tag: pages/releases.txt holds one row (tests/pages.test.mjs).
 name: pages
 
 on:
@@ -30,7 +31,8 @@ jobs:
           TAG: ${{ inputs.tag }}
         run: |
           set -euo pipefail
-          line=$(awk -v t="$TAG" '$1 == t' pages/releases.txt)
+          case "$TAG" in (*[!A-Za-z0-9._-]*|"") echo "bad tag"; exit 1;; esac
+          line=$(awk '$1 == ENVIRON["TAG"]' pages/releases.txt)
           if [ -z "$line" ]; then echo "tag not listed in pages/releases.txt"; exit 1; fi
           asset=$(echo "$line" | awk '{print $2}')
           want=$(echo "$line" | awk '{print $3}')
@@ -38,12 +40,16 @@ jobs:
           got=$(sha256sum "$RUNNER_TEMP/$asset" | cut -d' ' -f1)
           if [ "$got" != "$want" ]; then echo "sha256 mismatch: $got"; exit 1; fi
           unzip -q "$RUNNER_TEMP/$asset" -d "$RUNNER_TEMP/zip"
-          root=$(find "$RUNNER_TEMP/zip" -mindepth 1 -maxdepth 1 -type d)
+          tops=$(find "$RUNNER_TEMP/zip" -mindepth 1 -maxdepth 1)
+          if [ "$(echo "$tops" | wc -l)" != 1 ] || [ ! -d "$tops" ]; then echo "the zip must hold one top folder"; exit 1; fi
+          root=$tops
+          if [ ! -d "$root/web" ] || [ ! -f "$root/config/test-vault.json" ]; then echo "web/ or config/test-vault.json missing"; exit 1; fi
+          if [ -n "$(find "$root/web" ! -type f ! -type d)" ]; then echo "web/ holds something that is not a file"; exit 1; fi
+          cmp "$root/config/test-vault.json" config/test-vault.json
           mkdir -p _site
           cp -R "$root/web" "_site/$TAG"
           cp "$root/config/test-vault.json" _site/test-vault.json
           cp pages/index.html pages/landing.js _site/
-          touch _site/.nojekyll
           (cd "$root/web" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/zip.sums"
           (cd "_site/$TAG" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/site.sums"
           diff "$RUNNER_TEMP/zip.sums" "$RUNNER_TEMP/site.sums"

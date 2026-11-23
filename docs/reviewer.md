@@ -11,8 +11,6 @@ Download `konclave-benchmark-656e967.zip` from the release of this repository an
 
 The hash must equal the one in the release notes. The zip holds the built page (`web/`), the local server (`scripts/serve.mjs`), the published test key (`config/test-vault.json`), a short `README.txt`, the licences and `THIRD-PARTY-NOTICES`. You need Node.js 18 or newer and nothing else. You can also build it yourself from this repository at the release commit (see the README, "How to reproduce"); the page header then shows your build's commit.
 
-**Or, with nothing to install:** open [deegalabs.github.io/konclave-benchmark](https://deegalabs.github.io/konclave-benchmark/) on the device and tap "Open the Milestone 1 review build". It is the `web/` folder of the same zip, published unchanged by `.github/workflows/pages.yml` after checking the zip's sha256 against `pages/releases.txt`; the header must show the same "656e967", and the landing page shows the published test key to paste. Then go to section 3. The main page runs on one thread, as the verdict rows did; a scan row there is information when it goes directly through `zec.global`.
-
 ## 2. Serve it
 
 In the unzipped folder: `node scripts/serve.mjs 8090`, then open `http://localhost:8090/` (a laptop) or, for a phone, connect it with USB debugging and run `adb reverse tcp:8090 tcp:8090`, then open `http://localhost:8090/` on the phone. Use `localhost` (or https): the page needs a secure context.
