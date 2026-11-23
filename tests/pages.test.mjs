@@ -10,3 +10,17 @@ test('index.html and threads.html carry the same form controls', () => {
   const plain = ids('index.html'), threads = ids('threads.html');
   assert.deepEqual([...plain].filter((id) => !threads.has(id)), [], 'controls missing from threads.html');
 });
+
+test('the hosted landing page names the one release pages/releases.txt lists: its tag, zip and sha256', () => {
+  const rows = readFileSync(new URL('../pages/releases.txt', import.meta.url), 'utf8')
+    .split('\n').filter((l) => l.trim() && !l.startsWith('#')).map((l) => l.trim().split(/\s+/));
+  // Each deploy replaces the whole site, so the workflow publishes one tag and the list holds one row.
+  assert.equal(rows.length, 1);
+  const [tag, zip, sha] = rows[0];
+  assert.match(sha, /^[0-9a-f]{64}$/);
+  const landing = readFileSync(new URL('../pages/index.html', import.meta.url), 'utf8');
+  assert.ok(landing.includes(`href="./${tag}/"`), 'the build link');
+  assert.ok(landing.includes(zip), 'the zip name');
+  assert.ok(landing.includes(sha), 'the zip sha256');
+  for (const m of landing.matchAll(/href="\.\/([^"/]+)\/"/g)) assert.equal(m[1], tag, 'no link to another tag');
+});

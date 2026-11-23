@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Konclave benchmark</title>
+<noscript><style>#key, #copy, #copied { display: none; }</style></noscript>
+<style>
+:root {
+  --surface-0: #F5F7FA; --surface-1: #FFFFFF; --surface-2: #EEF2F8;
+  --text: #101828; --text-muted: #596579; --line: #E4E8EF; --line-strong: #7E8A9E;
+  --accent: #2F6FE0; --accent-ink: #2559BE; --accent-soft: rgba(47,111,208,.09); --accent-line: rgba(47,111,208,.30); --on-accent: #FFFFFF;
+  --success-text: #0E6F4F;
+  --radius: 12px; --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(16,24,40,.04), 0 4px 12px rgba(16,24,40,.05);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-0: #0f141a; --surface-1: #151b22; --surface-2: #1a212a;
+    --text: #e7edf3; --text-muted: #9aa6b2; --line: #28313c; --line-strong: #5d6d82;
+    --accent: #57a6ff; --accent-ink: #6cb2ff; --accent-soft: rgba(87,166,255,.10); --accent-line: rgba(87,166,255,.32); --on-accent: #0f141a;
+    --success-text: #5ed39a;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 8px 26px rgba(0,0,0,.34);
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--surface-0); color: var(--text); font: 16px/1.55 var(--font-sans); }
+main { max-width: 40rem; margin: 0 auto; padding: 28px 16px 28px; }
+.eyebrow { margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); }
+h1 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; letter-spacing: -.01em; }
+.lead { margin: 0 0 24px; color: var(--text-muted); }
+a { color: var(--accent-ink); }
+ol.steps { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 12px; }
+.step { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 14px; padding: 18px; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.num { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 15px; background: var(--accent-soft); color: var(--accent-ink); border: 1px solid var(--accent-line); }
+.step h2 { margin: 3px 0 6px; font-size: 17px; line-height: 1.3; }
+.step p { margin: 0 0 10px; }
+.step p:last-child { margin-bottom: 0; }
+.muted { color: var(--text-muted); font-size: 15px; }
+code { font: 14px var(--font-mono); overflow-wrap: anywhere; }
+.keybox { width: 100%; max-width: 100%; min-height: 6.5em; resize: vertical; padding: 10px 12px; font: 13px/1.45 var(--font-mono); color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: var(--radius-sm); font: 600 15px var(--font-sans); text-decoration: none; cursor: pointer; }
+.btn-primary { background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); }
+.btn-wide { width: 100%; }
+@media (min-width: 560px) { .btn-wide { width: auto; } }
+@media (max-width: 559px) { .keybox { min-height: 14em; } }
+.btn-ghost { background: transparent; color: var(--accent-ink); border: 1px solid var(--line-strong); }
+.btn:focus-visible, summary:focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 2px; }
+.status { font-size: 14px; color: var(--success-text); min-height: 1.2em; }
+.status.plain { color: var(--text-muted); }
+.note { margin: 0 0 16px; padding: 16px 18px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius); }
+.note h2 { margin: 0 0 6px; font-size: 16px; }
+.note p { margin: 0 0 8px; }
+.note p:last-child { margin: 0; }
+details { padding: 14px 18px; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); }
+summary { cursor: pointer; font-weight: 600; padding: 10px 0; }
+details p { margin: 10px 0 0; font-size: 15px; color: var(--text-muted); }
+footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Konclave · Milestone 1 review</p>
+<h1>Konclave benchmark</h1>
+<p class="lead">Measure what scanning and proving a Zcash shielded wallet cost in this browser, on this device, and compare it with our results. Nothing to install. Two rows take from about 6 minutes on a high-end phone to about an hour on an entry phone.</p>
+
+<ol class="steps" role="list">
+  <li class="step">
+    <span class="num" aria-hidden="true">1</span>
+    <div>
+      <h2 id="key-title">Copy the published test key</h2>
+      <p class="muted" id="key-note">A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>): 195 characters, starts with <code>uview1</code>. It cannot spend. Never paste a key of your own.</p>
+      <textarea id="key" class="keybox" rows="4" readonly aria-labelledby="key-title" aria-describedby="key-note">Loading...</textarea>
+      <noscript><p class="muted">Without JavaScript the key is not shown here: open <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a> in the repository.</p></noscript>
+      <div class="row">
+        <button id="copy" class="btn btn-ghost btn-wide" type="button" hidden>Copy key</button>
+        <span id="copied" class="status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">2</span>
+    <div>
+      <h2>Open the review build</h2>
+      <p class="muted">It opens in a new tab, so these steps stay here. Its header must show "Harness wasm 656e967 ... page script 656e967"; if it shows anything else, stop.</p>
+      <div class="row"><a class="btn btn-primary btn-wide" href="./m1-review-656e967/" target="_blank" rel="noopener">Open the build (656e967)</a></div>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">3</span>
+    <div>
+      <h2>Fill the top of the form</h2>
+      <p>Close other apps and tabs. Type the device (model and RAM), pick the class (phone or laptop), and type the device's temperature if you can read it (the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a> says how); on a phone, a run with no temperature is left out of the median. Leave "Runs per row" at 5 and Threads off.</p>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">4</span>
+    <div>
+      <h2>Run the proof row</h2>
+      <p>Tick Prove, untick Scan, and tap Run. A 2-action Ironwood proof is built 5 times.</p>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">5</span>
+    <div>
+      <h2>Run the one-day scan row</h2>
+      <p>Untick Prove, tick Scan, and set "This range is" to "one day of blocks (3,456)": the default, "other", scans the heights typed below it, which start empty, and every run fails. Then paste the key into "Viewing key to scan with", type <code>https://zec.global</code> (run by Zingo Labs) into "Or a live light client endpoint (gRPC-web)", and tap Run.</p>
+      <p class="muted">Keep the screen on and the page in front while a row runs: switching away, locking the screen or reloading is recorded and the run does not count.</p>
+      <p class="muted">If the build was reloaded or opened again, fill step 3 again: the form starts empty.</p>
+    </div>
+  </li>
+</ol>
+
+<section class="note" aria-labelledby="compare">
+  <h2 id="compare">Compare</h2>
+  <p>Each row prints a median. Compare it with the device of our results table nearest to yours, in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>. The proof row is the same test as our verdict rows. The scan row from this page is information, not a verdict: our verdict scan rows went through the project's proxy, which answers only a copy of the page served on your own machine.</p>
+</section>
+
+<section class="note" aria-labelledby="leaves">
+  <h2 id="leaves">What leaves your device</h2>
+  <p>Results stay in the browser until you press "Copy all"; nothing is sent to us. GitHub Pages, which serves this page, sees the visit.</p>
+  <p>The scan row calls the light client server you type: that server sees your IP address and the range of blocks you ask for, as it would for any wallet.</p>
+</section>
+
+<details>
+  <summary>Details for checking the build</summary>
+  <p>The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged after its sha256 was checked (<code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>) and every file compared with the zip.</p>
+  <p>The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked (on the A72's Chrome it did not).</p>
+</details>
+
+</main>
+<footer>Source, method and results: <a href="https://github.com/deegalabs/konclave-benchmark">github.com/deegalabs/konclave-benchmark</a>.</footer>
+<script src="./landing.js"></script>
+</body>
+</html>
