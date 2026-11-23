@@ -96,7 +96,7 @@ footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px
     <span class="num" aria-hidden="true">3</span>
     <div>
       <h2>Fill the top of the form</h2>
-      <p>Close other apps and tabs. Type the device (model and RAM), pick the class (phone or laptop), and type the device's temperature if you can read it (the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a> says how); on a phone, a run with no temperature is left out of the median. Leave "Runs per row" at 5 and Threads off.</p>
+      <p>Close other apps and tabs. Type the device (model and RAM), pick the class (phone or laptop), and type the device's temperature in °C. The build prints a median only for runs that carry a temperature: without one, each run's time still shows but the row prints no median. On a phone, use the battery temperature; the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a> reads it with a computer. Without a temperature, a row from this page is a set of run times with no median. Leave "Runs per row" at 5 and Threads off.</p>
     </div>
   </li>
   <li class="step">
@@ -112,14 +112,14 @@ footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px
       <h2>Run the one-day scan row</h2>
       <p>Untick Prove, tick Scan, and set "This range is" to "one day of blocks (3,456)": the default, "other", scans the heights typed below it, which start empty, and every run fails. Then paste the key into "Viewing key to scan with", type <code>https://zec.global</code> (run by Zingo Labs) into "Or a live light client endpoint (gRPC-web)", and tap Run.</p>
       <p class="muted">Keep the screen on and the page in front while a row runs: switching away, locking the screen or reloading is recorded and the run does not count.</p>
-      <p class="muted">If the build was reloaded or opened again, fill step 3 again: the form starts empty.</p>
+      <p class="muted">If the build was reloaded or opened again, fill step 3 again: the form goes back to its defaults.</p>
     </div>
   </li>
 </ol>
 
 <section class="note" aria-labelledby="compare">
   <h2 id="compare">Compare</h2>
-  <p>Each row prints a median. Compare it with the device of our results table nearest to yours, in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>. The proof row is the same test as our verdict rows. The scan row from this page is information, not a verdict: our verdict scan rows went through the project's proxy, which answers only a copy of the page served on your own machine.</p>
+  <p>Each row prints a median when its runs carry a temperature; otherwise compare the run times. Compare them with the device of our results table nearest to yours, in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>. The proof row is the same test as our verdict rows. The scan row from this page is information, not a verdict: our verdict scan rows went through the project's proxy, which answers only a copy of the page served on your own machine.</p>
 </section>
 
 <section class="note" aria-labelledby="leaves">
@@ -131,7 +131,7 @@ footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px
 <details>
   <summary>Details for checking the build</summary>
   <p>The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged after its sha256 was checked (<code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>) and every file compared with the zip.</p>
-  <p>The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked (on the A72's Chrome it did not).</p>
+  <p>The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked.</p>
 </details>
 
 </main>
