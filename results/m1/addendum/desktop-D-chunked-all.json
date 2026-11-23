@@ -1,0 +1,1256 @@
+{
+ "schema": 1,
+ "results": [
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "bc39b629-c879-4710-85f1-7faec69cab21",
+   "started_at": "2026-11-23T10:03:55.346Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 43,
+    "decrypt": 23167,
+    "tree": 25219
+   },
+   "total_ms": 48429,
+   "pipeline_ms": 48434,
+   "preflight_ms": 484,
+   "witness_ms": 98,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 54,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 49173,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:04:46.202Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "74fe1436-e63f-4240-83a7-b9722e2239f2",
+   "started_at": "2026-11-23T10:04:46.206Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 39,
+    "decrypt": 22570,
+    "tree": 25071
+   },
+   "total_ms": 47680,
+   "pipeline_ms": 47684,
+   "preflight_ms": 143,
+   "witness_ms": 106,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 61,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 48102,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:05:37.763Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "6912f47f-43ed-4254-9967-e4900712a25b",
+   "started_at": "2026-11-23T10:05:37.764Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 42,
+    "decrypt": 22555,
+    "tree": 26104
+   },
+   "total_ms": 48701,
+   "pipeline_ms": 48705,
+   "preflight_ms": 136,
+   "witness_ms": 105,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 59,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 49114,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:06:28.611Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "25b01b13-a02a-4fe8-bf3c-633715876278",
+   "started_at": "2026-11-23T10:06:28.612Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 43,
+    "decrypt": 22797,
+    "tree": 25510
+   },
+   "total_ms": 48350,
+   "pipeline_ms": 48354,
+   "preflight_ms": 141,
+   "witness_ms": 113,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 59,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 48769,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:07:20.730Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "32bf5e9b-1a21-4c4a-8972-ddc6227e77fc",
+   "started_at": "2026-11-23T10:07:20.732Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 41,
+    "decrypt": 23300,
+    "tree": 25944
+   },
+   "total_ms": 49285,
+   "pipeline_ms": 49288,
+   "preflight_ms": 141,
+   "witness_ms": 99,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 56,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 49687,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:08:12.027Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 16,
+   "run_id": "705f17b4-8fab-492e-8c99-5afd380985af",
+   "started_at": "2026-11-23T10:08:12.029Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 86,
+    "decrypt": 3628,
+    "tree": 25365
+   },
+   "total_ms": 29079,
+   "pipeline_ms": 29082,
+   "preflight_ms": 275,
+   "witness_ms": 106,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 913
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 64
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 16,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 149,
+   "wasm_memory_bytes": 84541440,
+   "outcome": "ok",
+   "elapsed_ms": 29715,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:08:43.465Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 16,
+   "run_id": "a4a7c4dc-3a33-4037-b701-388f687eb61e",
+   "started_at": "2026-11-23T10:08:43.467Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 45,
+    "decrypt": 3621,
+    "tree": 25350
+   },
+   "total_ms": 29016,
+   "pipeline_ms": 29020,
+   "preflight_ms": 519,
+   "witness_ms": 98,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 913
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 64
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 16,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 229,
+   "wasm_memory_bytes": 85131264,
+   "outcome": "ok",
+   "elapsed_ms": 29985,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:09:15.142Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 16,
+   "run_id": "ea479f0b-fe86-4368-931e-461e997ce493",
+   "started_at": "2026-11-23T10:09:15.144Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 73,
+    "decrypt": 3538,
+    "tree": 25392
+   },
+   "total_ms": 29003,
+   "pipeline_ms": 29008,
+   "preflight_ms": 248,
+   "witness_ms": 102,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 913
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 64
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 16,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 170,
+   "wasm_memory_bytes": 88473600,
+   "outcome": "ok",
+   "elapsed_ms": 29633,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:09:46.485Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 16,
+   "run_id": "e255f56c-a966-4fdd-aaae-52358aab7676",
+   "started_at": "2026-11-23T10:09:46.488Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 50,
+    "decrypt": 3604,
+    "tree": 25225
+   },
+   "total_ms": 28879,
+   "pipeline_ms": 28883,
+   "preflight_ms": 225,
+   "witness_ms": 104,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 913
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 64
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 16,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 444,
+   "wasm_memory_bytes": 86900736,
+   "outcome": "ok",
+   "elapsed_ms": 29776,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:10:17.957Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Desktop control (WSL2, headless Chromium)",
+   "session_id": "978e7012-8152-45d3-a6b5-2965dfee23a7",
+   "url_params": {
+    "device": "Desktop control (WSL2, headless Chromium)",
+    "device-class": "other",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "other",
+   "android": null,
+   "temp_before": null,
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+   "hardware_concurrency": 16,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 16,
+   "run_id": "d05646fd-a784-4567-9e02-a152cc364244",
+   "started_at": "2026-11-23T10:10:17.960Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 43,
+    "decrypt": 3467,
+    "tree": 25342
+   },
+   "total_ms": 28852,
+   "pipeline_ms": 28856,
+   "preflight_ms": 144,
+   "witness_ms": 107,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 913
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 64
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 16,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 252,
+   "wasm_memory_bytes": 87031808,
+   "outcome": "ok",
+   "elapsed_ms": 29491,
+   "temp_after": null,
+   "temp_after_at": "2026-11-23T10:10:49.156Z",
+   "page_hidden_during_run": false
+  }
+ ],
+ "cleared": []
+}

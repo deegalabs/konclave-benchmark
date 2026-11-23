@@ -1,0 +1,5006 @@
+{
+ "schema": 1,
+ "results": [
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "a7538515-1294-44d1-85cf-db36c5c2a10a",
+   "started_at": "2026-11-22T23:22:32.063Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 72,
+    "decrypt": 29852,
+    "tree": 44009
+   },
+   "total_ms": 73933,
+   "pipeline_ms": 73939,
+   "preflight_ms": 455,
+   "witness_ms": 139,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 45,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 74711,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:23:46.775Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "33bfee57-2e0c-4b87-8bf1-1869eb3325b8",
+   "started_at": "2026-11-22T23:23:46.777Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 29005,
+    "tree": 44196
+   },
+   "total_ms": 73265,
+   "pipeline_ms": 73270,
+   "preflight_ms": 140,
+   "witness_ms": 141,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 45,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 73735,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:25:00.512Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "3aeec079-9bbd-41e9-9f51-7bc66f682d14",
+   "started_at": "2026-11-22T23:25:00.513Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 29184,
+    "tree": 44200
+   },
+   "total_ms": 73448,
+   "pipeline_ms": 73454,
+   "preflight_ms": 139,
+   "witness_ms": 141,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 49,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 73924,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:26:14.438Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "a3daf778-f4e0-4cf2-8c84-6bf4cfbb65da",
+   "started_at": "2026-11-22T23:26:14.439Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 29193,
+    "tree": 44056
+   },
+   "total_ms": 73313,
+   "pipeline_ms": 73318,
+   "preflight_ms": 138,
+   "witness_ms": 142,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 44,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 73777,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:27:28.215Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "af52c843-1d3c-48f6-aa60-67cd64194199",
+   "started_at": "2026-11-22T23:27:28.217Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 65,
+    "decrypt": 29141,
+    "tree": 44268
+   },
+   "total_ms": 73474,
+   "pipeline_ms": 73479,
+   "preflight_ms": 142,
+   "witness_ms": 139,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 54,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 73951,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:28:42.168Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 4,
+   "run_id": "79aad5b8-4feb-4b09-b62b-5864eac01689",
+   "started_at": "2026-11-22T23:28:42.170Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 67,
+    "decrypt": 8685,
+    "tree": 23396
+   },
+   "total_ms": 32148,
+   "pipeline_ms": 32154,
+   "preflight_ms": 142,
+   "witness_ms": 140,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 51,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 32623,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:29:14.793Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 4,
+   "run_id": "1577ef68-2190-4691-b368-ddb2034e4af3",
+   "started_at": "2026-11-22T23:29:14.796Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 69,
+    "decrypt": 8829,
+    "tree": 23379
+   },
+   "total_ms": 32277,
+   "pipeline_ms": 32283,
+   "preflight_ms": 143,
+   "witness_ms": 141,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 58,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 32765,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:29:47.561Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 4,
+   "run_id": "e335e0a5-5d6b-4d9e-b3a2-7b8ddaa53211",
+   "started_at": "2026-11-22T23:29:47.563Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 70,
+    "decrypt": 8741,
+    "tree": 23449
+   },
+   "total_ms": 32260,
+   "pipeline_ms": 32265,
+   "preflight_ms": 143,
+   "witness_ms": 141,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 52,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 32740,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:30:20.303Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 4,
+   "run_id": "00411da6-f70d-434f-8caa-58bd6d3fb4e5",
+   "started_at": "2026-11-22T23:30:20.306Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 68,
+    "decrypt": 8543,
+    "tree": 23556
+   },
+   "total_ms": 32167,
+   "pipeline_ms": 32173,
+   "preflight_ms": 144,
+   "witness_ms": 147,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 54,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 32660,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:30:52.966Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "56a62bae-83a3-4f0c-b6ae-49d2a8cd33bb",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": false,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 4,
+   "run_id": "d42fdf36-cf0c-469c-a565-9f4fd0ef50b0",
+   "started_at": "2026-11-22T23:30:52.969Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 72,
+    "decrypt": 8815,
+    "tree": 25094
+   },
+   "total_ms": 33981,
+   "pipeline_ms": 33986,
+   "preflight_ms": 146,
+   "witness_ms": 145,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 52,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 34489,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-22T23:31:27.458Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "e0f95d06-ec30-4b1e-8a46-84aa57d24a08",
+   "started_at": "2026-11-23T00:18:23.038Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 71,
+    "decrypt": 28186,
+    "tree": 30214
+   },
+   "total_ms": 58471,
+   "pipeline_ms": 58477,
+   "preflight_ms": 496,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 54,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 59269,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:19:22.308Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "0ead28c1-6993-4cf4-92ea-8e7b731bc887",
+   "started_at": "2026-11-23T00:19:22.313Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 63,
+    "decrypt": 27664,
+    "tree": 30442
+   },
+   "total_ms": 58169,
+   "pipeline_ms": 58175,
+   "preflight_ms": 131,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 53,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58615,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:20:20.928Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "78e36de0-7978-4a5e-8e6d-6d783ddc3507",
+   "started_at": "2026-11-23T00:20:20.932Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 66,
+    "decrypt": 27370,
+    "tree": 30379
+   },
+   "total_ms": 57815,
+   "pipeline_ms": 57821,
+   "preflight_ms": 132,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 50,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58261,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:21:19.193Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "ef02eadc-d69e-4965-b250-64733cf34988",
+   "started_at": "2026-11-23T00:21:19.196Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 27376,
+    "tree": 30286
+   },
+   "total_ms": 57726,
+   "pipeline_ms": 57731,
+   "preflight_ms": 132,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 49,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58178,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:22:17.374Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "dfa5a318-3cc4-465c-9352-b75847cdbeeb",
+   "started_at": "2026-11-23T00:22:17.378Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 65,
+    "decrypt": 27367,
+    "tree": 30711
+   },
+   "total_ms": 58143,
+   "pipeline_ms": 58147,
+   "preflight_ms": 132,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 49,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58584,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:23:15.962Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 4,
+   "run_id": "b3d9c5ce-0625-4e08-ae0b-6d3b42477e1c",
+   "started_at": "2026-11-23T00:23:15.966Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 67,
+    "decrypt": 8164,
+    "tree": 30339
+   },
+   "total_ms": 38570,
+   "pipeline_ms": 38575,
+   "preflight_ms": 135,
+   "witness_ms": 123,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 63,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 39032,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:23:54.999Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 4,
+   "run_id": "32856505-10b3-4ec0-ac2c-818b1839af3b",
+   "started_at": "2026-11-23T00:23:55.003Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 67,
+    "decrypt": 8543,
+    "tree": 30351
+   },
+   "total_ms": 38961,
+   "pipeline_ms": 38966,
+   "preflight_ms": 139,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 60,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 39431,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:24:34.435Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 4,
+   "run_id": "0946b5f1-85f5-45c9-9cc6-5e955e332eac",
+   "started_at": "2026-11-23T00:24:34.439Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 68,
+    "decrypt": 8980,
+    "tree": 30608
+   },
+   "total_ms": 39656,
+   "pipeline_ms": 39661,
+   "preflight_ms": 149,
+   "witness_ms": 126,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 90,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 40165,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:25:14.604Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 4,
+   "run_id": "10a277a3-aa1c-4426-9e99-e4c064fa17ee",
+   "started_at": "2026-11-23T00:25:14.609Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 69,
+    "decrypt": 8744,
+    "tree": 30726
+   },
+   "total_ms": 39539,
+   "pipeline_ms": 39543,
+   "preflight_ms": 135,
+   "witness_ms": 123,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 60,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 40007,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:25:54.616Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "8c84147d-7b0e-4902-b9cb-3ba5deb5d100",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 4,
+   "run_id": "223c19bd-9ffc-49e5-b198-7b48969613c0",
+   "started_at": "2026-11-23T00:25:54.621Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 67,
+    "decrypt": 8641,
+    "tree": 30252
+   },
+   "total_ms": 38960,
+   "pipeline_ms": 38964,
+   "preflight_ms": 135,
+   "witness_ms": 123,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 4,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 58,
+   "wasm_memory_bytes": 47906816,
+   "outcome": "ok",
+   "elapsed_ms": 39422,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:26:34.043Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "90fee84c-1671-4dfd-8dbb-9f98ea67e23f",
+   "started_at": "2026-11-23T00:39:46.639Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 69,
+    "decrypt": 27911,
+    "tree": 30411
+   },
+   "total_ms": 58391,
+   "pipeline_ms": 58396,
+   "preflight_ms": 437,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 50,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 59129,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:40:45.769Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "484dff14-f1b7-4af0-90bd-389b6ef6b5de",
+   "started_at": "2026-11-23T00:40:45.776Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 65,
+    "decrypt": 27380,
+    "tree": 30145
+   },
+   "total_ms": 57590,
+   "pipeline_ms": 57595,
+   "preflight_ms": 135,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 53,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58058,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:41:43.834Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "e30de990-3bff-4dd5-97d0-f3c5dc5b2026",
+   "started_at": "2026-11-23T00:41:43.839Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 67,
+    "decrypt": 27403,
+    "tree": 30565
+   },
+   "total_ms": 58035,
+   "pipeline_ms": 58040,
+   "preflight_ms": 133,
+   "witness_ms": 123,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 48,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58493,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:42:42.333Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "1e050f14-2c8f-4a96-bcdc-e2d294612a70",
+   "started_at": "2026-11-23T00:42:42.338Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 27406,
+    "tree": 30104
+   },
+   "total_ms": 57574,
+   "pipeline_ms": 57579,
+   "preflight_ms": 133,
+   "witness_ms": 126,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 49,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 58037,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:43:40.376Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "d34e439a-bbc5-4313-aacc-c7d66a1644ef",
+   "started_at": "2026-11-23T00:43:40.381Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 66,
+    "decrypt": 27332,
+    "tree": 38378
+   },
+   "total_ms": 65776,
+   "pipeline_ms": 65781,
+   "preflight_ms": 133,
+   "witness_ms": 126,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 49,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 66241,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:44:46.623Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 12,
+   "run_id": "63a2cb30-2763-47a9-9f88-b7c2ce6727b6",
+   "started_at": "2026-11-23T00:44:46.629Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 74,
+    "decrypt": 5290,
+    "tree": 30897
+   },
+   "total_ms": 36261,
+   "pipeline_ms": 36265,
+   "preflight_ms": 145,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 89,
+   "wasm_memory_bytes": 77791232,
+   "outcome": "ok",
+   "elapsed_ms": 36773,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:45:23.402Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 12,
+   "run_id": "6e1cb705-e8f4-4f21-95f3-a3c132cfad2b",
+   "started_at": "2026-11-23T00:45:23.410Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 73,
+    "decrypt": 5743,
+    "tree": 30262
+   },
+   "total_ms": 36078,
+   "pipeline_ms": 36083,
+   "preflight_ms": 145,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 88,
+   "wasm_memory_bytes": 77725696,
+   "outcome": "ok",
+   "elapsed_ms": 36594,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:46:00.004Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 12,
+   "run_id": "eced2009-0aca-42c1-b404-4d30683bd5c7",
+   "started_at": "2026-11-23T00:46:00.014Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 74,
+    "decrypt": 5433,
+    "tree": 30252
+   },
+   "total_ms": 35759,
+   "pipeline_ms": 35763,
+   "preflight_ms": 146,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 86,
+   "wasm_memory_bytes": 77725696,
+   "outcome": "ok",
+   "elapsed_ms": 36283,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:46:36.297Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 12,
+   "run_id": "b27aba6a-675f-4550-88fa-59973660f3ec",
+   "started_at": "2026-11-23T00:46:36.305Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 72,
+    "decrypt": 5472,
+    "tree": 30218
+   },
+   "total_ms": 35762,
+   "pipeline_ms": 35767,
+   "preflight_ms": 145,
+   "witness_ms": 123,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 88,
+   "wasm_memory_bytes": 77725696,
+   "outcome": "ok",
+   "elapsed_ms": 36281,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:47:12.586Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "3d840239-a87f-40c6-8a89-a674471f4cd1",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "chunked"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "chunked",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 12,
+   "run_id": "ea58f3eb-fedb-4dab-97b2-79c13d70a212",
+   "started_at": "2026-11-23T00:47:12.595Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 74,
+    "decrypt": 5416,
+    "tree": 32726
+   },
+   "total_ms": 38216,
+   "pipeline_ms": 38220,
+   "preflight_ms": 144,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "chunk-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 89,
+   "wasm_memory_bytes": 77266944,
+   "outcome": "ok",
+   "elapsed_ms": 38739,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:47:51.334Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 1,
+   "threads_asked": 1,
+   "run_id": "4ff7911d-5a64-4b9d-8c5a-43ffc38d6535",
+   "started_at": "2026-11-23T00:57:44.239Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 71,
+    "decrypt": 28083,
+    "tree": 38912
+   },
+   "total_ms": 67066,
+   "pipeline_ms": 67072,
+   "preflight_ms": 444,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 50,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 67817,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:58:52.056Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 2,
+   "threads_asked": 1,
+   "run_id": "24e263ae-2aeb-41fa-8ec2-15f8543fb20b",
+   "started_at": "2026-11-23T00:58:52.064Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 65,
+    "decrypt": 27443,
+    "tree": 38939
+   },
+   "total_ms": 66447,
+   "pipeline_ms": 66452,
+   "preflight_ms": 133,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 50,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 66932,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T00:59:58.997Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 3,
+   "threads_asked": 1,
+   "run_id": "a883c8ec-342b-43d8-9e8b-49a553d84be5",
+   "started_at": "2026-11-23T00:59:59.004Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 27414,
+    "tree": 38950
+   },
+   "total_ms": 66428,
+   "pipeline_ms": 66432,
+   "preflight_ms": 135,
+   "witness_ms": 123,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 48,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 66907,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:01:05.911Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 4,
+   "threads_asked": 1,
+   "run_id": "c1cb8cbd-9468-489b-920a-52facc5fc041",
+   "started_at": "2026-11-23T01:01:05.919Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 27397,
+    "tree": 38871
+   },
+   "total_ms": 66332,
+   "pipeline_ms": 66338,
+   "preflight_ms": 134,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 50,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 66815,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:02:12.734Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 5,
+   "threads_asked": 1,
+   "run_id": "61d1e7e9-de6f-45d4-b372-5c6dab1fc08d",
+   "started_at": "2026-11-23T01:02:12.742Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 64,
+    "decrypt": 27481,
+    "tree": 38655
+   },
+   "total_ms": 66200,
+   "pipeline_ms": 66204,
+   "preflight_ms": 133,
+   "witness_ms": 125,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 1,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 48,
+   "wasm_memory_bytes": 41615360,
+   "outcome": "ok",
+   "elapsed_ms": 66680,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:03:19.422Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 1,
+   "runs_planned": 5,
+   "order_in_session": 6,
+   "threads_asked": 12,
+   "run_id": "11ef9637-35d8-4b0c-acf1-d283e1021c5e",
+   "started_at": "2026-11-23T01:03:19.430Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 74,
+    "decrypt": 5376,
+    "tree": 19523
+   },
+   "total_ms": 24973,
+   "pipeline_ms": 24977,
+   "preflight_ms": 145,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 92,
+   "wasm_memory_bytes": 78315520,
+   "outcome": "ok",
+   "elapsed_ms": 25510,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:03:44.940Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 2,
+   "runs_planned": 5,
+   "order_in_session": 7,
+   "threads_asked": 12,
+   "run_id": "1836ffa8-9786-4d15-8974-de2410f5753f",
+   "started_at": "2026-11-23T01:03:44.950Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 74,
+    "decrypt": 5422,
+    "tree": 19157
+   },
+   "total_ms": 24653,
+   "pipeline_ms": 24658,
+   "preflight_ms": 144,
+   "witness_ms": 127,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 90,
+   "wasm_memory_bytes": 77135872,
+   "outcome": "ok",
+   "elapsed_ms": 25196,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:04:10.145Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 3,
+   "runs_planned": 5,
+   "order_in_session": 8,
+   "threads_asked": 12,
+   "run_id": "3d05dc82-a366-4333-85d9-8baf34785206",
+   "started_at": "2026-11-23T01:04:10.155Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 74,
+    "decrypt": 5366,
+    "tree": 19542
+   },
+   "total_ms": 24982,
+   "pipeline_ms": 24986,
+   "preflight_ms": 144,
+   "witness_ms": 126,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 89,
+   "wasm_memory_bytes": 77725696,
+   "outcome": "ok",
+   "elapsed_ms": 25520,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:04:35.676Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 4,
+   "runs_planned": 5,
+   "order_in_session": 9,
+   "threads_asked": 12,
+   "run_id": "78cd69a1-28a0-4cb4-a1a2-3ed889b9441c",
+   "started_at": "2026-11-23T01:04:35.686Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 73,
+    "decrypt": 5466,
+    "tree": 19478
+   },
+   "total_ms": 25017,
+   "pipeline_ms": 25022,
+   "preflight_ms": 144,
+   "witness_ms": 124,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 86,
+   "wasm_memory_bytes": 77856768,
+   "outcome": "ok",
+   "elapsed_ms": 25555,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:05:01.241Z",
+   "page_hidden_during_run": false
+  },
+  {
+   "harness_commit": "5ac328d",
+   "crate_line": {
+    "blake2b_simd": "1.0.4",
+    "halo2_proofs": "0.4.0",
+    "incrementalmerkletree": "0.9.0",
+    "orchard": "0.16.0",
+    "shardtree": "0.8.0",
+    "zcash_note_encryption": "0.5.1"
+   },
+   "flavour_built": "threads",
+   "rustc": "rustc 1.89.0-nightly (49a8ba068 2025-06-14)",
+   "wasm_sha256_stamped": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256_stamped": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256_stamped": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "device_label": "Dell G7 24GB",
+   "session_id": "0056900c-0d75-45a4-aa66-02540e45b8dd",
+   "url_params": {
+    "device": "Dell G7 24GB",
+    "device-class": "laptop",
+    "runs": "5",
+    "do-prove": false,
+    "do-scan": true,
+    "threads": "on",
+    "corpus": "daily-3577413-3580868.bin",
+    "tree-insert": "subtrees"
+   },
+   "js_commit": "5ac328d",
+   "js_files_match": true,
+   "isolation_mode": "isolated by the server's headers",
+   "device_class": "laptop",
+   "android": null,
+   "temp_before": "25.1",
+   "charging": true,
+   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+   "hardware_concurrency": 12,
+   "cross_origin_isolated": true,
+   "row": "scan-other-daily-3577413-3580868.bin",
+   "range_asked": null,
+   "filter": null,
+   "tree_insert_asked": "subtrees",
+   "live_or_replay_asked": "replay",
+   "endpoint": null,
+   "run_index": 5,
+   "runs_planned": 5,
+   "order_in_session": 10,
+   "threads_asked": 12,
+   "run_id": "165ce748-5881-4c27-9105-7228f5a2d805",
+   "started_at": "2026-11-23T01:05:01.253Z",
+   "kind": "scan",
+   "range_kind": "other",
+   "live_or_replay": "replay",
+   "start_state": "empty trees",
+   "notes": 1,
+   "witnesses": 1,
+   "stages_ms": {
+    "decode": 73,
+    "decrypt": 5788,
+    "tree": 19820
+   },
+   "total_ms": 25681,
+   "pipeline_ms": 25686,
+   "preflight_ms": 146,
+   "witness_ms": 126,
+   "blocks": 3456,
+   "start_height": 3577413,
+   "actions_by_pool": {
+    "orchard": 207,
+    "ironwood": 58415
+   },
+   "found": {
+    "orchard_external": 0,
+    "orchard_internal": 0,
+    "ironwood_external": 1,
+    "ironwood_internal": 0
+   },
+   "ivk_count": 2,
+   "batch_size": {
+    "orchard": 64,
+    "ironwood": 1024
+   },
+   "batches_made": {
+    "orchard": 4,
+    "ironwood": 58
+   },
+   "tree_insert": "subtrees-10000",
+   "corpus_sha256": "6f62575031945098c88e5dab240377426dc2b3114963d9905d0c397cdf017901",
+   "compact_bytes": 9841288,
+   "compact_bytes_by_block": {
+    "min": 95,
+    "median": 95,
+    "max": 49895
+   },
+   "key_sha256": "e764ece3db9c140b9b5ae2444431851e0717e882680121c3427d4b7757751cc8",
+   "received_zat": 10000,
+   "spent_in_range_zat": 0,
+   "tree_roots": {
+    "orchard": {
+     "start": "8b786b14ff6e814ffd331e27367a369fe7f60e9497f38ea15d2919162e8d7b12",
+     "end": "c7f416f8a5ce7d244199ca3449e1d4c3eca142f364ec9af5096e45b8cc1af211"
+    },
+    "ironwood": {
+     "start": "bb317118b0292647db38b4fd8719578d74ecfee99130a9109d827dabce644537",
+     "end": "306392f32b8e7b7f5059f35dede6f04ba7f6e1c850a976e2e6b7b45b8d843d23"
+    }
+   },
+   "worker_isolated": true,
+   "fresh_worker": true,
+   "threads": 12,
+   "flavour": "threads",
+   "wasm_sha256": "fc492e45758c12e3ee30a41c29d2df98ce82f3b30dfe5375ad72b7a632406a03",
+   "glue_sha256": "cadd7c976813056bd1f709a084c81c43a2ce51c3675dd94d9739c2ec4bb254ff",
+   "snippets_sha256": {
+    "snippets/wasm-bindgen-rayon-38edf6e439f6d70d/src/workerHelpers.no-bundler.js": "9801503f464f848c6c7405462fca9a5c721556904c5fee5ee0afcb0887ea1b7f"
+   },
+   "wasm_load_ms": 90,
+   "wasm_memory_bytes": 77725696,
+   "outcome": "ok",
+   "elapsed_ms": 26238,
+   "temp_after": "25.1",
+   "temp_after_at": "2026-11-23T01:05:27.491Z",
+   "page_hidden_during_run": false
+  }
+ ],
+ "cleared": []
+}

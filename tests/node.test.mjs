@@ -2639,7 +2639,7 @@ test('a link or the form sets the tree insertion, the row and the job carry it, 
   assert.match(app, /tree_insert_asked: r\.tree_insert/, 'every record, a dead one too, says what was asked');
   assert.match(readFileSync(new URL('../web/index.html', import.meta.url), 'utf8'), /id="tree-insert"/);
   const worker = readFileSync(new URL('../web/worker.js', import.meta.url), 'utf8');
-  assert.match(worker, /s\.set_tree_insert\(ev\.tree_insert === 'per-block' \? 'per-block' : 'chunked'\)/);
+  assert.match(worker, /s\.set_tree_insert\(ev\.tree_insert === 'per-block' \|\| ev\.tree_insert === 'subtrees' \? ev\.tree_insert : 'chunked'\)/);
   assert.ok(worker.indexOf('set_tree_insert(') < worker.indexOf("timed('decode'"), 'set before the first stage');
 });
 
@@ -2723,4 +2723,44 @@ test('fix-ranges: --write changes only the six heights, and rangeFixed holds aft
     for (const e of mod.RANGES) assert.ok(mod.rangeFixed(e), e.id);
     assert.deepEqual(mod.RANGES.map((e) => [e.start_height, e.end_height]), [[2_899_999 - 3455, 2_899_999], [2_899_999 - 49999, 2_899_999], [2_899_999 - 149999, 2_899_999]]);
   } finally { server.close(); }
+});
+
+// ---- tree insertion mode: subtrees (one subtree per shard, in parallel with threads) is information ----
+const SUBTREES = { tree_insert_asked: 'subtrees', tree_insert: 'subtrees-10000' };
+
+test('a subtrees row is its own row, keeps its time and is never a verdict, and its recorded mode must match', () => {
+  const [l] = summarize(fiveScan({ ...SUBTREES, total_ms: 1000 }));
+  assert.equal(l.verdict, 'subtrees tree insertion, information only, not a verdict');
+  assert.match(line(l), /tree subtrees/);
+  assert.equal(summarize([...fiveScan(), ...fiveScan(SUBTREES)]).length, 2, 'chunked and subtrees are two rows');
+  assert.match(summarize(fiveScan({ tree_insert_asked: 'subtrees', tree_insert: 'chunk-10000' }))[0].verdict, /not the one asked for/);
+  assert.match(summarize(fiveScan({ tree_insert_asked: 'chunked', tree_insert: 'subtrees-10000' }))[0].verdict, /not the one asked for/);
+  assert.match(summarize(fiveScan({ tree_insert_asked: 'subtrees', tree_insert: 'subtrees' }))[0].verdict, /the tree insertion mode is not recorded/);
+});
+
+test('the page asks for subtrees by its select, its link and its plan, and the worker passes it on', async () => {
+  const { parsePrefill } = await import('../web/prefill.mjs');
+  const { planRows } = await import('../web/plan.mjs');
+  for (const page of ['index.html', 'threads.html']) assert.match(readFileSync(new URL(`../web/${page}`, import.meta.url), 'utf8'), /<option value="subtrees">/, page);
+  assert.deepEqual(parsePrefill('?tree=subtrees').fields, { 'tree-insert': 'subtrees' });
+  const [row] = planRows(form({ treeInsert: 'subtrees' })).rows;
+  assert.deepEqual([row.tree_insert, row.job.tree_insert], ['subtrees', 'subtrees']);
+});
+
+test('the tree modes the wasm accepts are the ones the page offers, plans and summarize knows', async () => {
+  const rs = readFileSync(new URL('../src/tree.rs', import.meta.url), 'utf8');
+  const fromName = rs.slice(rs.indexOf('pub fn from_name'), rs.indexOf('pub fn from_name') + 600);
+  const wasm = [...fromName.matchAll(/"([a-z-]+)" => Ok/g)].map((m) => m[1]).sort();
+  for (const page of ['index.html', 'threads.html']) {
+    const html = readFileSync(new URL(`../web/${page}`, import.meta.url), 'utf8');
+    const select = html.slice(html.indexOf('id="tree-insert"'), html.indexOf('</select>', html.indexOf('id="tree-insert"')));
+    assert.deepEqual([...select.matchAll(/<option value="([a-z-]+)"/g)].map((m) => m[1]).sort(), wasm, page);
+  }
+  const { parsePrefill } = await import('../web/prefill.mjs');
+  const { planRows } = await import('../web/plan.mjs');
+  for (const mode of wasm) {
+    assert.deepEqual(parsePrefill(`?tree=${mode}`).fields, { 'tree-insert': mode }, `link ${mode}`);
+    assert.equal(planRows(form({ treeInsert: mode })).rows[0].tree_insert, mode, `plan ${mode}`);
+    assert.doesNotMatch(summarize([scanRun({ tree_insert_asked: mode, tree_insert: mode === 'per-block' ? 'per-block' : mode === 'subtrees' ? 'subtrees-10000' : 'chunk-10000' })])[0].verdict, /not recorded|not the one asked/, `summarize ${mode}`);
+  }
 });

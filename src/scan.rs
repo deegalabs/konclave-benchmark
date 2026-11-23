@@ -406,6 +406,7 @@ impl Scan {
         let mut count = 0;
         for p in 0..2 {
             let mut t = tree::PoolTree::new(self.frontiers[p].take().unwrap())?;
+            t.set_subtrees(matches!(self.tree_insert, tree::TreeInsert::Subtrees(_)));
             let mut offset = 0usize;
             let mut i = 0;
             let mut bi = 0;
@@ -535,6 +536,13 @@ impl Scan {
     pub fn start_root_bytes(&self, p: usize) -> [u8; 32] {
         START_ROOTS_COMPUTED.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         self.start_frontiers[p].root().to_bytes()
+    }
+
+    /// Subtrees built and `batch_insert` calls made by the tree stage, both pools (a test reads them).
+    pub fn tree_insert_counts(&self) -> (u64, u64) {
+        self.trees.iter().flatten().fold((0, 0), |(s, b), t| {
+            (s + t.subtrees_inserted(), b + t.batch_inserts())
+        })
     }
 
     pub fn root_bytes(&self, p: usize) -> Result<[u8; 32], String> {

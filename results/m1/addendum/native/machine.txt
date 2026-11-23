@@ -1,0 +1,1 @@
+AMD Ryzen 7 5700X3D (8 cores, 16 threads), WSL2 on Windows 11 (kernel 6.18 microsoft-standard-WSL2), rustc 1.89.0-nightly (49a8ba068 2025-06-14), build 5ac328d plus examples/native_scan.rs (91e1f1b). WSL2 is a VM layer: a lower bound on native Linux, not a measure of it.

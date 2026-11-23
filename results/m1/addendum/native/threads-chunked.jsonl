@@ -1,0 +1,5 @@
+{"run":1,"mode":"chunk-10000","threads":16,"decode_s":0.028,"decrypt_s":0.728,"tree_s":5.812,"total_s":6.569,"witness_s":0.023,"subtrees":0,"batch_inserts":2}
+{"run":2,"mode":"chunk-10000","threads":16,"decode_s":0.021,"decrypt_s":0.733,"tree_s":5.904,"total_s":6.658,"witness_s":0.023,"subtrees":0,"batch_inserts":2}
+{"run":3,"mode":"chunk-10000","threads":16,"decode_s":0.022,"decrypt_s":0.710,"tree_s":5.764,"total_s":6.496,"witness_s":0.022,"subtrees":0,"batch_inserts":2}
+{"run":4,"mode":"chunk-10000","threads":16,"decode_s":0.019,"decrypt_s":0.749,"tree_s":5.766,"total_s":6.534,"witness_s":0.023,"subtrees":0,"batch_inserts":2}
+{"run":5,"mode":"chunk-10000","threads":16,"decode_s":0.020,"decrypt_s":0.725,"tree_s":5.776,"total_s":6.520,"witness_s":0.024,"subtrees":0,"batch_inserts":2}

@@ -24,7 +24,7 @@ export function planRows(f, ranges = RANGES) {
     const ufvk = String(f.ufvk).trim() || null;
     const filter = f.filter ? Number(f.filter) : null;
     // Chunked is the default; per-block is an information row (web/summarize-core.mjs).
-    const tree_insert = f.treeInsert === 'per-block' ? 'per-block' : 'chunked';
+    const tree_insert = f.treeInsert === 'per-block' || f.treeInsert === 'subtrees' ? f.treeInsert : 'chunked';
     const entry = ranges.find((e) => e.id === f.rangeKind) ?? null;
     const range_kind = entry ? entry.kind : 'other';
     if (endpoint) {

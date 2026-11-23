@@ -1,0 +1,5 @@
+{"run":1,"mode":"subtrees-10000","threads":1,"decode_s":0.024,"decrypt_s":5.543,"tree_s":7.342,"total_s":12.908,"witness_s":0.024,"subtrees":59,"batch_inserts":0}
+{"run":2,"mode":"subtrees-10000","threads":1,"decode_s":0.020,"decrypt_s":5.522,"tree_s":7.363,"total_s":12.904,"witness_s":0.023,"subtrees":59,"batch_inserts":0}
+{"run":3,"mode":"subtrees-10000","threads":1,"decode_s":0.022,"decrypt_s":5.464,"tree_s":7.297,"total_s":12.783,"witness_s":0.023,"subtrees":59,"batch_inserts":0}
+{"run":4,"mode":"subtrees-10000","threads":1,"decode_s":0.020,"decrypt_s":5.519,"tree_s":7.377,"total_s":12.916,"witness_s":0.023,"subtrees":59,"batch_inserts":0}
+{"run":5,"mode":"subtrees-10000","threads":1,"decode_s":0.020,"decrypt_s":5.497,"tree_s":7.373,"total_s":12.890,"witness_s":0.023,"subtrees":59,"batch_inserts":0}
