@@ -72,4 +72,4 @@ Timed as the proof verdict row (key build, preparation and proof), every proof v
 
 These are information rows; the summarizer prints them with no bar (the 180 s phone proof bar applies to the 2-output verdict row only), and 223.77 s is above that figure.
 
-Beside the Ironwood 2-output proof in the same browser (Chrome 157, session `6f51f58a` of 20 November, 88.72 s; the verdict row is Firefox 160, 89.68 s): about 22 s per output on the A72. An old vault that spends Orchard notes and pays into Ironwood proves both bundles; the sum of the two 2-output proofs is about 177 s in Chrome, an estimate by addition that counts two key builds, not a measured two-bundle transaction.
+Beside the Ironwood 2-output proof in the same browser (Chrome 157, session `6f51f58a` of 18 November, 88.72 s; the verdict row is Firefox 160, 89.68 s): about 22 s per output on the A72. An old vault that spends Orchard notes and pays into Ironwood proves both bundles; the sum of the two 2-output proofs is about 177 s in Chrome, an estimate by addition that counts two key builds, not a measured two-bundle transaction.
