@@ -14,7 +14,7 @@ The compiler is the one in `rust-toolchain.toml` (`nightly-2025-06-15`, with `ru
 | Build the wasm, both flavours, and the stamps | `./build.sh` |
 | Make the folder of the synthetic corpus | `mkdir -p web/corpus` |
 | Make the synthetic corpus the page and the tests read | `cargo run --release --example gen_corpus -- web/corpus/synthetic-10k.bin 156 2 16` |
-| Serve the page (no hosted page exists); open `http://localhost:8090/` for a single-thread row or `http://localhost:8090/threads.html` for a threads row | `node scripts/serve.mjs 8090` |
+| Serve the page yourself (a hosted copy is linked below); open `http://localhost:8090/` for a single-thread row or `http://localhost:8090/threads.html` for a threads row | `node scripts/serve.mjs 8090` |
 | Reach the page from an Android phone | `adb reverse tcp:8090 tcp:8090` |
 | Reach the pipeline proxy from an Android phone, for the port of the origin you use in `web/endpoints.mjs` | `adb reverse tcp:<port> tcp:<port>` |
 | Start the pipeline proxy for a live row (its rows are never a verdict; without an endpoint the page replays the synthetic corpus) | `docker compose -f proxy/compose.yml up -d` |
