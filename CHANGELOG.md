@@ -9,14 +9,22 @@ The project has no released version yet.
 
 Starts at commit 157a510 (the bare note-commitment tree roots of each scan are recorded).
 
+### Changed
+
+- The A14 proof row (c33ea3fc) changed label on 23 November, from FAIL as printed to SHORT by the temperature rule (2 of 5 runs within it on the host log), as the S24 one-day row reads. Every run is over the 180 s bar and the printed FAIL 248.63 s stays beside the label. The method carries a dated note: for a stale typed temperature the label follows the host log in both directions, a departure from "the summary reads only the typed field".
+
 ### Fixed
 
-- The A14 proof row reads SHORT by the temperature rule (2 of 5 runs within it on the host log), with the printed FAIL beside it, as the S24 one-day row already did; README, reviewer sheet and method note.
+- The hosted landing page: on a desktop the key box grew to the width of the key on one line and pushed the steps off the page (`field-sizing: content`); the box now wraps the key at every width.
 - Addendum texts: the recompute commands for the `cold/` and `s24/` folders, the date and browser of the A72 verdict row cited for comparison (17 November, Firefox), WSL2 times worded as an upper bound in `native/machine.txt`, and the reviewer sheet's time for an entry phone (about an hour).
 - `web/threads.html` had no "Tree stage inserts" control, which the page script reads since the chunked tree insertion, so tapping Run on the threads page threw an error and did nothing in every browser. The control is added, and `tests/pages.test.mjs` (run in CI) fails if the two pages ever carry different form controls.
 
 ### Added
 
+- The README and `docs/reviewer.md` give the address of the hosted copy, https://deegalabs.github.io/konclave-benchmark/, live since 23 November; the landing page's step 5 says to fill step 3 again after a reload and why the range must be set to one day.
+- The hosted landing page in five steps that match the reviewer sheet (copy the key, open the build in a new tab, fill the top of the form, the proof row, the one-day scan row through `zec.global`), with a copy button, a Compare note and the privacy note, in the Konclave colours (light and dark).
+- A hosted copy of the Milestone 1 review build for reviewers with nothing to install: `.github/workflows/pages.yml` (run by hand) publishes the `web/` folder of a release zip listed in `pages/releases.txt` unchanged to GitHub Pages, after checking the zip's sha256 and comparing every published file with the zip, plus a landing page (`pages/`) that says what leaves the device and shows the published test key. The README and the reviewer sheet name its address once it answers.
+- Milestone 1 addendum, storage on the Galaxy A14 and the laptop (Dell G7): two runs each from the A72 rows' birthdays, `results/m1/addendum/storage/` and a README section; per-block growth 67.24 B (A14) and 66.86 B (laptop) serialized, as on the A72 and the desktop. A first laptop pair with device emulation on by mistake is kept and marked unused.
 - Milestone 1 addendum, `results/m1/addendum/` (information rows): the `subtrees` tree mode on the Dell, the A72 and a desktop against the chunked default, storage on the A72 with the WebZjs build of the storage rows, A72 proofs with 4 and 8 outputs and in the Orchard pool, native rows from `examples/native_scan.rs`, and a cold rerun on 23 November of the A72 tree rows plus the S24 Ultra (tree and storage), with a README section.
 - Tree insertion mode `subtrees` (information only, never a verdict): each chunk of 10,000 blocks is cut into pieces of 1,024 leaves counted from its first position, each built apart as a located subtree (in parallel in the threads flavour) and inserted in order with `insert_tree`, as zcash_client_backend 0.25 does (`update_tree`, `build_subtrees`); chosen on the page (`?tree=subtrees`), recorded as `subtrees-10000`. Tests: the same roots, checkpoints and witnesses as the chunked and per-block modes from an empty tree, mid-shard and across a shard boundary, with pruning on; the number of pieces; no `batch_insert` in that mode; a scan in that mode builds its pieces; the mode lists of the wasm and the page agree.
 - `docs/reviewer.md`: how a reviewer's runs of the release build (656e967) compare with the project's rows (37aa10f), whose wasm and page script are the same.

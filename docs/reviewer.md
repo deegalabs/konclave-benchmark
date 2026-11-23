@@ -11,6 +11,8 @@ Download `konclave-benchmark-656e967.zip` from the release of this repository an
 
 The hash must equal the one in the release notes. The zip holds the built page (`web/`), the local server (`scripts/serve.mjs`), the published test key (`config/test-vault.json`), a short `README.txt`, the licences and `THIRD-PARTY-NOTICES`. You need Node.js 18 or newer and nothing else. You can also build it yourself from this repository at the release commit (see the README, "How to reproduce"); the page header then shows your build's commit.
 
+**Or, with nothing to install:** open [deegalabs.github.io/konclave-benchmark](https://deegalabs.github.io/konclave-benchmark/) on the device and follow its five steps. It is the `web/` folder of the same zip, published unchanged by `.github/workflows/pages.yml` after checking the zip's sha256 against `pages/releases.txt` and comparing every file; the header must show the same "656e967", and the landing page shows the published test key to paste. Then go to section 3. The main page runs on one thread, as the verdict rows did; a scan row there through `zec.global` is information.
+
 ## 2. Serve it
 
 In the unzipped folder: `node scripts/serve.mjs 8090`, then open `http://localhost:8090/` (a laptop) or, for a phone, connect it with USB debugging and run `adb reverse tcp:8090 tcp:8090`, then open `http://localhost:8090/` on the phone. Use `localhost` (or https): the page needs a secure context.
@@ -38,7 +40,7 @@ The page prints a summary line per row. Compare its median with the rows of the 
 |---|---|---|
 | S24 Ultra 12GB (phone, high end) | about 26 s (Firefox; row short, 3 of 5 runs counted) | 38.6 to 40.2 s on every run (Firefox; row short by the temperature rule) |
 | A72 6GB (phone, mid range) | 89.68 s PASS (Firefox, verdict row; 88.72 s in Chrome) | 127.74 s FAIL (Firefox through m1-rocks, verdict row; about 126 s in Chrome and directly through zec.global) |
-| A14 4GB (phone, entry) | about 249 s (Firefox; row short by the temperature rule, 2 of 5 counted; every run over the 180 s bar) | about 386 s (Firefox; row short, 2 of 5 counted) |
+| A14 4GB (phone, entry) | about 249 s (Firefox; row short by the temperature rule, 2 of 5 within the rule on the host log; every run over the 180 s bar) | about 386 s (Firefox; row short, 2 of 5 counted) |
 | Dell G7 24GB (laptop) | 43.84 s PASS (Chrome, verdict row) | 59.74 s (Chrome; information, the laptop has no scan bar) |
 
 Your runs from the release zip carry commit 656e967; the project's rows above were run at 37aa10f. The two builds differ only by one control on the threads page (`web/threads.html`): the harness wasm and the page script are byte-identical (single-thread wasm sha256 `09ca3d8a...`, recorded as `wasm_sha256` in every run), so the medians compare directly. Recompute each with its own commit: `node scripts/summarize.mjs <your folder> --commit 656e967` for yours, `node scripts/summarize.mjs results/m1 --commit 37aa10f` for ours. A run of another commit than the one named is printed as REFUSED with the reason, never dropped.
@@ -62,3 +64,5 @@ node scripts/summarize.mjs results/m1 --commit 37aa10f --session dae9fe2a-3242-4
 ```
 
 The S24 one-day row (ba4074b6) reads, by the temperature rule, SHORT (3 of 5 runs within the temperature rule, median of those 3 runs 39.02 s); all 5 runs are over the 30 s bar (38.59 to 40.22 s); the script prints FAIL 39.77 s with all 5 counted because the typed temperature did not follow the phone; it ran with the room's air conditioning on.
+
+The A14 proof row (c33ea3fc) reads the same way: SHORT by the temperature rule (2 of 5 runs within it on the host log, median of those 2 runs 248.76 s); all 5 runs are over the 180 s bar (248.43 to 248.93 s); the script prints `fail`, median 248.63 s, with all 5 counted, because the typed temperature did not follow the phone. It needs no `--session`.
