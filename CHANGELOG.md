@@ -11,6 +11,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Fixed
 
+- Hosted copy texts: the landing page said a phone run with no temperature is left out of the median, but the build prints no median for any device when the runs carry no temperature, and now says so and how to read one; the reviewer sheet tells a hosted reader to use `zec.global`, since the project's proxies refuse that origin; `docs/protocol-details.md` no longer says there is no hosted page; the README gives the serialized projection per device.
 - The hosted landing page: on a desktop the key box grew to the width of the key on one line and pushed the steps off the page (`field-sizing: content`); the box now wraps the key at every width.
 - Addendum texts: the recompute commands for the `cold/` and `s24/` folders, the date and browser of the A72 verdict row cited for comparison (17 November, Firefox), WSL2 times worded as an upper bound in `native/machine.txt`, and the reviewer sheet's time for an entry phone (about an hour).
 - `web/threads.html` had no "Tree stage inserts" control, which the page script reads since the chunked tree insertion, so tapping Run on the threads page threw an error and did nothing in every browser. The control is added, and `tests/pages.test.mjs` (run in CI) fails if the two pages ever carry different form controls.
