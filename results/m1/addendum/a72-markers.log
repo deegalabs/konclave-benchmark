@@ -1,0 +1,19 @@
+2026-11-22T22:03:00Z a72 subtrees-replay block starts (page 3105, typed temp 36.5)
+2026-11-22T22:11:01Z a72 STOPPED by the session: the code audit found the subtrees mode splits at shard boundaries (one or two pieces per chunk), not in 1,024-leaf pieces as build_subtrees does, so these rows measure no parallel tree; superseded, to rerun on the fixed build
+2026-11-22T23:06:06Z a72 -- rerun on the audited build 5ac328d (the 8b4702a block above is superseded)
+2026-11-22T23:06:34Z a72 subtrees-replay block starts (page 3107, typed temp 34.7)
+2026-11-22T23:27:12Z a72 subtrees-replay block ends ("value":"finished || visible")
+2026-11-22T23:27:28Z a72 chunked-replay block starts (page 3108, typed temp 36.4)
+2026-11-22T23:50:13Z a72 chunked-replay block ends ("value":"finished || visible")
+2026-11-22T23:50:29Z a72 chunked-live block starts (page 3109, typed temp 36.1)
+2026-11-23T00:14:23Z a72 chunked-live block ends ("value":"finished || visible")
+2026-11-23T00:14:39Z a72 subtrees-live block starts (page 3110, typed temp 35.2)
+2026-11-23T00:38:38Z a72 subtrees-live block ends ("value":"finished || visible")
+2026-11-23T00:38:40Z a72 all blocks done
+2026-11-23T00:39:07Z a72 prove-n8-ironwood block starts (page 3111, typed temp 34.7)
+2026-11-23T00:52:10Z a72 prove-n8-ironwood block ends ("value":"finished || visible")
+2026-11-23T00:52:26Z a72 prove-n4-ironwood block starts (page 3112, typed temp 34.1)
+2026-11-23T01:01:08Z a72 prove-n4-ironwood block ends ("value":"finished || visible")
+2026-11-23T01:01:24Z a72 prove-n2-orchard block starts (page 3113, typed temp 34.0)
+2026-11-23T01:12:16Z a72 prove-n2-orchard block ends ("value":"finished || visible")
+2026-11-23T01:12:18Z a72 proof blocks done

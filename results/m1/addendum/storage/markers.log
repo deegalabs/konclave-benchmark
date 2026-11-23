@@ -1,0 +1,13 @@
+2026-11-22T21:01:44Z a72 storage a72-s2-run1 page 3100; clearing origin storage
+2026-11-22T21:02:03Z a72 storage a72-s2-run1 start birthday 3558848 battery 26% temp 33.8 cores 8 hc "value":8
+2026-11-22T21:12:13Z a72 storage a72-s2-run1 done temp 34.8
+2026-11-22T21:12:34Z a72 storage a72-s2-run2 page 3102; clearing origin storage
+2026-11-22T21:12:53Z a72 storage a72-s2-run2 start birthday 3558848 battery 30% temp 34.9 cores 6 hc "value":8
+2026-11-22T21:23:04Z a72 storage a72-s2-run2 done temp 35.3
+2026-11-22T21:23:12Z a72 storage a72-s3-run1 page 3103; clearing origin storage
+2026-11-22T21:23:32Z a72 storage a72-s3-run1 start birthday 3530869 battery 33% temp 35.3 cores 6 hc "value":8
+2026-11-22T21:45:24Z a72 storage a72-s3-run1 FAILED: the tab reloaded itself about 21:30Z (page uptime 816 s at 21:43:45Z; run started 21:23:32Z); runStorage result lost; no error in the page
+2026-11-22T21:46:00Z a72 storage a72-s3-run2 page 3104; clearing origin storage
+2026-11-22T21:46:19Z a72 storage a72-s3-run2 start birthday 3530869 battery 41% temp 35.1 cores 6 hc "value":8
+2026-11-22T22:02:43Z a72 storage a72-s3-run2 done temp 36.4
+2026-11-22T22:02:43Z a72 storage a72-s3-run2 exit 0

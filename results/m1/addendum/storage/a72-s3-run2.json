@@ -1,0 +1,105 @@
+{
+ "birthday": 3530869,
+ "accountId": 1,
+ "endpoint": "http://localhost:1234",
+ "tipAtStart": 3601276,
+ "scannedAtStart": 3530868,
+ "scannedAtEnd": 3601314,
+ "chainTipAtEnd": 3601314,
+ "syncCalls": 2,
+ "syncErrors": [],
+ "syncMs": 955968.5199999996,
+ "totalMs": 962111.3049999997,
+ "dbToBytes": 4862633,
+ "noteCount": 2,
+ "noteCountSource": "received_note_table records (field 5) in the db_to_bytes protobuf",
+ "transactionCount": 2,
+ "blockRecords": 70446,
+ "blockRecordMinHeight": 3530869,
+ "blockRecordMaxHeight": 3601314,
+ "protobufTopLevelFields": {
+  "1": {
+   "count": 1,
+   "bytes": 2
+  },
+  "2": {
+   "count": 1,
+   "bytes": 1684
+  },
+  "3": {
+   "count": 70446,
+   "bytes": 4720982
+  },
+  "4": {
+   "count": 2,
+   "bytes": 108
+  },
+  "5": {
+   "count": 2,
+   "bytes": 1533
+  },
+  "7": {
+   "count": 143,
+   "bytes": 6619
+  },
+  "9": {
+   "count": 64,
+   "bytes": 2854
+  },
+  "10": {
+   "count": 2,
+   "bytes": 25
+  },
+  "11": {
+   "count": 1,
+   "bytes": 54226
+  },
+  "12": {
+   "count": 1129,
+   "bytes": 12322
+  },
+  "13": {
+   "count": 1,
+   "bytes": 37696
+  },
+  "14": {
+   "count": 770,
+   "bytes": 8395
+  },
+  "19": {
+   "count": 1,
+   "bytes": 15937
+  },
+  "20": {
+   "count": 21,
+   "bytes": 250
+  }
+ },
+ "storageUsageBeforeBytes": 2252,
+ "storageEstimateAfterIdbSave": [
+  {
+   "usage": 3142155,
+   "quota": 10740560395,
+   "usageDetails": {
+    "indexedDB": 3142155
+   }
+  },
+  {
+   "usage": 3142155,
+   "quota": 10740560395,
+   "usageDetails": {
+    "indexedDB": 3142155
+   }
+  },
+  {
+   "usage": 3142155,
+   "quota": 10740560395,
+   "usageDetails": {
+    "indexedDB": 3142155
+   }
+  }
+ ],
+ "hardwareConcurrency": 8,
+ "crossOriginIsolated": true,
+ "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36"
+}
