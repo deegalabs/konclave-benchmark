@@ -1,0 +1,66 @@
+# Publishes the hosted reviewer page: the web/ folder of a release zip listed in pages/releases.txt, unchanged, under
+# /<tag>/, plus the landing page in pages/. Run by hand only; it never builds the page, so the bytes are the release's.
+name: pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag listed in pages/releases.txt
+        required: true
+        default: m1-review-656e967
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Fetch the release zip and check its sha256
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          line=$(awk -v t="$TAG" '$1 == t' pages/releases.txt)
+          if [ -z "$line" ]; then echo "tag not listed in pages/releases.txt"; exit 1; fi
+          asset=$(echo "$line" | awk '{print $2}')
+          want=$(echo "$line" | awk '{print $3}')
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern "$asset" --dir "$RUNNER_TEMP"
+          got=$(sha256sum "$RUNNER_TEMP/$asset" | cut -d' ' -f1)
+          if [ "$got" != "$want" ]; then echo "sha256 mismatch: $got"; exit 1; fi
+          unzip -q "$RUNNER_TEMP/$asset" -d "$RUNNER_TEMP/zip"
+          root=$(find "$RUNNER_TEMP/zip" -mindepth 1 -maxdepth 1 -type d)
+          mkdir -p _site
+          cp -R "$root/web" "_site/$TAG"
+          cp "$root/config/test-vault.json" _site/test-vault.json
+          cp pages/index.html pages/landing.js _site/
+          touch _site/.nojekyll
+          (cd "$root/web" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/zip.sums"
+          (cd "_site/$TAG" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/site.sums"
+          diff "$RUNNER_TEMP/zip.sums" "$RUNNER_TEMP/site.sums"
+          echo "published web/ of $asset unchanged: $(wc -l < "$RUNNER_TEMP/site.sums") files"
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

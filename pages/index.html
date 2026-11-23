@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Konclave benchmark</title>
+<style>
+:root { color-scheme: light dark; --fg: #1b1b1b; --bg: #fafafa; --muted: #555; --line: #ccc; --accent: #0b5cad; }
+@media (prefers-color-scheme: dark) { :root { --fg: #e8e8e8; --bg: #141414; --muted: #aaa; --line: #444; --accent: #6aa8ff; } }
+body { font: 16px/1.5 system-ui, sans-serif; color: var(--fg); background: var(--bg); max-width: 44rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+h1 { font-size: 1.4rem; margin: 0 0 .5rem; }
+h2 { font-size: 1.1rem; margin: 1.8rem 0 .4rem; }
+a { color: var(--accent); }
+.go { display: inline-block; padding: .7rem 1.1rem; border: 1px solid var(--accent); border-radius: .4rem; text-decoration: none; font-weight: 600; margin: .4rem 0; }
+textarea { width: 100%; box-sizing: border-box; font: 13px/1.4 ui-monospace, monospace; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: .3rem; padding: .5rem; }
+code { font: 14px ui-monospace, monospace; overflow-wrap: anywhere; }
+.muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>Konclave benchmark</h1>
+<p>What scanning and proving a Zcash shielded wallet cost in this browser, on this device. This is the acceptance check of Milestone 1 of the Konclave grant; the full instructions are in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>.</p>
+
+<p><a class="go" href="./m1-review-656e967/">Open the Milestone 1 review build (656e967)</a></p>
+<p class="muted">The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged (zip sha256 <code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>). Its header shows "Harness wasm 656e967 ... page script 656e967". The main page runs on one thread, as the verdict rows did; its "Threads page" link turns threads on through a service worker, since this host cannot send the isolation headers.</p>
+
+<h2>What leaves your device</h2>
+<p>Results stay in the browser until you press "Copy all"; nothing is sent to us. A scan row calls the light client server you type (for example <code>https://zec.global</code>, run by Zingo Labs): that server sees your IP address and the range of blocks you ask for, as it would for any wallet. Never paste a key of your own: use only the published test key below.</p>
+
+<h2>The published test key</h2>
+<p>A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>). It cannot spend.</p>
+<textarea id="key" rows="4" readonly aria-label="Published test key">Loading...</textarea>
+
+<h2>Rows from this page</h2>
+<p>A row run here through <code>zec.global</code> is information, not a verdict: the verdict rows of the results table went through the project's proxies. Compare the median with the class of your device in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>.</p>
+<script src="./landing.js"></script>
+</body>
+</html>
