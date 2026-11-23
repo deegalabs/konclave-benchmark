@@ -1,6 +1,6 @@
 # For a reviewer: run the benchmark on your own device
 
-This is the acceptance check of Milestone 1 of the Konclave grant: open the benchmark on an Android phone or a laptop that is not ours and see whether you get the same order of magnitude for that class of device. A proof row and a one-day scan row take from about 6 minutes on a high-end phone to about 50 minutes on an entry phone. The page uploads nothing: results stay in the browser until you copy them. A scan row does call the light client endpoint you choose, and that server sees your address.
+This is the acceptance check of Milestone 1 of the Konclave grant: open the benchmark on an Android phone or a laptop that is not ours and see whether you get the same order of magnitude for that class of device. A proof row and a one-day scan row take from about 6 minutes on a high-end phone to about an hour on an entry phone. The page uploads nothing: results stay in the browser until you copy them. A scan row does call the light client endpoint you choose, and that server sees your address.
 
 ## 1. Get the page
 
