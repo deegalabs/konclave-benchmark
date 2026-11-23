@@ -73,3 +73,29 @@ Timed as the proof verdict row (key build, preparation and proof), every proof v
 These are information rows; the summarizer prints them with no bar (the 180 s phone proof bar applies to the 2-output verdict row only), and 223.77 s is above that figure.
 
 Beside the Ironwood 2-output proof in the same browser (Chrome 157, session `6f51f58a` of 18 November, 88.72 s; the verdict row is Firefox 160, 89.68 s): about 22 s per output on the A72. An old vault that spends Orchard notes and pays into Ironwood proves both bundles; the sum of the two 2-output proofs is about 177 s in Chrome, an estimate by addition that counts two key builds, not a measured two-bundle transaction.
+
+## Cold rerun on 23 November: the A72 again, and the S24 Ultra
+
+Because three of the four A72 tree blocks of 22 November started above 35 °C, the same four blocks were run again on 23 November, and on the S24 Ultra 12GB too: build `5ac328d`, Chrome 157, each phone off the charger and reached over Wi-Fi adb (so `charging: false` is correct here), in an air-conditioned room, Run started through Chrome devtools. Before each block a script read the battery temperature every 30 s and started the block only at 30.0 °C or less and no more than 1.0 °C above that phone's first block start (`*-temps-2026-11-23.log`); colder starts were allowed, as the protocol's rule allows them. Every block below starts under 35 °C, so every run counts by the hot-start rule. Files: `cold/` (A72) and `s24/`, each phone's whole export plus its markers and temperature log.
+
+**A72, cold.** One live chunked attempt at 11:33 UTC was stopped after its first run because the phone's screen turned off and hid the page (session `8b9addd3`, one partial record, not reported); the screen timeout was then set to its maximum for the session and restored afterwards. In the reported live chunked session, the first 1-thread run was hidden while the screen was locked and is excluded (4 of 5 counted).
+
+| Block, session | Mode | Threads | Tree | Total | Start |
+|---|---|---|---|---|---|
+| replay `75289f16` | subtrees | 1 / 4 | 86.13 / 52.94 s | 142.57 / 76.12 s | 27.5 °C |
+| replay `3a9d24c9` | chunked | 1 / 4 | 70.58 / 69.11 s | 126.65 / 92.60 s | 27.5 °C |
+| live `f4203728` | chunked | 1 / 4 | 67.76 / 69.14 s | 149.33 / 114.64 s | 25.6 °C |
+| live `27935e62` | subtrees | 1 / 4 | 87.82 / 53.90 s | 215.69 / 119.02 s | 28.5 °C |
+
+**S24 Ultra, cold.**
+
+| Block, session | Mode | Threads | Tree | Total | Start |
+|---|---|---|---|---|---|
+| replay `d3e076f3` | subtrees | 1 / 4 | 41.01 / 22.12 s | 70.30 / 30.06 s | 30.0 °C |
+| replay `c1ac4c4b` | chunked | 1 / 4 | 32.09 / 32.12 s | 61.41 / 39.88 s | 29.9 °C |
+| live `0570ea4c` | chunked | 1 / 4 | 32.11 / 31.98 s | 63.29 / 41.39 s | 29.8 °C |
+| live `51eebc95` | subtrees | 1 / 4 | 41.10 / 21.51 s | 72.00 / 31.08 s | 30.0 °C |
+
+What the cold rows add: at the same start temperature and 4 threads, `subtrees` lowers the tree stage against chunked by 23% on the A72 (69.11 to 52.94 s, replay) and 31% on the S24 (32.12 to 22.12 s, replay), the same as the hot rows of 22 November on the A72. Cold and off the charger, the A72 is faster in every stage than on 22 November (replay, 4 threads, subtrees: 92.50 s hot, 76.12 s cold). The S24's best one-day range is 30.06 s (replay) and 31.08 s (live), against the phone's 30 s bar, from about 40 s with chunked; these are information rows, not verdicts, with 4 of the S24's 8 cores. On the A72 over Wi-Fi the live download took 20.72 and 34.10 s (it was 0.6 s over the USB cable on 22 November), so the live totals there compare the tree stage, not the network.
+
+**Storage on the S24** (`storage/s24-s2-run1.json`, the same probe and proxy as the A72 rows, over Wi-Fi adb): from 3,558,848, 44,686 blocks recorded, 3,134,129 B serialized, 2,018,552 B in IndexedDB, sync 213.9 s. That is 70.14 B per block serialized, as on the A72 (70.26 B for the same birthday). The battery and temperature were not read in that run's markers (`storage/s24-markers.log`: the S24 prints its battery event history in the same output).

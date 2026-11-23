@@ -1,0 +1,14 @@
+2026-11-23T10:36:22Z a72 subtrees-replay block starts (page 3114, typed temp 27.5)
+2026-11-23T10:56:07Z a72 subtrees-replay block ends ("value":"finished || visible")
+2026-11-23T10:56:24Z a72 chunked-replay block starts (page 3115, typed temp 27.5)
+2026-11-23T11:18:53Z a72 chunked-replay block ends ("value":"finished || visible")
+2026-11-23T11:21:01Z a72 chunked-live FAILED to start: {"id":1,"result":{"result":{"type":"string","value":"GO-DISABLED"}}}
+2026-11-23T11:21:37Z a72 subtrees-live FAILED to start: CONNECT-TIMEOUT
+2026-11-23T11:21:37Z a72 all blocks done
+2026-11-23T11:33:43Z a72 chunked-live block starts (page 3118, typed temp 26.4)
+2026-11-23T12:06:41Z a72 chunked-live STOPPED: the screen turned off (page hidden, run 1 of 5 still decrypting after 30 min); screen timeout set to max, blocks restarted
+2026-11-23T12:07:51Z a72 chunked-live block starts (page 3119, typed temp 25.6)
+2026-11-23T12:42:33Z a72 chunked-live block ends ("value":"finished || visible")
+2026-11-23T12:48:29Z a72 subtrees-live block starts (page 3120, typed temp 28.5)
+2026-11-23T13:27:14Z a72 subtrees-live block ends ("value":"finished || visible")
+2026-11-23T13:28:07Z a72 all blocks done

@@ -1,0 +1,3 @@
+2026-11-23T13:23:16Z s24 storage s24-s2-run1 page 2694; clearing origin storage
+2026-11-23T13:23:37Z s24 storage s24-s2-run1 start birthday 3558848 battery and temperature not read (the S24 prints its battery event history in the same output) cores 8 hc "value":8
+2026-11-23T13:27:42Z s24 storage s24-s2-run1 done
