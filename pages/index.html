@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="color-scheme" content="light dark">
 <title>Konclave benchmark</title>
+<noscript><style>#key, #copy, #copied { display: none; }</style></noscript>
 <style>
 :root {
   --surface-0: #F5F7FA; --surface-1: #FFFFFF; --surface-2: #EEF2F8;
@@ -27,8 +28,9 @@
   }
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; background: var(--surface-0); color: var(--text); font: 16px/1.55 var(--font-sans); }
-main { max-width: 40rem; margin: 0 auto; padding: 28px 16px 48px; }
+main { max-width: 40rem; margin: 0 auto; padding: 28px 16px 28px; }
 .eyebrow { margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); }
 h1 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; letter-spacing: -.01em; }
 .lead { margin: 0 0 24px; color: var(--text-muted); }
@@ -41,39 +43,42 @@ ol.steps { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 1
 .step p:last-child { margin-bottom: 0; }
 .muted { color: var(--text-muted); font-size: 15px; }
 code { font: 14px var(--font-mono); overflow-wrap: anywhere; }
-.keybox { width: 100%; min-height: 96px; resize: vertical; padding: 10px 12px; font: 13px/1.45 var(--font-mono); color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); }
+.keybox { width: 100%; field-sizing: content; resize: vertical; padding: 10px 12px; font: 13px/1.45 var(--font-mono); color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: var(--radius-sm); font: 600 15px var(--font-sans); text-decoration: none; cursor: pointer; }
 .btn-primary { background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); }
+.btn-wide { width: 100%; }
+@media (min-width: 560px) { .btn-wide { width: auto; } }
 .btn-ghost { background: transparent; color: var(--accent-ink); border: 1px solid var(--line-strong); }
-.btn:focus-visible { outline: 3px solid var(--accent-line); outline-offset: 2px; }
+.btn:focus-visible, summary:focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 2px; }
 .status { font-size: 14px; color: var(--success-text); min-height: 1.2em; }
-.note { margin: 0 0 20px; padding: 16px 18px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius); }
+.status.plain { color: var(--text-muted); }
+.note { margin: 0 0 16px; padding: 16px 18px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius); }
 .note h2 { margin: 0 0 6px; font-size: 16px; }
 .note p { margin: 0 0 8px; }
 .note p:last-child { margin: 0; }
 details { padding: 14px 18px; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); }
-summary { cursor: pointer; font-weight: 600; min-height: 28px; }
+summary { cursor: pointer; font-weight: 600; padding: 10px 0; }
 details p { margin: 10px 0 0; font-size: 15px; color: var(--text-muted); }
-footer { margin-top: 28px; font-size: 14px; color: var(--text-muted); }
+footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px; color: var(--text-muted); }
 </style>
 </head>
 <body>
 <main>
 <p class="eyebrow">Konclave · Milestone 1 review</p>
 <h1>Konclave benchmark</h1>
-<p class="lead">What scanning and proving a Zcash shielded wallet cost in this browser, on this device. Nothing to install. A proof row and a one-day scan row take from about 6 minutes on a high-end phone to about an hour on an entry phone.</p>
+<p class="lead">Measure what scanning and proving a Zcash shielded wallet cost in this browser, on this device, and compare it with our results. Nothing to install. Two rows take from about 6 minutes on a high-end phone to about an hour on an entry phone.</p>
 
-<ol class="steps">
+<ol class="steps" role="list">
   <li class="step">
     <span class="num" aria-hidden="true">1</span>
     <div>
-      <h2>Copy the published test key</h2>
-      <p class="muted">A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>). It cannot spend. Never paste a key of your own.</p>
-      <textarea id="key" class="keybox" readonly aria-label="Published test key">Loading...</textarea>
-      <noscript><p class="muted">Without JavaScript the key is not shown here: open config/test-vault.json in the repository.</p></noscript>
+      <h2 id="key-title">Copy the published test key</h2>
+      <p class="muted" id="key-note">A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>): 195 characters, starts with <code>uview1</code>. It cannot spend. Never paste a key of your own.</p>
+      <textarea id="key" class="keybox" rows="8" readonly aria-labelledby="key-title" aria-describedby="key-note">Loading...</textarea>
+      <noscript><p class="muted">Without JavaScript the key is not shown here: open <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a> in the repository.</p></noscript>
       <div class="row">
-        <button id="copy" class="btn btn-ghost" type="button" hidden>Copy key</button>
+        <button id="copy" class="btn btn-ghost btn-wide" type="button" hidden>Copy key</button>
         <span id="copied" class="status" role="status" aria-live="polite"></span>
       </div>
     </div>
@@ -82,24 +87,43 @@ footer { margin-top: 28px; font-size: 14px; color: var(--text-muted); }
     <span class="num" aria-hidden="true">2</span>
     <div>
       <h2>Open the review build</h2>
-      <p class="muted">Its header must show "Harness wasm 656e967 ... page script 656e967".</p>
-      <div class="row"><a class="btn btn-primary" href="./m1-review-656e967/">Open the build (656e967)</a></div>
+      <p class="muted">It opens in a new tab, so these steps stay here. Its header must show "Harness wasm 656e967 ... page script 656e967"; if it shows anything else, stop.</p>
+      <div class="row"><a class="btn btn-primary btn-wide" href="./m1-review-656e967/" target="_blank" rel="noopener">Open the build (656e967)</a></div>
     </div>
   </li>
   <li class="step">
     <span class="num" aria-hidden="true">3</span>
     <div>
-      <h2>Run a row</h2>
-      <p>Paste the key, type <code>https://zec.global</code> (run by Zingo Labs) as the endpoint, and tap Run.</p>
-      <p class="muted">Compare the median with the class of your device in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>. A row through <code>zec.global</code> is information, not a verdict: the verdict rows went through the project's proxies.</p>
+      <h2>Fill the top of the form</h2>
+      <p>Close other apps and tabs. Type the device (model and RAM), pick the class (phone or laptop), and type the device's temperature if you can read it (the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a> says how); on a phone, a run with no temperature is left out of the median. Leave "Runs per row" at 5 and Threads off.</p>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">4</span>
+    <div>
+      <h2>Run the proof row</h2>
+      <p>Tick Prove, untick Scan, and tap Run. A 2-action Ironwood proof is built 5 times.</p>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">5</span>
+    <div>
+      <h2>Run the one-day scan row</h2>
+      <p>Untick Prove, tick Scan, set "This range is" to "one day of blocks (3,456)", paste the key into "Viewing key to scan with", type <code>https://zec.global</code> (run by Zingo Labs) into "Or a live light client endpoint (gRPC-web)", and tap Run.</p>
+      <p class="muted">Keep the screen on and the page in front while a row runs: switching away, locking the screen or reloading is recorded and the run does not count.</p>
     </div>
   </li>
 </ol>
 
+<section class="note" aria-labelledby="compare">
+  <h2 id="compare">Compare</h2>
+  <p>Each row prints a median. Compare it with the device of our results table nearest to yours, in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>. The proof row is the same test as our verdict rows. The scan row from this page is information, not a verdict: our verdict scan rows went through the project's proxy, which answers only a copy of the page served on your own machine.</p>
+</section>
+
 <section class="note" aria-labelledby="leaves">
   <h2 id="leaves">What leaves your device</h2>
-  <p>Results stay in the browser until you press "Copy all"; nothing is sent to us.</p>
-  <p>A scan row calls the light client server you type: that server sees your IP address and the range of blocks you ask for, as it would for any wallet.</p>
+  <p>Results stay in the browser until you press "Copy all"; nothing is sent to us. GitHub Pages, which serves this page, sees the visit.</p>
+  <p>The scan row calls the light client server you type: that server sees your IP address and the range of blocks you ask for, as it would for any wallet.</p>
 </section>
 
 <details>
@@ -108,8 +132,8 @@ footer { margin-top: 28px; font-size: 14px; color: var(--text-muted); }
   <p>The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked (on the A72's Chrome it did not).</p>
 </details>
 
-<footer>Source, method and results: <a href="https://github.com/deegalabs/konclave-benchmark">github.com/deegalabs/konclave-benchmark</a>.</footer>
 </main>
+<footer>Source, method and results: <a href="https://github.com/deegalabs/konclave-benchmark">github.com/deegalabs/konclave-benchmark</a>.</footer>
 <script src="./landing.js"></script>
 </body>
 </html>
