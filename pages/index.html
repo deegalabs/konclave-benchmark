@@ -4,37 +4,112 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
 <title>Konclave benchmark</title>
 <style>
-:root { color-scheme: light dark; --fg: #1b1b1b; --bg: #fafafa; --muted: #555; --line: #ccc; --accent: #0b5cad; }
-@media (prefers-color-scheme: dark) { :root { --fg: #e8e8e8; --bg: #141414; --muted: #aaa; --line: #444; --accent: #6aa8ff; } }
-body { font: 16px/1.5 system-ui, sans-serif; color: var(--fg); background: var(--bg); max-width: 44rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
-h1 { font-size: 1.4rem; margin: 0 0 .5rem; }
-h2 { font-size: 1.1rem; margin: 1.8rem 0 .4rem; }
-a { color: var(--accent); }
-.go { display: inline-block; padding: .7rem 1.1rem; border: 1px solid var(--accent); border-radius: .4rem; text-decoration: none; font-weight: 600; margin: .4rem 0; }
-textarea { width: 100%; box-sizing: border-box; font: 13px/1.4 ui-monospace, monospace; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: .3rem; padding: .5rem; }
-code { font: 14px ui-monospace, monospace; overflow-wrap: anywhere; }
-.muted { color: var(--muted); }
+:root {
+  --surface-0: #F5F7FA; --surface-1: #FFFFFF; --surface-2: #EEF2F8;
+  --text: #101828; --text-muted: #596579; --line: #E4E8EF; --line-strong: #7E8A9E;
+  --accent: #2F6FE0; --accent-ink: #2559BE; --accent-soft: rgba(47,111,208,.09); --accent-line: rgba(47,111,208,.30); --on-accent: #FFFFFF;
+  --success-text: #0E6F4F;
+  --radius: 12px; --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(16,24,40,.04), 0 4px 12px rgba(16,24,40,.05);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-0: #0f141a; --surface-1: #151b22; --surface-2: #1a212a;
+    --text: #e7edf3; --text-muted: #9aa6b2; --line: #28313c; --line-strong: #5d6d82;
+    --accent: #57a6ff; --accent-ink: #6cb2ff; --accent-soft: rgba(87,166,255,.10); --accent-line: rgba(87,166,255,.32); --on-accent: #0f141a;
+    --success-text: #5ed39a;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 8px 26px rgba(0,0,0,.34);
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface-0); color: var(--text); font: 16px/1.55 var(--font-sans); }
+main { max-width: 40rem; margin: 0 auto; padding: 28px 16px 48px; }
+.eyebrow { margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); }
+h1 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; letter-spacing: -.01em; }
+.lead { margin: 0 0 24px; color: var(--text-muted); }
+a { color: var(--accent-ink); }
+ol.steps { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 12px; }
+.step { display: grid; grid-template-columns: 32px 1fr; gap: 14px; padding: 18px; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.num { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 15px; background: var(--accent-soft); color: var(--accent-ink); border: 1px solid var(--accent-line); }
+.step h2 { margin: 3px 0 6px; font-size: 17px; line-height: 1.3; }
+.step p { margin: 0 0 10px; }
+.step p:last-child { margin-bottom: 0; }
+.muted { color: var(--text-muted); font-size: 15px; }
+code { font: 14px var(--font-mono); overflow-wrap: anywhere; }
+.keybox { width: 100%; min-height: 96px; resize: vertical; padding: 10px 12px; font: 13px/1.45 var(--font-mono); color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: var(--radius-sm); font: 600 15px var(--font-sans); text-decoration: none; cursor: pointer; }
+.btn-primary { background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); }
+.btn-ghost { background: transparent; color: var(--accent-ink); border: 1px solid var(--line-strong); }
+.btn:focus-visible { outline: 3px solid var(--accent-line); outline-offset: 2px; }
+.status { font-size: 14px; color: var(--success-text); min-height: 1.2em; }
+.note { margin: 0 0 20px; padding: 16px 18px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius); }
+.note h2 { margin: 0 0 6px; font-size: 16px; }
+.note p { margin: 0 0 8px; }
+.note p:last-child { margin: 0; }
+details { padding: 14px 18px; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); }
+summary { cursor: pointer; font-weight: 600; min-height: 28px; }
+details p { margin: 10px 0 0; font-size: 15px; color: var(--text-muted); }
+footer { margin-top: 28px; font-size: 14px; color: var(--text-muted); }
 </style>
 </head>
 <body>
+<main>
+<p class="eyebrow">Konclave · Milestone 1 review</p>
 <h1>Konclave benchmark</h1>
-<p>What scanning and proving a Zcash shielded wallet cost in this browser, on this device. This is the acceptance check of Milestone 1 of the Konclave grant; the full instructions are in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>.</p>
+<p class="lead">What scanning and proving a Zcash shielded wallet cost in this browser, on this device. Nothing to install. A proof row and a one-day scan row take from about 6 minutes on a high-end phone to about an hour on an entry phone.</p>
 
-<p><a class="go" href="./m1-review-656e967/">Open the Milestone 1 review build (656e967)</a></p>
-<p class="muted">The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged (zip sha256 <code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>). Its header shows "Harness wasm 656e967 ... page script 656e967". The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked (on the A72's Chrome it did not).</p>
+<ol class="steps">
+  <li class="step">
+    <span class="num" aria-hidden="true">1</span>
+    <div>
+      <h2>Copy the published test key</h2>
+      <p class="muted">A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>). It cannot spend. Never paste a key of your own.</p>
+      <textarea id="key" class="keybox" readonly aria-label="Published test key">Loading...</textarea>
+      <noscript><p class="muted">Without JavaScript the key is not shown here: open config/test-vault.json in the repository.</p></noscript>
+      <div class="row">
+        <button id="copy" class="btn btn-ghost" type="button" hidden>Copy key</button>
+        <span id="copied" class="status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">2</span>
+    <div>
+      <h2>Open the review build</h2>
+      <p class="muted">Its header must show "Harness wasm 656e967 ... page script 656e967".</p>
+      <div class="row"><a class="btn btn-primary" href="./m1-review-656e967/">Open the build (656e967)</a></div>
+    </div>
+  </li>
+  <li class="step">
+    <span class="num" aria-hidden="true">3</span>
+    <div>
+      <h2>Run a row</h2>
+      <p>Paste the key, type <code>https://zec.global</code> (run by Zingo Labs) as the endpoint, and tap Run.</p>
+      <p class="muted">Compare the median with the class of your device in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>. A row through <code>zec.global</code> is information, not a verdict: the verdict rows went through the project's proxies.</p>
+    </div>
+  </li>
+</ol>
 
-<h2>What leaves your device</h2>
-<p>Results stay in the browser until you press "Copy all"; nothing is sent to us. A scan row calls the light client server you type (for example <code>https://zec.global</code>, run by Zingo Labs): that server sees your IP address and the range of blocks you ask for, as it would for any wallet. Never paste a key of your own: use only the published test key below.</p>
+<section class="note" aria-labelledby="leaves">
+  <h2 id="leaves">What leaves your device</h2>
+  <p>Results stay in the browser until you press "Copy all"; nothing is sent to us.</p>
+  <p>A scan row calls the light client server you type: that server sees your IP address and the range of blocks you ask for, as it would for any wallet.</p>
+</section>
 
-<h2>The published test key</h2>
-<p>A view-only key of a test vault, published in the repository (<a href="https://github.com/deegalabs/konclave-benchmark/blob/main/config/test-vault.json">config/test-vault.json</a>). It cannot spend.</p>
-<textarea id="key" rows="4" readonly aria-label="Published test key">Loading...</textarea>
-<noscript><p>Without JavaScript the key is not shown here: open config/test-vault.json in the repository.</p></noscript>
+<details>
+  <summary>Details for checking the build</summary>
+  <p>The build is the <code>web/</code> folder of the release zip <code>konclave-benchmark-656e967.zip</code>, published unchanged after its sha256 was checked (<code>5aa53dc4a8a589a9b384be650c2262189e9088886bf6a576315f2bf199070165</code>) and every file compared with the zip.</p>
+  <p>The main page runs on one thread, as the verdict rows did. Its "Threads page" link tries to turn threads on with a service worker, since this host cannot send the isolation headers; the "Mode:" line in its header says whether it worked (on the A72's Chrome it did not).</p>
+</details>
 
-<h2>Rows from this page</h2>
-<p>A row run here through <code>zec.global</code> is information, not a verdict: the verdict rows of the results table went through the project's proxies. Compare the median with the class of your device in the <a href="https://github.com/deegalabs/konclave-benchmark/blob/main/docs/reviewer.md">reviewer sheet</a>.</p>
+<footer>Source, method and results: <a href="https://github.com/deegalabs/konclave-benchmark">github.com/deegalabs/konclave-benchmark</a>.</footer>
+</main>
 <script src="./landing.js"></script>
 </body>
 </html>
