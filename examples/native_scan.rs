@@ -9,7 +9,9 @@ use std::time::Instant;
 fn main() {
     let a: Vec<String> = std::env::args().collect();
     if a.len() < 4 {
-        eprintln!("usage: native_scan <corpus.bin> <ufvk file> <chunked|subtrees|per-block> [runs]");
+        eprintln!(
+            "usage: native_scan <corpus.bin> <ufvk file> <chunked|subtrees|per-block> [runs]"
+        );
         std::process::exit(2);
     }
     let file = std::fs::read(&a[1]).expect("corpus");
@@ -17,7 +19,9 @@ fn main() {
     let mode = TreeInsert::from_name(&a[3]).expect("mode");
     let runs: usize = a.get(4).and_then(|r| r.parse().ok()).unwrap_or(5);
     let threads = if cfg!(feature = "threads") {
-        std::thread::available_parallelism().map(|n| n.get()).unwrap_or(1)
+        std::thread::available_parallelism()
+            .map(|n| n.get())
+            .unwrap_or(1)
     } else {
         1
     };
