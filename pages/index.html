@@ -61,6 +61,12 @@ code { font: 14px var(--font-mono); overflow-wrap: anywhere; }
 details { padding: 14px 18px; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--radius); }
 summary { cursor: pointer; font-weight: 600; padding: 10px 0; }
 details p { margin: 10px 0 0; font-size: 15px; color: var(--text-muted); }
+.callout { display: flex; align-items: center; gap: 14px; margin: 0 0 24px; padding: 16px 18px; background: var(--surface-1); border: 2px solid var(--accent); border-radius: var(--radius); box-shadow: var(--shadow-sm); color: var(--text); text-decoration: none; }
+.callout:hover { background: var(--accent-soft); }
+.callout:focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 2px; }
+.callout-tag { flex: none; padding: 2px 10px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.callout b { font-size: 16px; }
+.callout-arrow { margin-left: auto; font-size: 22px; color: var(--accent-ink); }
 footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px; color: var(--text-muted); }
 </style>
 </head>
@@ -69,6 +75,7 @@ footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px
 <p class="eyebrow">Konclave · Milestone 1 review</p>
 <h1>Konclave benchmark</h1>
 <p class="lead">Measure what scanning and proving a Zcash shielded wallet cost in this browser, on this device, and compare it with our results. Nothing to install. Two rows take from about 6 minutes on a high-end phone to about an hour on an entry phone.</p>
+<a class="callout" href="./design/"><span class="callout-tag">New</span><span><b>The Milestone 1 design</b><br>How we read these results. Read it</span><span class="callout-arrow" aria-hidden="true">&rarr;</span></a>
 
 <ol class="steps" role="list">
   <li class="step">
@@ -135,7 +142,7 @@ footer { max-width: 40rem; margin: 0 auto; padding: 0 16px 40px; font-size: 14px
 </details>
 
 </main>
-<footer>Source, method and results: <a href="https://github.com/deegalabs/konclave-benchmark">github.com/deegalabs/konclave-benchmark</a>.</footer>
+<footer>Source, method and results: <a href="https://github.com/deegalabs/konclave-benchmark">github.com/deegalabs/konclave-benchmark</a>. Milestone 1 design: <a href="./design/">deegalabs.github.io/konclave-benchmark/design/</a>.</footer>
 <script src="./landing.js"></script>
 </body>
 </html>
