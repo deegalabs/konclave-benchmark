@@ -1,5 +1,5 @@
 # Publishes the hosted reviewer page: the web/ folder of a release zip listed in pages/releases.txt, unchanged, under
-# /<tag>/, plus the landing page in pages/. Run by hand only; it never builds the page, so the bytes are the release's.
+# /<tag>/, plus the landing page in pages/ and the Milestone 1 design (design/index.html, copied as is to /design/). Run by hand only; it never builds the page, so the bytes are the release's.
 # Each deploy replaces the whole site, so it publishes one tag: pages/releases.txt holds one row (tests/pages.test.mjs).
 name: pages
 
@@ -50,6 +50,9 @@ jobs:
           cp -R "$root/web" "_site/$TAG"
           cp "$root/config/test-vault.json" _site/test-vault.json
           cp pages/index.html pages/landing.js _site/
+          mkdir -p _site/design
+          cp design/index.html _site/design/index.html
+          cmp design/index.html _site/design/index.html
           (cd "$root/web" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/zip.sums"
           (cd "_site/$TAG" && find . -type f -exec sha256sum {} + | sort -k2) > "$RUNNER_TEMP/site.sums"
           diff "$RUNNER_TEMP/zip.sums" "$RUNNER_TEMP/site.sums"

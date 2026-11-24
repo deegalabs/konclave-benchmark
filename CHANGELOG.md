@@ -15,6 +15,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Fixed
 
+- `docs/reviewer.md`: a run with no temperature is left out of the median on any device (replay rows aside), not only on a phone (`web/summarize-core.mjs`, `exclusion`).
 - Hosted copy texts: the landing page said a phone run with no temperature is left out of the median, but the build prints no median for any device when the runs carry no temperature, and now says so and how to read one; the reviewer sheet tells a hosted reader to use `zec.global`, since the project's proxies refuse that origin; `docs/protocol-details.md` no longer says there is no hosted page; the README gives the serialized projection per device.
 - The hosted landing page: on a desktop the key box grew to the width of the key on one line and pushed the steps off the page (`field-sizing: content`); the box now wraps the key at every width.
 - Addendum texts: the recompute commands for the `cold/` and `s24/` folders, the date and browser of the A72 verdict row cited for comparison (17 November, Firefox), WSL2 times worded as an upper bound in `native/machine.txt`, and the reviewer sheet's time for an entry phone (about an hour).
@@ -22,6 +23,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- The Milestone 1 design as a page, `design/index.html` (sha256 a08544319389b2d22608fed7fac3c2d582c6be8f96ecbecb011e6f92df14302f), published by `pages.yml` at https://deegalabs.github.io/konclave-benchmark/design/ and linked from the README and the reviewer sheet.
 - The README and `docs/reviewer.md` give the address of the hosted copy, https://deegalabs.github.io/konclave-benchmark/, live since 23 November; the landing page's step 5 says to fill step 3 again after a reload and why the range must be set to one day.
 - The hosted landing page in five steps that match the reviewer sheet (copy the key, open the build in a new tab, fill the top of the form, the proof row, the one-day scan row through `zec.global`), with a copy button, a Compare note and the privacy note, in the Konclave colours (light and dark).
 - A hosted copy of the Milestone 1 review build for reviewers with nothing to install: `.github/workflows/pages.yml` (run by hand) publishes the `web/` folder of a release zip listed in `pages/releases.txt` unchanged to GitHub Pages, after checking the zip's sha256 and comparing every published file with the zip, plus a landing page (`pages/`) that says what leaves the device and shows the published test key. The README and the reviewer sheet name its address once it answers.
