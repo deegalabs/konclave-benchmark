@@ -2,6 +2,8 @@
 
 This is the acceptance check of Milestone 1 of the Konclave grant: open the benchmark on an Android phone or a laptop that is not ours and see whether you get the same order of magnitude for that class of device. A proof row and a one-day scan row take from about 6 minutes on a high-end phone to about an hour on an entry phone. The page uploads nothing: results stay in the browser until you copy them. A scan row does call the light client endpoint you choose, and that server sees your address.
 
+The Milestone 1 design, which reads these results, is at [deegalabs.github.io/konclave-benchmark/design/](https://deegalabs.github.io/konclave-benchmark/design/) (`design/index.html`).
+
 ## 1. Get the page
 
 Download `konclave-benchmark-656e967.zip` from the release of this repository and check it before unzipping:
@@ -21,7 +23,7 @@ Check the header: "Harness wasm 656e967 ... page script 656e967", the same commi
 
 ## 3. Run two rows
 
-Close other apps and tabs. Type the device (model and RAM), pick the class (phone or laptop), and type the device's temperature (on Android, `adb shell dumpsys battery`, temperature in tenths of a degree); on a phone a run with no temperature is left out of the median.
+Close other apps and tabs. Type the device (model and RAM), pick the class (phone or laptop), and type the device's temperature (on Android, `adb shell dumpsys battery`, temperature in tenths of a degree); on any device, a run with no temperature is left out of the median (replay rows aside), so a row whose runs carry none prints no median.
 
 - **Proof:** tick Prove, untick Scan, Threads off, runs 5, Run. A 2-action Ironwood proof is built 5 times.
 - **One-day scan:** untick Prove, tick Scan, "This range is" = "one day of blocks (3,456)", paste the published test key from `config/test-vault.json` (`ufvk`, 195 characters, starts `uview1`) into "Viewing key to scan with", and type an endpoint in "Or a live light client endpoint (gRPC-web)":
