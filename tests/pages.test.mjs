@@ -22,5 +22,5 @@ test('the hosted landing page names the one release pages/releases.txt lists: it
   assert.ok(landing.includes(`href="./${tag}/"`), 'the build link');
   assert.ok(landing.includes(zip), 'the zip name');
   assert.ok(landing.includes(sha), 'the zip sha256');
-  for (const m of landing.matchAll(/href="\.\/([^"/]+)\/"/g)) assert.equal(m[1], tag, 'no link to another tag');
+  for (const m of landing.matchAll(/href="\.\/([^"/]+)\/"/g)) if (m[1] !== 'design') assert.equal(m[1], tag, 'no link to another tag');
 });

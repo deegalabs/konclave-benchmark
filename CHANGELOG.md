@@ -23,6 +23,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Added
 
+- The hosted landing page links the Milestone 1 design (`./design/`) in a highlighted box under the lead and in the footer.
 - The Milestone 1 design as a page, `design/index.html` (sha256 a08544319389b2d22608fed7fac3c2d582c6be8f96ecbecb011e6f92df14302f), published by `pages.yml` at https://deegalabs.github.io/konclave-benchmark/design/ and linked from the README and the reviewer sheet.
 - The README and `docs/reviewer.md` give the address of the hosted copy, https://deegalabs.github.io/konclave-benchmark/, live since 23 November; the landing page's step 5 says to fill step 3 again after a reload and why the range must be set to one day.
 - The hosted landing page in five steps that match the reviewer sheet (copy the key, open the build in a new tab, fill the top of the form, the proof row, the one-day scan row through `zec.global`), with a copy button, a Compare note and the privacy note, in the Konclave colours (light and dark).
