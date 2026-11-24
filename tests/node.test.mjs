@@ -2323,7 +2323,7 @@ test('no comment or test name carries a review reference', async () => {
   const files = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' }).split('\n')
     // proxy/hosted/ is left out: its files are the bytes deployed and are not edited here (the hash says so).
     // design/index.html is left out for the same reason: the published design, byte-identical to its source, names its
-    // rows R1, R2... and is not edited here (its sha256 is in the CHANGELOG).
+    // rows by letter and number and is not edited here (its sha256 is in the CHANGELOG).
     .filter((f) => f && !/^web\/corpus\/|^Cargo\.lock$|^LICENSE|^proxy\/hosted\/|^design\/index\.html$|\.(svg|bin)$/.test(f));
   assert.ok(files.length > 50, 'the file list is read');
   for (const f of ['src/corpus.rs', 'examples/gen_corpus.rs', 'examples/pack_corpus.rs', 'web/plan.mjs', 'tests/scan.rs', 'proxy/compose.yml', '.github/workflows/ci.yml', 'docs/method.md', 'README.md']) assert.ok(files.includes(f), `${f} is read`);
