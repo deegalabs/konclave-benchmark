@@ -15,6 +15,7 @@ Starts at commit 157a510 (the bare note-commitment tree roots of each scan are r
 
 ### Fixed
 
+- Reviewer path gaps on the Milestone 1 build: the tag to build and why a self-built wasm hash differs, what a laptop reviewer types for temperature (the 35 C rule applies to it as to a phone), what the same order of magnitude means, the hosted URL, build times from one dry run, the excluded A72 first-scan runs in the README row, a dated note on when the range heights were committed against the first verdict run, the storage method and the balance cross-check stated as not repeatable from this repository, and the browser test no longer waiting for a refusal the page stopped giving once the heights were fixed.
 - `docs/reviewer.md`: a run with no temperature is left out of the median on any device (replay rows aside), not only on a phone (`web/summarize-core.mjs`, `exclusion`).
 - Hosted copy texts: the landing page said a phone run with no temperature is left out of the median, but the build prints no median for any device when the runs carry no temperature, and now says so and how to read one; the reviewer sheet tells a hosted reader to use `zec.global`, since the project's proxies refuse that origin; `docs/protocol-details.md` no longer says there is no hosted page; the README gives the serialized projection per device.
 - The hosted landing page: on a desktop the key box grew to the width of the key on one line and pushed the steps off the page (`field-sizing: content`); the box now wraps the key at every width.

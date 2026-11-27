@@ -189,7 +189,8 @@ await page.click('#go');
 await page.waitForFunction(() => document.getElementById('log').textContent.includes('looks like a key'));
 check('a key in the device field refuses the run, and the page does not echo it', (await results(page)).length === 0 && !(await page.textContent('#log')).includes('qqqq'));
 
-// A range picked by its id is refused while the table has no heights: nothing runs and nothing is recorded
+// A range picked by its id runs the heights `web/ranges.mjs` fixes. This mock serves the synthetic corpus, not those blocks, so every run fails and is
+// recorded as failed with the count it did not get (the refusal of an entry with no heights, thrown by `planRows` in web/plan.mjs, is asserted by tests/node.test.mjs)
 page = await open(`http://localhost:${P + 1}/index.html`);
 await page.uncheck('#do-prove');
 await page.check('#do-scan');
@@ -197,8 +198,9 @@ await page.selectOption('#range-kind', 'first-scan');
 await page.fill('#endpoint', `http://localhost:${P + 3}`);
 await ready(page);
 await page.click('#go');
-await page.waitForFunction(() => document.getElementById('log').textContent.includes('is not fixed by the protocol yet'));
-check('a range picked by id is refused while its heights are not fixed, and nothing is recorded', (await results(page)).length === 0);
+await finished(page);
+check('a range picked by id runs its fixed heights, and a mock that does not hold them fails every run, recorded as failed', (await page.textContent('#log')).includes('asked for 50000 blocks, got 0')
+  && (await results(page)).length === 5 && (await results(page)).every((r) => r.outcome !== 'ok' && r.row === 'scan-first-sync-3530869-3580868'));
 
 // Runs stored in this browser from another commit warn before Run, and the warning goes with the stored runs
 page = await open(`http://localhost:${P + 1}/index.html`);
